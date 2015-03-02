@@ -1,3 +1,6 @@
 logs/
 tmp/
 sessions/
+private/
+public_html/sites/sites.php
+scripts/.admin_password.txt
