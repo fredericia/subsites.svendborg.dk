@@ -210,7 +210,12 @@ function bc_subsites_overview() {
 
   foreach ($subsites as $subsite) {
     $subsite_domains = array();
+
     $subsite_admin_mail = '';
+    if ($field = field_get_items('node', $subsite, 'field_admin_mail')) {
+      $subsite_admin_mail = $field[0]['value'];
+    }
+
 
     if ($field = field_get_items('node', $subsite, 'field_domains')) {
       foreach ($field as $delta => $value) {
@@ -265,7 +270,7 @@ function bc_subsite_execute($command) {
   $script_path = variable_get('bc_subsites_script_dir');
   $complete_command = "sudo bash -c '$script_path$command'";
 
-  $log = '/tmp/' . preg_replace("/[^a-zA-Z0-9]+/", "", $command) . rand(0, 20) . '.log';
+  $log = file_directory_temp() . '/' . preg_replace("/[^a-zA-Z0-9]+/", "", $command) . rand(0, 20) . '.log';
   $complete_command = 'nohup ' . $complete_command . ' > ' . $log . ' 2>&1 & echo $!';
 
   $pid = exec($complete_command, $op, $return_var);
