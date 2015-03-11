@@ -14,6 +14,13 @@ function os2sub_aktivitetskalender_ctools_plugin_api($module = NULL, $api = NULL
 }
 
 /**
+ * Implements hook_views_api().
+ */
+function os2sub_aktivitetskalender_views_api($module = NULL, $api = NULL) {
+  return array("api" => "3.0");
+}
+
+/**
  * Implements hook_node_info().
  */
 function os2sub_aktivitetskalender_node_info() {
