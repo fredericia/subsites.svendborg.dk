@@ -4,7 +4,7 @@ set -o nounset
 
 DEBUG=true
 
-BASEDIR="/var/www/subsites.svendborg.dk/"
+BASEDIR="/var/www/subsites.svendborg.dk"
 MULTISITE="$BASEDIR/public_html"
 SITESFILE="$MULTISITE/sites/sites.php"
 

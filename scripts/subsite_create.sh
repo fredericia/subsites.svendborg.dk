@@ -4,7 +4,7 @@ set -o nounset
 
 DEBUG=true
 
-BASEDIR="/var/www/subsites.svendborg.dk/"
+BASEDIR="/var/www/subsites.svendborg.dk"
 SERVERIP="192.168.2.56"
 MULTISITE="$BASEDIR/public_html"
 TMPDIRBASE="$BASEDIR/tmp"
@@ -34,12 +34,12 @@ function debug {
 }
 
 validate_name() {
-  debug "Checking domain name ($NEWDOMAIN)"
+  debug "Checking domain name ($SITENAME)"
 }
 
 validate_name() {
   debug "Checking site name ($SITENAME)"
-  if [[ ! $NEWDOMAIN =~ (([a-zA-Z](-?[a-zA-Z0-9])*)\.)*[a-zA-Z](-?[a-zA-Z0-9])+\.[a-zA-Z]{2,}$ ]]; then
+  if [[ ! $SITENAME =~ (([a-zA-Z](-?[a-zA-Z0-9])*)\.)*[a-zA-Z](-?[a-zA-Z0-9])+\.[a-zA-Z]{2,}$ ]]; then
     echo "ERROR: Domain not valid"
     exit 10
   fi
@@ -101,9 +101,9 @@ create_dirs() {
   TMPDIR="$TMPDIRBASE/$SITENAME"
   LOGDIR="$LOGDIRBASE/$SITENAME"
   SESSIONDIR="$SESSIONDIRBASE/$SITENAME"
-  mkdir "$TMPDIR"
-  mkdir "$LOGDIR"
-  mkdir "$SESSIONDIR"
+  mkdir -p "$TMPDIR"
+  mkdir -p "$LOGDIR"
+  mkdir -p "$SESSIONDIR"
 }
 
 create_vhost() {
