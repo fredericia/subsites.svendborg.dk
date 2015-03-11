@@ -1,0 +1,5 @@
+name = OS2Sub - Svendborg
+description = Svendborg Kommune version af OS2sub installationsprofil fra Bellcom
+distribution_name = OS2Sub Svendborg
+version = 1.0
+core = 7.x
