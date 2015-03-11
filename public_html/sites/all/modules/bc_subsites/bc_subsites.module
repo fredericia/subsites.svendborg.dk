@@ -268,7 +268,7 @@ function bc_subsites_node_delete($node) {
  */
 function bc_subsite_execute($command) {
   $script_path = variable_get('bc_subsites_script_dir');
-  $complete_command = "sudo bash -c '$script_path$command'";
+  $complete_command = "sudo $script_path$command";
 
   $log = file_directory_temp() . '/' . preg_replace("/[^a-zA-Z0-9]+/", "", $command) . rand(0, 20) . '.log';
   $complete_command = 'nohup ' . $complete_command . ' > ' . $log . ' 2>&1 & echo $!';
