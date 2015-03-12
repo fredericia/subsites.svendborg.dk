@@ -1,0 +1,15 @@
+name = OS2sub - Galleri
+core = 7.x
+package = OS2Sub
+version = 7.x-1.0
+project = os2sub_galleri
+dependencies[] = ctools
+dependencies[] = features
+dependencies[] = node
+dependencies[] = os2web_base
+dependencies[] = photoswipe
+dependencies[] = strongarm
+features[ctools][] = strongarm:strongarm:1
+features[features_api][] = api:2
+features[node][] = os2web_base_gallery
+project path = profiles/os2sub/modules
