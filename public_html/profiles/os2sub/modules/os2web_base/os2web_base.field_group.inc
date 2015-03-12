@@ -428,24 +428,21 @@ function os2web_base_field_group_info() {
   $field_group->entity_type = 'node';
   $field_group->bundle = 'os2web_base_gallery';
   $field_group->mode = 'form';
-  $field_group->parent_name = '';
+  $field_group->parent_name = 'group_formular';
   $field_group->data = array(
     'label' => 'Taksonomi',
-    'weight' => '4',
+    'weight' => '5',
     'children' => array(
-      0 => 'field_os2web_base_field_kle_ref',
-      1 => 'field_os2web_base_field_loca_ref',
-      2 => 'field_os2web_base_field_organiz',
-      3 => 'field_os2web_base_field_edi_tags',
-      4 => 'field_os2web_base_field_politics',
+      0 => 'field_os2web_base_field_edi_tags',
     ),
-    'format_type' => 'fieldset',
+    'format_type' => 'htab',
     'format_settings' => array(
-      'formatter' => 'collapsible',
+      'formatter' => 'closed',
       'instance_settings' => array(
         'description' => '',
         'classes' => '',
         'required_fields' => 1,
+        'id' => '',
       ),
     ),
   );

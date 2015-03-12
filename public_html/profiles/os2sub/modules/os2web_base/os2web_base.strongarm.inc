@@ -382,6 +382,9 @@ function os2web_base_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'spotbox' => array(
+        'custom_settings' => TRUE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
@@ -389,10 +392,13 @@ function os2web_base_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '2',
         ),
         'workbench_access' => array(
           'weight' => '0',
+        ),
+        'metatags' => array(
+          'weight' => '3',
         ),
       ),
       'display' => array(),
