@@ -133,12 +133,6 @@
       print render($content['field_os2web_base_field_summary']);
       print render($content['body']);
       print render($content);
-      // Addthis share toolbox.
-      print '<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-53274bd66f9bc001" async></script>
-      <div class="addthis_sharing_toolbox"></div>';
-
-      print $author_node_info;
-
     ?>
 
   </div>

@@ -20,6 +20,48 @@ function os2sub_aktivitetskalender_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'field_bundle_settings_node__event_calendar';
+  $strongarm->value = array(
+    'view_modes' => array(
+      'teaser' => array(
+        'custom_settings' => TRUE,
+      ),
+      'spotbox' => array(
+        'custom_settings' => TRUE,
+      ),
+      'full' => array(
+        'custom_settings' => FALSE,
+      ),
+      'rss' => array(
+        'custom_settings' => FALSE,
+      ),
+      'diff_standard' => array(
+        'custom_settings' => FALSE,
+      ),
+      'token' => array(
+        'custom_settings' => FALSE,
+      ),
+    ),
+    'extra_fields' => array(
+      'form' => array(
+        'metatags' => array(
+          'weight' => '40',
+        ),
+        'title' => array(
+          'weight' => '-5',
+        ),
+        'path' => array(
+          'weight' => '30',
+        ),
+      ),
+      'display' => array(),
+    ),
+  );
+  $export['field_bundle_settings_node__event_calendar'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_event_calendar';
   $strongarm->value = '0';
   $export['language_content_type_event_calendar'] = $strongarm;
@@ -28,9 +70,7 @@ function os2sub_aktivitetskalender_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_event_calendar';
-  $strongarm->value = array(
-    0 => 'menu-indholdsmenu',
-  );
+  $strongarm->value = array();
   $export['menu_options_event_calendar'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -55,6 +95,19 @@ function os2sub_aktivitetskalender_strongarm() {
   $strongarm->name = 'node_preview_event_calendar';
   $strongarm->value = '0';
   $export['node_preview_event_calendar'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'node_registration_type_settings_event_calendar';
+  $strongarm->value = array(
+    'date_field' => 'event_calendar_date',
+    'max_registration_date_field' => 'field_svarfrist',
+    'min_registration_date_field' => 'field_synlig_fra',
+    'capacity_field' => 'field_pladser',
+    'status' => 2,
+  );
+  $export['node_registration_type_settings_event_calendar'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

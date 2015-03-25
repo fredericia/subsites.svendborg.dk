@@ -53,7 +53,7 @@
     <h1><a href="<?php print $term_url; ?>"><?php print $term_name; ?></a></h1>
   <?php endif; ?>
 
-  <?php if ($page && !$term_is_top) : ?>
+  <?php if ($page) : ?>
   <header>
     <?php if (isset($content['field_os2web_base_field_image'])): ?>
       <?php print render($content['field_os2web_base_field_image']); ?>
@@ -77,7 +77,6 @@
 <div class="row">
     <div class="col-md-12 col-sm-12 row-no-padding clearfix">
 
-    <?php if(!$term_display_alternative) :?>
     <?php
       // Get news carousel.
       $view = views_get_view('os2web_news_lists');
@@ -104,7 +103,7 @@
         <?php print render($content) ?>
       </div>
     </div>
-    <?php endif;?>
+
 
     <?php
       // Get Sub terms.
