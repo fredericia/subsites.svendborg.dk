@@ -228,19 +228,6 @@ function svendborg_theme_preprocess_page(&$variables) {
     ),
   ), 'google_font_svendborg_theme');
 
-  // Add google site verification
-  drupal_add_html_head(array(
-    '#tag' => 'meta',
-    '#type' => 'html_tag',
-    '#attributes' => array(
-        'name' => 'google-site-verification',
-        'content' => 'RERf3yjIX_1JFNkt2dpPZvqH_XeG8eum3P4PHXIpqqM'
-      )
-    ),
-    'meta_keywords'
-  );
-
-
   // Pass the theme path to js.
   drupal_add_js('jQuery.extend(Drupal.settings, { "pathToTheme": "' . path_to_theme() . '" });', 'inline');
 
@@ -607,6 +594,7 @@ function svendborg_theme_file_formatter_table($variables) {
   return empty($rows) ? '' : theme('table', array('header' => $header, 'rows' => $rows));
 }
 /**
+<<<<<<< Updated upstream
  * Retrieve front page big menu buttons.
  */
 function _svendborg_theme_get_front_big_menu_buttons() {
@@ -874,6 +862,8 @@ function _svendborg_theme_get_author_view($nid) {
 }
 
 /**
+=======
+>>>>>>> Stashed changes
  * Helper. Returns almost the same as render(node_view()) for a webform.
  *
  * Instead of a fully loaded render array, though, it returns markup, without
