@@ -19,6 +19,7 @@ features[field_base][] = field_banner_vis_paa_sider
 features[field_instance][] = node-banner-body
 features[field_instance][] = node-banner-field_banner_billede
 features[field_instance][] = node-banner-field_banner_vis_paa_sider
+features[image][] = os2sub_banner
 features[node][] = banner
 features[variable][] = field_bundle_settings_node__banner
 features[variable][] = language_content_type_banner

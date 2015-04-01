@@ -21,6 +21,46 @@ function os2sub_banner_views_api($module = NULL, $api = NULL) {
 }
 
 /**
+ * Implements hook_image_default_styles().
+ */
+function os2sub_banner_image_default_styles() {
+  $styles = array();
+
+  // Exported image style: os2sub_banner.
+  $styles['os2sub_banner'] = array(
+    'label' => 'OS2sub Banner',
+    'effects' => array(
+      4 => array(
+        'name' => 'epsacrop_crop',
+        'data' => array(
+          'width' => 1200,
+          'height' => 400,
+          'anchor' => 'center-center',
+          'jcrop_settings' => array(
+            'aspect_ratio' => '',
+            'bgcolor' => 'black',
+            'bgopacity' => 0.6,
+            'fallback' => 0,
+          ),
+        ),
+        'weight' => 1,
+      ),
+      5 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 1200,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  return $styles;
+}
+
+/**
  * Implements hook_node_info().
  */
 function os2sub_banner_node_info() {

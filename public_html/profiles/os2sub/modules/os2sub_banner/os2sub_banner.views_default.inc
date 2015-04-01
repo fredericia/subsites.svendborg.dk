@@ -123,6 +123,10 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['label'] = 'Redigér';
+  /* Felt: Indhold: Vis på sider */
+  $handler->display->display_options['fields']['field_banner_vis_paa_sider']['id'] = 'field_banner_vis_paa_sider';
+  $handler->display->display_options['fields']['field_banner_vis_paa_sider']['table'] = 'field_data_field_banner_vis_paa_sider';
+  $handler->display->display_options['fields']['field_banner_vis_paa_sider']['field'] = 'field_banner_vis_paa_sider';
   $handler->display->display_options['path'] = 'admin/content/os2sub-banner';
   $handler->display->display_options['menu']['type'] = 'tab';
   $handler->display->display_options['menu']['title'] = 'Bannere';
@@ -194,6 +198,7 @@ function os2sub_banner_views_default_views() {
     t('Page'),
     t('Billede'),
     t('Redigér'),
+    t('Vis på sider'),
     t('Forsidebanner Block'),
     t('Indholdsside Banner Block'),
     t('Alle'),
