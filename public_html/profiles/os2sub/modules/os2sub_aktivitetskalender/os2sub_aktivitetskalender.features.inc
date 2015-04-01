@@ -31,7 +31,7 @@ function os2sub_aktivitetskalender_node_info() {
       'description' => t('A content type to create events for calendar.'),
       'has_title' => '1',
       'title_label' => t('Titel'),
-      'help' => '',
+      'help' => t('Opret aktivitet'),
     ),
   );
   drupal_alter('node_info', $items);
