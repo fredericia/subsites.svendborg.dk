@@ -7,7 +7,7 @@
 /**
  * Implements template_preprocess_page().
  */
-function svendborg_theme_preprocess_page(&$variables) {
+function svendborg_subsitetheme_preprocess_page(&$variables) {
   // Remove all Taxonomy auto listings here.
   $term = NULL;
   if (arg(0) == 'taxonomy' && arg(1) == 'term' && is_numeric(arg(2))) {
@@ -34,7 +34,7 @@ function svendborg_theme_preprocess_page(&$variables) {
     }
 
     // Variable that defines that this term is the top of the hieraki.
-    $term_is_top = _svendborg_theme_term_is_top($term->tid);
+    $term_is_top = _svendborg_subsitetheme_term_is_top($term->tid);
     // Get wether this is a top term, and provide a variable for the templates.
     $variables['page']['term_is_top'] = $term_is_top;
   }
@@ -49,7 +49,7 @@ function svendborg_theme_preprocess_page(&$variables) {
   // Get all the nodes selvbetjeningslinks and give them to the template.
   if (($node && $links = field_get_items('node', $node, 'field_os2web_base_field_selfserv')) ||
       ($term && $links = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_selfserv'))) {
-    $variables['page']['os2web_selfservicelinks'] = _svendborg_theme_get_selfservicelinks($links);
+    $variables['page']['os2web_selfservicelinks'] = _svendborg_subsitetheme_get_selfservicelinks($links);
   }
 
   // Get all related links to this node.
@@ -125,7 +125,7 @@ function svendborg_theme_preprocess_page(&$variables) {
   if ($node && $webform = field_get_items('node', $node, 'field_os2web_base_field_webform')) {
     $variables['node']->content['os2web_webform'] = array(
       'os2web_webform' => array(
-        '#markup' => _svendborg_theme_get_webform($webform[0]['nid']),
+        '#markup' => _svendborg_subsitetheme_get_webform($webform[0]['nid']),
       ),
       '#theme_wrappers' => array('container'),
     );
@@ -192,10 +192,10 @@ function svendborg_theme_preprocess_page(&$variables) {
       ($term && !$term_is_top && $spotboxes = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_spotbox'))) {
 
     if (empty($variables['page']['sidebar_second'])) {
-      $spotbox_render = drupal_render(_svendborg_theme_get_spotboxes($spotboxes));
+      $spotbox_render = drupal_render(_svendborg_subsitetheme_get_spotboxes($spotboxes));
     }
     else {
-      $spotbox_render = drupal_render(_svendborg_theme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-6 col-md-6 col-lg-6'));
+      $spotbox_render = drupal_render(_svendborg_subsitetheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-6 col-md-6 col-lg-6'));
     }
 
     $variables['page']['content']['os2web_spotbox'] = array(
@@ -226,32 +226,32 @@ function svendborg_theme_preprocess_page(&$variables) {
       'rel' => 'stylesheet',
       'type' => 'text/css',
     ),
-  ), 'google_font_svendborg_theme');
+  ), 'google_font_svendborg_subsitetheme');
 
   // Pass the theme path to js.
   drupal_add_js('jQuery.extend(Drupal.settings, { "pathToTheme": "' . path_to_theme() . '" });', 'inline');
 
   if (drupal_is_front_page()) {
     // Frontpage big menu.
-    $variables['page']['front_big_menu'] = _svendborg_theme_get_front_big_menu_buttons();
+    $variables['page']['front_big_menu'] = _svendborg_subsitetheme_get_front_big_menu_buttons();
 
     // Frontpage large carousel.
-    $variables['page']['front_large_carousel'] = _svendborg_theme_get_large_carousel();
+    $variables['page']['front_large_carousel'] = _svendborg_subsitetheme_get_large_carousel();
 
     // Frontpage small carousel.
-    $variables['page']['front_small_carousel'] = _svendborg_theme_get_front_small_carousel();
+    $variables['page']['front_small_carousel'] = _svendborg_subsitetheme_get_front_small_carousel();
   }
 }
 
 /**
  * Implements template_preprocess_taxonomy_term().
  */
-function svendborg_theme_preprocess_taxonomy_term(&$variables) {
+function svendborg_subsitetheme_preprocess_taxonomy_term(&$variables) {
 
   $term = taxonomy_term_load($variables['tid']);
   $variables['term_display_alternative'] = FALSE;
   // Get wether this is a top term, and provide a variable for the templates.
-  $term_is_top = _svendborg_theme_term_is_top($term->tid);
+  $term_is_top = _svendborg_subsitetheme_term_is_top($term->tid);
   $variables['term_is_top'] = $term_is_top;
 
   // Provide the spotboxes to Nyheder page or top terms. These pages does not
@@ -260,13 +260,13 @@ function svendborg_theme_preprocess_taxonomy_term(&$variables) {
     $spotboxes = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_spotbox');
     if ($term->tid == 6819) {
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__' . $term->tid;
-      $variables['news_term_branding'] = _svendborg_theme_get_large_carousel();
-      $variables['news_term_content'] = _svendborg_theme_get_term_news_content();
-      $variables['news_term_right_sidebar'] = _svendborg_theme_get_term_news_filer_and_quicktabs();
-      $variables['os2web_spotboxes'] = ($spotboxes) ?  _svendborg_theme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-6 col-md-6 col-lg-6') : '';
+      $variables['news_term_branding'] = _svendborg_subsitetheme_get_large_carousel();
+      $variables['news_term_content'] = _svendborg_subsitetheme_get_term_news_content();
+      $variables['news_term_right_sidebar'] = _svendborg_subsitetheme_get_term_news_filer_and_quicktabs();
+      $variables['os2web_spotboxes'] = ($spotboxes) ?  _svendborg_subsitetheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-6 col-md-6 col-lg-6') : '';
     }
     else {
-      $variables['os2web_spotboxes'] = ($spotboxes) ? _svendborg_theme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-4 col-md-4 col-lg-4') : '';
+      $variables['os2web_spotboxes'] = ($spotboxes) ? _svendborg_subsitetheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-4 col-md-4 col-lg-4') : '';
     }
   }
   if (isset($term->field_alternative_display['und'][0]['value']) &&
@@ -279,7 +279,7 @@ function svendborg_theme_preprocess_taxonomy_term(&$variables) {
 /**
  * Implements THEME_preprocess_html().
  */
-function svendborg_theme_preprocess_html(&$variables) {
+function svendborg_subsitetheme_preprocess_html(&$variables) {
   // Add conditional stylesheets for IE.
   drupal_add_css(path_to_theme() . '/css/ie.css', array(
     'group' => CSS_THEME,
@@ -290,7 +290,7 @@ function svendborg_theme_preprocess_html(&$variables) {
 
   if (arg(0) == 'taxonomy' && arg(1) == 'term' && is_numeric(arg(2))) {
     // Add wether the term is top to the classes array.
-    $term_is_top = _svendborg_theme_term_is_top(arg(2));
+    $term_is_top = _svendborg_subsitetheme_term_is_top(arg(2));
 
     if ($term_is_top) {
       $variables['classes_array'][] = 'term-is-top';
@@ -316,7 +316,7 @@ function svendborg_theme_preprocess_html(&$variables) {
 /**
  * Implements hook_preprocess_node().
  */
-function svendborg_theme_preprocess_node(&$vars) {
+function svendborg_subsitetheme_preprocess_node(&$vars) {
 
   // Add css class "node--NODETYPE--VIEWMODE" to nodes.
   $vars['classes_array'][] = 'node--' . $vars['type'] . '--' . $vars['view_mode'];
@@ -324,10 +324,6 @@ function svendborg_theme_preprocess_node(&$vars) {
   $term_class = get_the_classes($vars['nid']);
   if ($term_class != '') {
     $vars['classes_array'][] = $vars['top_parent_term'] = $term_class;
-  }
-  $vars['author_node_info'] = '';
-  if (user_is_logged_in()) {
-    $vars['author_node_info'] = _svendborg_theme_get_author_view($vars['nid']);
   }
   // Make "node--NODETYPE--VIEWMODE.tpl.php" templates available for nodes.
   $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__' . $vars['view_mode'];
@@ -353,57 +349,8 @@ function get_the_classes($nid) {
   }
   return $top_parent_term;
 }
-/**
- * Implements theme_breadcrumb().
- *
- * Output breadcrumb as an unorderd list with unique and first/last classes.
- */
-function svendborg_theme_breadcrumb($variables) {
-  $breadcrumbs = $variables['breadcrumb'];
 
-  if (!empty($breadcrumbs)) {
-    // The facets integrate with the breadcrumbs, we don't want this.
-    if (arg(0) == 'search' && isset($_GET['f'])) {
-      // And since every facet adds a level to the breadcrumb, we do this.
-      for ($i = 0; $i < count($_GET['f']); $i++) {
-        array_pop($breadcrumbs);
-      }
-    }
-
-    // Provide a navigational heading to give context for breadcrumb links to
-    // screen-reader users. Make the heading invisible with .element-invisible.
-    $output = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
-    $crumbs = '<ul class="breadcrumb">';
-
-    foreach ($breadcrumbs as $breadcrumb) {
-      $classes = array();
-      if ($breadcrumb == reset($breadcrumbs)) {
-        $classes[] = 'first';
-      }
-      if ($breadcrumb == end($breadcrumbs)) {
-        $classes[] = 'last';
-      }
-      if (is_array($breadcrumb)) {
-        if (isset($breadcrumb['class'])) {
-          $classes = array_merge($classes, $breadcrumb['class']);
-        }
-        if (isset($breadcrumb['data'])) {
-          $breadcrumb = $breadcrumb['data'];
-        }
-      }
-      $crumbs .= '<li class="' . implode(' ', $classes) . '"><i></i>'  . $breadcrumb . '</li>';
-    }
-    $crumbs .= '</ul>';
-    return $crumbs;
-  }
-}
-
-/**
- * Overrides theme_menu_link().
- *
- * Overrides Bootstrap version. Enables to show active trails childrens.
- */
-function svendborg_theme_menu_link(array $variables) {
+function svendborg_subsitetheme_menu_link(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
   if ($element['#below']) {
@@ -433,7 +380,7 @@ function svendborg_theme_menu_link(array $variables) {
  *
  * @ingroup themeable
  */
-function svendborg_theme_qt_quicktabs_tabset($vars) {
+function svendborg_subsitetheme_qt_quicktabs_tabset($vars) {
   $variables = array(
     'attributes' => array(
       'class' => 'quicktabs-tabs quicktabs-style-' . $vars['tabset']['#options']['style'],
@@ -465,7 +412,7 @@ function svendborg_theme_qt_quicktabs_tabset($vars) {
 /**
  * Implements theme_form_element().
  */
-function svendborg_theme_form_element(&$variables) {
+function svendborg_subsitetheme_form_element(&$variables) {
   // Because the feeds module, puts the upload filechooser in the form
   // element[#description] it is not shown. As bootstrap tries to put all
   // '#description's in tooltips.
@@ -488,7 +435,7 @@ function svendborg_theme_form_element(&$variables) {
  * @return array
  *   The renderable array.
  */
-function _svendborg_theme_get_spotboxes($spotboxes, $classes = 'col-xs-6 col-sm-6 col-md-4 col-lg-4') {
+function _svendborg_subsitetheme_get_spotboxes($spotboxes, $classes = 'col-xs-6 col-sm-6 col-md-4 col-lg-4') {
   $spotbox_nids = array();
   foreach ($spotboxes as $spotbox) {
     $spotbox_nids[$spotbox['nid']] = $spotbox['nid'];
@@ -513,7 +460,7 @@ function _svendborg_theme_get_spotboxes($spotboxes, $classes = 'col-xs-6 col-sm-
  * @return array
  *   Array of links with URL and Title.
  */
-function _svendborg_theme_get_selfservicelinks($links) {
+function _svendborg_subsitetheme_get_selfservicelinks($links) {
   $selfservicelinks = array();
   foreach ($links as $link) {
     $selfservicelink = node_load($link['nid']);
@@ -540,7 +487,7 @@ function _svendborg_theme_get_selfservicelinks($links) {
  * @return bool
  *   If this term is top.
  */
-function _svendborg_theme_term_is_top($term_tid) {
+function _svendborg_subsitetheme_term_is_top($term_tid) {
   $parent = &drupal_static(__FUNCTION__ . $term_tid);
   if (empty($parent)) {
     $parent = db_query("SELECT parent FROM {taxonomy_term_hierarchy} WHERE tid = :tid", array(':tid' => $term_tid))->fetchField();
@@ -552,7 +499,7 @@ function _svendborg_theme_term_is_top($term_tid) {
 /**
  * Overrides file_link, add target= '_blank', file open in a new window.
  */
-function svendborg_theme_file_link($variables) {
+function svendborg_subsitetheme_file_link($variables) {
   $file = $variables['file'];
   $icon_directory = $variables['icon_directory'];
   $url = file_create_url($file->uri);
@@ -583,7 +530,7 @@ function svendborg_theme_file_link($variables) {
 /**
  * Implements theme_file_formatter_table().
  */
-function svendborg_theme_file_formatter_table($variables) {
+function svendborg_subsitetheme_file_formatter_table($variables) {
   $header = array(t('Attachment'));
   $rows = array();
   foreach ($variables['items'] as $delta => $item) {
@@ -597,7 +544,7 @@ function svendborg_theme_file_formatter_table($variables) {
 <<<<<<< Updated upstream
  * Retrieve front page big menu buttons.
  */
-function _svendborg_theme_get_front_big_menu_buttons() {
+function _svendborg_subsitetheme_get_front_big_menu_buttons() {
   $front_big_menu = '';
   $tree = menu_tree_all_data('menu-indholdsmenu', $link = NULL, $max_depth = 3);
 
@@ -636,7 +583,7 @@ function _svendborg_theme_get_front_big_menu_buttons() {
 /**
  * Retrieve large carousel.
  */
-function _svendborg_theme_get_large_carousel() {
+function _svendborg_subsitetheme_get_large_carousel() {
   $large_carousel = '';
   // Branding news view.
   $view = views_get_view('svendborg_news_view');
@@ -727,7 +674,7 @@ function _svendborg_theme_get_large_carousel() {
 /**
  * Retrieve small carousel.
  */
-function _svendborg_theme_get_front_small_carousel() {
+function _svendborg_subsitetheme_get_front_small_carousel() {
   $front_small_carousel = '';
   $view = views_get_view('svendborg_news_view');
   $view->set_arguments(array('all'));
@@ -810,7 +757,7 @@ function _svendborg_theme_get_front_small_carousel() {
 /**
  * Retrieve the news term filter and quicktabs.
  */
-function _svendborg_theme_get_term_news_filer_and_quicktabs() {
+function _svendborg_subsitetheme_get_term_news_filer_and_quicktabs() {
   $news_term_right_sidebar = '';
   // Filter.
   $block = block_load('views', 'news_filter-block');
@@ -839,22 +786,11 @@ function _svendborg_theme_get_term_news_filer_and_quicktabs() {
 /**
  * Retrieve news term content view.
  */
-function _svendborg_theme_get_term_news_content() {
+function _svendborg_subsitetheme_get_term_news_content() {
   $content = '';
   $view = views_get_view('svendborg_news_view');
   $view->set_display('block');
   $view->set_arguments(array('nyhed', 'all'));
-  $view->pre_execute();
-  $view->execute();
-  $content .= $view->render('block');
-  return $content;
-}
-
-function _svendborg_theme_get_author_view($nid) {
-  $content = '';
-  $view = views_get_view('redaktoerinfo');
-  $view->set_display('block');
-  $view->set_arguments(array($nid));
   $view->pre_execute();
   $view->execute();
   $content .= $view->render('block');
@@ -869,7 +805,7 @@ function _svendborg_theme_get_author_view($nid) {
  * Instead of a fully loaded render array, though, it returns markup, without
  * too many wrappers and such.
  */
-function _svendborg_theme_get_webform($nid) {
+function _svendborg_subsitetheme_get_webform($nid) {
   $webform_node = node_load($nid);
 
   $submission = (object) array();
