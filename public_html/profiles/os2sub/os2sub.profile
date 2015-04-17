@@ -15,38 +15,6 @@ define('PROFILE_NAME', 'OS2sub');
  */
 define('PROFILE_DESCRIPTION', 'Generisk Installation af OS2sub.');
 
-/**
- * Implements hook_install_tasks().
- */
-function os2sub_install_tasks() {
-  $task = array(
-   'os2sub_import_database' => array(
-     'type' => 'normal',
-     'display_name' => st('Import default database'),
-   ),
-//    'os2sub_profile_prepare' => array(
-//      'type' => 'normal',
-//      'display_name' => st('Prepare OS2web..'),
-//    ),
-   'os2sub_settings_form' => array(
-     'display_name' => st('Setup OS2Web'),
-     'type' => 'form',
-   ),
-
-  );
-  return $task;
-}
-
-/**
- * Implements hook_profile_prepare().
- */
-function os2sub_profile_prepare() {
-  drupal_bootstrap(DRUPAL_BOOTSTRAP_FULL);
-  // Menu rebuild neccesary to load xpath_parser
-  menu_rebuild();
-  drupal_get_form('os2sub_settings_form');
-  drupal_set_message('Database import complete, please reload this form to continue.', 'ok');
-}
 
 /**
  * Implements hook_form().
