@@ -16,47 +16,7 @@ define('PROFILE_NAME', 'OS2sub');
 define('PROFILE_DESCRIPTION', 'Generisk Installation af OS2sub.');
 
 
-/**
- * Implements hook_form().
- */
-function os2sub_settings_form($install_state) {
-  drupal_set_title(st('Settings'));
 
-  // Theme setups.
-  $form['os2sub_theme_group'] = array(
-    '#type' => 'fieldset',
-    '#collapsible' => FALSE,
-    '#collapsed' => FALSE,
-    '#title' => t('Theme configuration'),
-    '#weight' => 20,
-  );
-  $form['os2sub_theme_group']['os2sub_theme_logo'] = array(
-    '#type' => 'managed_file',
-    '#title' => t('Upload Logo'),
-    '#description' => t('The uploaded image will be used as the themes logo.'),
-    '#upload_location' => 'public://',
-  );
-  $form['#submit'][] = 'os2sub_settings_form_submit';
-  return system_settings_form($form);
-}
-
-/**
- * Form settings submit callback function.
- */
-function os2sub_settings_form_submit(&$form, $form_state) {
-  $theme_settings = variable_get('theme_os2sub_core_theme_settings', array());
-  if ($theme_settings) {
-
-    // If logo is uploaded, save it in os2web theme.
-    if (!empty($form['os2sub_theme_group']['os2sub_theme_logo']['#file']->uri)) {
-
-      $theme_settings['logo_path'] = $form['os2sub_theme_group']['os2sub_theme_logo']['#file']->uri;
-      $theme_settings['default_logo'] = 0;
-
-      variable_set('theme_os2sub_core_theme_settings', $theme_settings);
-    }
-  }
-}
 
 /**
  * Implements hook_form_FORM_ID_alter().
