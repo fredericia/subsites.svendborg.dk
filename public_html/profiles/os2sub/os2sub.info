@@ -42,4 +42,5 @@ dependencies[] = field_slideshow
 dependencies[] = field_group
 dependencies[] = file_entity
 dependencies[] = jquery_update
+dependencies[] = adminimal_admin_menu
 version = 1.0
