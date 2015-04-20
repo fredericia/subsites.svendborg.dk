@@ -15,9 +15,6 @@ define('PROFILE_NAME', 'OS2sub');
  */
 define('PROFILE_DESCRIPTION', 'Generisk Installation af OS2sub.');
 
-
-
-
 /**
  * Implements hook_form_FORM_ID_alter().
  *
@@ -40,7 +37,6 @@ function os2sub_profile_details() {
   return array(
     'name' => PROFILE_NAME,
     'description' => PROFILE_DESCRIPTION,
-//    'language' => "da",
     'language' => "da",
   );
 }

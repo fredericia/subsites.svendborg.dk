@@ -67,7 +67,6 @@ function os2sub_install() {
   $full_html_format = (object) $full_html_format;
   filter_format_save($full_html_format);
 
-
   // Allow visitor account creation, but with administrative approval.
   variable_set('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL);
 
@@ -75,12 +74,11 @@ function os2sub_install() {
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content'));
   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
 
-  theme_enable(array('seven', 'omega', 'os2sub_core_theme'));
-  theme_disable(array('bartik', 'rubik'));
-  variable_set('theme_default', 'os2sub_core_theme');
+  theme_enable(array('bootstrap', 'adminimal', 'svendborg_subsitetheme'));
+  theme_disable(array('bartik', 'rubik', 'seven'));
+  variable_set('theme_default', 'svendborg_subsitetheme');
+  variable_set('admin_theme', 'adminimal');
 
-  // Set admin theme to Rubik.
-  variable_set('admin_theme', 'seven');
   // Set admin theme on node/edit and node/add
   variable_set('node_admin_theme', '1');
   module_disable(array('update'));
@@ -88,5 +86,14 @@ function os2sub_install() {
   variable_set('date_default_timezone', "Europe/Berlin");
   variable_set('date_first_day', "1");
   variable_set('configurable_timezones', "0");
-  variable_set('site_frontpage', "home");
+
+  // jQuery update module.
+  variable_set('jquery_update_compression_type', 'min');
+  variable_set('jquery_update_jquery_admin_version', '1.8');
+  variable_set('jquery_update_jquery_cdn', 'none');
+  variable_set('jquery_update_jquery_migrate_plugin_cdn', 'none');
+  variable_set('jquery_update_jquery_migrate_plugin_enable', 0);
+  variable_set('jquery_update_jquery_migrate_plugin_migrate_trace', 1);
+  variable_set('jquery_update_jquery_migrate_plugin_migrate_warnings', 1);
+  variable_set('jquery_update_jquery_version', '1.8');
 }
