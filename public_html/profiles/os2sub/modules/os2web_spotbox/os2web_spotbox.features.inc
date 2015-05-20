@@ -34,16 +34,9 @@ function os2web_spotbox_image_default_styles() {
 
   // Exported image style: os2web_spotbox_image.
   $styles['os2web_spotbox_image'] = array(
-    'name' => 'os2web_spotbox_image',
     'label' => 'os2web_spotbox_image',
     'effects' => array(
       12 => array(
-        'label' => 'EPSA Image Crop',
-        'help' => '',
-        'dimensions callback' => 'epsacrop_crop_dimensions',
-        'effect callback' => 'epsacrop_crop_image',
-        'form callback' => 'epsacrop_crop_image_form',
-        'module' => 'epsacrop',
         'name' => 'epsacrop_crop',
         'data' => array(
           'width' => 300,
@@ -77,5 +70,6 @@ function os2web_spotbox_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }
