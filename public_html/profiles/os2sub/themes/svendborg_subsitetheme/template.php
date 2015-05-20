@@ -7,10 +7,18 @@
 /**
  * Implements template_preprocess_page().
  */
+function svendborg_subsitetheme_process_page(&$variables,$hook) {
+  // Hook into color.module.
+  if (module_exists('color')) {
+    _color_page_alter($variables);
+  }
+}
 function svendborg_subsitetheme_preprocess_page(&$variables) {
+ //   var_dump($variables['page']['content']);
   // Remove all Taxonomy auto listings here.
-  $term = NULL;
-  if (arg(0) == 'taxonomy' && arg(1) == 'term' && is_numeric(arg(2))) {
+   
+   $term = NULL;
+    if (arg(0) == 'taxonomy' && arg(1) == 'term' && is_numeric(arg(2))) {
     $term = taxonomy_term_load(arg(2));
     $term_name = $term->vocabulary_machine_name;
     unset($variables['page']['content']['system_main']['no_content']);
@@ -51,20 +59,35 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
       ($term && $links = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_selfserv'))) {
     $variables['page']['os2web_selfservicelinks'] = _svendborg_subsitetheme_get_selfservicelinks($links);
   }
+   
+
+  // Get all the nodes selvbetjeningslinks and give them to the template.
+  if ($node && $link = field_get_items('node', $node, 'field_os2web_base_field_contact')) {
+    $variables['page']['contact']['nid'] = $link[0]['nid'];
+  }
 
   // Get all related links to this node.
   // 1. Get all unique related links from the node.
+
   $related_links = array();
   if (($node && $links = field_get_items('node', $node, 'field_os2web_base_field_related')) ||
       ($term && $links = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_related'))) {
     foreach ($links as $link) {
       $link_node = node_load($link['nid']);
+      if($link_node->language != $node->language)          continue;
       if ($link_node) {
         $related_links[$link['nid']] = array(
           'nid' => $link['nid'],
           'title' => $link_node->title,
           'class' => 'int-link',
         );
+        
+        if ($image = field_get_items('node', $link_node, 'field_os2web_base_field_lead_img'))
+           $related_links[$link['nid']]['image'] = $image[0]['uri'];
+        if ($image = field_get_items('node', $link_node, 'field_os2web_base_field_image'))
+           $related_links[$link['nid']]['image'] = $image[0]['uri'];
+        if ($summary = field_get_items('node', $link_node, 'field_os2web_base_field_summary'))
+           $related_links[$link['nid']]['summary'] = $summary[0]['summary'];
       }
     }
   }
@@ -95,12 +118,19 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
             continue;
           }
           $link_node = node_load($link->nid);
+          if($link_node->language != $node->language)          continue;
           if ($link_node) {
             $related_links[$link->nid] = array(
               'nid' => $link->nid,
               'title' => $link_node->title,
               'class' => 'kle-link',
             );
+          if ($image = field_get_items('node', $link_node, 'field_os2web_base_field_lead_img'))
+           $related_links[$link->nid]['image'] = $image[0]['uri'];
+          if ($image = field_get_items('node', $link_node, 'field_os2web_base_field_image'))
+           $related_links[$link->nid]['image'] = $image[0]['uri'];
+         if ($summary = field_get_items('node', $link_node, 'field_os2web_base_field_summary'))
+           $related_links[$link->nid]['summary'] = $summary[0]['summary'];  
           }
 
         }
@@ -135,26 +165,36 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
     // Provide the related links to the templates.
     $variables['page']['related_links'] = $related_links;
   }
+if ($node && $node->type == "os2web_base_news"){
+      $variables['page']['prev_news_block'] =TRUE;
+      //$variables['page']['back_button'] = TRUE;
+  }
 
+if ($node && $node->type == "os2web_base_contentpage"){
+      $variables['page']['activities'] =TRUE;
+      
+  }
   // When a node's menu link is deaktivated and has no siblings, menu_block is
   // empty, and then sidebar_first are hidden. We want to force the
   // sidebar_first to still be shown.
   $active_trail = menu_get_active_trail();
   $current_trail = end($active_trail);
 
-  if (isset($current_trail['hidden']) && $current_trail['hidden'] && empty($variables['page']['sidebar_first'])) {
+  if ($node && ($node->type == "os2web_base_news" )){
     $variables['page']['sidebar_first'] = array(
       '#theme_wrappers' => array('region'),
-      '#region' => 'sidebar_first',
+      '#region' => 'sidebar_first',        
       'dummy_content' => array(
-        '#markup' => ' ',
+        '#markup' => '<a class ="btn-back gradient-lightgreen" href="'.$url.'">'. t('Back') . '</a>'       ,
+        
       ),
     );
   }
-
+  
+ 
   // Hack to force the sidebar_second to be rendered if we have anything to put
   // in it.
-  if (!$sidebar_second_hidden && empty($variables['page']['sidebar_second']) && (!empty($variables['page']['related_links']) || !empty($variables['page']['os2web_selfservicelinks']))) {
+  if (!$sidebar_second_hidden && empty($variables['page']['sidebar_second']) && (!empty($variables['page']['prev_news_block']) || !empty($variables['page']['contact']) || $variables['page']['activities'] || !empty($variables['page']['os2web_selfservicelinks']))) {
     $variables['page']['sidebar_second'] = array(
       '#theme_wrappers' => array('region'),
       '#region' => 'sidebar_second',
@@ -163,6 +203,48 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
       ),
     );
   }
+  if (empty($variables['page']['content_bottom']) && !empty($variables['page']['related_links'])) {
+    $variables['page']['content_bottom'] = array(
+      '#theme_wrappers' => array('region'),
+      '#region' => 'content_bottom',       
+      'dummy_content' => array(
+        '#markup' => ' ',
+      ),
+    );
+     if ($node && ($node->type == "os2web_base_news"))
+       $variables['page']['related_pages_type'] = "boxes";
+     if ($node && ($node->type == "os2web_base_contentpage"))
+       $variables['page']['related_pages_type'] = "links";
+     
+  }
+$view = views_get_page_view(); 
+if (!empty($view) && $view->name =='svendborg_news_view' && $view->current_display=='page_3') {
+    if (!$sidebar_second_hidden && empty($variables['page']['sidebar_second'])) {
+    $variables['page']['sidebar_second'] = array(
+      '#theme_wrappers' => array('region'),
+      '#region' => 'sidebar_second',
+      'dummy_content' => array(
+        '#markup' => ' ',
+      ),
+    );
+  
+}
+ $variables['page']['prev_news_block'] =TRUE;
+ $variables['page']['activities'] =TRUE;
+}
+if ((!empty($view) && $view->name =='svendborg_gallery' && $view->current_display=='page')|| (node && $node->type == "os2web_base_gallery" )) {
+    if (!$sidebar_second_hidden && empty($variables['page']['sidebar_first'])) {
+    $variables['page']['sidebar_first'] = array(
+      '#theme_wrappers' => array('region'),
+      '#region' => 'sidebar_first',   
+      'content' => array(
+        '#markup' =>  drupal_render(menu_tree_output(menu_navigation_tree('main-menu', 0))),
+     ),
+    );
+  
+}
+ 
+}
 
   // On taxonomy pages, add a news list in second sidebar.
   if ($term) {
@@ -177,6 +259,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
         $variables['page']['sidebar_second'] = array(
           '#theme_wrappers' => array('region'),
           '#region' => 'sidebar_second',
+            
         );
       }
       $variables['page']['sidebar_second']['os2web_news_lists'] = array('#markup' => $view->render());
@@ -185,6 +268,8 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
       $variables['page']['sidebar_first'] = array();
     }
   }
+  
+  
 
   // Spotbox handling. Find all spotboxes for this node, and add them to
   // content_bottom.
@@ -241,6 +326,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
     // Frontpage small carousel.
     $variables['page']['front_small_carousel'] = _svendborg_subsitetheme_get_front_small_carousel();
   }
+  
 }
 
 /**
@@ -275,11 +361,16 @@ function svendborg_subsitetheme_preprocess_taxonomy_term(&$variables) {
   }
 
 }
-
+function svendborg_subsitetheme_process_html(&$variables) {
+ if (module_exists('color')) {
+    _color_html_alter($variables);
+  }
+}
 /**
  * Implements THEME_preprocess_html().
  */
 function svendborg_subsitetheme_preprocess_html(&$variables) {
+      
   // Add conditional stylesheets for IE.
   drupal_add_css(path_to_theme() . '/css/ie.css', array(
     'group' => CSS_THEME,
@@ -350,6 +441,7 @@ function get_the_classes($nid) {
   return $top_parent_term;
 }
 
+/*
 function svendborg_subsitetheme_menu_link(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
@@ -373,7 +465,7 @@ function svendborg_subsitetheme_menu_link(array $variables) {
   }
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
-}
+}*/
 
 /**
  * Theme function to output tablinks for classic Quicktabs style tabs.
@@ -547,7 +639,7 @@ function svendborg_subsitetheme_file_formatter_table($variables) {
 function _svendborg_subsitetheme_get_front_big_menu_buttons() {
   $front_big_menu = '';
   $tree = menu_tree_all_data('menu-indholdsmenu', $link = NULL, $max_depth = 3);
-
+/*
   foreach ($tree as $key => $menu_item) {
     $title = $menu_item['link']['link_title'];
     $path = drupal_get_path_alias($menu_item['link']['link_path']);
@@ -577,7 +669,7 @@ function _svendborg_subsitetheme_get_front_big_menu_buttons() {
       $front_big_menu .= '<a title="' . $menu_item['title'] . '" href="' . $menu_item['path'] . '" class="' . $menu_item['title'] . '">' . $menu_item['title'] . '</a>';
       $front_big_menu .= '</h2></div>';
     }
-  }
+  }*/
   return $front_big_menu;
 }
 /**
@@ -823,3 +915,177 @@ function _svendborg_subsitetheme_get_webform($nid) {
 
   return $text . drupal_render($form);
 }
+
+function _svendborg_subsitetheme_block_render($module, $block_id) {
+  $block = block_load($module, $block_id);
+  $block_content = _block_render_blocks(array($block));
+  $build = _block_get_renderable_array($block_content);            
+  $block_rendered =  drupal_render($build);
+  return $block_rendered;
+}
+
+/*function _svendborg_subsitetheme_get_contact ($link){
+    $contact = array();  
+  
+    $contactlink = node_load($link[0]['nid']);
+    if ($contactlink) {
+        $contact['phone'] = 
+      $link_fields = field_get_items('node', $contactlink, 'field_os2web_contact_field_phone');
+      if (!empty($link_fields)) {
+        $link_field = array_shift($link_fields);
+        $contact= $link_field['value'];
+      
+      }
+    }
+   return $contact;
+}*/
+
+function svendborg_subsitetheme_preprocess_views_view_unformatted(&$var) {
+  // Determine if this view's content should render in columns.
+  // @see: _YOUR_THEME_views_columns();
+   // var_dump('here');
+  _svendborg_subsitetheme_views_columns($var, array(
+    'svendborg_news_view|svendborg_latest_news_two_col' => 2,
+    'svendborg_news_view|svendborg_latest_news_three_col' => 3,
+  ));
+    
+  
+}
+
+/**
+ * Separate the view content into columns.
+ *
+ * @param (array) $variables
+ *   An associative array referencing the variables currently being preprocessed.
+ * @param (array) $view
+ *   An associative array containing the following syntax ($view_id => $columns):
+ *     (string) $view_id: The view name in the format of: name|display_id.
+ *                        Optional: |display_id. If omitted, all displays in the
+ *                        view will be processed.
+ *        (int) $columns: The number of columns to separate rows into. Value must
+ *                        be larger than 1, obviously.
+ * @param (bool) $render_empty
+ *   A boolean switch determining whether to render empty columns, this typically
+ *   happens when the view row count is smaller than the specified column count.
+ *   Default: FALSE.
+ */
+function _svendborg_subsitetheme_views_columns(array &$var, array $views = array(), $render_all = FALSE) {
+  // Initial value.
+  $var['columns'] = FALSE;
+  // Do not process if there are no results.
+  if (!$count = count($var['view']->result)) {
+    return;
+  }
+  // Check if this is a valid view to process.
+  $view_id = $var['view']->name . '|' . $var['view']->current_display;
+  if (!in_array($view_id, array_keys($views))) {
+    if (!in_array($var['view']->name, array_keys($views))) {
+      return;
+    }
+    $view_id = $var['view']->name;
+  }
+  // Get the number of columns and ensure it's an integer and greater than 1.
+  if (!isset($views[$view_id]) || (is_int($views[$view_id]) && $views[$view_id] < 2)) {
+    return;
+  }
+  // Create the columns.
+  $columns = $views[$view_id];
+
+  $limit = ($count % $columns == 0) ? $count / $columns : ceil($count / $columns);
+  $current_column = 0;
+  $current_row = 1;
+  foreach ($var['rows'] as $id => $row) {
+    if ($current_row > $limit) {
+      $current_column++;
+      $current_row = 1;
+    }
+    $var['columns'][$current_column][$id] = $row;
+    $current_row++;
+  }
+  if ($render_all && $current_column < ($columns - 1)) {
+    $diff = ($columns - 1) - $current_column;
+    for ($i=0; $i < $diff; $i++) {
+      $current_column++;
+      $var['columns'][$current_column] = array();
+    }
+  }
+  // Generate column classes.
+  $var['columns_classes'] = array();
+  $var['columns_classes_array'] = array();
+  foreach (array_keys($var['columns']) as $id) {
+    $html_id = $id + 1;
+    $var['columns_classes_array'][$id][] = 'views-column';
+    $var['columns_classes_array'][$id][] = 'col-sm-'. 12/$columns;
+    $var['columns_classes_array'][$id][] = 'views-column-' . $html_id ;
+    $var['columns_classes_array'][$id][] = 'views-column-' . ($html_id % 2 ? 'odd' : 'even');
+    if ($id == 0) {
+      $var['columns_classes_array'][$id][] = 'views-column-first';
+    }
+    if ($id == $current_column) {
+      $var['columns_classes_array'][$id][] = 'views-column-last';
+    }
+    $var['columns_classes'][$id] = implode(' ', $var['columns_classes_array'][$id]);
+  }
+
+}
+
+function svendborg_subsitetheme_less_variables_alter(&$less_variables, $system_name) {
+  $color_palette = variable_get('color_svendborg_subsitetheme_palette', FALSE);
+  if (empty($color_palette)){
+      $color_palette = array(
+          'brand-lightblue' => '#2880b9',
+          'brand-lightgreen' => '#85c500',
+          'gradient-light' => '#0086ca',
+      );
+  }  
+  foreach ($color_palette as $key=>$value) {
+      $color_palette['@' . $key]=$color_palette[$key];
+      unset($color_palette[$key]);
+  }
+
+  $less_variables = $color_palette;
+}
+
+function svendborg_subsitetheme_photoswipe_imagefield($variables){
+   $class = array('photoswipe');
+  if (!empty($variables['image']['style_name'])) {
+    $image = theme('image_style', $variables['image']);
+  }
+  else {
+    $image = theme('image', $variables['image']);
+  }
+
+  $options = array(
+    'html' => TRUE,
+    'attributes' => array(
+      'class' => implode(' ', $class),
+      'data-size' => $variables['dimensions'],
+      'data-overlay-title' => $variables['image']['title'] . '<span alt="desc">'. $variables['image']['alt'] . '</span>'
+    )
+  );
+  return l($image, $variables['path'], $options);
+}
+
+function menu_navigation_tree($menu_name, $level = 0) {
+  // Don't even bother querying the menu table if no menu is specified.
+  if (empty($menu_name)) {
+    return array();
+  }
+  
+// Get the menu hierarchy for the current page.
+  $tree = menu_tree_page_data($menu_name);
+  
+// Go down the active trail until the right level is reached.
+  while ($level-- > 0 && $tree) {
+    // Loop through the current level's items until we find one that is in trail.
+    while ($item = array_shift($tree)) {
+      if ($item['link']['in_active_trail']) {
+        // If the item is in the active trail, we continue in the subtree.
+        $tree = empty($item['below']) ? array() : $item['below'];
+        break;
+      }
+    }
+  }
+  return $tree;
+}
+?>

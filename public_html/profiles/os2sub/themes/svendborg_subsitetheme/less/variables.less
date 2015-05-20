@@ -13,15 +13,22 @@
 @gray-light:             #dedede;
 @gray-lighter:           lighten(#000, 93.5%); // #eee
 
-@brand-darkblue:        #005191; // 1
-@brand-lightblue:       #0089cd; // 2
-@brand-darkgreen:       #589000; // 3
+@brand-darkblue:        darken(@brand-lightblue, 4%);//#2474a8; // 1
+@brand-deepdarkblue:    darken(@brand-lightblue, 18%); //#184c6e;
+@brand-lightblue:       #2880b9; // 2
+/*@brand-darkgreen:       #589000; // 3*/
 @brand-lightgreen:      #85c500; // 4
 @brand-blacknblue:      #30353c; // 5
 @brand-warmgray:        #dfded7; // 6
+@brand-deepdarkgreen:    darken(@brand-lightgreen, 15.5%); //#507600; 
+@brand-darkgreen:        darken(@brand-lightgreen, 8.8%);//#679900;
+@brand-ligherdarkgreen:  darken(@brand-lightgreen, 3.5%);//#79b300;
 
-@gradient-dark:         #194254; // 7
-@gradient-light:        #496e7e; // 8
+
+/*@gradient-dark:         #194254; // 7
+@gradient-light:        #496e7e; // 8*/
+@gradient-light:         #0086ca;
+@gradient-dark:          darken(@gradient-light, 3.8%);//#0079b7;
 
 @brand-primary:         @brand-darkgreen;
 @brand-success:         #5cb85c;
@@ -49,6 +56,7 @@
 //## Font, line-height, and color for body text, headings, and more.
 
 @font-family-sans-serif:  'Open Sans', Geneva, Verdana, sans-serif;
+@font-family-sans-serif-semibold:  'Open Sans Semibold', Geneva, Verdana, sans-serif;
 @font-family-sans-serif-second:  'Titillium Web', Geneva, Verdana, sans-serif;
 @font-family-serif:       Georgia, "Times New Roman", Times, serif;
 //** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
@@ -316,7 +324,7 @@
 @grid-float-breakpoint-max: (@grid-float-breakpoint - 1);
 
 // Custom container padding.
-@container-padding:         32px;
+@container-padding:         20px;
 
 
 //== Container sizes

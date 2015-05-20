@@ -33,12 +33,12 @@
  */
 ?>
 <section id="<?php print $block_html_id; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-
+ 
   <?php print render($title_prefix); ?>
-  <?php if ($title && $block_html_id == "block-views-news-filter-block"): ?>
-  <div class="panel panel-primary with-big-arrow">
-    <div class="panel-heading">
-      <h3 class="panel-title"><?php print $title; ?></h3>
+  <?php if ($title && ($block_html_id == "block-views-news-filter-block" || $block_html_id == "block-views-aktiviteter-block-2")): ?>
+  <div class="panel panel-lightgreen">
+    <div class="panel-heading ">
+      <h3 class="panel-title"><?php print t($title); ?></h3>
     </div>
 
  
@@ -52,7 +52,10 @@
     <?php endif;?>
   </div>
   <?php else: ?>
-  <?php print render($title_suffix); ?>
-        <?php print $content ?>
+  <?php print render($title_suffix);  ?>
+       <?php if($title)
+           print '<h2 class="block-title">' . $title . '</h2>'; 
+       ?> 
+        <?php  print $content ?>
   <?php endif;?>
 </section>
