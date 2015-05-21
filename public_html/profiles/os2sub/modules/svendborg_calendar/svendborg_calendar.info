@@ -1,0 +1,13 @@
+name = Svendborg Calendar
+core = 7.x
+package = Svendborg
+version = 7.x-1.0-alpha
+project = svendborg_calendar
+dependencies[] = calendar
+dependencies[] = date_views
+dependencies[] = views
+dependencies[] = views_infinite_scroll
+features[ctools][] = views:views_default:3.0
+features[features_api][] = api:2
+features[views_view][] = svendborg_event_calendar
+features_exclude[dependencies][ctools] = ctools

@@ -217,3 +217,101 @@
     }
   }
 }
+
+.page-nyheder {
+    .page-header{
+        display: none;
+    }
+    .region-content {       
+        .views-row {
+          padding-top: 25px;
+          padding-bottom: 25px;
+          border-bottom: #f6f5f5 2px solid;
+          font: @font-size-base @font-family-sans-serif;
+            .field-image {
+                width:100%;
+                margin-bottom: 20px;
+              /*display: inline-block;
+              float: left;
+              margin-right: 45px;  
+              width: 140px;
+              height: 140px;
+              border-radius: 50%;
+              background: #f6f5f5;*/
+              .image{
+                  margin: 0 auto;
+                   width: 140px;
+                   height: 140px;
+                  border-radius: 50%;
+                  background: #f6f5f5;
+                  
+                img{
+                   width: 140px;
+                   height: 140px;
+                   border-radius: 50%;
+               }
+              }  
+            }
+            h1 {
+               margin-top: 0;
+               color: #30353c;
+            } 
+            
+        }  
+    }   
+}
+
+.prev-news-block {
+   float: right;
+   width: 100%;
+   margin-bottom : 20px;
+   .block{
+       background: #f6f5f5;      
+       padding: 20px;
+       h2.block-title {           
+           font-size: @font-size-h2;
+           color: #30353c;
+           font-weight: 600;
+       }
+       .views-row {
+         padding-top: 10px;
+         padding-bottom: 10px;
+         border-bottom: #fff 1px solid;
+         font-size: 11px;
+         a {
+             display: block;
+           
+             &:hover {
+                 text-decoration: none;
+                 color: inherit;
+             }
+             .field-date{
+                display: block;
+                text-transform: uppercase;
+                color: @brand-lightblue;
+                font-weight: 700;
+               
+            }
+         }
+         
+       }
+       .view-footer{
+           margin-top: 15px;
+           text-align: center;
+           a {
+               padding: 5px 15px;
+               width:110px;
+               text-transform: uppercase;
+               font-weight: 700;
+               font-size: 11px;
+               border: @brand-lightblue 2px solid;
+               border-radius: @border-radius-small;
+               &:hover,
+               &:active {
+                 text-decoration: none;
+                 color: inherit;
+             }
+           }
+       }
+   }
+}

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Svenborg Slider Banner feature.
+ */
+
+include_once 'svenborg_slider_banner.features.inc';

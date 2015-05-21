@@ -52,4 +52,5 @@
     <?php hide($content['links']); ?>
   <?php endif; ?>
   <?php hide($content['comments']); ?>
+  
 </article>

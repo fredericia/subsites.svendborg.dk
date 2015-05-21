@@ -81,20 +81,37 @@
 ?>
 
 <?php if(!$page) : ?>
-  <div class="panel panel-blacknblue with-arrow">
-    <div class="panel-heading">
-      <h3 class="panel-title">
-        <?php print render($title_prefix); ?>
-        <?php if($content['field_os2web_contact_field_dept']): ?>
-          <?php print render($content['field_os2web_contact_field_dept']); ?>
-        <?php else: ?>
-          <?php print t('Praktisk info'); ?>
-        <?php endif; ?>
-        <?php print render($title_suffix); ?>
-      </h3>
-    </div>
-    <div class="panel-body">
-      <div class="panel-body-inner">
+
+ <div class="panel panel-blacknblue">
+      <div class="panel-body ">
+      
+        <h2> <?php echo t("Contact us") ?> </h2>
+        <div class="contact-block-tel"><?php print render($content['field_os2web_contact_field_phone'])?> </div>
+        <div class="contact-block-open-hours">
+            <?php if(render($content['field_os2web_contact_field_monop'])):?>
+               <?php print t('Mon')?>: <?php print render($content['field_os2web_contact_field_monop'])?> - <?php print render($content['field_os2web_contact_field_moncl'])?><br/>
+             <?php endif; ?>
+            <?php if(render($content['field_os2web_contact_field_tueop'])):?>
+               <?php print t('Tue')?>: <?php print render($content['field_os2web_contact_field_tueop'])?> - <?php print render($content['field_os2web_contact_field_tuecl'])?><br/>
+            <?php endif; ?>
+            <?php if(render($content['field_os2web_contact_field_wedop'])):?>
+               <?php print t('Wed')?>: <?php print render($content['field_os2web_contact_field_wedop'])?> - <?php print render($content['field_os2web_contact_field_wedcl'])?><br/>
+             <?php endif; ?>
+            <?php if(render($content['field_os2web_contact_field_thuop'])):?>
+              <?php print t('Thu')?>: <?php print render($content['field_os2web_contact_field_thuop'])?> - <?php print render($content['field_os2web_contact_field_thucl'])?><br/>
+            <?php endif; ?>
+            <?php if(render($content['field_os2web_contact_field_friop'])):?>
+               <?php print t('Fri')?>: <?php print render($content['field_os2web_contact_field_friop'])?> - <?php print render($content['field_os2web_contact_field_fricl'])?><br/>
+            <?php endif; ?>
+            <?php if(render($content['field_os2web_contact_field_satop'])):?>
+               <?php print t('Sat')?>: <?php print render($content['field_os2web_contact_field_satop'])?> - <?php print render($content['field_os2web_contact_field_satcl'])?><br/>
+            <?php endif; ?>
+            <?php if(render($content['field_os2web_contact_field_sunop'])):?>
+                <?php print t('Sun')?>: <?php print render($content['field_os2web_contact_field_sunop'])?> - <?php print render($content['field_os2web_contact_field_suncl'])?><br/>
+            <?php endif; ?>
+        </div>
+        <div class="btn-show-all like-panel-lightnblue"><a href=""><?php print t('See all persons')?></a></div>
+        
         <?php
           hide($content['comments']);
           hide($content['links']);
@@ -102,9 +119,9 @@
           hide($content['print_links']);
           hide($content['field_os2web_contact_field_dept']);
 
-          print render($content);
+          //print render($content);
         ?>
-      </div>
+      
     </div>
   </div>
 <?php else : ?>

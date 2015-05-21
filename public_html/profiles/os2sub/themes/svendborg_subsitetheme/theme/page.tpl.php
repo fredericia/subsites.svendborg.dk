@@ -73,7 +73,7 @@
  * @ingroup themeable
  */
 ?>
-<?php /* region--navigation.tpl.php */ ?>
+<?php /* region--navigation.tpl.php */?>
 <?php if ($page['navigation']): ?>
   <?php print render($page['navigation']); ?>
 <?php endif; ?>
@@ -83,7 +83,7 @@
   <?php /* region--header.tpl.php */ ?>
   <?php print render($page['header']); ?>
 
-  <div class="row">
+  <div class="row-no-padding">
     <?php if (isset($page['term_is_top']) && $page['term_is_top'] && !empty($page['os2web_selfservicelinks'])) : ?>
       <?php
         // Only show the selvbetjening as a dropdown on top level terms. ?>
@@ -102,7 +102,7 @@
     <?php endif; ?>
   </div>
 
-  <div class="row">
+  <div class="row-no-padding">
 
       <?php /* region--sidebar.tpl.php */ ?>
       <?php if ($page['sidebar_first']): ?>
@@ -118,16 +118,14 @@
       <?php endif; ?>
 
   </div>
+ </div>   
   <?php if ($page['content_bottom']): ?>
-  <div class="row">
-
       <?php /* region--content_bottom.tpl.php */ ?>
         <?php print render($page['content_bottom']); ?>
 
-  </div>
   <?php endif; ?>
 
-    </div>
+ 
   </div>
 </div>
 <?php /* region--footer.tpl.php */ ?>

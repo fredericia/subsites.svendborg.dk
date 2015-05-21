@@ -1,6 +1,20 @@
 /* Svendborg theme script
 */
-( function ($) {
+( function ($) {  
+        
+    
+    $( window ).scroll(function() {
+          $('.short-aktivity').each(function() {       
+        $(this).children().children('.open-activity').click(function(event){
+          var container= $(this).closest('.event-content');
+             $('.short-aktivity').css('display', 'inline-block');
+             $('.full-aktivity').css('display', 'none');
+              container.children('.short-aktivity').css('display', 'none');
+              container.children('.full-aktivity').css('display', 'inline-block');
+          return false;
+        });
+     });
+    })
   $(document).ready(function(){
 
     var button = 'filter-all';
@@ -15,7 +29,16 @@
       $('#'+button).addClass(button_class);
       $('#'+button).removeClass(button_normal);
     }
-
+   $('.short-aktivity').each(function() {       
+        $(this).children().children('.open-activity').click(function(event){
+          var container= $(this).closest('.event-content');
+             $('.short-aktivity').css('display', 'inline-block');
+             $('.full-aktivity').css('display', 'none');
+              container.children('.short-aktivity').css('display', 'none');
+              container.children('.full-aktivity').css('display', 'inline-block');
+          return false;
+        });
+     });
     // filter buttons.
     $('.filter-link').click(function(event){
       $(this).addClass(button_class);
@@ -80,18 +103,18 @@
         var navHeight = $( window ).height();
         if ($(window).scrollTop() > 41 && $(window).width() > 768 ) {
           $('.header_svendborg header').addClass('navbar-fixed-top');
-          $('.header_fixed_inner').addClass('container');
-          $('.header_svendborg header').removeClass('container');
-          $('.main-container').css('padding-top','114px');
-          $('#fixed-navbar').addClass('row');
+          //$('.header_fixed_inner').addClass('container');
+          //$('.header_svendborg header').removeClass('container');
+         // $('.main-container').css('padding-top','114px ');
+          //$('#fixed-navbar').addClass('row');
           $('img#front-logo').attr('src', Drupal.settings.basePath + Drupal.settings.pathToTheme + '/images/svendborg_logo.png');
        }
         else {
           $('.header_svendborg header').removeClass('navbar-fixed-top');
-          $('.header_fixed_inner').removeClass('container');
-          $('.header_svendborg header').addClass('container');
+          //$('.header_fixed_inner').removeClass('container');
+          //$('.header_svendborg header').addClass('container');
           $('.main-container').css('padding-top','0');
-          $('#fixed-navbar').removeClass('row');
+          //$('#fixed-navbar').removeClass('row');
           $('img#front-logo').attr('src', Drupal.settings.basePath + Drupal.settings.pathToTheme + '/images/footer_logo.png');
         }
     });

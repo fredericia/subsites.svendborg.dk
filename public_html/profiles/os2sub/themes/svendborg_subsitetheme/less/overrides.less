@@ -282,8 +282,8 @@ fieldset .panel-heading a.panel-title {
     text-decoration: none;
   }
 }
-.form-group:last-child,
-.panel:last-child {
+.form-group:last-child {
+//.panel:last-child {
   margin-bottom: 0;
 }
 .form-horizontal .form-group {
@@ -779,3 +779,65 @@ div.features-export-list {
     }
   }
 }
+
+.well{
+    min-height: 35px;
+    display: table;
+    width: 100%;
+    padding: 0;
+    background: none;
+    border: none;
+}
+#toolbar{
+    z-index: 1500;
+}
+
+.pswp__bg {
+    background-color: #30353c;
+}
+.pswp__ui{
+    z-index: 2600 !important;
+   
+    
+}
+.pswp__ui--fit .pswp__top-bar, 
+.pswp__ui--fit .pswp__caption,
+.pswp__caption,
+.pswp__top-bar,
+.pswp__button--arrow--left:before, 
+ .pswp__button--arrow--right:before{
+     background-color: #30353c;
+     opacity: 98%;
+     
+}
+.pswp__button--arrow--left:before {     
+     background: url(../images/photoswipe_arrow_left.png) 0 0 no-repeat;
+     height:42px;
+      background-size: auto;
+    
+}
+ .pswp__button--arrow--right:before{      
+     background: url(../images/photoswipe_arrow_right.png) 0 0 no-repeat;
+     height:42px;
+    background-size: auto;
+}
+.pswp__caption {
+    padding-top: 20px;
+    .pswp__caption__center{
+        text-align: center;
+        font-family: @font-familiy-web;
+        font-size: @font-size-h1;
+        color: #fff;
+        line-height: 34px;        
+        span{
+            display:block;
+            font-family: @font-family-sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            
+        }
+    }      
+    
+}
+ 
