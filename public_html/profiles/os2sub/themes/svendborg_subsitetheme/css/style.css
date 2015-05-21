@@ -9276,6 +9276,7 @@ fieldset[disabled] .btn-orange.active {
 .like-panel.like-panel-blacknblue {
   background-image: -webkit-linear-gradient(top, #0086ca 0%, #0079b7 100%);
   background-image: linear-gradient(to bottom, #0086ca 0%, #0079b7 100%);
+<<<<<<< HEAD
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0086ca', endColorstr='#ff0079b7', GradientType=0);
 }
@@ -9290,6 +9291,22 @@ fieldset[disabled] .btn-orange.active {
   background-image: -webkit-linear-gradient(top, #2880b9 0%, #2474a8 55%);
   background-image: linear-gradient(to bottom, #2880b9 0%, #2474a8 55%);
   background-repeat: repeat-x;
+=======
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0086ca', endColorstr='#ff0079b7', GradientType=0);
+}
+.panel-blacknblue > .panel-body > div.like-panel-lightnblue {
+  background-image: -webkit-linear-gradient(top, #0086ca 0%, #0079b7 55%);
+  background-image: linear-gradient(to bottom, #0086ca 0%, #0079b7 55%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0086ca', endColorstr='#ff0079b7', GradientType=0);
+}
+.panel-lightblue > .panel-heading,
+.like-panel.like-panel-lightblue {
+  background-image: -webkit-linear-gradient(top, #2880b9 0%, #2474a8 55%);
+  background-image: linear-gradient(to bottom, #2880b9 0%, #2474a8 55%);
+  background-repeat: repeat-x;
+>>>>>>> 951d764cc1062a4962e981f1dfafbf2f77b644de
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff2880b9', endColorstr='#ff2474a8', GradientType=0);
 }
 .panel.panel-blacknblue .panel-body .panel-body-inner {
@@ -11642,6 +11659,130 @@ h2.menu-footer a.Kommunen {
 .page-calendar-slider .slider-cover.single .btn.gradient-deepdarkgreen {
   width: 150px;
 }
+<<<<<<< HEAD
+.front-search-box input {
+  height: 58px;
+  font-size: 24px;
+  color: #333;
+}
+.front-search-box button {
+  height: 58px;
+  width: 70px;
+}
+.front-search-box span.glyphicon-search {
+  font-size: 35px;
+}
+.view-svendborg-slider .views-slideshow-cycle-main-frame,
+.page-calendar-slider .views-slideshow-cycle-main-frame {
+  width: 100% !important;
+}
+.view-svendborg-slider .views-slideshow-cycle-main-frame-row,
+.page-calendar-slider .views-slideshow-cycle-main-frame-row {
+  width: 100% !important;
+}
+.view-svendborg-slider .slider-cover,
+.page-calendar-slider .slider-cover {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 311px;
+}
+.view-svendborg-slider .slider-cover .title,
+.page-calendar-slider .slider-cover .title {
+  font-size: 32px;
+  line-height: 35px;
+  font-family: 'Titillium Web', Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  margin-top: 102px;
+  margin-bottom: 20px;
+}
+.view-svendborg-slider .slider-cover.single .btn,
+.page-calendar-slider .slider-cover.single .btn {
+  text-transform: uppercase;
+  color: #FFF;
+  font-family: 'Open Sans', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 10px 20px;
+}
+.view-svendborg-slider .slider-cover.overlay .title,
+.page-calendar-slider .slider-cover.overlay .title {
+  color: #FFF;
+}
+.view-svendborg-slider .slider-cover.multi .title,
+.page-calendar-slider .slider-cover.multi .title {
+  background: #fff;
+  border-radius: 3px;
+}
+.view-svendborg-slider .slider-cover.multi .title a,
+.page-calendar-slider .slider-cover.multi .title a {
+  padding: 5px 25px 10px 25px;
+  display: block;
+  position: relative;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  /*background-image: url('../images/arrow_right_green.png');
+          background-repeat: no-repeat;
+          background-position: 98% 50%; //right 15px center;*/
+}
+.view-svendborg-slider .slider-cover.multi .title a:hover,
+.page-calendar-slider .slider-cover.multi .title a:hover,
+.view-svendborg-slider .slider-cover.multi .title a:active,
+.page-calendar-slider .slider-cover.multi .title a:active {
+  color: inherit;
+}
+.view-svendborg-slider .slider-cover.multi .title a:before,
+.page-calendar-slider .slider-cover.multi .title a:before {
+  content: "\f105";
+  font-family: FontAwesome;
+  right: 25px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #85c500;
+  position: absolute;
+  font-size: 30px;
+  font-weight: lighter;
+}
+.view-svendborg-slider .slider-cover.multi .title a .indicators,
+.page-calendar-slider .slider-cover.multi .title a .indicators {
+  font-size: 20px;
+  display: block;
+}
+.view-svendborg-slider .slider-cover.multi .title a .indicators .indicator,
+.page-calendar-slider .slider-cover.multi .title a .indicators .indicator {
+  margin-right: 5px;
+}
+.view-svendborg-slider .slider-cover.multi .title a .indicators .indicator span,
+.page-calendar-slider .slider-cover.multi .title a .indicators .indicator span {
+  display: inline-block;
+  width: 15px;
+  height: 6px;
+  vertical-align: middle;
+  border-radius: 3px;
+}
+.view-svendborg-slider .slider-cover.multi .title a .indicators .indicator span.active,
+.page-calendar-slider .slider-cover.multi .title a .indicators .indicator span.active {
+  background: #85c500;
+}
+.view-svendborg-slider .slider-cover.multi .title a .indicators .indicator span.inactive,
+.page-calendar-slider .slider-cover.multi .title a .indicators .indicator span.inactive {
+  background: #c1c1c1;
+}
+.view-svendborg-slider .slider-cover .frontpage-nodes,
+.page-calendar-slider .slider-cover .frontpage-nodes {
+  margin-top: 40px;
+}
+.view-svendborg-slider .slider-cover .frontpage-nodes .views-row:not(:first-child),
+.page-calendar-slider .slider-cover .frontpage-nodes .views-row:not(:first-child) {
+  background: rgba(238, 238, 238, 0.85);
+}
+.page-calendar-slider .slider-cover.single .btn.gradient-deepdarkgreen {
+  width: 150px;
+}
 .page-calendar-slider .slider-cover.single .btn.gradient-deepdarkgreen.not-here {
   background: none;
   border-radius: 3px;
@@ -11652,6 +11793,18 @@ h2.menu-footer a.Kommunen {
   display: inline-block;
   margin-right: 15px;
 }
+=======
+.page-calendar-slider .slider-cover.single .btn.gradient-deepdarkgreen.not-here {
+  background: none;
+  border-radius: 3px;
+  border: #85c500 2px solid;
+  padding: 8px 15px;
+}
+.page-calendar-slider .slider-cover.single div.link {
+  display: inline-block;
+  margin-right: 15px;
+}
+>>>>>>> 951d764cc1062a4962e981f1dfafbf2f77b644de
 .page-calendar-slider .slider-cover.overlay .title {
   margin-top: 80px;
 }
@@ -11956,7 +12109,10 @@ h2.menu-footer a.Kommunen {
   padding: 5px 12px;
   border: #85c500 2px solid;
   border-radius: 3px;
+<<<<<<< HEAD
   text-align: center;
+=======
+>>>>>>> 951d764cc1062a4962e981f1dfafbf2f77b644de
   color: #30353c;
   text-transform: uppercase;
 }

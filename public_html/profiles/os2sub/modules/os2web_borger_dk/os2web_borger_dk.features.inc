@@ -27,5 +27,6 @@ function os2web_borger_dk_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }

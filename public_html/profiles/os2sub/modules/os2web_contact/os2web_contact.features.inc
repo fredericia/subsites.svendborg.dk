@@ -43,5 +43,6 @@ function os2web_contact_node_info() {
       'help' => t('Kaldenavnet bruges internt i systemet. Dette navn bliver ikke vist til de besøgende.'),
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }
