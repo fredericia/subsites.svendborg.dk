@@ -34,7 +34,6 @@ features[field_base][] = field_os2web_contact_field_tueop
 features[field_base][] = field_os2web_contact_field_wedcl
 features[field_base][] = field_os2web_contact_field_wedop
 features[field_base][] = field_os2web_contact_field_zip
-features[field_group][] = group_os2web_contact_opening|node|os2web_contact_contact|form
 features[field_instance][] = node-os2web_contact_contact-field_os2web_contact_field_addr
 features[field_instance][] = node-os2web_contact_contact-field_os2web_contact_field_callc
 features[field_instance][] = node-os2web_contact_contact-field_os2web_contact_field_email

@@ -14,7 +14,7 @@ function os2web_base_locale_default_languages() {
   $languages['da'] = array(
     'language' => 'da',
     'name' => 'Danish',
-    'native' => 'Dansk',
+    'native' => 'DA',
     'direction' => 0,
     'enabled' => 1,
     'plurals' => 2,
@@ -27,9 +27,9 @@ function os2web_base_locale_default_languages() {
   $languages['en'] = array(
     'language' => 'en',
     'name' => 'English',
-    'native' => 'English',
+    'native' => 'UK',
     'direction' => 0,
-    'enabled' => 0,
+    'enabled' => 1,
     'plurals' => 0,
     'formula' => '',
     'domain' => '',

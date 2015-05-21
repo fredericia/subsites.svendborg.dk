@@ -41,20 +41,51 @@ function os2sub_aktivitetskalender_strongarm() {
       'token' => array(
         'custom_settings' => FALSE,
       ),
+      'search_index' => array(
+        'custom_settings' => FALSE,
+      ),
+      'search_result' => array(
+        'custom_settings' => FALSE,
+      ),
     ),
     'extra_fields' => array(
       'form' => array(
         'metatags' => array(
-          'weight' => '40',
+          'weight' => '6',
         ),
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '30',
+          'weight' => '5',
         ),
       ),
-      'display' => array(),
+      'display' => array(
+        'registration_link' => array(
+          'default' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+        'registration_form' => array(
+          'default' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+        'registration_slots_left' => array(
+          'default' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+        'registration_unregistrable_reason' => array(
+          'default' => array(
+            'weight' => '1',
+            'visible' => TRUE,
+          ),
+        ),
+      ),
     ),
   );
   $export['field_bundle_settings_node__event_calendar'] = $strongarm;
@@ -63,7 +94,7 @@ function os2sub_aktivitetskalender_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_event_calendar';
-  $strongarm->value = '0';
+  $strongarm->value = '2';
   $export['language_content_type_event_calendar'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -101,6 +132,11 @@ function os2sub_aktivitetskalender_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_registration_type_settings_event_calendar';
   $strongarm->value = array(
+    'date_field' => 'event_calendar_date',
+    'max_registration_date_field' => 'field_svarfrist',
+    'min_registration_date_field' => 'field_synlig_fra',
+    'capacity_field' => 'field_pladser',
+    'status' => 2,
     'toggle_enabled_in_node_form' => 0,
     'no_register_page' => 0,
     'allow_registration_until' => '1 day',
@@ -170,11 +206,6 @@ Event start: [node:event-start].',
     'show_message_date' => 1,
     'show_message_capacity' => 1,
     'show_message_registered' => 1,
-    'date_field' => 'event_calendar_date',
-    'max_registration_date_field' => 'field_svarfrist',
-    'min_registration_date_field' => 'field_synlig_fra',
-    'capacity_field' => 'field_pladser',
-    'status' => 2,
   );
   $export['node_registration_type_settings_event_calendar'] = $strongarm;
 

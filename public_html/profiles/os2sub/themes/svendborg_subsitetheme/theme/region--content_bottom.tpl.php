@@ -23,10 +23,63 @@
  * @ingroup themeable
  */
 ?>
-<?php if ($content): ?>
-  <div<?php print $attributes; ?>>
+  
+<?php if ($content):?>
+<div<?php print $attributes; ?>>
+    <div class="container">
     <?php if ($content_attributes): ?><div<?php print $content_attributes; ?>><?php endif; ?>
     <?php print $content; ?>
     <?php if ($content_attributes): ?></div><?php endif; ?>
+ <?php if(!empty($page['page']['related_links'])) : ?>
+     <?php if($page['page']['related_pages_type']=='links'):?>   
+      <div class="panel panel-primary related-pages links">
+        <div class="panel-body">
+         
+          <?php foreach ($page['page']['related_links'] as $link) : ?>
+            <div class="row page-link col-md-3 col-sm-6 col-xs-12">
+                <span>
+              <?php if (isset($link['url'])): ?>
+                <?php print l($link['title'], $link['url'], array('attributes' => array('class' => $link['class']))); ?>
+              <?php else: ?>
+                <?php print l($link['title'], drupal_get_path_alias('node/' . $link['nid']), array('attributes' => array('class' => $link['class']))); ?>
+              <?php endif; ?>
+               </span>     
+            </div>
+            
+          <?php endforeach; ?>
+         </ul>
+        </div>
+      </div>
+       <?php else: ?> 
+        <div class="panel related-pages boxes">
+            <div class="panel-heading">
+                <?php print t('Related articles');?>
+             </div>   
+        <div class="panel-body">
+         
+          <?php foreach ($page['page']['related_links'] as $link) : ?>
+             <?php if (isset($link['image'])): ?>
+            <div class="row page-link col-md-3 col-sm-6 col-xs-12">
+               <div class="image">
+               <?php print theme('image_style',array('style_name' => 'large','path'=>$link['image']));?>   
+                </div>   
+                   <?php print l($link['title'], drupal_get_path_alias('node/' . $link['nid']), array('attributes' => array('class' => $link['class']))); ?>
+              
+                  <span class='open-link'>
+                       <?php print l(t('Show more'), drupal_get_path_alias('node/' . $link['nid'])); ?>
+              
+                 </span>
+                   
+              </div>
+            <?php endif; ?>
+          <?php endforeach; ?>
+         
+        </div>
+      </div>
+     <?php endif; ?>   
+    <?php endif; ?>
+
   </div>
+</div>
+
 <?php endif; ?>

@@ -1406,9 +1406,8 @@ function os2web_base_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'hidden',
-        'module' => 'text',
         'settings' => array(),
-        'type' => 'text_default',
+        'type' => 'hidden',
         'weight' => 1,
       ),
       'related_block' => array(
@@ -1516,7 +1515,7 @@ function os2web_base_field_default_field_instances() {
         'module' => 'photoswipe',
         'settings' => array(
           'photoswipe_image_style' => '',
-          'photoswipe_node_style' => 'svendborg_spotbox',
+          'photoswipe_node_style' => 'medium',
         ),
         'type' => 'photoswipe',
         'weight' => 0,
@@ -1546,40 +1545,27 @@ function os2web_base_field_default_field_instances() {
     'required' => 0,
     'settings' => array(
       'alt_field' => 1,
-      'alt_field_required' => 0,
       'default_image' => 0,
+      'epsacrop' => array(
+        'styles' => array(
+          'os2sub_banner' => 0,
+          'os2web_spotbox_image' => 0,
+          'svendborg_content_image' => 0,
+          'svendborg_spotbox' => 0,
+        ),
+      ),
       'file_directory' => 'gallery_images',
       'file_extensions' => 'png gif jpg jpeg',
-      'focus' => 0,
-      'focus_lock_ratio' => 0,
-      'focus_min_size' => '',
       'max_filesize' => '',
       'max_resolution' => '5000x5000',
       'min_resolution' => '',
-      'title_field' => 0,
-      'title_field_required' => 0,
+      'title_field' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
       'module' => 'image',
       'settings' => array(
-        'filefield_sources' => array(
-          'filefield_sources' => array(
-            'attach' => 0,
-            'plupload' => 'plupload',
-            'reference' => 0,
-            'remote' => 0,
-          ),
-          'source_attach' => array(
-            'absolute' => 0,
-            'attach_mode' => 'copy',
-            'path' => '',
-          ),
-          'source_reference' => array(
-            'autocomplete' => 0,
-          ),
-        ),
         'preview_image_style' => 'thumbnail',
         'progress_indicator' => 'throbber',
       ),
@@ -3202,7 +3188,7 @@ function os2web_base_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_os2web_base_field_struct',
     'label' => 'Portalkategori',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -3210,7 +3196,7 @@ function os2web_base_field_default_field_instances() {
       'active' => 1,
       'module' => 'options',
       'settings' => array(
-        'content_taxonomy_opt_groups' => FALSE,
+        'content_taxonomy_opt_groups' => 0,
       ),
       'type' => 'options_select',
       'weight' => 2,
@@ -3225,9 +3211,10 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
+        'module' => 'text',
         'settings' => array(),
-        'type' => 'hidden',
+        'type' => 'text_default',
         'weight' => 18,
       ),
       'related_block' => array(

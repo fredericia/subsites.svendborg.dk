@@ -26,45 +26,31 @@
  */
 ?>
 <?php if ($page['logo'] || $page['site_name'] || $page['primary_nav'] || $page['secondary_nav'] || $content): ?>
-<div class="header_svendborg">
+<section class="outer header_svendborg">
   <div id="top_menu">
   <div class="container">
     <div class="row">
-    <?php
-      $tree = menu_tree_all_data('menu-top-navigation-venstre', $link = NULL, $max_depth = 2);
-      if($tree) {
-        print "<div class='menu-top-navigation-venstre col-md-3 col-sm-3 col-xs-3'>";
-        $tree_display = menu_tree_output($tree);
-        print render($tree_display);
-        print "</div>";
-      }
-      $tree_1 = menu_tree_all_data('menu-top-navigation-hoejre', $link = NULL, $max_depth = 2);
-      if($tree_1) {
-        print "<div class='menu-top-navigation-hoejre col-md-9 col-sm-9 col-xs-9'>";
-        $tree_display = menu_tree_output($tree_1);
-        print render($tree_display);
-        print "</div>";
-      }
-    ?>
+      <div class="col-xs-6">
+        <?php print _svendborg_subsitetheme_block_render('locale', 'language'); ?>
+      </div>
+      <div class="col-xs-6">
+        <?php print _svendborg_subsitetheme_block_render('block', '1');//login block ?>
+      </div>
     </div>
   </div>
   </div>
-  <header class="region region-navigation header_fixed container"<?php //print $attributes; ?>>
-  <div class="row">
+  <header class="region region-navigation header_fixed"<?php //print $attributes; ?>>
+    <div class="container">
+    <div class="row">
     <?php if ($content_attributes): ?><div class="header_fixed_inner navbar-default"<?php //print $content_attributes; ?>><?php endif; ?>
     <div id="fixed-navbar">
+        
     <div class="navbar-header col-md-3 col-sm-3 col-xs-12">
       <?php if ($page['logo']): ?>
         <a class="logo navbar-btn pull-left" href="<?php print $page['front_page']; ?>" title="<?php print t('Home'); ?>">
-          <?php if ($is_front): ?>
-            <img id="front-logo" src="/<?php print drupal_get_path('theme','svendborg_theme'); ?>/images/footer_logo.png" title="<?php print t('Home') ?>" />
-          <?php else: ?>
+      
             <img src="<?php print $page['logo']; ?>" alt="<?php print t('Home'); ?>" />
-          <?php endif; ?>
         </a>
-      <?php endif; ?>
-      <?php if ($page['site_name']): ?>
-        <a class="name navbar-brand" href="<?php print $page['front_page']; ?>" title="<?php print t('Home'); ?>"><?php print $page['site_name']; ?></a>
       <?php endif; ?>
       <?php if ($page['primary_nav'] || $page['secondary_nav'] || $content): ?>
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -79,22 +65,10 @@
     <div class="col-md-9 col-sm-9 col-xs-12 navbar-collapse collapse navbar-default header_main_menu">
 
       <nav role="navigation">
-        <?php if($is_front) {
-                $menu_classes = "col-md-11 col-sm-11 col-xs-12";
-                $search_classes = "col-md-1 col-sm-1 col-xs-12";
-              }
-              else {
-                $menu_classes = "col-md-9 col-sm-8 col-xs-12";
-                $search_classes = "col-md-3 col-sm-4 col-xs-12";
-              }
-        ?>
-        <div class="<?php print $menu_classes; ?> nav_main_menu">
-          <?php print render($page['primary_nav']); ?>
+        <div class="nav_main_menu">
+          <?php print render($page['primary_nav']); ?>          
         </div>
         <?php //print render($page['secondary_nav']); ?>
-        <div class="<?php print $search_classes; ?> search_box">
-          <?php print $content; ?>
-        </div>
       </nav>
     </div>
 
@@ -103,6 +77,82 @@
     <?php if ($content_attributes): ?></div><?php endif; ?>
     </div>
     </div>
+    </div>
   </header>
-</div>
+  <?php if(strstr(drupal_get_path_alias($_GET['q']), 'nyheder') || drupal_get_path_alias($_GET['q']) == 'gallery'):?>
+    <div class='front-main-container-wrapper'>
+    <?php if (theme_get_setting('slider_active','svendborg_subsitetheme')) :?>
+        <section class="outer">
+          <?php  //print _svendborg_subsitetheme_block_render('views', 'svendborg_slider-single'); ?>
+          <?php print _svendborg_subsitetheme_block_render('views', 'svendborg_slider-multi'); ?>
+
+    <?php endif;?>
+    </div>
+  <?php endif;?>
+  <?php if(drupal_get_path_alias($_GET['q']) == 'calendar/upcoming' || drupal_get_path_alias($_GET['q']) == 'calendar/all'):?>
+    <div class='front-main-container-wrapper'>
+    <?php if (theme_get_setting('slider_active','svendborg_subsitetheme')) :?>
+        <section class="outer">
+         <?php 
+            $view = views_get_view('svendborg_event_calendar');
+            $view->set_display('page_calendar_all');
+            $pager = $view->display_handler->get_option('pager');
+            $pager['type'] = 'none';
+            $view->display_handler->set_option('pager', $pager);
+            $view->pre_execute();
+             $view->execute();
+             $views_result_cnt= count($view->result);
+         
+          $image_uri= file_create_url(file_load(theme_get_setting('calendar_page_slider_image','svendborg_subsitetheme'))->uri);
+         
+        $overlay_class = '';    
+	$background = "background-image: url('" . $image_uri . "')"
+	    . "background-image: -moz-linear-gradient(left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%), url('" . $image_uri . "');"
+	    . "background-image: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0.85)), color-stop(100%, rgba(0,0,0,0.85))), url('" . $image_uri . "');"
+	    . "background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%), url('" . $image_uri . "');"
+	    . "background-image: -o-linear-gradient(left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%), url('" . $image_uri . "');"
+	    . "background-image: -ms-linear-gradient(left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%), url('" . $image_uri . "');"
+	    . "background-image: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%), url('" . $image_uri . "');"
+	    . "filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );";
+	$overlay_class = 'overlay';
+        $html = '<div class="page-calendar-slider "><div class="slider-cover single ' . $overlay_class . '" style="' . $background .'">';
+	$html .= '<div class="container">';
+	    $html .= '<div class="row">';
+		$html .= '<div class="col-sm-7 col-xs-12">';
+		    $html .= '<div class="title">' . theme_get_setting('calendar_page_slider_text','svendborg_subsitetheme');
+                    $link_class = "btn gradient-deepdarkgreen";
+		    $html .= '</div>';
+		    $html .= '<div class="link"> ';
+                    if(drupal_get_path_alias($_GET['q'])=='calendar/upcoming'){
+                        $classes_upcoming_link = $link_class;
+                        $classes_all_link = $link_class . ' not-here';
+                    }
+                    else {
+                        $classes_all_link = $link_class ;
+                        $classes_upcoming_link = $link_class .' not-here';
+                    }
+                    
+                      $html .='<a href="'. url('calendar/upcoming').'" class="'. $classes_upcoming_link .'">' .t('Future events');
+                  
+                    $html .= '</div></a>';
+                    
+                    $html .= '<div class="link"> <a href="'. url('calendar/all').'" class="' . $classes_all_link .'">' .t('Show all') .' ( ' .$views_result_cnt .' ) ';
+                    
+		    $html .= '</div></a>';
+		$html .= '</div>';//class="col-xs-8"		
+		
+	    $html .= '</div>';//class="row"
+	$html .= '</div>';//class="conteiner"
+    $html .= '</div>';//class="slider-cover"
+   $html .= '</div>';//class="view-svendborg-slider"
+    print $html;
+         
+         ?>
+
+    <?php endif;?>
+    </div>
+  <?php endif;?>
+  <?php print render($page['breadcrumb'])?>
+</section>
+
 <?php endif; ?>

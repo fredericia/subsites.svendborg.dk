@@ -79,7 +79,8 @@
  * @ingroup themeable
  */
 ?>
-<article id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+
+<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php if ((!$page && !empty($title)) || !empty($title_prefix) || !empty($title_suffix) || $display_submitted): ?>
   <header>
     <?php print render($title_prefix); ?>
@@ -96,8 +97,9 @@
   </header>
   <?php endif; ?>
   <?php if($page) : ?>
-  <header>
-    <?php if ($type == 'os2web_base_news') : ?>
+    <div class="field-image">
+     <?php if ($type == 'os2web_base_news') : ?>    
+    
       <?php if(isset($content['field_os2web_base_field_video'])) : ?>
         <?php hide($content['field_os2web_base_field_lead_img']); ?>
         <?php print render($content['field_os2web_base_field_video']); ?>
@@ -106,17 +108,23 @@
       <?php endif; ?>
     <?php else : ?>
       <?php print render($content['field_os2web_base_field_image']); ?>
+     
     <?php endif; ?>
-    <?php if ($node->type != 'os2web_base_contentpage' &&  $node->type != 'os2web_borger_dk_article'): ?>
-    <time pubdate="pubdate">
-      <i></i><?php print format_date($created, 'custom', 'j. F'); ?>
-    </time>
+          </div> 
+    <?php if ($node->type != 'os2web_base_contentpage' &&  $node->type != 'os2web_borger_dk_article' && $node->type != 'os2web_base_gallery'): ?>
+    <div class="field-date">
+      <?php print format_date($created, 'custom', 'j. F'); ?> -         
+      <?php print $name;?>
+    </div>
     <?php endif; ?>
+    <?php if ( $node->type != 'os2web_base_gallery'): ?>
+       
     <?php print render($title_prefix); ?>
     <?php if (!empty($title)): ?>
     <h1<?php print $title_attributes; ?>><?php print $title; ?></h1>
     <?php endif; ?>
     <?php print render($title_suffix); ?>
+  <?php endif;?>  
   </header>
   <?php endif; ?>
 
@@ -129,7 +137,6 @@
       hide($content['field_svendborg_hide_sidebar']);
       hide($content['field_svendborg_hide_contact']);
       hide($content['field_os2web_base_field_hidlinks']);
-
       print render($content['field_os2web_base_field_summary']);
       print render($content['body']);
       print render($content);
@@ -137,11 +144,12 @@
 
   </div>
   <?php if (!empty($content['field_tags']) || !empty($content['links'])): ?>
-  <footer>
+
     <?php print render($content['field_tags']); ?>
-    <?php print render($content['links']); ?>
-  </footer>
+    <?php //print render($content['links']); ?>
+
   <?php endif; ?>
   <?php print render($content['comments']); ?>
-</article>
-
+</div>
+ 
+    
