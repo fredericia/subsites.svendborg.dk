@@ -162,17 +162,17 @@ function svendborg_calendar_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Felt: Date(Month) */
+  /* Felt: Date(Month and year) */
   $handler->display->display_options['fields']['event_calendar_date_1']['id'] = 'event_calendar_date_1';
   $handler->display->display_options['fields']['event_calendar_date_1']['table'] = 'field_data_event_calendar_date';
   $handler->display->display_options['fields']['event_calendar_date_1']['field'] = 'event_calendar_date';
-  $handler->display->display_options['fields']['event_calendar_date_1']['ui_name'] = 'Date(Month)';
+  $handler->display->display_options['fields']['event_calendar_date_1']['ui_name'] = 'Date(Month and year)';
   $handler->display->display_options['fields']['event_calendar_date_1']['label'] = '';
   $handler->display->display_options['fields']['event_calendar_date_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['event_calendar_date_1']['element_class'] = 'month';
   $handler->display->display_options['fields']['event_calendar_date_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['event_calendar_date_1']['settings'] = array(
-    'format_type' => 'month_only',
+    'format_type' => 'month_and_year',
     'fromto' => 'value',
     'multiple_number' => '',
     'multiple_from' => '',

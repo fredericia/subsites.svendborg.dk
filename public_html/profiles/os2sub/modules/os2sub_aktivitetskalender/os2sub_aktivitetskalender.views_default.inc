@@ -45,7 +45,7 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['style_options']['theme_style'] = '1';
   $handler->display->display_options['style_options']['max_items'] = '0';
   $handler->display->display_options['row_plugin'] = 'calendar_entity';
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -54,13 +54,13 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '15';
   $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
   $handler->display->display_options['fields']['title_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title_1']['link_to_node'] = FALSE;
-  /* Field: Content: Date */
+  /* Felt: Indhold: Date */
   $handler->display->display_options['fields']['event_calendar_date']['id'] = 'event_calendar_date';
   $handler->display->display_options['fields']['event_calendar_date']['table'] = 'field_data_event_calendar_date';
   $handler->display->display_options['fields']['event_calendar_date']['field'] = 'event_calendar_date';
@@ -74,27 +74,27 @@ function os2sub_aktivitetskalender_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: Nid */
+  /* Felt: Indhold: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: Path */
+  /* Felt: Indhold: Sti */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Global: Custom text */
+  /* Felt: Global: Tilpasset tekst */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="[path]" class="event-popup" id = "event-popup"  name="node-[nid]" title="[title_1]">[title]</a>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Field: Content: Edit link */
+  /* Felt: Indhold: Redigér-link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
@@ -104,18 +104,18 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['alter']['link_class'] = 'event-popup';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['text'] = 'EDIT';
-  /* Sort criterion: Content: Date -  start date (event_calendar_date) */
+  /* Sorteringskriterie: Indhold: Date -  startdato (event_calendar_date) */
   $handler->display->display_options['sorts']['event_calendar_date_value']['id'] = 'event_calendar_date_value';
   $handler->display->display_options['sorts']['event_calendar_date_value']['table'] = 'field_data_event_calendar_date';
   $handler->display->display_options['sorts']['event_calendar_date_value']['field'] = 'event_calendar_date_value';
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -144,7 +144,7 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['row_options']['colors']['legend'] = 'type';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Date: Date (node) */
+  /* Kontekstuelt filter: Dato: Dato (node) */
   $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
   $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
   $handler->display->display_options['arguments']['date_argument']['field'] = 'date_argument';
@@ -188,7 +188,7 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'calendar_entity';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Date: Date (node) */
+  /* Kontekstuelt filter: Dato: Dato (node) */
   $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
   $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
   $handler->display->display_options['arguments']['date_argument']['field'] = 'date_argument';
@@ -229,7 +229,7 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'calendar_entity';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Date: Date (node) */
+  /* Kontekstuelt filter: Dato: Dato (node) */
   $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
   $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
   $handler->display->display_options['arguments']['date_argument']['field'] = 'date_argument';
@@ -269,7 +269,7 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'calendar_entity';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -278,7 +278,7 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['hide_alter_empty'] = FALSE;
-  /* Field: Content: Date */
+  /* Felt: Indhold: Date */
   $handler->display->display_options['fields']['event_calendar_date']['id'] = 'event_calendar_date';
   $handler->display->display_options['fields']['event_calendar_date']['table'] = 'field_data_event_calendar_date';
   $handler->display->display_options['fields']['event_calendar_date']['field'] = 'event_calendar_date';
@@ -291,7 +291,7 @@ function os2sub_aktivitetskalender_views_default_views() {
     'multiple_to' => '',
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Date: Date (node) */
+  /* Kontekstuelt filter: Dato: Dato (node) */
   $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
   $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
   $handler->display->display_options['arguments']['date_argument']['field'] = 'date_argument';
@@ -332,7 +332,7 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'calendar_entity';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Contextual filter: Date: Date (node) */
+  /* Kontekstuelt filter: Dato: Dato (node) */
   $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
   $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
   $handler->display->display_options['arguments']['date_argument']['field'] = 'date_argument';
@@ -348,7 +348,7 @@ function os2sub_aktivitetskalender_views_default_views() {
   /* Display: Upcoming */
   $handler = $view->new_display('block', 'Upcoming', 'block_2');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Events';
+  $handler->display->display_options['title'] = 'Aktivitetskalender';
   $handler->display->display_options['display_description'] = 'Upcoming events block';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['use_more'] = FALSE;
@@ -365,7 +365,7 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
@@ -374,7 +374,7 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['max_length'] = '15';
   $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
-  /* Field: Content: Date */
+  /* Felt: Indhold: Date */
   $handler->display->display_options['fields']['event_calendar_date']['id'] = 'event_calendar_date';
   $handler->display->display_options['fields']['event_calendar_date']['table'] = 'field_data_event_calendar_date';
   $handler->display->display_options['fields']['event_calendar_date']['field'] = 'event_calendar_date';
@@ -384,13 +384,13 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['fields']['event_calendar_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['event_calendar_date']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['event_calendar_date']['settings'] = array(
-    'format_type' => 'day_and_month',
+    'format_type' => 'date_month_and_year',
     'fromto' => 'value',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: Title */
+  /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title_1']['id'] = 'title_1';
   $handler->display->display_options['fields']['title_1']['table'] = 'node';
   $handler->display->display_options['fields']['title_1']['field'] = 'title';
@@ -399,20 +399,20 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['fields']['title_1']['element_class'] = 'activity-title';
   $handler->display->display_options['fields']['title_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title_1']['link_to_node'] = FALSE;
-  /* Field: Content: Nid */
+  /* Felt: Indhold: Nid */
   $handler->display->display_options['fields']['nid']['id'] = 'nid';
   $handler->display->display_options['fields']['nid']['table'] = 'node';
   $handler->display->display_options['fields']['nid']['field'] = 'nid';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Field: Content: Path */
+  /* Felt: Indhold: Sti */
   $handler->display->display_options['fields']['path']['id'] = 'path';
   $handler->display->display_options['fields']['path']['table'] = 'node';
   $handler->display->display_options['fields']['path']['field'] = 'path';
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Field: Global: Custom text */
+  /* Felt: Global: Tilpasset tekst */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -420,7 +420,7 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="[path]" class="event-popup" id = "event-popup"  name="node-[nid]" title="[title_1]">[title]</a>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Field: Content: Edit link */
+  /* Felt: Indhold: Redigér-link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
@@ -431,7 +431,7 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['alter']['link_class'] = 'event-popup';
   $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['edit_node']['text'] = 'ABEN';
-  /* Field: Content: Link */
+  /* Felt: Indhold: Link */
   $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
   $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
@@ -440,17 +440,17 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['fields']['view_node']['element_class'] = 'open-link';
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['view_node']['text'] = 'Open';
+  $handler->display->display_options['fields']['view_node']['text'] = 'Aben';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filter criterion: Content: Published */
+  /* Filterkriterie: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 0;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filter criterion: Date: Date (node) */
+  /* Filterkriterie: Dato: Dato (node) */
   $handler->display->display_options['filters']['date_filter']['id'] = 'date_filter';
   $handler->display->display_options['filters']['date_filter']['table'] = 'node';
   $handler->display->display_options['filters']['date_filter']['field'] = 'date_filter';
@@ -460,14 +460,14 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['filters']['date_filter']['date_fields'] = array(
     'field_data_event_calendar_date.event_calendar_date_value' => 'field_data_event_calendar_date.event_calendar_date_value',
   );
-  /* Filter criterion: Content: Type */
+  /* Filterkriterie: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'event_calendar' => 'event_calendar',
   );
-  /* Filter criterion: Content: Language */
+  /* Filterkriterie: Indhold: Sprog */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -484,24 +484,22 @@ function os2sub_aktivitetskalender_views_default_views() {
     t('Stigende'),
     t('Faldende'),
     t('First Title'),
-    t('Title'),
+    t('Titel'),
     t('Dato'),
     t('Nid'),
     t('<a href="[path]" class="event-popup" id = "event-popup"  name="node-[nid]" title="[title_1]">[title]</a>'),
     t('[title_1]'),
     t('EDIT'),
     t('Month'),
-    t('more'),
     t('Alle'),
     t('Week'),
     t('Day'),
     t('Year'),
     t('Block'),
     t('Upcoming'),
-    t('Events'),
     t('Upcoming events block'),
     t('ABEN'),
-    t('Open'),
+    t('Aben'),
   );
   $export['aktiviteter'] = $view;
 
