@@ -80,24 +80,22 @@ function svendborg_gallery_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_photo_1']['group_column'] = 'entity_id';
   $handler->display->display_options['fields']['field_os2web_base_field_photo_1']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_os2web_base_field_photo_1']['delta_offset'] = '0';
-  /* Felt: Global: PHP */
-  $handler->display->display_options['fields']['php']['id'] = 'php';
-  $handler->display->display_options['fields']['php']['table'] = 'views';
-  $handler->display->display_options['fields']['php']['field'] = 'php';
-  $handler->display->display_options['fields']['php']['label'] = '';
-  $handler->display->display_options['fields']['php']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['php']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['php']['use_php_setup'] = 0;
-  $handler->display->display_options['fields']['php']['php_output'] = '<?php print t(\'Images\')?>';
-  $handler->display->display_options['fields']['php']['use_php_click_sortable'] = '0';
-  $handler->display->display_options['fields']['php']['php_click_sortable'] = '';
+  /* Felt: images token (used in title) */
+  $handler->display->display_options['fields']['nothing_1']['id'] = 'nothing_1';
+  $handler->display->display_options['fields']['nothing_1']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing_1']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing_1']['ui_name'] = 'images token (used in title)';
+  $handler->display->display_options['fields']['nothing_1']['label'] = '';
+  $handler->display->display_options['fields']['nothing_1']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['nothing_1']['alter']['text'] = 'billeder';
+  $handler->display->display_options['fields']['nothing_1']['element_label_colon'] = FALSE;
   /* Felt: Global: Tilpasset tekst */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = ' [field_os2web_base_field_photo_1]
-<div class="hover">[title]<div class="image-cnt">[field_os2web_base_field_photo] [php] </div></div>';
+<div class="hover">[title]<div class="image-cnt">[field_os2web_base_field_photo] [nothing_1] </div></div>';
   $handler->display->display_options['fields']['nothing']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['nothing']['alter']['path'] = 'node/[nid]';
   $handler->display->display_options['fields']['nothing']['alter']['replace_spaces'] = TRUE;
@@ -148,8 +146,9 @@ function svendborg_gallery_views_default_views() {
     t('Sortér efter'),
     t('Stigende'),
     t('Faldende'),
+    t('billeder'),
     t(' [field_os2web_base_field_photo_1]
-<div class="hover">[title]<div class="image-cnt">[field_os2web_base_field_photo] [php] </div></div>'),
+<div class="hover">[title]<div class="image-cnt">[field_os2web_base_field_photo] [nothing_1] </div></div>'),
     t('Page'),
   );
   $export['svendborg_gallery'] = $view;
