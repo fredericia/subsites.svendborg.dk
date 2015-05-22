@@ -1,13 +1,13 @@
 <?php
 /**
  * @file
- * svenborg_slider_banner.views_default.inc
+ * svendborg_slider_banner.views_default.inc
  */
 
 /**
  * Implements hook_views_default_views().
  */
-function svenborg_slider_banner_views_default_views() {
+function svendborg_slider_banner_views_default_views() {
   $export = array();
 
   $view = new view();
