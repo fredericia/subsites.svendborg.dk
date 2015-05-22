@@ -21,5 +21,13 @@ function svendborg_blocks_default_fe_block_boxes() {
 
   $export['login_sitemap_links'] = $fe_block_boxes;
 
+  $fe_block_boxes = new stdClass();
+  $fe_block_boxes->info = 'footer-first';
+  $fe_block_boxes->format = 'php_code';
+  $fe_block_boxes->machine_name = 'svendborg_footer_text';
+  $fe_block_boxes->body = '<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident www.svendborg.dk</div>';
+
+  $export['svendborg_footer_text'] = $fe_block_boxes;
+
   return $export;
 }
