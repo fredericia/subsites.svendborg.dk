@@ -98,6 +98,49 @@ function svendborg_blocks_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['block-svendborg_subscribe_block'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'i18n_block_language' => array(
+      0 => 'da',
+      1 => 'en',
+    ),
+    'i18n_mode' => 1,
+    'machine_name' => 'svendborg_subscribe_block',
+    'module' => 'block',
+    'node_types' => array(),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'adminimal' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'adminimal',
+        'weight' => 0,
+      ),
+      'bootstrap' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bootstrap',
+        'weight' => 0,
+      ),
+      'os2web_bootstrap_theme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'os2web_bootstrap_theme',
+        'weight' => 0,
+      ),
+      'svendborg_subsitetheme' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'svendborg_subsitetheme',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   $export['locale-language'] = array(
     'cache' => -1,
     'custom' => 0,

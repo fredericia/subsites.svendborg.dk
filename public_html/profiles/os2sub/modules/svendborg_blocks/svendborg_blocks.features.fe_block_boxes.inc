@@ -29,5 +29,13 @@ function svendborg_blocks_default_fe_block_boxes() {
 
   $export['svendborg_footer_text'] = $fe_block_boxes;
 
+  $fe_block_boxes = new stdClass();
+  $fe_block_boxes->info = 'Tilmeld';
+  $fe_block_boxes->format = 'php_code';
+  $fe_block_boxes->machine_name = 'svendborg_subscribe_block';
+  $fe_block_boxes->body = 'Tilmeld dig vores nyhedsbrev - skriv din email her| <a  href="" class="tilmeld-btn">Tilmeld</a>';
+
+  $export['svendborg_subscribe_block'] = $fe_block_boxes;
+
   return $export;
 }
