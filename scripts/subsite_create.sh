@@ -11,7 +11,7 @@ TMPDIRBASE="$BASEDIR/tmp"
 LOGDIRBASE="$BASEDIR/logs"
 SESSIONDIRBASE="$BASEDIR/sessions"
 DBDIR="/var/lib/mysql"
-PROFILE="minimal"
+PROFILE="os2sub"
 EMAIL="drupal@bellcom.dk"
 SCRIPTDIR="$(dirname "$0")"
 ADMINPASS=$(cat "$SCRIPTDIR/.admin_password.txt")
@@ -123,7 +123,7 @@ add_to_hosts() {
 install_drupal() {
   debug "Installing drupal ($SITENAME)"
   # Do a drush site install
-  /usr/bin/drush -q -y -r $MULTISITE site-install $PROFILE --db-url="mysql://$DBUSER:$DBPASS@localhost/$DBNAME" --sites-subdir="$SITENAME" --account-mail="$EMAIL" --site-mail="$EMAIL" --site-name="$SITENAME" --account-pass="$ADMINPASS"
+  /usr/bin/drush -q -y -r $MULTISITE site-install $PROFILE --locale="da" --db-url="mysql://$DBUSER:$DBPASS@localhost/$DBNAME" --sites-subdir="$SITENAME" --account-mail="$EMAIL" --site-mail="$EMAIL" --site-name="$SITENAME" --account-pass="$ADMINPASS"
 
   # Set tmp
   /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset file_temporary_path "$TMPDIR"
