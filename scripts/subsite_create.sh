@@ -157,7 +157,7 @@ mail_status() {
   debug "Sending statusmail ($SITENAME)"
 }
 
-install_features(){
+install_features() {
     debug "Enabling OS2Web-Backend features ($SITENAME)"
     /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" en  os2web_base 
     debug "Enabling OS2Sub features ($SITENAME)"
@@ -182,3 +182,5 @@ install_drupal "$EMAIL"
 set_permissions
 add_to_crontab
 #mail_status "$SITENAME" "mmh@bellcom.dk"
+install_features
+
