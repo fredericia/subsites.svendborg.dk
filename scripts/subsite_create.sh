@@ -157,7 +157,7 @@ mail_status() {
   debug "Sending statusmail ($SITENAME)"
 }
 
-install_features{
+install_features(){
     debug "Enabling OS2Web-Backend features ($SITENAME)"
     /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" en  os2web_base 
     debug "Enabling OS2Sub features ($SITENAME)"
