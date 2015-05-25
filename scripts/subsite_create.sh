@@ -157,6 +157,14 @@ mail_status() {
   debug "Sending statusmail ($SITENAME)"
 }
 
+install_features(){
+    debug "Enabling OS2Web-Backend features ($SITENAME)"
+    /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" en  os2web_base 
+    debug "Enabling OS2Sub features ($SITENAME)"
+    /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" en os2sub_banner os2sub_aktivitetskalender os2sub_frontpage
+    debug "Enabling Svendborg frontend features ($SITENAME)"
+     /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" en a_aa_indekx svendborg_blocks svendborg_calendar svendborg_frontpage_nodes svendborg_frontpage_views svendborg_gallery svendborg_image_styles svendborg_views svendborg_slider_banner
+}
 # only allow root to run this script - because of special sudo rights and permissions
 if [[ "$USER" != "root" ]]; then
   echo "ERROR: Run with sudo or as root"
