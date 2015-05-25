@@ -138,6 +138,8 @@ set_permissions() {
   /bin/chgrp -R www-data "$MULTISITE/sites/$SITENAME"
   /bin/chmod -R g+rwX "$MULTISITE/sites/$SITENAME"
   /bin/chmod g-w "$MULTISITE/sites/$SITENAME" "$MULTISITE/sites/$SITENAME/settings.php"
+  /bin/chown -R www-data "$TMPDIR"
+  /bin/chmod -R g+rwX "$TMPDIR"
 }
 
 add_to_crontab() {
