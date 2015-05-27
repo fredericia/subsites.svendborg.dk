@@ -92,7 +92,6 @@ function bc_subsites_status() {
       unlink($log_file);
 
       watchdog('bc_subsite', 'Command pid: %pid, result: <pre>%log</pre>', array('%pid' => $pid, '%log' => $log));
-      error_log(__FILE__ . ' : ' . __LINE__ . ': ' .  print_r($log, 1));
     }
     else {
     }
@@ -183,7 +182,7 @@ function bc_subsites_node_presave($node) {
   $email = $field[0]['value'];
 
   if ($node->is_new) {
-    bc_subsites_create($sitename);
+    bc_subsites_create($sitename, $email);
     bc_subsites_add_domains($sitename, $domains);
   }
   else {
@@ -286,9 +285,9 @@ function bc_subsite_execute($command) {
 /**
  * Create subsite.
  */
-function bc_subsites_create($domain) {
+function bc_subsites_create($domain, $useremail) {
   $domain_suffix = variable_get('bc_subsites_domain_suffix');
-  bc_subsite_execute('subsite_create.sh ' . $domain . $domain_suffix);
+  bc_subsite_execute('subsite_create.sh ' . $domain . $domain_suffix . ' ' . $useremail);
 }
 
 /**

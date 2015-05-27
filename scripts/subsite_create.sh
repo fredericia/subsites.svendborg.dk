@@ -13,13 +13,14 @@ SESSIONDIRBASE="$BASEDIR/sessions"
 DBDIR="/var/lib/mysql"
 PROFILE="os2sub"
 EMAIL="drupal@bellcom.dk"
+USEREMAIL="$2"
 SCRIPTDIR="$(dirname "$0")"
 ADMINPASS=$(cat "$SCRIPTDIR/.admin_password.txt")
 VHOSTTEMPLATE="$BASEDIR/scripts/vhost-template.txt"
 NOW=$(date +"%d/%m/%y %H:%M:%S")
 
-if [ $# -ne 1 ]; then
-  echo "ERROR: Usage: $0 <sitename>"
+if [ $# -ne 2 ]; then
+  echo "ERROR: Usage: $0 <sitename> <email>"
   exit 10
 fi
 
@@ -123,7 +124,7 @@ add_to_hosts() {
 install_drupal() {
   debug "Installing drupal ($SITENAME)"
   # Do a drush site install
-  /usr/bin/drush -q -y -r $MULTISITE site-install $PROFILE --locale="da" --db-url="mysql://$DBUSER:$DBPASS@localhost/$DBNAME" --sites-subdir="$SITENAME" --account-mail="$EMAIL" --site-mail="$EMAIL" --site-name="$SITENAME" --account-pass="$ADMINPASS"
+  /usr/bin/drush -q -y -r $MULTISITE site-install $PROFILE --db-url="mysql://$DBUSER:$DBPASS@localhost/$DBNAME" --sites-subdir="$SITENAME" --account-mail="$EMAIL" --site-mail="$EMAIL" --site-name="$SITENAME" --account-pass="$ADMINPASS"
 
   # Set tmp
   /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset file_temporary_path "$TMPDIR"
@@ -159,6 +160,16 @@ mail_status() {
   debug "Sending statusmail ($SITENAME)"
 }
 
+add_subsiteadmin() {
+  debug "Create subsiteadmin user with email ($USEREMAIL)"
+  # Create user with email specified in subsitecreator.
+  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" user-create subsiteadmin --mail="$USEREMAIL"
+  # Add the role "Administrator"
+  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" user-add-role Administrator subsiteadmin
+  # Send single-use login link.
+  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" ev "_user_mail_notify('password_reset', user_load(2));"
+}
+
 # only allow root to run this script - because of special sudo rights and permissions
 if [[ "$USER" != "root" ]]; then
   echo "ERROR: Run with sudo or as root"
@@ -176,4 +187,4 @@ install_drupal "$EMAIL"
 set_permissions
 add_to_crontab
 #mail_status "$SITENAME" "mmh@bellcom.dk"
-
+add_subsiteadmin
