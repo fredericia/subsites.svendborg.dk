@@ -65,13 +65,21 @@
 	    $html .= '<div class="row">';
 		$html .= '<div class="col-sm-7 col-xs-12">';
 		    $html .= '<div class="title">';
-			    $html .= '<a href="/node/' . $row->nid . '">';
-				$html .= '<span class="indicators">';
-				    $html .= $indicators;
-				$html .= '</span>';
+                   if (isset($node->field_banner_vis_paa_sider['und']) && !empty($node->field_banner_vis_paa_sider['und'][0]['nid'])){
+                       $html .= '<a href="' . url(drupal_get_path_alias('node/' . $node->field_banner_vis_paa_sider['und'][0]['nid'])). '">';
+				//$html .= '<span class="indicators">';
+				 ////   $html .= $indicators;
+				//$html .= '</span>';
 				$html .= $node->title; 
                                
 			    $html .= '</a>';
+                    }
+                    else {
+                       //$html .= '<span class="indicators">';
+				  //  $html .= $indicators;
+				//$html .= '</span>';
+				$html .= $node->title; 
+                    }
 		    $html .= '</div>';//class="title"
 		$html .= '</div>';//class="col-xs-8"
 		

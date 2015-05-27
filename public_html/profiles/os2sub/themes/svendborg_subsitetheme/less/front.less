@@ -80,6 +80,29 @@
   .views-slideshow-cycle-main-frame-row {
     width: 100% !important;
   }
+  #widget_pager_top_svendborg_slider-multi {
+            position: absolute;
+            z-index: 1000;
+            top: 107px;
+            margin-left: auto;
+            margin-right: auto;
+            left:50px;
+            right:0;              
+            .views-slideshow-pager-field-item{
+               font-size: 20px;
+               display: inline-block;
+               background: #c1c1c1;
+               width: 15px;
+               height: 6px;
+               vertical-align: middle;
+               border-radius: 3px;
+               margin-right: 2px;  
+               cursor:pointer;
+              &.active {
+                    background: @brand-lightgreen;
+                }
+            }
+        }
 
   .slider-cover {
     -webkit-background-size: cover;
@@ -117,38 +140,12 @@
       .title {
         background: #fff;
         border-radius: @border-radius-small;
-       
-         a {
-          padding: 5px 25px 10px 25px;
-          display: block;
-          position:relative;
-          -webkit-transform-style: preserve-3d;
-          -moz-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-          /*background-image: url('../images/arrow_right_green.png');
-          background-repeat: no-repeat;
-          background-position: 98% 50%; //right 15px center;*/
-          &:hover, &:active {
-            color: inherit;
-          }
-          &:before{
-                    content: "\f105";
-                    font-family: FontAwesome;
-                    //display: table;
-                    right: 25px;
-                    top: 50%;
-                    transform: translateY(-50%);
-                    color:  @brand-lightgreen;
-                    position: absolute;
-                    font-size: 30px;   
-                    font-weight: lighter;
-            }
-          .indicators {
+        padding: 35px 25px 10px 25px;
+        .indicators {
             font-size: 20px;
             display: block;
             .indicator {
-              margin-right: 5px;
-              
+              margin-right: 5px;              
                span{
                    display: inline-block;
                width: 15px;
@@ -164,6 +161,32 @@
                }
             }
           }
+         a {
+         
+          display: block;
+          position:relative;
+          -webkit-transform-style: preserve-3d;
+          -moz-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+          /*background-image: url('../images/arrow_right_green.png');
+          background-repeat: no-repeat;
+          background-position: 98% 50%; //right 15px center;*/
+          &:hover, &:active {
+            color: inherit;
+          }
+          &:before{
+                    content: "\f105";
+                    font-family: FontAwesome;
+                    //display: table;
+                    right: 0;
+                    top: 50%;
+                    transform: translateY(-50%);
+                    color:  @brand-lightgreen;
+                    position: absolute;
+                    font-size: 30px;   
+                    font-weight: lighter;
+            }
+          
         }
       }
     }

@@ -15,7 +15,7 @@ global $language ;
 }
                 
 ?>
-<div class="views-row">
+<div class="views-row row">
 
    <div class="col-sm-3 col-xs-12  ">
         <div class="event-date">
