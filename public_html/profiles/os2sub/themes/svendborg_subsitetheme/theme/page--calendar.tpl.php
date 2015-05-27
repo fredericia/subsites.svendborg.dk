@@ -80,7 +80,6 @@
 <div class="main-container container"> 
 
  <div class='row'>
-
         <?php /* region--content.tpl.php */ ?>
         <?php  print render($page['content']); ?>
 

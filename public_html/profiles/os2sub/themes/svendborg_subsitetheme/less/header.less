@@ -144,6 +144,7 @@
         background: none;
         &:hover, &.active {
           color: @brand-lightgreen;
+          border-bottom: none;
           
         }
       }
@@ -171,11 +172,11 @@
     .navbar-nav {
        li.active > a:hover  {
               background: none;             
-        border-bottom: 4px solid @brand-lightgreen;
+        //border-bottom: 4px solid @brand-lightgreen;
         
         @media (max-width: 767px) {
              background: @brand-lightgreen;
-             
+            border-bottom: 4px solid @brand-lightgreen;
         }
        }
         .open {
@@ -186,7 +187,8 @@
             background: none;
             color: #fff;
             &:hover,
-            &:focus {
+            &:focus,
+            &.active{
               color: @brand-lightgreen;
               background: none;
               border:none;
@@ -194,6 +196,7 @@
           }
           &:hover {
               background: @gray-dark;
+              border:none;
           }
         }
       }
