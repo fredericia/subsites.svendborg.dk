@@ -121,6 +121,10 @@ function bc_subsites_form_alter(&$form, &$form_state, $form_id) {
     $form['path']['#access'] = FALSE;
     $form['actions']['submit']['#submit'][] = 'bc_subsites_node_redirect_submit';
   }
+  // Hide the domains field on create (to avoid race condition when running scripts in parallel)
+  if (arg(0) == 'node' && arg(1) == 'add') {
+    $form['field_domains']['#access'] = FALSE;
+  }
 }
 
 /**
