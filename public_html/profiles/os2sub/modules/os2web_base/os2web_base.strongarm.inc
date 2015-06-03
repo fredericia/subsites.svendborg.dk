@@ -600,14 +600,14 @@ function os2web_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_os2web_base_contentpage';
-  $strongarm->value = '2';
+  $strongarm->value = '0';
   $export['language_content_type_os2web_base_contentpage'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_os2web_base_gallery';
-  $strongarm->value = '2';
+  $strongarm->value = '0';
   $export['language_content_type_os2web_base_gallery'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -621,7 +621,7 @@ function os2web_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_os2web_base_news';
-  $strongarm->value = '2';
+  $strongarm->value = '0';
   $export['language_content_type_os2web_base_news'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -635,7 +635,7 @@ function os2web_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_os2web_base_selfservice_link';
-  $strongarm->value = '1';
+  $strongarm->value = '0';
   $export['language_content_type_os2web_base_selfservice_link'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -660,7 +660,9 @@ function os2web_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_os2web_base_contentpage';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'main-menu',
+  );
   $export['menu_options_os2web_base_contentpage'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -728,7 +730,7 @@ function os2web_base_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_parent_os2web_base_gallery';
-  $strongarm->value = 'main-menu:801';
+  $strongarm->value = 'main-menu:0';
   $export['menu_parent_os2web_base_gallery'] = $strongarm;
 
   $strongarm = new stdClass();
