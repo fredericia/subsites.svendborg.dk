@@ -68,5 +68,7 @@ dependencies[] = svendborg_image_styles
 dependencies[] = svendborg_views
 dependencies[] = svendborg_slider_banner
 dependencies[] = l10n_update
+dependencies[] = less
+dependencies[] = globalredirect
 
 version = 1.0

@@ -1,7 +1,7 @@
 name = OS2sub Aktivitetskalender
 core = 7.x
 package = OS2Sub
-version = 7.x-1.0
+version = 7.x-1.1
 project = os2sub_aktivitetskalender
 dependencies[] = calendar
 dependencies[] = ctools

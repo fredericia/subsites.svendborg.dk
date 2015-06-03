@@ -16,6 +16,7 @@ function os2web_base_user_default_permissions() {
     'roles' => array(
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'contact',
   );
@@ -25,6 +26,7 @@ function os2web_base_user_default_permissions() {
     'name' => 'access user contact forms',
     'roles' => array(
       'Administrator' => 'Administrator',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'contact',
   );
@@ -35,6 +37,7 @@ function os2web_base_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'Webmaster' => 'Webmaster',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'contact',
   );
@@ -44,6 +47,7 @@ function os2web_base_user_default_permissions() {
     'name' => 'administer content types',
     'roles' => array(
       'Administrator' => 'Administrator',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'node',
   );
@@ -54,6 +58,7 @@ function os2web_base_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'Webmaster' => 'Webmaster',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'filter',
   );
@@ -64,6 +69,7 @@ function os2web_base_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'Webmaster' => 'Webmaster',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'image',
   );
@@ -74,6 +80,7 @@ function os2web_base_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'Webmaster' => 'Webmaster',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'node',
   );
@@ -84,6 +91,7 @@ function os2web_base_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'anonymous user' => 'anonymous user',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'search',
   );
@@ -94,6 +102,7 @@ function os2web_base_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'anonymous user' => 'anonymous user',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'search',
   );
