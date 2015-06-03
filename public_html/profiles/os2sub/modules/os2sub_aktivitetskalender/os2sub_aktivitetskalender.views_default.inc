@@ -473,6 +473,7 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
   );
   $translatables['aktiviteter'] = array(
     t('Master'),

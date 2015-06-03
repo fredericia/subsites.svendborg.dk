@@ -944,6 +944,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
   );
   $handler->display->display_options['filters']['language']['group'] = 1;
   /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
@@ -1634,12 +1635,10 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Sidefod: Global: PHP */
+  /* Sidefod: Handler mangler eller er i stykker */
   $handler->display->display_options['footer']['php']['id'] = 'php';
   $handler->display->display_options['footer']['php']['table'] = 'views';
   $handler->display->display_options['footer']['php']['field'] = 'php';
-  $handler->display->display_options['footer']['php']['php_output'] = '<a href="<?php print url(\'nyheder/nyhedsarkiv\')?>"><?php print t(\'All posts\')?></a>
-';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Felt: Indhold: Oprettelsesdato */
   $handler->display->display_options['fields']['created']['id'] = 'created';
@@ -1703,6 +1702,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
   );
   $handler->display->display_options['filters']['language']['group'] = 1;
   /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
@@ -1803,7 +1803,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['settings'] = array(
-    'image_style' => '',
+    'image_style' => 'os2sub_220x130',
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['delta_offset'] = '0';
@@ -1871,7 +1871,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['settings'] = array(
-    'image_style' => '',
+    'image_style' => 'os2sub_300x175',
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['delta_offset'] = '0';
@@ -2156,6 +2156,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
   );
   $handler->display->display_options['filters']['language']['group'] = 1;
   /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
@@ -2189,12 +2190,10 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '9';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Sidefod: Global: PHP */
+  /* Sidefod: Handler mangler eller er i stykker */
   $handler->display->display_options['footer']['php']['id'] = 'php';
   $handler->display->display_options['footer']['php']['table'] = 'views';
   $handler->display->display_options['footer']['php']['field'] = 'php';
-  $handler->display->display_options['footer']['php']['php_output'] = '<a href="<?php print url(\'nyheder/nyhedsarkiv\')?>"><?php print t(\'Open news archive\')?></a>
-';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Felt: Indhold: Oprettelsesdato */
   $handler->display->display_options['fields']['created']['id'] = 'created';
@@ -2292,6 +2291,7 @@ function svendborg_views_views_default_views() {
 '),
     t('Prev news'),
     t('Tidligere indlæg'),
+    t('php'),
     t('<span class="field-date">[created]</span> [title]'),
     t('three last news'),
     t('Læs mere'),
