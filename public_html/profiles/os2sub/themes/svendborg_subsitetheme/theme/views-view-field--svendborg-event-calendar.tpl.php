@@ -50,8 +50,10 @@ global $language ;
                     <label> <?php print t('Contact');?></label>
                     <div><?php print $node->field_event_calendar_kontakt_per['und'][0]['value']?></div>
                     <div><?php print $node->field_event_calendar_phone['und'][0]['value']?></div>
-                    <div><a href="maito@<?php print $node->field_event_calendar_zip['und'][0]['value']?>"> <?php print t('Send en mail');?></a></div>
-                  </div>
+                    <?php if (isset($node->field_event_calendar_email['und'][0]['value'])): ?>
+                    <div><a href="mailto:<?php print $node->field_event_calendar_email['und'][0]['value']?>"> <?php print t('Send en mail');?></a></div>
+                   <?php endif; ?>
+                 </div>
                  <div class="col-sm-3 col-xs-12 col-sm-offset-1">
                      <?php global $language; ?>
                      <a class="btn-back gradient-lightgreen" href="<?php print url(drupal_get_path_alias('node/' . $node->nid));?>"><?php print t('Book your place'); ?></a>
