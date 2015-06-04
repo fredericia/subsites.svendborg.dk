@@ -7,15 +7,16 @@
     var button_class = "btn-primary";
     var button_normal = "btn-blacknblue";
     var $container = $("#nyheder-content-isotoper .view-content");
+    $('.nav_main_menu').find("a[href='/search']").parent('li').addClass('search');
     check_button(button);
+    
      if (location.hash){        
         $(location.hash).find('.short-aktivity').css('display', 'none');
         $(location.hash).find('.full-aktivity').css('display', 'inline-block');
         var offset = $(location.hash).offset().top-$('#toolbar').height()-$('header').height()*2-$('#top_menu').height();
-        
-        $("body").animate({"scrollTop":offset},"slow");
-        console.log($('header').height());
+        $("body").animate({"scrollTop":offset},"slow");        
      }
+     
     function check_button(button){
       $('.filter-link').removeClass(button_class);
       $('.filter-link').addClass(button_normal);

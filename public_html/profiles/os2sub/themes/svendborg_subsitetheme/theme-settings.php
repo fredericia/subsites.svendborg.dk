@@ -111,6 +111,74 @@ $form['svendborg_subsitetheme_setting']['slider_settings']['calendar_page_slider
     '#default_value' => theme_get_setting('calendar_page_slider_text','svendborg_subsitetheme'),
     '#description'   => t("Text for banner on calendar page"),
  );
+$form['svendborg_subsitetheme_setting']['socialicon'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Social Icon'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+ 
+ $form['svendborg_subsitetheme_setting']['socialicon']['twitter_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Twitter Profile URL'),
+    '#default_value' => theme_get_setting('twitter_url', 'svendborg_subsitetheme'),
+    '#description'   => t("Enter your Twitter Profile URL. Leave blank to hide."),
+  );
+  $form['svendborg_subsitetheme_setting']['socialicon']['facebook_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Facebook Profile URL'),
+    '#default_value' => theme_get_setting('facebook_url', 'svendborg_subsitetheme'),
+    '#description'   => t("Enter your Facebook Profile URL. Leave blank to hide."),
+  );
+  $form['svendborg_subsitetheme_setting']['socialicon']['linkedin_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Linkedin Address'),
+    '#default_value' => theme_get_setting('linkedin_url', 'svendborg_subsitetheme'),
+    '#description'   => t("Enter your Linkedin URL. Leave blank to hide."),
+  );
+  $form['svendborg_subsitetheme_setting']['socialicon']['youtube_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Youtube Address'),
+    '#default_value' => theme_get_setting('youtube_url', 'svendborg_subsitetheme'),
+    '#description'   => t("Enter your Youtube URL. Leave blank to hide."),
+  );
+ $form['svendborg_subsitetheme_setting']['footer-contact'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Footer contact info'),
+    '#collapsible' => TRUE,
+    '#collapsed' => FALSE,
+  );
+ $form['svendborg_subsitetheme_setting']['footer-contact']['company-name'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Company name'),
+    '#default_value' => theme_get_setting('company-name', 'svendborg_subsitetheme'),
+    '#description'   => t("Enter your company. Leave blank to hide."),
+  );
+ $form['svendborg_subsitetheme_setting']['footer-contact']['address'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Address'),
+    '#default_value' => theme_get_setting('address', 'svendborg_subsitetheme'),
+    '#description'   => t("Enter your address. Leave blank to hide."),
+  );
+ $form['svendborg_subsitetheme_setting']['footer-contact']['city'] = array(
+    '#type' => 'textfield',
+    '#title' => t('City'),
+    '#default_value' => theme_get_setting('city', 'svendborg_subsitetheme'),
+    '#description'   => t("Enter your city. Leave blank to hide."),
+  );
+  $form['svendborg_subsitetheme_setting']['footer-contact']['index'] = array(
+    '#type' => 'textfield',
+    '#title' => t('ZIP code'),
+    '#default_value' => theme_get_setting('index', 'svendborg_subsitetheme'),
+    '#description'   => t("Enter your Zip code. Leave blank to hide."),
+  );
+  $form['svendborg_subsitetheme_setting']['footer-contact']['phone'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Phone number'),
+    '#default_value' => theme_get_setting('phone', 'svendborg_subsitetheme'),
+    '#description'   => t("Enter your phone number. Leave blank to hide."),
+  );
+
 $form['#submit'][] = 'svendborg_subsitetheme_settings_form_submit';
 $themes = list_themes();
 

@@ -80,17 +80,28 @@ print "<h2 class='menu-footer " . $menu_item['link']['link_title']. "'>
       <div class="container">
         <div class="row">
         <div class="col-xs-12 social-icons">
-          <a href="https://www.facebook.com/Svendborg" title="Svendborg Kommune Facebook" class="footer_fb" target="_blank">facebook</a>
-          <a href="https://www.twitter.com/" title="Svendborg Kommune Twitter" class="footer_twitter" target="_blank">facebook</a>
-          <a href="http://www.linkedin.com/company/svendborg-kommune" title="Svendborg Kommune Linkedin" class="footer_linkedin" target="_blank">linkedin</a>
-          <a href="http://www.youtube.com/user/wwwsvendborgdk" title="Svendborg Kommune Youtube" class="footer_flickr" target="_blank">youtube</a>
+       <?php if (theme_get_setting('facebook_url', 'svendborg_subsitetheme')):?>
+          <a href="<?php print theme_get_setting('facebook_url', 'svendborg_subsitetheme') ?>" title="Svendborg Kommune Facebook" class="footer_fb" target="_blank">facebook</a>
+        <?php endif;?> 
+        <?php if (theme_get_setting('twitter_url', 'svendborg_subsitetheme')):?>
+          <a href="<?php print theme_get_setting('twitter_url', 'svendborg_subsitetheme') ?>" title="Svendborg Kommune Twitter" class="footer_twitter" target="_blank">facebook</a>
+        <?php endif;?> 
+        <?php if (theme_get_setting('linkedin_url', 'svendborg_subsitetheme')):?>    
+          <a href="<?php print theme_get_setting('linkedin_url', 'svendborg_subsitetheme') ?>" title="Svendborg Kommune Linkedin" class="footer_linkedin" target="_blank">linkedin</a>
+          <?php endif;?>  
+       <?php if (theme_get_setting('youtube_url', 'svendborg_subsitetheme')):?>    
+          <a href="<?php print theme_get_setting('linkedin_url', 'svendborg_subsitetheme') ?>" title="Svendborg Kommune Youtube" class="footer_flickr" target="_blank">youtube</a>
+       <?php endif;?> 
         </div>
        
         <div class="col-xs-12 footer-address">
-            Firmanavn | Layoutvej 12 | 5700 Svendborg | Tlf 00 00 00 00
+           <?php print theme_get_setting('company-name', 'svendborg_subsitetheme'); ?> | 
+           <?php print theme_get_setting('address', 'svendborg_subsitetheme'); ?> | 
+           <?php print theme_get_setting('index', 'svendborg_subsitetheme'); ?> <?php print theme_get_setting('city', 'svendborg_subsitetheme'); ?> | 
+          Tlf <?php print theme_get_setting('phone', 'svendborg_subsitetheme'); ?> 
         </div> 
          <div class="col-xs-12 footer-copyright">
-          Copyright 2015® · Firmanavn</div>
+          Copyright 2015® · <?php print theme_get_setting('company-name', 'svendborg_subsitetheme'); ?></div>
         </div>
         </div>
       </div>
