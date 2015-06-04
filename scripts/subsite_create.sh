@@ -27,6 +27,7 @@ fi
 SITENAME=$(echo "$1" | tr -d ' ')
 USEREMAIL=$(echo "$2" | tr -d ' ')
 DBNAME=${SITENAME//\./_}
+DBNAME=${DBNAME//\-/_}
 VHOST="/etc/apache2/sites-available/$SITENAME"
 
 # only allow root to run this script - because of special sudo rights and permissions
