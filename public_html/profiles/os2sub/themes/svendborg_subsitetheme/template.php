@@ -1066,8 +1066,8 @@ function svendborg_subsitetheme_photoswipe_imagefield($variables){
   return l($image, $variables['path'], $options);
 }
 function svendborg_subsitetheme_views_slideshow_pager_widget_render($vars) {
-    $js_vars = array(
-    'viewsSlideshowPager' => array(
+   $js_vars = array(
+   'viewsSlideshowPager' => array(
       $vars['vss_id'] => array(
         $vars['location'] => array(
           'type' => preg_replace('/_(.?)/e', "strtoupper('$1')", $vars['settings']['type']),
@@ -1075,7 +1075,7 @@ function svendborg_subsitetheme_views_slideshow_pager_widget_render($vars) {
       ),
     ),
   );
-
+ 		 
   drupal_add_js($js_vars, 'setting');
 
   // Create some attributes

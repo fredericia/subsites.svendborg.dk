@@ -37,14 +37,14 @@
       <div class="latest-news-block">
         <?php 
         
-         $view = views_get_view('svendborg_news_view');
+      $view = views_get_view('svendborg_news_view');
       $view->set_display('svendborg_latest_news');
       $view->set_offset(theme_get_setting('large_news','svendborg_subsitetheme'));
       $view->pre_execute();
       $view->execute();
       //var_dump(views_get_view_result('svendborg_news_view', 'svendborg_latest_news'));
-      
-      print '<h2 class="block-title">' . t($view->get_title()) . '</h2>' . $view->render();
+      if (count( $view->result)>0) 
+       print '<h2 class="block-title">' . t($view->get_title()) . '</h2>' . $view->render();
               
         ?>
       </div>
@@ -78,6 +78,7 @@
       <?php if (theme_get_setting('large_news','svendborg_subsitetheme')==4) :?>
       <div class="news-block col-xs-12">
         <?php $view = views_get_view('svendborg_news_view');
+        
               print $view->render('block_7');
         ?>
       </div>
@@ -90,9 +91,8 @@
       $view->set_offset(theme_get_setting('large_news','svendborg_subsitetheme'));
       $view->pre_execute();
       $view->execute();
-      //var_dump(views_get_view_result('svendborg_news_view', 'svendborg_latest_news'));
-      
-      print '<h2 class="block-title">' . t($view->get_title()) . '</h2>' . $view->render();
+      if (count( $view->result)>0)
+            print '<h2 class="block-title">' . t($view->get_title()) . '</h2>' . $view->render();
               
         ?>
       </div>

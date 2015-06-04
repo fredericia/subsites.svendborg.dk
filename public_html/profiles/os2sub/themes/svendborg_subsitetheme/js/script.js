@@ -1,44 +1,28 @@
 /* Svendborg theme script
 */
 ( function ($) {  
-        
-    
-    $( window ).scroll(function() {
-          $('.short-aktivity').each(function() {       
-        $(this).children().children('.open-activity').click(function(event){
-          var container= $(this).closest('.event-content');
-             $('.short-aktivity').css('display', 'inline-block');
-             $('.full-aktivity').css('display', 'none');
-              container.children('.short-aktivity').css('display', 'none');
-              container.children('.full-aktivity').css('display', 'inline-block');
-          return false;
-        });
-     });
-    })
-  $(document).ready(function(){
+   $(document).ready(function(){
 
     var button = 'filter-all';
     var button_class = "btn-primary";
     var button_normal = "btn-blacknblue";
     var $container = $("#nyheder-content-isotoper .view-content");
     check_button(button);
-
+     if (location.hash){        
+        $(location.hash).find('.short-aktivity').css('display', 'none');
+        $(location.hash).find('.full-aktivity').css('display', 'inline-block');
+        var offset = $(location.hash).offset().top-$('#toolbar').height()-$('header').height()*2-$('#top_menu').height();
+        
+        $("body").animate({"scrollTop":offset},"slow");
+        console.log($('header').height());
+     }
     function check_button(button){
       $('.filter-link').removeClass(button_class);
       $('.filter-link').addClass(button_normal);
       $('#'+button).addClass(button_class);
       $('#'+button).removeClass(button_normal);
     }
-   $('.short-aktivity').each(function() {       
-        $(this).children().children('.open-activity').click(function(event){
-          var container= $(this).closest('.event-content');
-             $('.short-aktivity').css('display', 'inline-block');
-             $('.full-aktivity').css('display', 'none');
-              container.children('.short-aktivity').css('display', 'none');
-              container.children('.full-aktivity').css('display', 'inline-block');
-          return false;
-        });
-     });
+ 
     // filter buttons.
     $('.filter-link').click(function(event){
       $(this).addClass(button_class);
@@ -274,7 +258,6 @@ Drupal.behaviors.cittaslow= {
 };
 
   Drupal.cittaslowToggle = function ($block, enable) {
-
   if (enable) {
     $block.animate({width:"351px"});
 
@@ -284,7 +267,37 @@ Drupal.behaviors.cittaslow= {
   }
 };
 
+Drupal.behaviors.bookPlace = {
+  attach: function (context, settings) {
+    $('.btn-book-place').unbind('click').click(function(e){
+      e.preventDefault();
+      var nid = $(e.target).data("node-id");
+      if (nid) {
+        $('.block-book-place[data-node-id="' + nid + '"]').toggle();
+      }
+    });
+  }
+};
+Drupal.behaviors.calendarEvent = {
+  attach: function (){
+ 
+$('.short-aktivity').each(function() {     
+        $(this).children().children('.open-activity').click(function(event){
+          var container= $(this).closest('.event-content');
+             $('.short-aktivity').css('display', 'inline-block');
+             $('.full-aktivity').css('display', 'none');
+              container.children('.short-aktivity').css('display', 'none');
+              container.children('.full-aktivity').css('display', 'inline-block');
+          return false;
+        });
+     });
+   
+  }
+};
 })( jQuery );
+
+
+
 
 
 /**
@@ -293,3 +306,5 @@ Drupal.behaviors.cittaslow= {
 Drupal.behaviors.feedbackFormSubmit = {
   attach: function (context) {}
 };
+
+

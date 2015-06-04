@@ -31,10 +31,10 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-6">
-        <?php print _svendborg_subsitetheme_block_render('locale', 'language'); ?>
+        <?php print _svendborg_subsitetheme_block_render('menu', 'menu-top-left'); ?>
       </div>
       <div class="col-xs-6">
-        <?php print _svendborg_subsitetheme_block_render('block', '1');//login block ?>
+        <?php print _svendborg_subsitetheme_block_render('menu', 'menu-top-right');//login block ?>
       </div>
     </div>
   </div>

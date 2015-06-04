@@ -1087,7 +1087,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['delta_offset'] = '0';
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['separator'] = '';
-  /* Felt: Indhold: Resume - lang overskrift */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -1188,7 +1188,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['created_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created_1']['date_format'] = 'month';
-  /* Felt: Indhold: Resume - lang overskrift */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -1278,7 +1278,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Felt: Indhold: Resume - lang overskrift */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -1580,7 +1580,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Felt: Indhold: Resume - lang overskrift */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -1756,7 +1756,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'div';
   $handler->display->display_options['fields']['title']['element_class'] = 'news-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Felt: Indhold: Resume - lang overskrift */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -1825,7 +1825,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'div';
   $handler->display->display_options['fields']['title']['element_class'] = 'news-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Felt: Indhold: Resume - lang overskrift */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -1885,7 +1885,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'div';
   $handler->display->display_options['fields']['title']['element_class'] = 'news-title';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Felt: Indhold: Resume - lang overskrift */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -1954,7 +1954,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Felt: Indhold: Resume - lang overskrift */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -2085,7 +2085,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
   $handler->display->display_options['fields']['created']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['created']['date_format'] = 'day_and_month';
+  $handler->display->display_options['fields']['created']['date_format'] = 'date_month_and_year';
   /* Felt: Indhold: Titel */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -2095,7 +2095,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Felt: Indhold: Resume - lang overskrift */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';

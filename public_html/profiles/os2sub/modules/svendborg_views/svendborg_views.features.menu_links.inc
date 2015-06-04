@@ -29,31 +29,6 @@ function svendborg_views_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -46,
     'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
-  );
-  // Exported menu link: main-menu_calendar:calendar/upcoming
-  $menu_links['main-menu_calendar:calendar/upcoming'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'calendar/upcoming',
-    'router_path' => 'calendar/upcoming',
-    'link_title' => 'Calendar',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'main-menu_calendar:calendar/upcoming',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -42,
-    'customized' => 1,
-    'language' => 'en',
-    'menu_links_customized' => 1,
   );
   // Exported menu link: main-menu_forside:<front>
   $menu_links['main-menu_forside:<front>'] = array(
@@ -75,8 +50,6 @@ function svendborg_views_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -50,
     'customized' => 1,
-    'language' => 'da',
-    'menu_links_customized' => 1,
   );
   // Exported menu link: main-menu_galleri:gallery
   $menu_links['main-menu_galleri:gallery'] = array(
@@ -98,54 +71,6 @@ function svendborg_views_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -44,
     'customized' => 1,
-    'language' => 'da',
-    'menu_links_customized' => 1,
-  );
-  // Exported menu link: main-menu_gallery:gallery
-  $menu_links['main-menu_gallery:gallery'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'gallery',
-    'router_path' => 'gallery',
-    'link_title' => 'Gallery',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'main-menu_gallery:gallery',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 1,
-    'expanded' => 0,
-    'weight' => -45,
-    'customized' => 1,
-    'language' => 'en',
-    'menu_links_customized' => 1,
-  );
-  // Exported menu link: main-menu_home:<front>
-  $menu_links['main-menu_home:<front>'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => '<front>',
-    'router_path' => '',
-    'link_title' => 'Home',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'main-menu_home:<front>',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 1,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -49,
-    'customized' => 1,
-    'language' => 'en',
-    'menu_links_customized' => 1,
   );
   // Exported menu link: main-menu_kalender:calendar/upcoming
   $menu_links['main-menu_kalender:calendar/upcoming'] = array(
@@ -167,66 +92,76 @@ function svendborg_views_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -43,
     'customized' => 1,
-    'language' => 'da',
-    'menu_links_customized' => 1,
   );
-  // Exported menu link: main-menu_search:search
-  $menu_links['main-menu_search:search'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'search',
-    'router_path' => 'search',
-    'link_title' => 'Search',
+  // Exported menu link: menu-top-left_uk:node/46
+  $menu_links['menu-top-left_uk:node/46'] = array(
+    'menu_name' => 'menu-top-left',
+    'link_path' => 'node/46',
+    'router_path' => 'node/%',
+    'link_title' => 'UK',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'alter' => TRUE,
-      'identifier' => 'main-menu_search:search',
+      'identifier' => 'menu-top-left_uk:node/46',
     ),
     'module' => 'menu',
     'hidden' => 0,
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -41,
+    'weight' => 0,
     'customized' => 1,
-    'language' => 'en',
-    'menu_links_customized' => 1,
   );
-  // Exported menu link: main-menu_sg:search
-  $menu_links['main-menu_sg:search'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'search',
-    'router_path' => 'search',
-    'link_title' => 'Søg',
+  // Exported menu link: menu-top-right_login:user
+  $menu_links['menu-top-right_login:user'] = array(
+    'menu_name' => 'menu-top-right',
+    'link_path' => 'user',
+    'router_path' => 'user',
+    'link_title' => 'Login',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
-      'alter' => TRUE,
-      'identifier' => 'main-menu_sg:search',
+      'identifier' => 'menu-top-right_login:user',
     ),
     'module' => 'menu',
     'hidden' => 0,
     'external' => 0,
     'has_children' => 0,
     'expanded' => 0,
-    'weight' => -40,
+    'weight' => 0,
     'customized' => 1,
-    'language' => 'da',
-    'menu_links_customized' => 1,
+  );
+  // Exported menu link: menu-top-right_sitemap:sitemap
+  $menu_links['menu-top-right_sitemap:sitemap'] = array(
+    'menu_name' => 'menu-top-right',
+    'link_path' => 'sitemap',
+    'router_path' => 'sitemap',
+    'link_title' => 'Sitemap',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'identifier' => 'menu-top-right_sitemap:sitemap',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => 0,
+    'customized' => 1,
   );
   // Translatables
   // Included for use with string extractors like potx.
   t('Blog');
-  t('Calendar');
   t('Forside');
   t('Galleri');
-  t('Gallery');
-  t('Home');
   t('Kalender');
-  t('Search');
-  t('Søg');
+  t('Login');
+  t('Sitemap');
+  t('UK');
 
 
   return $menu_links;
