@@ -79,15 +79,22 @@
     </div>
     </div>
   </header>
-  <?php if(strstr(drupal_get_path_alias($_GET['q']), 'nyheder') || drupal_get_path_alias($_GET['q']) == 'gallery'):?>
-    <div class='front-main-container-wrapper'>
+  <?php  if(drupal_match_path(drupal_get_path_alias($_GET['q']), theme_get_setting('slider_paths','svendborg_subsitetheme'))):?>
     <?php if (theme_get_setting('slider_active','svendborg_subsitetheme')) :?>
         <section class="outer">
-          <?php  //print _svendborg_subsitetheme_block_render('views', 'svendborg_slider-single'); ?>
-          <?php print _svendborg_subsitetheme_block_render('views', 'svendborg_slider-multi'); ?>
-
+        <?php 
+            $view = views_get_view('svendborg_slider');
+            $view->set_display('multi');            
+            $view->pre_execute();
+             $view->execute();
+             $views_result_cnt= count($view->result);
+            if ($views_result_cnt>1)         
+                  print _svendborg_subsitetheme_block_render('views', 'svendborg_slider-multi'); 
+            else
+                 print _svendborg_subsitetheme_block_render('views', 'svendborg_slider-single');
+            ?>
+        </section>
     <?php endif;?>
-    </div>
   <?php endif;?>
   <?php if(drupal_get_path_alias($_GET['q']) == 'calendar/upcoming' || drupal_get_path_alias($_GET['q']) == 'calendar/all'):?>
     <div class='front-main-container-wrapper'>
