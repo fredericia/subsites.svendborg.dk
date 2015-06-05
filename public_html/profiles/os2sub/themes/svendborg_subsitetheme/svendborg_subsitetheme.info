@@ -91,6 +91,8 @@ $info['base_image'] = 'color/base.png';
 ; this module.
 : less[sheets][] = less/variables.less
 
+settings[slider_paths] = '<front>'
+
 ; Grid
 ; --------------
 settings[bootstrap_region_grid-sidebar_first] = 2

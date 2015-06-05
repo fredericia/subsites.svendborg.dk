@@ -94,6 +94,12 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
     '#default_value' => theme_get_setting('slider_overlay','svendborg_subsitetheme'),
     '#description'   => t("Check this option to show dark overlay on the slider banner"),
  );
+ $form['svendborg_subsitetheme_setting']['slider_settings']['slider_paths'] = array(
+    '#type' => 'textarea',
+    '#title' => t('List of pages where slider will be present'),
+    '#default_value' => theme_get_setting('slider_paths','svendborg_subsitetheme'),
+    '#description'   => t("Provide a list of pages, where slider will be shown. Each path must be placed on a new line.<br/>Use <b>&lt;front&gt;</b> for front page"),
+ );
  $form['svendborg_subsitetheme_setting']['slider_settings']['calendar_page_slider_image'] = array(
    '#title' => t('Calendar page slider image'),
     '#description' => t('Image for calendar slider'),

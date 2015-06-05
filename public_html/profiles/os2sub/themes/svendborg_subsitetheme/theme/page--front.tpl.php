@@ -3,13 +3,6 @@
 <?php endif; ?>
 
 <div class='front-main-container-wrapper'>
-  <?php if (theme_get_setting('slider_active','svendborg_subsitetheme')) :?>
-    <section class="outer">
-        <?php  //print _svendborg_subsitetheme_block_render('views', 'svendborg_slider-single'); ?>
-        <?php print _svendborg_subsitetheme_block_render('views', 'svendborg_slider-multi'); ?>
-  
-  <?php endif;?>
-  </div>
   <div class='main-container container'>
     <?php print render($page['header']); ?>
     <div class='row'>
