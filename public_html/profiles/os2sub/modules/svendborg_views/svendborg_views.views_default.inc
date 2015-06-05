@@ -1533,7 +1533,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'col-xs-12';
+  $handler->display->display_options['style_options']['row_class'] = 'row';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -1593,7 +1593,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="row-no-padding  news-row>
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class=" news-row>
 <div class="col-md-2 col-sm-4 col-xs-12 ">
 <div class="field-image">
    <div class=" image">[field_os2web_base_field_lead_img]</div>
@@ -2048,7 +2048,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'col-md-12';
+  $handler->display->display_options['style_options']['row_class'] = 'row';
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
@@ -2108,7 +2108,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class="row-no-padding  news-row>
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<div class=" news-row>
 <div class="col-md-2 col-sm-4 col-xs-12 ">
 <div class="field-image">
    <div class=" image">[field_os2web_base_field_lead_img]</div>
@@ -2269,7 +2269,7 @@ function svendborg_views_views_default_views() {
     t('Blog'),
     t('forfatter'),
     t('Oprettelsesdato'),
-    t('<div class="row-no-padding  news-row>
+    t('<div class=" news-row>
 <div class="col-md-2 col-sm-4 col-xs-12 ">
 <div class="field-image">
    <div class=" image">[field_os2web_base_field_lead_img]</div>
@@ -2295,7 +2295,7 @@ function svendborg_views_views_default_views() {
     t('Latest news 2 col'),
     t('Siden sidst'),
     t('Nyhedsarkiv'),
-    t('<div class="row-no-padding  news-row>
+    t('<div class=" news-row>
 <div class="col-md-2 col-sm-4 col-xs-12 ">
 <div class="field-image">
    <div class=" image">[field_os2web_base_field_lead_img]</div>
