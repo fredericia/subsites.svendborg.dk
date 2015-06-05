@@ -90,3 +90,7 @@ $info['base_image'] = 'color/base.png';
 ; Register non-global sheets to automatically receive variables associated with
 ; this module.
 : less[sheets][] = less/variables.less
+
+; Region Wells
+; --------------
+settings[bootstrap_region_well-sidebar_first] = ''
