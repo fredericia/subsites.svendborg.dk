@@ -13,8 +13,15 @@
      if (location.hash){        
         $(location.hash).find('.short-aktivity').css('display', 'none');
         $(location.hash).find('.full-aktivity').css('display', 'inline-block');
-        var offset = $(location.hash).offset().top-$('#toolbar').height()-$('header').height()*2-$('#top_menu').height();
-        $("body").animate({"scrollTop":offset},"slow");        
+         
+        var offset = $(location.hash).offset().top-$('header').height()*2;
+        if ($('#toolbar').length > 0)
+             offset = offset - $('#toolbar').height();
+         if ($('#top_menu').length > 0)
+             offset = offset - $('#top_menu').height();
+         console.log(offset);
+ 
+          $("body, html").animate({"scrollTop":offset},"slow");        
      }
      
     function check_button(button){
