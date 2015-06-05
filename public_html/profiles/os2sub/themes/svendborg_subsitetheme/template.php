@@ -59,11 +59,12 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
       ($term && $links = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_selfserv'))) {
     $variables['page']['os2web_selfservicelinks'] = _svendborg_subsitetheme_get_selfservicelinks($links);
   }
-   
 
+  
   // Get all the nodes selvbetjeningslinks and give them to the template.
-  if ($node && $link = field_get_items('node', $node, 'field_os2web_base_field_contact')) {
-    $variables['page']['contact']['nid'] = $link[0]['nid'];
+ if ($node && $link = _svendborg_subsitetheme_get_contact()) {
+    $variables['page']['contact']['nid'] = $link;
+  
   }
 
   // Get all related links to this node.
@@ -924,21 +925,21 @@ function _svendborg_subsitetheme_block_render($module, $block_id) {
   return $block_rendered;
 }
 
-/*function _svendborg_subsitetheme_get_contact ($link){
-    $contact = array();  
-  
-    $contactlink = node_load($link[0]['nid']);
-    if ($contactlink) {
-        $contact['phone'] = 
-      $link_fields = field_get_items('node', $contactlink, 'field_os2web_contact_field_phone');
-      if (!empty($link_fields)) {
-        $link_field = array_shift($link_fields);
-        $contact= $link_field['value'];
-      
-      }
+function _svendborg_subsitetheme_get_contact (){
+     $menuParent = menu_get_active_trail();
+ 
+  for ($i=count($menuParent)-1;$i>=0;$i--){
+   // var_dump($menuParent[$i]["link_path"]);
+    $node1 = menu_get_object('node', 1, $menuParent[$i]["link_path"]);
+    if (isset($node1->field_os2web_base_field_contact['und'])){
+        return$link[0]['nid']=$node1->field_os2web_base_field_contact['und'][0]['nid'];
+        
+       
     }
-   return $contact;
-}*/
+      
+ }
+ return false;
+}
 
 function svendborg_subsitetheme_preprocess_views_view_unformatted(&$var) {
   // Determine if this view's content should render in columns.
