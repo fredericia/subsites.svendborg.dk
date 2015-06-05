@@ -9394,7 +9394,6 @@ fieldset[disabled] .btn-orange.active {
   color: #2880b9;
 }
 .related-pages .page-link {
-  margin-right: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -10090,14 +10089,14 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
   padding-left: 18px;
 }
 .btn-back {
-  display: table-cell;
+  display: block;
   vertical-align: middle;
   font-size: 11px;
   font-weight: 700;
   color: #fff;
   font-family: 'Open Sans', Geneva, Verdana, sans-serif;
   border-radius: 3px;
-  padding-left: 10px;
+  padding: 10px 10px;
   text-transform: uppercase;
 }
 .btn-back:active,
