@@ -191,7 +191,19 @@ if ($node && $node->type == "os2web_base_contentpage"){
       ),
     );
   }
+  if ($node && ($node->type == "os2web_base_contentpage" )){
+     
+  echo 'here';
+    $variables['page']['sidebar_first'] = array(
+      '#theme_wrappers' => array('region'),
+      '#region' => 'sidebar_first',   
+      'content' => array(
+        '#markup' =>  drupal_render(menu_tree('menu-menu-indholdsmenu')),
+         '#classes' => array('indholdsmenu') 
+     ),
+    );
   
+  }  
  
   // Hack to force the sidebar_second to be rendered if we have anything to put
   // in it.
@@ -235,6 +247,7 @@ if (!empty($view) && $view->name =='svendborg_news_view' && $view->current_displ
 }
 if ((!empty($view) && $view->name =='svendborg_gallery' && $view->current_display=='page')|| (node && $node->type == "os2web_base_gallery" )) {
     if (!$sidebar_second_hidden && empty($variables['page']['sidebar_first'])) {
+        
     $variables['page']['sidebar_first'] = array(
       '#theme_wrappers' => array('region'),
       '#region' => 'sidebar_first',   
