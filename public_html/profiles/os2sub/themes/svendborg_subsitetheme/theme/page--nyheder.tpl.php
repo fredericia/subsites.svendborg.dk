@@ -79,8 +79,7 @@
 <?php endif; ?>
 
 <div class="main-container container"> 
-
-
+<div class='row'>
 
         <?php /* region--content.tpl.php */ ?>
         <?php print render($page['content']); 
@@ -92,7 +91,7 @@
         <?php endif; ?>
 
    
-         
+ </div>       
 </div>
     
 <?php /* region--footer.tpl.php */ ?>
