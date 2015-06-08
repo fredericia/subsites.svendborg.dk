@@ -85,7 +85,7 @@
  <div class="panel panel-blacknblue">
       <div class="panel-body ">
       
-        <h2> <?php  print render($content['field_os2web_contact_field_dept']); ?> </h2>
+        <h2> <?php  print $node->field_os2web_contact_field_dept['und'][0]['value']; ?> </h2>
         <div class="contact-block-tel"><?php print render($content['field_os2web_contact_field_info'])?> </div>
         <?php if (isset($node->field_os2web_contact_field_show['und']) && $node->field_os2web_contact_field_show['und'][0]['value']==1):?>
         <div class="contact-block-open-hours">

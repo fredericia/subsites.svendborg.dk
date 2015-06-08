@@ -8,6 +8,10 @@
     var button_normal = "btn-blacknblue";
     var $container = $("#nyheder-content-isotoper .view-content");
     $('.nav_main_menu').find("a[href='/search']").parent('li').addClass('search');
+    $('.region-sidebar-first .menu li a').each(function(){
+    $(this).removeAttr('data-target');
+     $(this).removeAttr('data-toggle');
+    });
     check_button(button);
     
      if (location.hash){        
