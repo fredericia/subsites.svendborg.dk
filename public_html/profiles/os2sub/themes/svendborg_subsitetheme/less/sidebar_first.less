@@ -100,14 +100,14 @@
 }
 
 .btn-back{
-    display:table-cell;
+    display: block;
     vertical-align: middle;
     font-size: 11px;
     font-weight: 700;
     color: #fff;
     font-family: @font-family-sans-serif;
     border-radius: @border-radius-small;
-    padding-left: 10px;
+    padding: 10px 10px;
     text-transform: uppercase;
     &:active,
     &:hover {
@@ -211,3 +211,13 @@
         }
     }
 }
+
+.node-type-os2web-base-contentpage {
+    .region-sidebar-first {   
+        ul.menu {
+            li:not(.active-trail){
+                display:block;
+            }
+        }
+    }
+}  

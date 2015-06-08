@@ -83,7 +83,7 @@
   <?php /* region--header.tpl.php */ ?>
   <?php print render($page['header']); ?>
 
-  <div class="row-no-padding">
+  <div class="row">
     <?php if (isset($page['term_is_top']) && $page['term_is_top'] && !empty($page['os2web_selfservicelinks'])) : ?>
       <?php
         // Only show the selvbetjening as a dropdown on top level terms. ?>
@@ -102,7 +102,7 @@
     <?php endif; ?>
   </div>
 
-  <div class="row-no-padding">
+  <div class="row">
 
       <?php /* region--sidebar.tpl.php */ ?>
       <?php if ($page['sidebar_first']): ?>

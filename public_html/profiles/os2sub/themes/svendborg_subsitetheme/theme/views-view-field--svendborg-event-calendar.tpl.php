@@ -6,7 +6,6 @@
  * and open the template in the editor.
  */
 $node = node_load($row->nid);
-
 if (isset($node->field_event_calendar_image['und'][0]['uri'])){
 $style = 'medium';
 $public_filename = image_style_url($style, $node->field_event_calendar_image['und'][0]['uri']);
@@ -15,7 +14,8 @@ global $language ;
 }
                 
 ?>
-<div class="views-row row">
+    
+<div id="event<?php print $node->nid?>" class="views-row row">
 
    <div class="col-sm-3 col-xs-12  ">
         <div class="event-date">
@@ -40,24 +40,45 @@ global $language ;
                 <?php endif;?>
             </div> 
             <div class="event-contact">
-                <div class="col-sm-3 col-xs-12">
+                  <div class="col-sm-3 col-xs-12">
                     <label> <?php print t('Address');?></label>
                     <div><?php print $node->field_event_calendar_field_org['und'][0]['value']?></div>
                     <div><?php print $node->field_event_calendar_addr['und'][0]['value']?></div>
                     <div><?php print $node->field_event_calendar_zip['und'][0]['value']?>, <?php print $node->field_event_calendar_by['und'][0]['value']?></div>
-                </div> 
-                 <div class="col-sm-5 col-xs-12">
+                  </div> 
+                  <div class="col-sm-5 col-xs-12">
                     <label> <?php print t('Contact');?></label>
                     <div><?php print $node->field_event_calendar_kontakt_per['und'][0]['value']?></div>
                     <div><?php print $node->field_event_calendar_phone['und'][0]['value']?></div>
                     <?php if (isset($node->field_event_calendar_email['und'][0]['value'])): ?>
                     <div><a href="mailto:<?php print $node->field_event_calendar_email['und'][0]['value']?>"> <?php print t('Send en mail');?></a></div>
                    <?php endif; ?>
-                 </div>
-                 <div class="col-sm-3 col-xs-12 col-sm-offset-1">
-                     <?php global $language; ?>
-                     <a class="btn-back gradient-lightgreen" href="<?php print url(drupal_get_path_alias('node/' . $node->nid));?>"><?php print t('Book your place'); ?></a>
-                </div>
+                  </div>
+                  <div class="col-sm-3 col-xs-12 col-sm-offset-1">
+                     <?php if ($node->registration->status == 1):?>
+                     <a class="btn-back gradient-lightgreen btn-book-place" href="#" data-node-id="<?php print $node->nid; ?>"><?php print t('Book your place'); ?></a>
+                     <?php endif;?>
+                  </div>
+                  <div class="col-sm-12 block-book-place" style="display: none;" data-node-id="<?php print $node->nid; ?>">
+                     <?php
+                        module_load_include('inc', 'node_registration', 'includes/node_registration.forms');
+                        $registration = entity_get_controller('node_registration')->create(array(
+                              'nid' => $node->nid,
+                              'node' => $node,
+                        ));
+                        $form = drupal_get_form('node_registration_form', $registration);
+                        //hiding elements that we don't need
+                        $form['account']['#prefix']= '<div class="hidden">';
+                        $form['account']['#suffix']= '</div>';
+                        $form['slots']['#prefix']= '<div class="hidden">';
+                        $form['slots']['#suffix']= '</div>';
+
+                        $form['actions']['submit']['#attributes']['class'][] = "gradient-lightgreen";
+                        $form['#action'] .= '?destination=calendar/upcoming#event' . $node->nid;
+                        unset($form['actions']['return']);
+                        print drupal_render($form);
+                     ?>
+                  </div>  
             </div>
        </div>      
       </div>

@@ -59,11 +59,12 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
       ($term && $links = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_selfserv'))) {
     $variables['page']['os2web_selfservicelinks'] = _svendborg_subsitetheme_get_selfservicelinks($links);
   }
-   
 
+  
   // Get all the nodes selvbetjeningslinks and give them to the template.
-  if ($node && $link = field_get_items('node', $node, 'field_os2web_base_field_contact')) {
-    $variables['page']['contact']['nid'] = $link[0]['nid'];
+ if ($node && $link = _svendborg_subsitetheme_get_contact()) {
+    $variables['page']['contact']['nid'] = $link;
+  
   }
 
   // Get all related links to this node.
@@ -190,7 +191,19 @@ if ($node && $node->type == "os2web_base_contentpage"){
       ),
     );
   }
+  if ($node && ($node->type == "os2web_base_contentpage" )){
+     
+  echo 'here';
+    $variables['page']['sidebar_first'] = array(
+      '#theme_wrappers' => array('region'),
+      '#region' => 'sidebar_first',   
+      'content' => array(
+        '#markup' =>  drupal_render(menu_tree('menu-menu-indholdsmenu')),
+         '#classes' => array('indholdsmenu') 
+     ),
+    );
   
+  }  
  
   // Hack to force the sidebar_second to be rendered if we have anything to put
   // in it.
@@ -234,6 +247,7 @@ if (!empty($view) && $view->name =='svendborg_news_view' && $view->current_displ
 }
 if ((!empty($view) && $view->name =='svendborg_gallery' && $view->current_display=='page')|| (node && $node->type == "os2web_base_gallery" )) {
     if (!$sidebar_second_hidden && empty($variables['page']['sidebar_first'])) {
+        
     $variables['page']['sidebar_first'] = array(
       '#theme_wrappers' => array('region'),
       '#region' => 'sidebar_first',   
@@ -924,21 +938,21 @@ function _svendborg_subsitetheme_block_render($module, $block_id) {
   return $block_rendered;
 }
 
-/*function _svendborg_subsitetheme_get_contact ($link){
-    $contact = array();  
-  
-    $contactlink = node_load($link[0]['nid']);
-    if ($contactlink) {
-        $contact['phone'] = 
-      $link_fields = field_get_items('node', $contactlink, 'field_os2web_contact_field_phone');
-      if (!empty($link_fields)) {
-        $link_field = array_shift($link_fields);
-        $contact= $link_field['value'];
-      
-      }
+function _svendborg_subsitetheme_get_contact (){
+     $menuParent = menu_get_active_trail();
+ 
+  for ($i=count($menuParent)-1;$i>=0;$i--){
+   // var_dump($menuParent[$i]["link_path"]);
+    $node1 = menu_get_object('node', 1, $menuParent[$i]["link_path"]);
+    if (isset($node1->field_os2web_base_field_contact['und'])){
+        return$link[0]['nid']=$node1->field_os2web_base_field_contact['und'][0]['nid'];
+        
+       
     }
-   return $contact;
-}*/
+      
+ }
+ return false;
+}
 
 function svendborg_subsitetheme_preprocess_views_view_unformatted(&$var) {
   // Determine if this view's content should render in columns.
@@ -1066,8 +1080,8 @@ function svendborg_subsitetheme_photoswipe_imagefield($variables){
   return l($image, $variables['path'], $options);
 }
 function svendborg_subsitetheme_views_slideshow_pager_widget_render($vars) {
-    $js_vars = array(
-    'viewsSlideshowPager' => array(
+   $js_vars = array(
+   'viewsSlideshowPager' => array(
       $vars['vss_id'] => array(
         $vars['location'] => array(
           'type' => preg_replace('/_(.?)/e', "strtoupper('$1')", $vars['settings']['type']),
@@ -1075,7 +1089,7 @@ function svendborg_subsitetheme_views_slideshow_pager_widget_render($vars) {
       ),
     ),
   );
-
+ 		 
   drupal_add_js($js_vars, 'setting');
 
   // Create some attributes

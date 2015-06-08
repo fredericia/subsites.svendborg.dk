@@ -76,13 +76,19 @@ function os2sub_aktivitetskalender_strongarm() {
         'registration_slots_left' => array(
           'default' => array(
             'weight' => '1',
-            'visible' => TRUE,
+            'visible' => FALSE,
           ),
         ),
         'registration_unregistrable_reason' => array(
           'default' => array(
             'weight' => '1',
-            'visible' => TRUE,
+            'visible' => FALSE,
+          ),
+        ),
+        'language' => array(
+          'default' => array(
+            'weight' => '0',
+            'visible' => FALSE,
           ),
         ),
       ),
@@ -142,9 +148,9 @@ function os2sub_aktivitetskalender_strongarm() {
     'allow_registration_until' => '1 day',
     'registration_success_message' => 'Tak for tilmeldingen',
     'allow_cancellation_until' => '1 day',
-    'allow_exceeding_capacity' => 0,
-    'max_slots_per_registration_authenticated' => 1,
-    'max_slots_per_registration_anonymous' => 1,
+    'allow_exceeding_capacity' => 1,
+    'max_slots_per_registration_authenticated' => 100,
+    'max_slots_per_registration_anonymous' => 100,
     'allow_email_change' => 0,
     'require_email_verification' => FALSE,
     'sender_name' => '',
@@ -204,8 +210,13 @@ Event name: [node:title].
 Event start: [node:event-start].',
     'show_message_access' => 1,
     'show_message_date' => 1,
-    'show_message_capacity' => 1,
+    'show_message_capacity' => 0,
     'show_message_registered' => 1,
+    'date_field' => 'event_calendar_date',
+    'max_registration_date_field' => 'field_svarfrist',
+    'min_registration_date_field' => 'field_synlig_fra',
+    'capacity_field' => 'field_pladser',
+    'status' => 2,
   );
   $export['node_registration_type_settings_event_calendar'] = $strongarm;
 

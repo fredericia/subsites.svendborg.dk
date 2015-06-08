@@ -113,7 +113,7 @@
           </div> 
     <?php if ($node->type != 'os2web_base_contentpage' &&  $node->type != 'os2web_borger_dk_article' && $node->type != 'os2web_base_gallery'): ?>
     <div class="field-date">
-      <?php print format_date($created, 'custom', 'j. F'); ?> -         
+      <?php print format_date($created, 'custom', 'j. F Y'); ?> -         
       <?php print $name;?>
     </div>
     <?php endif; ?>
