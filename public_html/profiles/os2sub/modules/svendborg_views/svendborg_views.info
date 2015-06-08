@@ -9,6 +9,7 @@ dependencies[] = file_entity
 dependencies[] = image
 dependencies[] = menu
 dependencies[] = metatag
+dependencies[] = os2web_contact
 dependencies[] = search
 dependencies[] = strongarm
 dependencies[] = views
