@@ -93,6 +93,27 @@ function svendborg_views_menu_default_menu_links() {
     'weight' => -43,
     'customized' => 1,
   );
+  // Exported menu link: main-menu_sg:search
+  $menu_links['main-menu_sg:search'] = array(
+    'menu_name' => 'main-menu',
+    'link_path' => 'search',
+    'router_path' => 'search',
+    'link_title' => 'Søg',
+    'options' => array(
+      'attributes' => array(
+        'title' => '',
+      ),
+      'alter' => TRUE,
+      'identifier' => 'main-menu_sg:search',
+    ),
+    'module' => 'menu',
+    'hidden' => 0,
+    'external' => 0,
+    'has_children' => 0,
+    'expanded' => 0,
+    'weight' => -41,
+    'customized' => 1,
+  );
   // Exported menu link: menu-top-left_uk:node/46
   $menu_links['menu-top-left_uk:node/46'] = array(
     'menu_name' => 'menu-top-left',
@@ -161,6 +182,7 @@ function svendborg_views_menu_default_menu_links() {
   t('Kalender');
   t('Login');
   t('Sitemap');
+  t('Søg');
   t('UK');
 
 

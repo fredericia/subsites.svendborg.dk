@@ -10,6 +10,16 @@
 function os2web_base_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: 'access site map'.
+  $permissions['access site map'] = array(
+    'name' => 'access site map',
+    'roles' => array(
+      'Administrator' => 'Administrator',
+      'anonymous user' => 'anonymous user',
+    ),
+    'module' => 'site_map',
+  );
+
   // Exported permission: 'access site-wide contact form'.
   $permissions['access site-wide contact form'] = array(
     'name' => 'access site-wide contact form',
