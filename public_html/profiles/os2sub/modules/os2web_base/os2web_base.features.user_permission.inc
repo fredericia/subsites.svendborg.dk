@@ -17,6 +17,7 @@ function os2web_base_user_default_permissions() {
       'Administrator' => 'Administrator',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'site_map',
   );
