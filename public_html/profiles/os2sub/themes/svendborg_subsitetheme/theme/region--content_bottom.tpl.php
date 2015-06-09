@@ -32,11 +32,11 @@
     <?php if ($content_attributes): ?></div><?php endif; ?>
  <?php if(!empty($page['page']['related_links'])) : ?>
      <?php if($page['page']['related_pages_type']=='links'):?>   
-      <div class="panel panel-primary related-pages links">
+      <div class="panel panel-primary related-pages links row">
         <div class="panel-body">
          
           <?php foreach ($page['page']['related_links'] as $link) : ?>
-            <div class="row page-link col-md-3 col-sm-6 col-xs-12">
+            <div class="page-link col-md-3 col-sm-6 col-xs-12">
                 <span>
               <?php if (isset($link['url'])): ?>
                 <?php print l($link['title'], $link['url'], array('attributes' => array('class' => $link['class']))); ?>
@@ -51,7 +51,7 @@
         </div>
       </div>
        <?php else: ?> 
-        <div class="panel related-pages boxes">
+        <div class=" row panel related-pages boxes">
             <div class="panel-heading">
                 <?php print t('Related articles');?>
              </div>   
@@ -59,7 +59,7 @@
          
           <?php foreach ($page['page']['related_links'] as $link) : ?>
              <?php if (isset($link['image'])): ?>
-            <div class="row page-link col-md-3 col-sm-6 col-xs-12">
+            <div class="page-link col-md-3 col-sm-6 col-xs-12">
                <div class="image">
                <?php print theme('image_style',array('style_name' => 'large','path'=>$link['image']));?>   
                 </div>   

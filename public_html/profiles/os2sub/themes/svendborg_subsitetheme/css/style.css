@@ -8832,6 +8832,9 @@ a.gradient-deepdarkgreen {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff85c500', endColorstr='#ff679800', GradientType=0);
 }
+.page-node .region-content .field-date {
+  margin-top: 15px;
+}
 .btn-default {
   color: #ffffff;
   background-image: -webkit-linear-gradient(top, #2474a8 0%, #2880b9 100%);
@@ -9391,7 +9394,6 @@ fieldset[disabled] .btn-orange.active {
   color: #2880b9;
 }
 .related-pages .page-link {
-  margin-right: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -9406,7 +9408,7 @@ fieldset[disabled] .btn-orange.active {
   font-family: 'Titillium Web', Geneva, Verdana, sans-serif;
   font-size: 24px;
   font-weight: 600;
-  text-align: initial;
+  text-align: left;
   padding-left: 5px;
 }
 .related-pages.boxes div.image {
@@ -9450,7 +9452,6 @@ fieldset[disabled] .btn-orange.active {
   vertical-align: middle;
   padding-left: 20px;
   padding-right: 30px;
-  position: relative;
   color: #fff;
   font: 1.5em 'Titillium Web', Geneva, Verdana, sans-serif;
   font-weight: 600;
@@ -9467,7 +9468,7 @@ fieldset[disabled] .btn-orange.active {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  right: 10px;
+  right: 20px;
   color: #FFF;
   font-size: 30px;
   font-weight: lighter;
@@ -9721,38 +9722,57 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
   text-decoration: none;
   border-radius: 1px 1px 1px 1px;
 }
-#top_menu .right-block {
+#top_menu #block-menu-menu-top-right {
   display: inline-block;
   float: right;
 }
-#top_menu .right-block a.login {
-  background: url('../images/login_icon.png') 0px 17px no-repeat;
+#top_menu #block-menu-menu-top-right ul.menu {
+  margin-bottom: 0px;
+  padding: 0;
+}
+#top_menu #block-menu-menu-top-right ul.menu li {
+  display: inline-block;
+  list-style: none;
+  padding-left: 7px;
+  padding-right: 10px;
+  border-right: #fff 1px solid;
+  line-height: 15px;
+}
+#top_menu #block-menu-menu-top-right ul.menu li a {
+  padding: 0;
+}
+#top_menu #block-menu-menu-top-right ul.menu li.first a {
+  background: url('../images/login_icon.png') 0px 2px no-repeat;
   padding-left: 20px;
 }
-#top_menu .block-locale {
+#top_menu #block-menu-menu-top-right ul.menu li.last {
+  border-right: none;
+  padding-right: 0;
+}
+#top_menu #block-menu-menu-top-left {
   z-index: 900;
 }
-#top_menu .block-locale h2.block-title {
+#top_menu #block-menu-menu-top-left h2.block-title {
   float: left;
   font-size: 13px;
   font-weight: normal;
   line-height: initial;
   font-family: 'Open Sans';
 }
-#top_menu .block-locale ul.language-switcher-locale-url {
+#top_menu #block-menu-menu-top-left h2.block-title:after {
+  content: ':';
+}
+#top_menu #block-menu-menu-top-left ul.menu {
   margin-bottom: 0px;
   padding: 0;
   z-index: 9000;
   float: left;
 }
-#top_menu .block-locale ul.language-switcher-locale-url li {
+#top_menu #block-menu-menu-top-left ul.menu li {
   display: inline-block;
   list-style: none;
 }
-#top_menu .block-locale ul.language-switcher-locale-url li.active {
-  display: none;
-}
-#top_menu .block-locale ul.language-switcher-locale-url li a {
+#top_menu #block-menu-menu-top-left ul.menu li a {
   font-weight: bold;
   padding: 0 0 0 5px;
 }
@@ -9835,7 +9855,7 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
   color: #85c500;
   border-bottom: none;
 }
-.header_fixed .navbar-nav > li.last.leaf a:before {
+.header_fixed .navbar-nav > li.search a:before {
   content: "\e003";
   display: block;
   width: 23px;
@@ -9851,12 +9871,15 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
   background: none;
   border: none;
 }
-.header_fixed .navbar-default .navbar-nav li.active > a:hover {
+.header_fixed .navbar-default .navbar-nav li.active > a:hover,
+.header_fixed .navbar-default .navbar-nav a.active-trail {
   background: none;
 }
 @media (max-width: 767px) {
-  .header_fixed .navbar-default .navbar-nav li.active > a:hover {
+  .header_fixed .navbar-default .navbar-nav li.active > a:hover,
+  .header_fixed .navbar-default .navbar-nav a.active-trail {
     background: #85c500;
+    border-bottom: 4px solid #85c500;
   }
 }
 @media (max-width: 767px) {
@@ -10065,14 +10088,14 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
   padding-left: 18px;
 }
 .btn-back {
-  display: table-cell;
+  display: block;
   vertical-align: middle;
   font-size: 11px;
   font-weight: 700;
   color: #fff;
   font-family: 'Open Sans', Geneva, Verdana, sans-serif;
   border-radius: 3px;
-  padding-left: 10px;
+  padding: 10px 10px;
   text-transform: uppercase;
 }
 .btn-back:active,
@@ -11561,7 +11584,7 @@ h2.menu-footer a.Kommunen {
   vertical-align: middle;
   border-radius: 3px;
   margin-right: 2px;
-  cursor: poiner;
+  cursor: pointer;
 }
 .view-svendborg-slider #widget_pager_top_svendborg_slider-multi .views-slideshow-pager-field-item.active,
 .page-calendar-slider #widget_pager_top_svendborg_slider-multi .views-slideshow-pager-field-item.active {
@@ -12362,4 +12385,7 @@ and open the template in the editor.
   float: right;
   width: 100%;
   text-align: center;
+}
+.page-calendar .view-svendborg-event-calendar .block-book-place {
+  margin-top: 20px;
 }

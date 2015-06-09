@@ -412,35 +412,17 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['fields']['path']['label'] = '';
   $handler->display->display_options['fields']['path']['exclude'] = TRUE;
   $handler->display->display_options['fields']['path']['element_label_colon'] = FALSE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Felt: Open link */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['ui_name'] = 'Open link';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="[path]" class="event-popup" id = "event-popup"  name="node-[nid]" title="[title_1]">[title]</a>';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="calendar/upcoming#event[nid]">Aben</a>
+';
+  $handler->display->display_options['fields']['nothing']['element_type'] = 'span';
+  $handler->display->display_options['fields']['nothing']['element_class'] = 'open-link';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Felt: Indhold: Redigér-link */
-  $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
-  $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
-  $handler->display->display_options['fields']['edit_node']['label'] = '';
-  $handler->display->display_options['fields']['edit_node']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['edit_node']['alter']['make_link'] = TRUE;
-  $handler->display->display_options['fields']['edit_node']['alter']['alt'] = '[title_1]';
-  $handler->display->display_options['fields']['edit_node']['alter']['link_class'] = 'event-popup';
-  $handler->display->display_options['fields']['edit_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['edit_node']['text'] = 'ABEN';
-  /* Felt: Indhold: Link */
-  $handler->display->display_options['fields']['view_node']['id'] = 'view_node';
-  $handler->display->display_options['fields']['view_node']['table'] = 'views_entity_node';
-  $handler->display->display_options['fields']['view_node']['field'] = 'view_node';
-  $handler->display->display_options['fields']['view_node']['label'] = '';
-  $handler->display->display_options['fields']['view_node']['element_type'] = 'span';
-  $handler->display->display_options['fields']['view_node']['element_class'] = 'open-link';
-  $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['view_node']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['view_node']['text'] = 'Aben';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filterkriterie: Indhold: Udgivet */
@@ -499,8 +481,8 @@ function os2sub_aktivitetskalender_views_default_views() {
     t('Block'),
     t('Upcoming'),
     t('Upcoming events block'),
-    t('ABEN'),
-    t('Aben'),
+    t('<a href="calendar/upcoming#event[nid]">Aben</a>
+'),
   );
   $export['aktiviteter'] = $view;
 
