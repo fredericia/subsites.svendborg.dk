@@ -45,14 +45,14 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'default';
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Felt: Handler mangler eller er i stykker */
+  /* Felt: Broken/missing handler */
   $handler->display->display_options['fields']['field_kulturkalender_dato']['id'] = 'field_kulturkalender_dato';
   $handler->display->display_options['fields']['field_kulturkalender_dato']['table'] = 'field_data_field_kulturkalender_dato';
   $handler->display->display_options['fields']['field_kulturkalender_dato']['field'] = 'field_kulturkalender_dato';
   $handler->display->display_options['fields']['field_kulturkalender_dato']['label'] = '';
   $handler->display->display_options['fields']['field_kulturkalender_dato']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_kulturkalender_dato']['element_label_colon'] = FALSE;
-  /* Felt: Handler mangler eller er i stykker */
+  /* Felt: Broken/missing handler */
   $handler->display->display_options['fields']['field_kulturkalender_link']['id'] = 'field_kulturkalender_link';
   $handler->display->display_options['fields']['field_kulturkalender_link']['table'] = 'field_data_field_kulturkalender_link';
   $handler->display->display_options['fields']['field_kulturkalender_link']['field'] = 'field_kulturkalender_link';
@@ -82,7 +82,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['max_length'] = '50';
   $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Felt: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -95,26 +95,26 @@ function svendborg_views_views_default_views() {
   </div>
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
-  /* Sorteringskriterie: Indhold: Oprettelsesdato */
+  /* Sort criterion: Indhold: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filter criterion: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'kulturkalender' => 'kulturkalender',
   );
-  /* Filterkriterie: Handler mangler eller er i stykker */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['field_kulturkalender_kategori_id_value']['id'] = 'field_kulturkalender_kategori_id_value';
   $handler->display->display_options['filters']['field_kulturkalender_kategori_id_value']['table'] = 'field_data_field_kulturkalender_kategori_id';
   $handler->display->display_options['filters']['field_kulturkalender_kategori_id_value']['field'] = 'field_kulturkalender_kategori_id_value';
@@ -126,21 +126,21 @@ function svendborg_views_views_default_views() {
   /* Display: Page */
   $handler = $view->new_display('page', 'Page', 'page');
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Handler mangler eller er i stykker */
+  /* Felt: Broken/missing handler */
   $handler->display->display_options['fields']['field_kulturkalender_dato']['id'] = 'field_kulturkalender_dato';
   $handler->display->display_options['fields']['field_kulturkalender_dato']['table'] = 'field_data_field_kulturkalender_dato';
   $handler->display->display_options['fields']['field_kulturkalender_dato']['field'] = 'field_kulturkalender_dato';
   $handler->display->display_options['fields']['field_kulturkalender_dato']['label'] = '';
   $handler->display->display_options['fields']['field_kulturkalender_dato']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_kulturkalender_dato']['element_label_colon'] = FALSE;
-  /* Felt: Handler mangler eller er i stykker */
+  /* Felt: Broken/missing handler */
   $handler->display->display_options['fields']['field_kulturkalender_dato_1']['id'] = 'field_kulturkalender_dato_1';
   $handler->display->display_options['fields']['field_kulturkalender_dato_1']['table'] = 'field_data_field_kulturkalender_dato';
   $handler->display->display_options['fields']['field_kulturkalender_dato_1']['field'] = 'field_kulturkalender_dato';
   $handler->display->display_options['fields']['field_kulturkalender_dato_1']['label'] = '';
   $handler->display->display_options['fields']['field_kulturkalender_dato_1']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_kulturkalender_dato_1']['element_label_colon'] = FALSE;
-  /* Felt: Handler mangler eller er i stykker */
+  /* Felt: Broken/missing handler */
   $handler->display->display_options['fields']['field_kulturkalender_link']['id'] = 'field_kulturkalender_link';
   $handler->display->display_options['fields']['field_kulturkalender_link']['table'] = 'field_data_field_kulturkalender_link';
   $handler->display->display_options['fields']['field_kulturkalender_link']['field'] = 'field_kulturkalender_link';
@@ -170,7 +170,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['body']['alter']['max_length'] = '800';
   $handler->display->display_options['fields']['body']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Felt: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -193,27 +193,27 @@ function svendborg_views_views_default_views() {
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteringskriterie: Handler mangler eller er i stykker */
+  /* Sort criterion: Broken/missing handler */
   $handler->display->display_options['sorts']['field_kulturkalender_dato_value']['id'] = 'field_kulturkalender_dato_value';
   $handler->display->display_options['sorts']['field_kulturkalender_dato_value']['table'] = 'field_data_field_kulturkalender_dato';
   $handler->display->display_options['sorts']['field_kulturkalender_dato_value']['field'] = 'field_kulturkalender_dato_value';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filter criterion: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'kulturkalender' => 'kulturkalender',
   );
-  /* Filterkriterie: Handler mangler eller er i stykker */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['field_kulturkalender_kategori_id_value']['id'] = 'field_kulturkalender_kategori_id_value';
   $handler->display->display_options['filters']['field_kulturkalender_kategori_id_value']['table'] = 'field_data_field_kulturkalender_kategori_id';
   $handler->display->display_options['filters']['field_kulturkalender_kategori_id_value']['field'] = 'field_kulturkalender_kategori_id_value';
@@ -221,7 +221,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['filters']['field_kulturkalender_kategori_id_value']['value'] = array(
     'value' => '3',
   );
-  /* Filterkriterie: Handler mangler eller er i stykker */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['field_kulturkalender_dato_value']['id'] = 'field_kulturkalender_dato_value';
   $handler->display->display_options['filters']['field_kulturkalender_dato_value']['table'] = 'field_data_field_kulturkalender_dato';
   $handler->display->display_options['filters']['field_kulturkalender_dato_value']['field'] = 'field_kulturkalender_dato_value';
@@ -242,39 +242,39 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '2';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Sidefod: Global: Tekstområde */
+  /* Sidefod: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<a class="btn btn-primary" href="http://www.svendborgkultur.dk/">Se kulturkalender</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['sorts'] = FALSE;
-  /* Sorteringskriterie: Handler mangler eller er i stykker */
+  /* Sort criterion: Broken/missing handler */
   $handler->display->display_options['sorts']['field_kulturkalender_dato_value']['id'] = 'field_kulturkalender_dato_value';
   $handler->display->display_options['sorts']['field_kulturkalender_dato_value']['table'] = 'field_data_field_kulturkalender_dato';
   $handler->display->display_options['sorts']['field_kulturkalender_dato_value']['field'] = 'field_kulturkalender_dato_value';
-  /* Sorteringskriterie: Indhold: Oprettelsesdato */
+  /* Sort criterion: Indhold: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
   $handler->display->display_options['defaults']['filter_groups'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filter criterion: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['value'] = array(
     'kulturkalender' => 'kulturkalender',
   );
-  /* Filterkriterie: Handler mangler eller er i stykker */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['field_kulturkalender_kategori_id_value']['id'] = 'field_kulturkalender_kategori_id_value';
   $handler->display->display_options['filters']['field_kulturkalender_kategori_id_value']['table'] = 'field_data_field_kulturkalender_kategori_id';
   $handler->display->display_options['filters']['field_kulturkalender_kategori_id_value']['field'] = 'field_kulturkalender_kategori_id_value';
@@ -282,7 +282,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['filters']['field_kulturkalender_kategori_id_value']['value'] = array(
     'value' => '3',
   );
-  /* Filterkriterie: Handler mangler eller er i stykker */
+  /* Filter criterion: Broken/missing handler */
   $handler->display->display_options['filters']['field_kulturkalender_dato_value']['id'] = 'field_kulturkalender_dato_value';
   $handler->display->display_options['filters']['field_kulturkalender_dato_value']['table'] = 'field_data_field_kulturkalender_dato';
   $handler->display->display_options['filters']['field_kulturkalender_dato_value']['field'] = 'field_kulturkalender_dato_value';
@@ -313,6 +313,7 @@ function svendborg_views_views_default_views() {
   </div>
 </div>'),
     t('Page'),
+    t('more'),
     t('<div class="front-s-news-item front-s-news-item-">
 <div class="front-s-news-item-text clearfix">
                 <div class="col-md-2 col-sm-2 col-xs-2">
@@ -386,7 +387,7 @@ function svendborg_views_views_default_views() {
       'empty_column' => 0,
     ),
   );
-  /* Forbindelse: Indhold: Forfatter */
+  /* Relationship: Indhold: Forfatter */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
@@ -401,12 +402,12 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
-  /* Felt: Indhold: Opdateringsdato */
+  /* Felt: Indhold: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['date_format'] = 'short';
-  /* Felt: Indhold: Oprettelsesdato */
+  /* Felt: Indhold: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -417,12 +418,12 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
-  /* Sorteringskriterie: Indhold: Opdateringsdato */
+  /* Sort criterion: Indhold: Updated date */
   $handler->display->display_options['sorts']['changed']['id'] = 'changed';
   $handler->display->display_options['sorts']['changed']['table'] = 'node';
   $handler->display->display_options['sorts']['changed']['field'] = 'changed';
   $handler->display->display_options['sorts']['changed']['order'] = 'DESC';
-  /* Kontekstuelt filter: Indhold: Forfatter uid */
+  /* Contextual filter: Indhold: Author uid */
   $handler->display->display_options['arguments']['uid']['id'] = 'uid';
   $handler->display->display_options['arguments']['uid']['table'] = 'node';
   $handler->display->display_options['arguments']['uid']['field'] = 'uid';
@@ -505,7 +506,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Handler mangler eller er i stykker */
+  /* Felt: Broken/missing handler */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'node';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -522,12 +523,12 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['type']['id'] = 'type';
   $handler->display->display_options['fields']['type']['table'] = 'node';
   $handler->display->display_options['fields']['type']['field'] = 'type';
-  /* Felt: Indhold: Opdateringsdato */
+  /* Felt: Indhold: Updated date */
   $handler->display->display_options['fields']['changed']['id'] = 'changed';
   $handler->display->display_options['fields']['changed']['table'] = 'node';
   $handler->display->display_options['fields']['changed']['field'] = 'changed';
   $handler->display->display_options['fields']['changed']['date_format'] = 'short';
-  /* Felt: Indhold: Oprettelsesdato */
+  /* Felt: Indhold: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -538,7 +539,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['name']['table'] = 'users';
   $handler->display->display_options['fields']['name']['field'] = 'name';
   $handler->display->display_options['fields']['name']['relationship'] = 'uid';
-  /* Felt: Handler mangler eller er i stykker */
+  /* Felt: Broken/missing handler */
   $handler->display->display_options['fields']['publishcontent']['id'] = 'publishcontent';
   $handler->display->display_options['fields']['publishcontent']['table'] = 'node';
   $handler->display->display_options['fields']['publishcontent']['field'] = 'publishcontent';
@@ -559,13 +560,14 @@ function svendborg_views_views_default_views() {
     t('‹ forrige'),
     t('næste ›'),
     t('sidste »'),
-    t('forfatter'),
+    t('author'),
     t('Type'),
-    t('Opdateringsdato'),
+    t('Updated date'),
     t('Oprettet'),
     t('Navn'),
     t('Alle'),
     t('Page'),
+    t('more'),
     t('Blok'),
     t('Vælg'),
     t('Udgiv'),
@@ -603,7 +605,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['style_options']['default_row_class'] = FALSE;
   $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Overskrift: Global: Tekstområde */
+  /* Overskrift: Global: Text area */
   $handler->display->display_options['header']['area']['id'] = 'area';
   $handler->display->display_options['header']['area']['table'] = 'views';
   $handler->display->display_options['header']['area']['field'] = 'area';
@@ -632,7 +634,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['name']['element_type'] = '0';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Felt: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -645,7 +647,7 @@ function svendborg_views_views_default_views() {
     1 => 'AND',
     2 => 'OR',
   );
-  /* Filterkriterie: Ordforråd: Internt navn */
+  /* Filter criterion: Ordforråd: Internt navn */
   $handler->display->display_options['filters']['machine_name']['id'] = 'machine_name';
   $handler->display->display_options['filters']['machine_name']['table'] = 'taxonomy_vocabulary';
   $handler->display->display_options['filters']['machine_name']['field'] = 'machine_name';
@@ -653,19 +655,19 @@ function svendborg_views_views_default_views() {
     'os2web_base_tax_site_structure' => 'os2web_base_tax_site_structure',
   );
   $handler->display->display_options['filters']['machine_name']['group'] = 1;
-  /* Filterkriterie: Ord i ordforråd: Navn */
+  /* Filter criterion: Ord i ordforråd: Navn */
   $handler->display->display_options['filters']['name']['id'] = 'name';
   $handler->display->display_options['filters']['name']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['name']['field'] = 'name';
   $handler->display->display_options['filters']['name']['value'] = 'Borger';
   $handler->display->display_options['filters']['name']['group'] = 2;
-  /* Filterkriterie: Ord i ordforråd: Navn */
+  /* Filter criterion: Ord i ordforråd: Navn */
   $handler->display->display_options['filters']['name_1']['id'] = 'name_1';
   $handler->display->display_options['filters']['name_1']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['name_1']['field'] = 'name';
   $handler->display->display_options['filters']['name_1']['value'] = 'Erhverv';
   $handler->display->display_options['filters']['name_1']['group'] = 2;
-  /* Filterkriterie: Ord i ordforråd: Navn */
+  /* Filter criterion: Ord i ordforråd: Navn */
   $handler->display->display_options['filters']['name_2']['id'] = 'name_2';
   $handler->display->display_options['filters']['name_2']['table'] = 'taxonomy_term_data';
   $handler->display->display_options['filters']['name_2']['field'] = 'name';
@@ -696,7 +698,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['name']['element_type'] = '0';
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['element_default_classes'] = FALSE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Felt: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -725,6 +727,7 @@ function svendborg_views_views_default_views() {
 <div class="btn btn-blacknblue filter-link col-md-12 col-sm-12 col-xs-12" id="filter-[tid]" data-filter="[tid]">[name]</div>
 </div>'),
     t('Block'),
+    t('more'),
     t('Content pane'),
     t('View panes'),
   );
@@ -767,11 +770,11 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['tags']['next'] = 'næste ›';
   $handler->display->display_options['pager']['options']['tags']['last'] = 'sidste »';
   $handler->display->display_options['style_plugin'] = 'table';
-  /* Overskrift: Global: Ufiltreret tekst */
+  /* Overskrift: Global: Unfiltered text */
   $handler->display->display_options['header']['area_text_custom']['id'] = 'area_text_custom';
   $handler->display->display_options['header']['area_text_custom']['table'] = 'views';
   $handler->display->display_options['header']['area_text_custom']['field'] = 'area_text_custom';
-  /* Felt: Handler mangler eller er i stykker */
+  /* Felt: Broken/missing handler */
   $handler->display->display_options['fields']['views_bulk_operations']['id'] = 'views_bulk_operations';
   $handler->display->display_options['fields']['views_bulk_operations']['table'] = 'users';
   $handler->display->display_options['fields']['views_bulk_operations']['field'] = 'views_bulk_operations';
@@ -791,18 +794,18 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['access']['table'] = 'users';
   $handler->display->display_options['fields']['access']['field'] = 'access';
   $handler->display->display_options['fields']['access']['date_format'] = 'os2web_base_date_only';
-  /* Sorteringskriterie: Bruger: Seneste login */
+  /* Sort criterion: Bruger: Seneste login */
   $handler->display->display_options['sorts']['login']['id'] = 'login';
   $handler->display->display_options['sorts']['login']['table'] = 'users';
   $handler->display->display_options['sorts']['login']['field'] = 'login';
-  /* Filterkriterie: Bruger: Aktiv */
+  /* Filter criterion: Bruger: Aktiv */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'users';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = '1';
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterie: Bruger: Seneste login */
+  /* Filter criterion: Bruger: Seneste login */
   $handler->display->display_options['filters']['login']['id'] = 'login';
   $handler->display->display_options['filters']['login']['table'] = 'users';
   $handler->display->display_options['filters']['login']['field'] = 'login';
@@ -854,12 +857,13 @@ function svendborg_views_views_default_views() {
     t('‹ forrige'),
     t('næste ›'),
     t('sidste »'),
-    t('Handler i stykker users.views_bulk_operations'),
+    t('Broken handler users.views_bulk_operations'),
     t('Navn'),
     t('Seneste login'),
     t('Seneste tilgang'),
     t('Relativt til det aktuelle tidspunkt, f.eks. "-30 day" eller "-2 hours -30 minutes"'),
     t('Page'),
+    t('more'),
   );
   $export['svendborg_inactive_users'] = $view;
 
@@ -899,12 +903,12 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Sorteringskriterie: Indhold: Oprettelsesdato */
+  /* Sort criterion: Indhold: Post date */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Kontekstuelt filter: Indhold: Nyhedstype (field_os2web_news_page_type) */
+  /* Contextual filter: Indhold: Nyhedstype (field_os2web_news_page_type) */
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['id'] = 'field_os2web_news_page_type_tid';
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['table'] = 'field_data_field_os2web_news_page_type';
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['field'] = 'field_os2web_news_page_type_tid';
@@ -923,14 +927,14 @@ function svendborg_views_views_default_views() {
     1 => 'AND',
     2 => 'OR',
   );
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filter criterion: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -938,7 +942,7 @@ function svendborg_views_views_default_views() {
     'os2web_base_news' => 'os2web_base_news',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filterkriterie: Indhold: Sprog */
+  /* Filter criterion: Indhold: Sprog */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -947,14 +951,14 @@ function svendborg_views_views_default_views() {
     'und' => 'und',
   );
   $handler->display->display_options['filters']['language']['group'] = 1;
-  /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
+  /* Filter criterion: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['id'] = 'field_os2web_news_page_archive_value';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['table'] = 'field_data_field_os2web_news_page_archive';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['field'] = 'field_os2web_news_page_archive_value';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['operator'] = '>=';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['group'] = 2;
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['default_date'] = 'now';
-  /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
+  /* Filter criterion: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['id'] = 'field_os2web_news_page_archive_value_1';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['table'] = 'field_data_field_os2web_news_page_archive';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['field'] = 'field_os2web_news_page_archive_value';
@@ -993,7 +997,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['header'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Nyhedstype (field_os2web_news_page_type) */
+  /* Contextual filter: Indhold: Nyhedstype (field_os2web_news_page_type) */
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['id'] = 'field_os2web_news_page_type_tid';
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['table'] = 'field_data_field_os2web_news_page_type';
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['field'] = 'field_os2web_news_page_type_tid';
@@ -1008,7 +1012,7 @@ function svendborg_views_views_default_views() {
     'os2web_news_page_newstypes' => 'os2web_news_page_newstypes',
   );
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['validate_options']['type'] = 'convert';
-  /* Kontekstuelt filter: Indhold: Har taksonomiterm ID (med dybde) */
+  /* Contextual filter: Indhold: Has taxonomy term ID (with depth) */
   $handler->display->display_options['arguments']['term_node_tid_depth']['id'] = 'term_node_tid_depth';
   $handler->display->display_options['arguments']['term_node_tid_depth']['table'] = 'node';
   $handler->display->display_options['arguments']['term_node_tid_depth']['field'] = 'term_node_tid_depth';
@@ -1034,7 +1038,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Sidefod: Global: Tekstområde */
+  /* Sidefod: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -1042,7 +1046,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Oprettelsesdato */
+  /* Felt: Indhold: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -1097,7 +1101,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['alter']['max_length'] = '80';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['element_label_colon'] = FALSE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Felt: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -1138,7 +1142,7 @@ function svendborg_views_views_default_views() {
     ),
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Nyhedstype (field_os2web_news_page_type) */
+  /* Contextual filter: Indhold: Nyhedstype (field_os2web_news_page_type) */
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['id'] = 'field_os2web_news_page_type_tid';
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['table'] = 'field_data_field_os2web_news_page_type';
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['field'] = 'field_os2web_news_page_type_tid';
@@ -1173,7 +1177,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Felt: Indhold: Oprettelsesdato */
+  /* Felt: Indhold: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -1181,7 +1185,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['created']['exclude'] = TRUE;
   $handler->display->display_options['fields']['created']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['created']['date_format'] = 'day';
-  /* Felt: Indhold: Oprettelsesdato */
+  /* Felt: Indhold: Post date */
   $handler->display->display_options['fields']['created_1']['id'] = 'created_1';
   $handler->display->display_options['fields']['created_1']['table'] = 'node';
   $handler->display->display_options['fields']['created_1']['field'] = 'created';
@@ -1196,7 +1200,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['label'] = '';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['element_label_colon'] = FALSE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Felt: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -1220,7 +1224,7 @@ function svendborg_views_views_default_views() {
 </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Nyhedstype (field_os2web_news_page_type) */
+  /* Contextual filter: Indhold: Nyhedstype (field_os2web_news_page_type) */
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['id'] = 'field_os2web_news_page_type_tid';
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['table'] = 'field_data_field_os2web_news_page_type';
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['field'] = 'field_os2web_news_page_type_tid';
@@ -1252,7 +1256,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Sidefod: Global: Tekstområde */
+  /* Sidefod: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -1260,7 +1264,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Oprettelsesdato */
+  /* Felt: Indhold: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -1287,7 +1291,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['alter']['max_length'] = '80';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['element_label_colon'] = FALSE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Felt: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -1327,7 +1331,7 @@ function svendborg_views_views_default_views() {
     ),
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Nyhedstype (field_os2web_news_page_type) */
+  /* Contextual filter: Indhold: Nyhedstype (field_os2web_news_page_type) */
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['id'] = 'field_os2web_news_page_type_tid';
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['table'] = 'field_data_field_os2web_news_page_type';
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['field'] = 'field_os2web_news_page_type_tid';
@@ -1380,14 +1384,14 @@ function svendborg_views_views_default_views() {
     3 => 'OR',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filter criterion: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1395,32 +1399,32 @@ function svendborg_views_views_default_views() {
     'os2web_base_news' => 'os2web_base_news',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filterkriterie: Indhold: Primære billede (field_os2web_base_field_lead_img:fid) */
+  /* Filter criterion: Indhold: Primære billede (field_os2web_base_field_lead_img:fid) */
   $handler->display->display_options['filters']['field_os2web_base_field_lead_img_fid']['id'] = 'field_os2web_base_field_lead_img_fid';
   $handler->display->display_options['filters']['field_os2web_base_field_lead_img_fid']['table'] = 'field_data_field_os2web_base_field_lead_img';
   $handler->display->display_options['filters']['field_os2web_base_field_lead_img_fid']['field'] = 'field_os2web_base_field_lead_img_fid';
   $handler->display->display_options['filters']['field_os2web_base_field_lead_img_fid']['operator'] = 'not empty';
   $handler->display->display_options['filters']['field_os2web_base_field_lead_img_fid']['group'] = 1;
-  /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
+  /* Filter criterion: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['id'] = 'field_os2web_news_page_archive_value';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['table'] = 'field_data_field_os2web_news_page_archive';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['field'] = 'field_os2web_news_page_archive_value';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['operator'] = '>=';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['group'] = 2;
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['default_date'] = 'now';
-  /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
+  /* Filter criterion: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['id'] = 'field_os2web_news_page_archive_value_1';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['table'] = 'field_data_field_os2web_news_page_archive';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['field'] = 'field_os2web_news_page_archive_value';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['operator'] = 'empty';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['group'] = 2;
-  /* Filterkriterie: Indhold: Forfremmet til forside */
+  /* Filter criterion: Indhold: Forfremmet til forside */
   $handler->display->display_options['filters']['promote']['id'] = 'promote';
   $handler->display->display_options['filters']['promote']['table'] = 'node';
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
   $handler->display->display_options['filters']['promote']['value'] = '1';
   $handler->display->display_options['filters']['promote']['group'] = 3;
-  /* Filterkriterie: Indhold: Forfrem til (field_os2web_base_field_promote) */
+  /* Filter criterion: Indhold: Forfrem til (field_os2web_base_field_promote) */
   $handler->display->display_options['filters']['field_os2web_base_field_promote_tid']['id'] = 'field_os2web_base_field_promote_tid';
   $handler->display->display_options['filters']['field_os2web_base_field_promote_tid']['table'] = 'field_data_field_os2web_base_field_promote';
   $handler->display->display_options['filters']['field_os2web_base_field_promote_tid']['field'] = 'field_os2web_base_field_promote_tid';
@@ -1469,14 +1473,14 @@ function svendborg_views_views_default_views() {
     3 => 'OR',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filter criterion: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1484,32 +1488,32 @@ function svendborg_views_views_default_views() {
     'os2web_base_news' => 'os2web_base_news',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filterkriterie: Indhold: Primære billede (field_os2web_base_field_lead_img:fid) */
+  /* Filter criterion: Indhold: Primære billede (field_os2web_base_field_lead_img:fid) */
   $handler->display->display_options['filters']['field_os2web_base_field_lead_img_fid']['id'] = 'field_os2web_base_field_lead_img_fid';
   $handler->display->display_options['filters']['field_os2web_base_field_lead_img_fid']['table'] = 'field_data_field_os2web_base_field_lead_img';
   $handler->display->display_options['filters']['field_os2web_base_field_lead_img_fid']['field'] = 'field_os2web_base_field_lead_img_fid';
   $handler->display->display_options['filters']['field_os2web_base_field_lead_img_fid']['operator'] = 'not empty';
   $handler->display->display_options['filters']['field_os2web_base_field_lead_img_fid']['group'] = 1;
-  /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
+  /* Filter criterion: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['id'] = 'field_os2web_news_page_archive_value';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['table'] = 'field_data_field_os2web_news_page_archive';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['field'] = 'field_os2web_news_page_archive_value';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['operator'] = '>=';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['group'] = 2;
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['default_date'] = 'now';
-  /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
+  /* Filter criterion: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['id'] = 'field_os2web_news_page_archive_value_1';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['table'] = 'field_data_field_os2web_news_page_archive';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['field'] = 'field_os2web_news_page_archive_value';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['operator'] = 'empty';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['group'] = 2;
-  /* Filterkriterie: Indhold: Forfremmet til forside */
+  /* Filter criterion: Indhold: Forfremmet til forside */
   $handler->display->display_options['filters']['promote']['id'] = 'promote';
   $handler->display->display_options['filters']['promote']['table'] = 'node';
   $handler->display->display_options['filters']['promote']['field'] = 'promote';
   $handler->display->display_options['filters']['promote']['value'] = '1';
   $handler->display->display_options['filters']['promote']['group'] = 3;
-  /* Filterkriterie: Indhold: Forfrem til (field_os2web_base_field_promote) */
+  /* Filter criterion: Indhold: Forfrem til (field_os2web_base_field_promote) */
   $handler->display->display_options['filters']['field_os2web_base_field_promote_tid']['id'] = 'field_os2web_base_field_promote_tid';
   $handler->display->display_options['filters']['field_os2web_base_field_promote_tid']['table'] = 'field_data_field_os2web_base_field_promote';
   $handler->display->display_options['filters']['field_os2web_base_field_promote_tid']['field'] = 'field_os2web_base_field_promote_tid';
@@ -1519,7 +1523,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['filters']['field_os2web_base_field_promote_tid']['group'] = 3;
   $handler->display->display_options['filters']['field_os2web_base_field_promote_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_os2web_base_field_promote_tid']['vocabulary'] = 'os2web_base_tax_promoteto';
-  /* Filterkriterie: Indhold: Nyhedstype (field_os2web_news_page_type) */
+  /* Filter criterion: Indhold: Nyhedstype (field_os2web_news_page_type) */
   $handler->display->display_options['filters']['field_os2web_news_page_type_tid']['id'] = 'field_os2web_news_page_type_tid';
   $handler->display->display_options['filters']['field_os2web_news_page_type_tid']['table'] = 'field_data_field_os2web_news_page_type';
   $handler->display->display_options['filters']['field_os2web_news_page_type_tid']['field'] = 'field_os2web_news_page_type_tid';
@@ -1548,7 +1552,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Forbindelse: Indhold: Forfatter */
+  /* Relationship: Indhold: Forfatter */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
@@ -1566,7 +1570,7 @@ function svendborg_views_views_default_views() {
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['delta_offset'] = '0';
-  /* Felt: Indhold: Oprettelsesdato */
+  /* Felt: Indhold: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -1597,7 +1601,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Felt: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -1635,14 +1639,14 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Sidefod: Global: Tekstområde */
+  /* Sidefod: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<a href="/nyheder/nyhedsarkiv">alle indlæg</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Oprettelsesdato */
+  /* Felt: Indhold: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -1668,7 +1672,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['nid']['label'] = '';
   $handler->display->display_options['fields']['nid']['exclude'] = TRUE;
   $handler->display->display_options['fields']['nid']['element_label_colon'] = FALSE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Felt: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -1683,14 +1687,14 @@ function svendborg_views_views_default_views() {
     2 => 'OR',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filter criterion: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -1698,7 +1702,7 @@ function svendborg_views_views_default_views() {
     'os2web_base_news' => 'os2web_base_news',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filterkriterie: Indhold: Sprog */
+  /* Filter criterion: Indhold: Sprog */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -1707,7 +1711,7 @@ function svendborg_views_views_default_views() {
     'und' => 'und',
   );
   $handler->display->display_options['filters']['language']['group'] = 1;
-  /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
+  /* Filter criterion: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['id'] = 'field_os2web_news_page_archive_value';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['table'] = 'field_data_field_os2web_news_page_archive';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['field'] = 'field_os2web_news_page_archive_value';
@@ -1929,7 +1933,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Sidefod: Global: Tekstområde */
+  /* Sidefod: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
@@ -1937,7 +1941,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['footer']['area']['tokenize'] = TRUE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Oprettelsesdato */
+  /* Felt: Indhold: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -1965,7 +1969,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['alter']['max_length'] = '80';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['alter']['trim'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['element_label_colon'] = FALSE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Felt: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -2005,7 +2009,7 @@ function svendborg_views_views_default_views() {
     ),
   );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
-  /* Kontekstuelt filter: Indhold: Nyhedstype (field_os2web_news_page_type) */
+  /* Contextual filter: Indhold: Nyhedstype (field_os2web_news_page_type) */
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['id'] = 'field_os2web_news_page_type_tid';
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['table'] = 'field_data_field_os2web_news_page_type';
   $handler->display->display_options['arguments']['field_os2web_news_page_type_tid']['field'] = 'field_os2web_news_page_type_tid';
@@ -2032,7 +2036,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Oprettelsesdato */
+  /* Felt: Indhold: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -2064,7 +2068,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['row_plugin'] = 'fields';
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['relationships'] = FALSE;
-  /* Forbindelse: Indhold: Forfatter */
+  /* Relationship: Indhold: Forfatter */
   $handler->display->display_options['relationships']['uid']['id'] = 'uid';
   $handler->display->display_options['relationships']['uid']['table'] = 'node';
   $handler->display->display_options['relationships']['uid']['field'] = 'uid';
@@ -2082,7 +2086,7 @@ function svendborg_views_views_default_views() {
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['delta_offset'] = '0';
-  /* Felt: Indhold: Oprettelsesdato */
+  /* Felt: Indhold: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -2113,7 +2117,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['name']['exclude'] = TRUE;
   $handler->display->display_options['fields']['name']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['name']['link_to_user'] = FALSE;
-  /* Felt: Global: Tilpasset tekst */
+  /* Felt: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
@@ -2137,14 +2141,14 @@ function svendborg_views_views_default_views() {
     2 => 'OR',
   );
   $handler->display->display_options['defaults']['filters'] = FALSE;
-  /* Filterkriterie: Indhold: Udgivet */
+  /* Filter criterion: Indhold: Udgivet */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
   $handler->display->display_options['filters']['status']['field'] = 'status';
   $handler->display->display_options['filters']['status']['value'] = 1;
   $handler->display->display_options['filters']['status']['group'] = 1;
   $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
-  /* Filterkriterie: Indhold: Type */
+  /* Filter criterion: Indhold: Type */
   $handler->display->display_options['filters']['type']['id'] = 'type';
   $handler->display->display_options['filters']['type']['table'] = 'node';
   $handler->display->display_options['filters']['type']['field'] = 'type';
@@ -2152,7 +2156,7 @@ function svendborg_views_views_default_views() {
     'os2web_base_news' => 'os2web_base_news',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
-  /* Filterkriterie: Indhold: Sprog */
+  /* Filter criterion: Indhold: Sprog */
   $handler->display->display_options['filters']['language']['id'] = 'language';
   $handler->display->display_options['filters']['language']['table'] = 'node';
   $handler->display->display_options['filters']['language']['field'] = 'language';
@@ -2161,14 +2165,14 @@ function svendborg_views_views_default_views() {
     'und' => 'und',
   );
   $handler->display->display_options['filters']['language']['group'] = 1;
-  /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
+  /* Filter criterion: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['id'] = 'field_os2web_news_page_archive_value';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['table'] = 'field_data_field_os2web_news_page_archive';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['field'] = 'field_os2web_news_page_archive_value';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['operator'] = '<=';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['group'] = 2;
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['default_date'] = 'now';
-  /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
+  /* Filter criterion: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['id'] = 'field_os2web_news_page_archive_value_1';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['table'] = 'field_data_field_os2web_news_page_archive';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['field'] = 'field_os2web_news_page_archive_value';
@@ -2192,14 +2196,14 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '9';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['footer'] = FALSE;
-  /* Sidefod: Global: Tekstområde */
+  /* Sidefod: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
   $handler->display->display_options['footer']['area']['content'] = '<a href="/nyheder/nyhedsarkiv">ABEN NYHEDSARKIV</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Felt: Indhold: Oprettelsesdato */
+  /* Felt: Indhold: Post date */
   $handler->display->display_options['fields']['created']['id'] = 'created';
   $handler->display->display_options['fields']['created']['table'] = 'node';
   $handler->display->display_options['fields']['created']['field'] = 'created';
@@ -2232,6 +2236,7 @@ function svendborg_views_views_default_views() {
     t('næste ›'),
     t('sidste »'),
     t('Block_tab_udbud'),
+    t('more'),
     t('<a class="btn btn-primary" href="/nyheder/udbud">Alle</a>'),
     t('<div class="col-md-3 col-sm-6 col-xs-4">
 [field_os2web_base_field_lead_img]
@@ -2278,8 +2283,8 @@ function svendborg_views_views_default_views() {
     t('frontpage and carousel small'),
     t('Page blog '),
     t('Blog'),
-    t('forfatter'),
-    t('Oprettelsesdato'),
+    t('author'),
+    t('Post date'),
     t('<div class="news-row>
 <div class="col-md-2 col-sm-4 col-xs-12 ">
 <div class="field-image">

@@ -1,0 +1,16 @@
+name = OS2sub Uses and Tools
+description = Værktøjer til brugere, samt roller og rettigheder
+core = 7.x
+package = OS2Sub
+version = 7.x-1.0
+project = os2sub_uses_and_tools
+dependencies[] = features
+dependencies[] = filter
+dependencies[] = media
+features[ckeditor_profile][] = CKEditor Global Profile
+features[ckeditor_profile][] = Full
+features[features_api][] = api:2
+features[filter][] = full_html
+features[user_role][] = subsiteadmin
+features_exclude[dependencies][ckeditor] = ckeditor
+project path = profiles/os2sub/modules
