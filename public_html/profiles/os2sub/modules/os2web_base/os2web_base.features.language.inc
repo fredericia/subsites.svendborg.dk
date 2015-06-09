@@ -29,7 +29,7 @@ function os2web_base_locale_default_languages() {
     'name' => 'English',
     'native' => 'UK',
     'direction' => 0,
-    'enabled' => 1,
+    'enabled' => 0,
     'plurals' => 0,
     'formula' => '',
     'domain' => '',

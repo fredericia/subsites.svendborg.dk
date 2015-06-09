@@ -21,6 +21,7 @@ function svendborg_views_menu_default_menu_links() {
         'title' => '',
       ),
       'identifier' => 'main-menu_blog:nyheder',
+      'alter' => TRUE,
     ),
     'module' => 'menu',
     'hidden' => 0,

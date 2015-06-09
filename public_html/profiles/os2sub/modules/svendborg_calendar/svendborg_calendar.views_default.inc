@@ -267,6 +267,7 @@ function svendborg_calendar_views_default_views() {
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
   );
   $handler->display->display_options['path'] = 'calendar/upcoming';
   $handler->display->display_options['menu']['type'] = 'normal';
@@ -350,6 +351,7 @@ function svendborg_calendar_views_default_views() {
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
   );
   $handler->display->display_options['path'] = 'calendar/all';
   $handler->display->display_options['menu']['title'] = 'Calendar';

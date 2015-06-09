@@ -100,7 +100,7 @@ function os2sub_aktivitetskalender_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_event_calendar';
-  $strongarm->value = '2';
+  $strongarm->value = '0';
   $export['language_content_type_event_calendar'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -138,8 +138,13 @@ function os2sub_aktivitetskalender_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'node_registration_type_settings_event_calendar';
   $strongarm->value = array(
-    'toggle_enabled_in_node_form' => 0,
-    'no_register_page' => 0,
+    'date_field' => 'event_calendar_date',
+    'max_registration_date_field' => 'field_svarfrist',
+    'min_registration_date_field' => 'field_synlig_fra',
+    'capacity_field' => 'field_pladser',
+    'status' => 2,
+    'toggle_enabled_in_node_form' => 1,
+    'no_register_page' => 1,
     'allow_registration_until' => '1 day',
     'registration_success_message' => 'Tak for tilmeldingen',
     'allow_cancellation_until' => '1 day',

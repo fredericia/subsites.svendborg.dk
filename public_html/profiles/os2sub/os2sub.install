@@ -67,7 +67,6 @@ function os2sub_install() {
   $full_html_format = (object) $full_html_format;
   filter_format_save($full_html_format);
 
-
   // Allow visitor account creation, but with administrative approval.
   variable_set('user_register', USER_REGISTER_VISITORS_ADMINISTRATIVE_APPROVAL);
 
@@ -75,12 +74,25 @@ function os2sub_install() {
   user_role_grant_permissions(DRUPAL_ANONYMOUS_RID, array('access content'));
   user_role_grant_permissions(DRUPAL_AUTHENTICATED_RID, array('access content'));
 
-  theme_enable(array('seven', 'omega', 'os2sub_core_theme'));
-  theme_disable(array('bartik', 'rubik'));
-  variable_set('theme_default', 'os2sub_core_theme');
+  // Create a default role for site administrators, with all available permissions assigned.
+  $admin_role = new stdClass();
+  $admin_role->name = 'subsiteadmin';
+  $admin_role->weight = 2;
+  user_role_save($admin_role);
+  user_role_grant_permissions($admin_role->rid, array_keys(module_invoke_all('permission')));
+  // Set this as the administrator role.
+  variable_set('user_admin_role', $admin_role->rid);
 
-  // Set admin theme to Rubik.
-  variable_set('admin_theme', 'seven');
+  // Assign user 1 the "administrator" role.
+  db_insert('users_roles')
+    ->fields(array('uid' => 1, 'rid' => $admin_role->rid))
+    ->execute();
+
+  theme_enable(array('bootstrap', 'adminimal', 'svendborg_subsitetheme'));
+  theme_disable(array('bartik', 'rubik', 'seven'));
+  variable_set('theme_default', 'svendborg_subsitetheme');
+  variable_set('admin_theme', 'adminimal');
+
   // Set admin theme on node/edit and node/add
   variable_set('node_admin_theme', '1');
   module_disable(array('update'));
@@ -88,5 +100,17 @@ function os2sub_install() {
   variable_set('date_default_timezone', "Europe/Berlin");
   variable_set('date_first_day', "1");
   variable_set('configurable_timezones', "0");
-  variable_set('site_frontpage', "home");
+
+  // jQuery update module.
+  variable_set('jquery_update_compression_type', 'min');
+  variable_set('jquery_update_jquery_admin_version', '1.8');
+  variable_set('jquery_update_jquery_cdn', 'none');
+  variable_set('jquery_update_jquery_migrate_plugin_cdn', 'none');
+  variable_set('jquery_update_jquery_migrate_plugin_enable', 0);
+  variable_set('jquery_update_jquery_migrate_plugin_migrate_trace', 1);
+  variable_set('jquery_update_jquery_migrate_plugin_migrate_warnings', 1);
+  variable_set('jquery_update_jquery_version', '1.8');
+
+  $langs = language_list();
+  variable_set('language_default', $langs['da']);
 }

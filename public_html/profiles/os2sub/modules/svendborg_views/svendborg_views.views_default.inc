@@ -938,6 +938,15 @@ function svendborg_views_views_default_views() {
     'os2web_base_news' => 'os2web_base_news',
   );
   $handler->display->display_options['filters']['type']['group'] = 1;
+  /* Filterkriterie: Indhold: Sprog */
+  $handler->display->display_options['filters']['language']['id'] = 'language';
+  $handler->display->display_options['filters']['language']['table'] = 'node';
+  $handler->display->display_options['filters']['language']['field'] = 'language';
+  $handler->display->display_options['filters']['language']['value'] = array(
+    '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
+  );
+  $handler->display->display_options['filters']['language']['group'] = 1;
   /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['id'] = 'field_os2web_news_page_archive_value';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['table'] = 'field_data_field_os2web_news_page_archive';
@@ -1695,6 +1704,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
   );
   $handler->display->display_options['filters']['language']['group'] = 1;
   /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
@@ -1794,7 +1804,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['settings'] = array(
-    'image_style' => '',
+    'image_style' => 'os2sub_220x130',
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['delta_offset'] = '0';
@@ -1862,7 +1872,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['settings'] = array(
-    'image_style' => '',
+    'image_style' => 'os2sub_300x175',
     'image_link' => 'content',
   );
   $handler->display->display_options['fields']['field_os2web_base_field_lead_img']['delta_offset'] = '0';
@@ -2148,6 +2158,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['filters']['language']['field'] = 'language';
   $handler->display->display_options['filters']['language']['value'] = array(
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
+    'und' => 'und',
   );
   $handler->display->display_options['filters']['language']['group'] = 1;
   /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */

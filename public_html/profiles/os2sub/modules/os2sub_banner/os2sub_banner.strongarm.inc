@@ -66,7 +66,7 @@ function os2sub_banner_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'language_content_type_banner';
-  $strongarm->value = '2';
+  $strongarm->value = '0';
   $export['language_content_type_banner'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -89,7 +89,6 @@ function os2sub_banner_strongarm() {
   $strongarm->name = 'node_options_banner';
   $strongarm->value = array(
     0 => 'status',
-    1 => 'promote',
   );
   $export['node_options_banner'] = $strongarm;
 

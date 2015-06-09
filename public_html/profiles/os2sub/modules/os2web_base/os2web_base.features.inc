@@ -28,6 +28,66 @@ function os2web_base_ctools_plugin_api($module = NULL, $api = NULL) {
 function os2web_base_image_default_styles() {
   $styles = array();
 
+  // Exported image style: os2sub_220x130.
+  $styles['os2sub_220x130'] = array(
+    'label' => 'Forside nyhed 4 spalter',
+    'effects' => array(
+      3 => array(
+        'name' => 'epsacrop_crop',
+        'data' => array(
+          'width' => 220,
+          'height' => 130,
+          'anchor' => 'center-center',
+          'jcrop_settings' => array(
+            'aspect_ratio' => '',
+            'bgcolor' => 'black',
+            'bgopacity' => 0.6,
+            'fallback' => 1,
+          ),
+        ),
+        'weight' => 1,
+      ),
+      4 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 220,
+          'height' => 130,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
+  // Exported image style: os2sub_300x175.
+  $styles['os2sub_300x175'] = array(
+    'label' => 'Forside nyhed 2 og 3 spalter',
+    'effects' => array(
+      1 => array(
+        'name' => 'epsacrop_crop',
+        'data' => array(
+          'width' => 300,
+          'height' => 175,
+          'anchor' => 'center-center',
+          'jcrop_settings' => array(
+            'aspect_ratio' => '',
+            'bgcolor' => 'black',
+            'bgopacity' => 0.6,
+            'fallback' => 1,
+          ),
+        ),
+        'weight' => 1,
+      ),
+      2 => array(
+        'name' => 'image_scale_and_crop',
+        'data' => array(
+          'width' => 300,
+          'height' => 175,
+        ),
+        'weight' => 2,
+      ),
+    ),
+  );
+
   // Exported image style: os2web_base_style_content.
   $styles['os2web_base_style_content'] = array(
     'effects' => array(
