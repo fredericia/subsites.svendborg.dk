@@ -39,9 +39,9 @@ function os2sub_uses_and_tools_ckeditor_profile_defaults() {
     [\'NumberedList\',\'BulletedList\',\'-\',\'Outdent\',\'Indent\',\'Blockquote\',\'CreateDiv\'],
     [\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\',\'-\',\'Language\'],
     [\'Link\',\'Unlink\',\'Anchor\'],
-    [\'DrupalBreak\'],
+    [\'DrupalBreak\',\'Styles\'],
     \'/\',
-    [\'Format\',\'Font\',\'FontSize\'],
+    
     [\'TextColor\',\'BGColor\'],
     [\'Maximize\',\'ShowBlocks\']
 ]',
@@ -135,7 +135,7 @@ function os2sub_uses_and_tools_ckeditor_profile_defaults() {
           'tableresize' => array(
             'name' => 'tableresize',
             'desc' => 'Table Resize plugin. See <a href="http://ckeditor.com/addon/tableresize">addon page</a> for more details.',
-            'path' => '//cdn.ckeditor.com/4.4.0/full-all/plugins/tableresize/',
+            'path' => '//cdn.ckeditor.com/4.4.7/full-all/plugins/tableresize/',
             'buttons' => FALSE,
             'default' => 't',
           ),
