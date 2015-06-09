@@ -16,15 +16,7 @@ function svendborg_views_menu_default_menu_custom() {
     'title' => 'Main menu',
     'description' => 'The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.',
     'language' => 'und',
-    'i18n_mode' => 5,
-  );
-  // Exported menu: menu-menu-indholdsmenu.
-  $menus['menu-menu-indholdsmenu'] = array(
-    'menu_name' => 'menu-menu-indholdsmenu',
-    'title' => 'Indholdsmenu',
-    'description' => '',
-    'language' => 'und',
-    'i18n_mode' => 5,
+    'i18n_mode' => 0,
   );
   // Exported menu: menu-top-left.
   $menus['menu-top-left'] = array(
@@ -44,7 +36,6 @@ function svendborg_views_menu_default_menu_custom() {
   );
   // Translatables
   // Included for use with string extractors like potx.
-  t('Indholdsmenu');
   t('Main menu');
   t('The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.');
   t('Vælg sprog');
