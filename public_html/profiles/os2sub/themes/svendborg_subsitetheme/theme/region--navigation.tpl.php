@@ -84,15 +84,23 @@
         <section class="outer">
         <?php 
             $view = views_get_view('svendborg_slider');
-            $view->set_display('multi');            
+            $view->set_display('multi');  
+            $view->add_item($view->current_display, 'filter', 'node', 'promote', array(
+                'operator' => '=',
+                'value' => array(
+                'value' => 'yes',
+            ),
+            ));
             $view->pre_execute();
              $view->execute();
              $views_result_cnt= count($view->result);
             if ($views_result_cnt>1)         
-                  print _svendborg_subsitetheme_block_render('views', 'svendborg_slider-multi'); 
-            else
-                 print _svendborg_subsitetheme_block_render('views', 'svendborg_slider-single');
-            ?>
+                  print $view->render('multi');//_svendborg_subsitetheme_block_render('views', 'svendborg_slider-multi'); 
+            else { 
+                $view->set_display('single'); 
+                 print print $view->render('single');//_svendborg_subsitetheme_block_render('views', 'svendborg_slider-single');
+            }
+                 ?>
         </section>
     <?php endif;?>
   <?php endif;?>
@@ -159,6 +167,39 @@
     <?php endif;?>
     </div>
   <?php endif;?>
+  <?php if(isset($page["node"]->nid)):?>
+   <?php if (theme_get_setting('slider_active','svendborg_subsitetheme')) :?>
+        <section class="outer">
+        <?php 
+            $view = views_get_view('svendborg_slider');
+            $view->set_display('multi');
+            //var_dump($view->display_handler->display);
+            //$filter1 = $view->get_item('page', 'filter', 'field_banner_vis_paa_sider');
+            $view->add_item($view->current_display, 'filter',  'field_data_field_banner_vis_paa_sider', 'field_banner_vis_paa_sider_nid', array(
+                'operator' => 'in',
+                'value' => array(
+                'value' => (int) $page["node"]->nid,
+            )));
+           // field_banner_vis_paa_sider_nid
+           /* $view->add_item($view->current_display, 'filter', 'node', 'field_banner_vis_paa_sider', array(
+                'operator' => '=',
+                'value' => array(
+                'value' => $page["node"],
+            ),
+            ));*/
+            $view->pre_execute();
+             $view->execute();
+             $views_result_cnt= count($view->result);
+            if ($views_result_cnt>1)         
+                  print $view->render('multi');//_svendborg_subsitetheme_block_render('views', 'svendborg_slider-multi'); 
+            else { 
+                $view->set_display('single'); 
+                 print print $view->render('single');//_svendborg_subsitetheme_block_render('views', 'svendborg_slider-single');
+            }
+                 ?>
+        </section>
+    <?php endif;?>
+  <?php endif;?>  
   <?php print render($page['breadcrumb'])?>
 </section>
 
