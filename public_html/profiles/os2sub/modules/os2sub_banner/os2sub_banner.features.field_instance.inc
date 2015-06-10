@@ -123,6 +123,45 @@ function os2sub_banner_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-banner-field_banner_link'
+  $field_instances['node-banner-field_banner_link'] = array(
+    'bundle' => 'banner',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'node_reference',
+        'settings' => array(),
+        'type' => 'node_reference_default',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_banner_link',
+    'label' => 'Banner link',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'content_taxonomy_opt_groups' => FALSE,
+      ),
+      'type' => 'options_select',
+      'weight' => 44,
+    ),
+  );
+
   // Exported field_instance: 'node-banner-field_banner_vis_paa_sider'
   $field_instances['node-banner-field_banner_vis_paa_sider'] = array(
     'bundle' => 'banner',
@@ -170,6 +209,7 @@ function os2sub_banner_field_default_field_instances() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Banner link');
   t('Billede');
   t('Body');
   t('Vis på sider');
