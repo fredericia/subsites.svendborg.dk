@@ -29,7 +29,7 @@ function svendborg_views_menu_default_menu_custom() {
   // Exported menu: menu-top-left.
   $menus['menu-top-left'] = array(
     'menu_name' => 'menu-top-left',
-    'title' => 'Vælg sprog',
+    'title' => 'top-left',
     'description' => '',
     'language' => 'und',
     'i18n_mode' => 0,
@@ -47,7 +47,7 @@ function svendborg_views_menu_default_menu_custom() {
   t('Indholdsmenu');
   t('Main menu');
   t('The <em>Main</em> menu is used on many sites to show the major sections of the site, often in a top navigation bar.');
-  t('Vælg sprog');
+  t('top-left');
   t('top-right');
 
 
