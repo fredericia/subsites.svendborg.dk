@@ -53,7 +53,10 @@
   </div>
   <?php else: ?>
   <?php print render($title_suffix);  ?>
-       <?php if($title && $block_html_id !='block-menu-menu-top-right')
+       <?php if($block_html_id =='block-menu-menu-top-left')           
+           print '<h2 class="block-title">Vælg sprog</h2>';        
+    
+       else if($title && $block_html_id !='block-menu-menu-top-right')
            
            print '<h2 class="block-title">' . $title . '</h2>'; 
        ?> 
