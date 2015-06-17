@@ -111,6 +111,40 @@ function os2sub_install() {
   variable_set('jquery_update_jquery_migrate_plugin_migrate_warnings', 1);
   variable_set('jquery_update_jquery_version', '1.8');
 
+  // Create taxonomy terms.
+  os2sub_install_create_taxonomy_terms();
+
+  // Set default language.
   $langs = language_list();
   variable_set('language_default', $langs['da']);
+}
+
+/**
+ * Create taxonomy terms, during install.
+ */
+function os2sub_install_create_taxonomy_terms() {
+  return;
+  // News category is just a single term.
+  $vocab = taxonomy_vocabulary_machine_name_load('os2web_news_page_newstypes');
+  $category = new StdClass();
+  $category->vid = $vocab->vid;
+  $category->name = 'Nyheder';
+  taxonomy_term_save($category);
+
+  return;
+  $file_path = DRUPAL_ROOT . '/' . drupal_get_path('module', 'os2web_taxonomies') . '/data/kle.xml';
+
+  $dir = 'public://data';
+  file_prepare_directory($dir, FILE_CREATE_DIRECTORY);
+  file_unmanaged_copy($file_path, 'public://data/kle.xml', FILE_EXISTS_REPLACE);
+
+  $source = feeds_source('os2web_taxonomies_feed_kle');
+  $config = array();
+  $config['FeedsFileFetcher']['source'] = 'public://data/kle.xml';
+  $source->setConfigFor($source->importer->fetcher, $config);
+
+  $source->save();
+  while (FEEDS_BATCH_COMPLETE != $source->import()) {
+    // Importing.
+  };
 }
