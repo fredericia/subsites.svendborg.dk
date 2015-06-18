@@ -128,6 +128,12 @@ function os2sub_install() {
   // Set default language.
   $langs = language_list();
   variable_set('language_default', $langs['da']);
+
+  // Disable english.
+  db_update("languages")
+    ->fields(array("enabled" => 0))
+    ->condition("language", "en")
+    ->execute();
 }
 
 /**
