@@ -242,7 +242,7 @@ add_subsiteadmin() {
   # Add the role "Administrator"
   /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" user-add-role subsiteadmin subsiteadmin
   # Send single-use login link.
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" ev "_user_mail_notify('password_reset', user_load(2));"
+  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" ev "_user_mail_notify('password_reset', user_load_by_mail('$USEREMAIL'));"
 }
 
 delete_vhost() {
