@@ -108,16 +108,5 @@ function os2web_base_user_default_permissions() {
     'module' => 'search',
   );
 
-  // Exported permission: 'use advanced search'.
-  $permissions['use advanced search'] = array(
-    'name' => 'use advanced search',
-    'roles' => array(
-      'Administrator' => 'Administrator',
-      'anonymous user' => 'anonymous user',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'search',
-  );
-
   return $permissions;
 }

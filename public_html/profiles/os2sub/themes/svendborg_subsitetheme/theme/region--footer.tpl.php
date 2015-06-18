@@ -35,7 +35,7 @@
 
           </div>
           <div class="col-sm-10 col-sx-12">  
-           <?php print _svendborg_subsitetheme_block_render('block', '2'); ?> 
+            <?php print $page['footer_blocks']['block_1']; ?>
           </div>    
       <?php /*
        $tree = menu_tree_all_data('menu-indholdsmenu', $link = NULL, $max_depth = 3);
@@ -71,7 +71,7 @@ print "<h2 class='menu-footer " . $menu_item['link']['link_title']. "'>
     <div class="lcontainer-fluid clearfix"  id="footer-tilmeld-block">
       <div class="container footer-tilmeld-block">
         <div class="row">
-            <?php print _svendborg_subsitetheme_block_render('block', '3'); ?> 
+          <?php print $page['footer_blocks']['block_2']; ?>
          </div>
       </div>  
     </div>    

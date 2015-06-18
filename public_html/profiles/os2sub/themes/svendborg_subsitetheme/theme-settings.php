@@ -7,11 +7,16 @@
  */
 
 function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_state) {
- $form['svendborg_subsitetheme_settings'] = array(
+ $form['svendborg_subsitetheme_setting'] = array(
     '#type' => 'fieldset',
     '#title' => t('Svendborg subsitetheme Settings'),
     '#collapsible' => FALSE,
     '#collapsed' => FALSE,
+  );
+  $form['svendborg_subsitetheme_setting']['footer_blocks'] = array(
+    '#type'          => 'fieldset',
+    '#title' => 'Footer blokke',
+    '#description' => l('Tryk her for at ændre teksten i de 2 footer blokke.', 'subsite_settings'),
   );
  $form['svendborg_subsitetheme_setting']['frontpage_layout'] = array(
     '#type'          => 'fieldset',
@@ -25,6 +30,7 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
     '#default_value' => theme_get_setting('welcome','svendborg_subsitetheme'),
     '#description'   => t("Check this option to show welcome text in page."),
   );
+
  $form['svendborg_subsitetheme_setting']['frontpage_layout']['activites'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show <strong>Activites block</strong> in a frontpage'),

@@ -5,6 +5,20 @@
  */
 
 /**
+ * Implements hook_install_tasks().
+ */
+function os2sub_install_tasks($install_state) {
+  $task['default_content'] = array(
+    'display_name' => st('Import KLE terms'),
+    'display' => TRUE,
+    'run' => INSTALL_TASK_RUN_IF_NOT_COMPLETED,
+    'function' => 'os2sub_install_create_taxonomy_terms',
+  );
+
+  return $task;
+}
+
+/**
  * Implements hook_install().
  *
  * Perform actions to set up the site for this profile.
@@ -111,6 +125,52 @@ function os2sub_install() {
   variable_set('jquery_update_jquery_migrate_plugin_migrate_warnings', 1);
   variable_set('jquery_update_jquery_version', '1.8');
 
+  // Set default language.
   $langs = language_list();
   variable_set('language_default', $langs['da']);
+}
+
+/**
+ * Create taxonomy terms, during install.
+ */
+function os2sub_install_create_taxonomy_terms() {
+  // News category is just a single term.
+  $vocab = taxonomy_vocabulary_machine_name_load('os2web_news_page_newstypes');
+  $category = new StdClass();
+  $category->vid = $vocab->vid;
+  $category->name = 'Nyheder';
+  taxonomy_term_save($category);
+
+  $vocab = taxonomy_vocabulary_machine_name_load('os2web_taxonomies_tax_kle');
+
+  $file_path = DRUPAL_ROOT . '/' . drupal_get_path('module', 'os2web_taxonomies') . '/data/kle.xml';
+
+  $xml = simplexml_load_file($file_path);
+
+  foreach ($xml as $row) {
+    drupal_static_reset();
+    $term = new StdClass();
+    $term->vid = $vocab->vid;
+    $term->name = $row->Key . ' ' . $row->Name;
+    $term->description[LANGUAGE_NONE][0]['value'] = $row->Description;
+
+    if ($row->Tag['TagTypeSqlID'] && $type = reset($row->Tag['TagTypeSqlID'])) {
+      switch ($type) {
+        case 2:
+            $term->field_os2web_taxonomies_legi_ref[LANGUAGE_NONE][0]['url'] = $row->Tag->Value;
+            $term->field_os2web_taxonomies_legi_ref[LANGUAGE_NONE][0]['title'] = $row->Tag->Key;
+          break;
+
+        case 3:
+          $term->field_os2web_taxonomies_search[LANGUAGE_NONE][0]['value'] = $row->Tag->Key;
+          break;
+
+        case 4:
+          $term->field_os2web_taxonomies_cue_word[LANGUAGE_NONE][0]['value'] = $row->Tag->Key;
+          break;
+      }
+    }
+
+    taxonomy_term_save($term);
+  }
 }
