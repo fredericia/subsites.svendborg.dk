@@ -147,7 +147,7 @@ function bc_subsites_node_validate($node, $form, &$form_state) {
     $domain_suffix = variable_get('bc_subsites_domain_suffix');
 
     if (!_bc_subsites_is_valid_domain_name($node->title . $domain_suffix)) {
-      form_set_error('title', 'Det indtastede navn er ikke gyldigt.');
+      form_set_error('title', 'Det indtastede navn er ikke gyldigt. Kun små bogstaver og ingen specialtegn.');
     }
     $query = new EntityFieldQuery();
     $query->entityCondition('entity_type', 'node')
@@ -163,7 +163,7 @@ function bc_subsites_node_validate($node, $form, &$form_state) {
     foreach ($form_state['values']['field_domains'][LANGUAGE_NONE] as $delta => $value) {
       if (is_numeric($delta)) {
         if ($value['value'] && !_bc_subsites_is_valid_domain_name($value['value'])) {
-          form_set_error('field_domains][' . LANGUAGE_NONE . '][' . $delta, 'Det indtastede domæne er ikke gyldigt.');
+          form_set_error('field_domains][' . LANGUAGE_NONE . '][' . $delta, 'Det indtastede domæne er ikke gyldigt. Kun små bogstaver og ingen specialtegn.');
         }
       }
     }
@@ -332,6 +332,10 @@ function _bc_subsites_is_valid_domain_name($domain_name) {
     return FALSE;
   }
 
+  if ($domain_name != strtolower($domain_name)) {
+    return FALSE;
+  }
+  
   // http://stackoverflow.com/questions/1755144/how-to-validate-domain-name-in-php
   return (preg_match("/^([a-z\d](-*[a-z\d])*)(\.([a-z\d](-*[a-z\d])*))*$/i", $domain_name)
           && preg_match("/^.{1,253}$/", $domain_name)
