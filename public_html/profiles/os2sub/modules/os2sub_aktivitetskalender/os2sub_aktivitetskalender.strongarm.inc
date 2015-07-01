@@ -212,11 +212,6 @@ Event start: [node:event-start].',
     'show_message_date' => 1,
     'show_message_capacity' => 0,
     'show_message_registered' => 1,
-    'date_field' => 'event_calendar_date',
-    'max_registration_date_field' => 'field_svarfrist',
-    'min_registration_date_field' => 'field_synlig_fra',
-    'capacity_field' => 'field_pladser',
-    'status' => 2,
   );
   $export['node_registration_type_settings_event_calendar'] = $strongarm;
 

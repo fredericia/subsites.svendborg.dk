@@ -31,7 +31,7 @@ function os2sub_aktivitetskalender_node_info() {
     'event_calendar' => array(
       'name' => t('Aktivitet'),
       'base' => 'node_content',
-      'description' => t('A content type to create events for calendar.'),
+      'description' => t('En indholdstype der bruges til at lave begivenheder i kalenderen.'),
       'has_title' => '1',
       'title_label' => t('Titel'),
       'help' => t('Opret aktivitet'),
