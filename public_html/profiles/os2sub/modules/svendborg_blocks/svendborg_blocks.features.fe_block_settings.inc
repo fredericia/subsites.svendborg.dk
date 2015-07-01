@@ -15,11 +15,6 @@ function svendborg_blocks_default_fe_block_settings() {
   $export['block-login_sitemap_links'] = array(
     'cache' => -1,
     'custom' => 0,
-    'i18n_block_language' => array(
-      0 => 'da',
-      1 => 'en',
-    ),
-    'i18n_mode' => 1,
     'machine_name' => 'login_sitemap_links',
     'module' => 'block',
     'node_types' => array(),
@@ -38,12 +33,6 @@ function svendborg_blocks_default_fe_block_settings() {
         'theme' => 'bootstrap',
         'weight' => 0,
       ),
-      'os2web_bootstrap_theme' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'os2web_bootstrap_theme',
-        'weight' => 0,
-      ),
       'svendborg_subsitetheme' => array(
         'region' => 'navigation',
         'status' => 1,
@@ -58,11 +47,6 @@ function svendborg_blocks_default_fe_block_settings() {
   $export['block-svendborg_footer_text'] = array(
     'cache' => -1,
     'custom' => 0,
-    'i18n_block_language' => array(
-      0 => 'da',
-      1 => 'en',
-    ),
-    'i18n_mode' => 1,
     'machine_name' => 'svendborg_footer_text',
     'module' => 'block',
     'node_types' => array(),
@@ -81,12 +65,6 @@ function svendborg_blocks_default_fe_block_settings() {
         'theme' => 'bootstrap',
         'weight' => 0,
       ),
-      'os2web_bootstrap_theme' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'os2web_bootstrap_theme',
-        'weight' => 0,
-      ),
       'svendborg_subsitetheme' => array(
         'region' => 'footer',
         'status' => 1,
@@ -101,11 +79,6 @@ function svendborg_blocks_default_fe_block_settings() {
   $export['block-svendborg_subscribe_block'] = array(
     'cache' => -1,
     'custom' => 0,
-    'i18n_block_language' => array(
-      0 => 'da',
-      1 => 'en',
-    ),
-    'i18n_mode' => 1,
     'machine_name' => 'svendborg_subscribe_block',
     'module' => 'block',
     'node_types' => array(),
@@ -124,12 +97,6 @@ function svendborg_blocks_default_fe_block_settings() {
         'theme' => 'bootstrap',
         'weight' => 0,
       ),
-      'os2web_bootstrap_theme' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'os2web_bootstrap_theme',
-        'weight' => 0,
-      ),
       'svendborg_subsitetheme' => array(
         'region' => '',
         'status' => 0,
@@ -145,11 +112,6 @@ function svendborg_blocks_default_fe_block_settings() {
     'cache' => -1,
     'custom' => 0,
     'delta' => 'language',
-    'i18n_block_language' => array(
-      0 => 'da',
-      1 => 'en',
-    ),
-    'i18n_mode' => 1,
     'module' => 'locale',
     'node_types' => array(),
     'pages' => '',
@@ -165,12 +127,6 @@ function svendborg_blocks_default_fe_block_settings() {
         'region' => '',
         'status' => 0,
         'theme' => 'bootstrap',
-        'weight' => 0,
-      ),
-      'os2web_bootstrap_theme' => array(
-        'region' => '',
-        'status' => 0,
-        'theme' => 'os2web_bootstrap_theme',
         'weight' => 0,
       ),
       'svendborg_subsitetheme' => array(

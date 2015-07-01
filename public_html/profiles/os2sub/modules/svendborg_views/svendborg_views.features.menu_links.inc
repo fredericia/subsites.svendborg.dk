@@ -30,8 +30,6 @@ function svendborg_views_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -46,
     'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
   );
   // Exported menu link: main-menu_forside:<front>
   $menu_links['main-menu_forside:<front>'] = array(
@@ -53,8 +51,6 @@ function svendborg_views_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -50,
     'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
   );
   // Exported menu link: main-menu_galleri:gallery
   $menu_links['main-menu_galleri:gallery'] = array(
@@ -76,8 +72,6 @@ function svendborg_views_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -44,
     'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
   );
   // Exported menu link: main-menu_kalender:calendar/upcoming
   $menu_links['main-menu_kalender:calendar/upcoming'] = array(
@@ -99,8 +93,6 @@ function svendborg_views_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -43,
     'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
   );
   // Exported menu link: main-menu_sg:search
   $menu_links['main-menu_sg:search'] = array(
@@ -122,8 +114,6 @@ function svendborg_views_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => -41,
     'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
   );
   // Exported menu link: menu-top-right_login:user
   $menu_links['menu-top-right_login:user'] = array(
@@ -144,8 +134,6 @@ function svendborg_views_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
   );
   // Exported menu link: menu-top-right_sitemap:sitemap
   $menu_links['menu-top-right_sitemap:sitemap'] = array(
@@ -166,8 +154,6 @@ function svendborg_views_menu_default_menu_links() {
     'expanded' => 0,
     'weight' => 0,
     'customized' => 1,
-    'language' => 'und',
-    'menu_links_customized' => 1,
   );
   // Translatables
   // Included for use with string extractors like potx.
