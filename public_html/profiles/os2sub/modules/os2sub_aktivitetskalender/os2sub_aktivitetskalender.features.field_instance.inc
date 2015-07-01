@@ -22,7 +22,7 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 0,
+        'weight' => 2,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -91,7 +91,7 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 3,
+      'weight' => 2,
     ),
   );
 
@@ -102,7 +102,7 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'description' => 'Select the start and end dates for this event.',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'date',
         'settings' => array(
           'format_type' => 'long',
@@ -171,7 +171,7 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
         'label' => 'hidden',
         'settings' => array(),
         'type' => 'hidden',
-        'weight' => 3,
+        'weight' => 18,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -199,7 +199,7 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
         'content_taxonomy_opt_groups' => FALSE,
       ),
       'type' => 'options_select',
-      'weight' => 4,
+      'weight' => 3,
     ),
   );
 
@@ -211,11 +211,11 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 9,
+        'weight' => 10,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -291,11 +291,11 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 11,
+        'weight' => 12,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -371,7 +371,7 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -451,11 +451,11 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 8,
+        'weight' => 9,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -530,14 +530,14 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'hidden',
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
           'image_style' => '',
         ),
         'type' => 'image',
-        'weight' => 15,
+        'weight' => 0,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -595,11 +595,11 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 12,
+        'weight' => 8,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -675,7 +675,7 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
@@ -755,11 +755,11 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'text',
         'settings' => array(),
         'type' => 'text_default',
-        'weight' => 16,
+        'weight' => 11,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -835,7 +835,7 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'number',
         'settings' => array(
           'decimal_separator' => '.',
@@ -844,7 +844,7 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
           'thousand_separator' => ' ',
         ),
         'type' => 'number_integer',
-        'weight' => 4,
+        'weight' => 5,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -875,7 +875,7 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
       'module' => 'number',
       'settings' => array(),
       'type' => 'number',
-      'weight' => 7,
+      'weight' => 4,
     ),
   );
 
@@ -886,7 +886,7 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
+        'label' => 'inline',
         'module' => 'date',
         'settings' => array(
           'format_type' => 'long',
@@ -936,7 +936,7 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 10,
+      'weight' => 3,
     ),
   );
 
@@ -947,17 +947,10 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'date',
-        'settings' => array(
-          'format_type' => 'long',
-          'fromto' => 'both',
-          'multiple_from' => '',
-          'multiple_number' => '',
-          'multiple_to' => '',
-        ),
-        'type' => 'date_default',
-        'weight' => 6,
+        'label' => 'inline',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 15,
       ),
       'spotbox' => array(
         'label' => 'above',
@@ -997,56 +990,7 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 9,
-    ),
-  );
-
-  // Exported field_instance: 'node-event_calendar-field_tilmeldinger'
-  $field_instances['node-event_calendar-field_tilmeldinger'] = array(
-    'bundle' => 'event_calendar',
-    'default_value' => array(
-      0 => array(
-        'value' => 0,
-      ),
-    ),
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'above',
-        'module' => 'list',
-        'settings' => array(),
-        'type' => 'list_default',
-        'weight' => 5,
-      ),
-      'spotbox' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'field_tilmeldinger',
-    'label' => 'Tilmeldinger',
-    'required' => 0,
-    'settings' => array(
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'options',
-      'settings' => array(
-        'display_label' => 1,
-      ),
-      'type' => 'options_onoff',
-      'weight' => 8,
+      'weight' => 4,
     ),
   );
 
@@ -1068,7 +1012,6 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
   t('Svarfrist');
   t('Synlig fra');
   t('Telefon');
-  t('Tilmeldinger');
 
   return $field_instances;
 }

@@ -57,31 +57,31 @@ function os2sub_aktivitetskalender_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '5',
+          'weight' => '7',
         ),
       ),
       'display' => array(
         'registration_link' => array(
           'default' => array(
-            'weight' => '1',
+            'weight' => '3',
             'visible' => TRUE,
           ),
         ),
         'registration_form' => array(
           'default' => array(
-            'weight' => '1',
+            'weight' => '4',
             'visible' => TRUE,
           ),
         ),
         'registration_slots_left' => array(
           'default' => array(
-            'weight' => '1',
+            'weight' => '17',
             'visible' => FALSE,
           ),
         ),
         'registration_unregistrable_reason' => array(
           'default' => array(
-            'weight' => '1',
+            'weight' => '16',
             'visible' => FALSE,
           ),
         ),
