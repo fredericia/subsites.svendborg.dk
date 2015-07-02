@@ -61,22 +61,24 @@ global $language ;
                   </div>
                   <div class="col-sm-12 block-book-place" style="display: none;" data-node-id="<?php print $node->nid; ?>">
                      <?php
-                        module_load_include('inc', 'node_registration', 'includes/node_registration.forms');
-                        $registration = entity_get_controller('node_registration')->create(array(
-                              'nid' => $node->nid,
-                              'node' => $node,
-                        ));
-                        $form = drupal_get_form('node_registration_form', $registration);
-                        //hiding elements that we don't need
-                        $form['account']['#prefix']= '<div class="hidden">';
-                        $form['account']['#suffix']= '</div>';
-                        $form['slots']['#prefix']= '<div class="hidden">';
-                        $form['slots']['#suffix']= '</div>';
-
-                        $form['actions']['submit']['#attributes']['class'][] = "gradient-lightgreen";
-                        $form['#action'] .= '?destination=calendar/upcoming#event' . $node->nid;
-                        unset($form['actions']['return']);
-                        print drupal_render($form);
+                        if ($node->registration->status == 1) {
+                           module_load_include('inc', 'node_registration', 'includes/node_registration.forms');
+                           $registration = entity_get_controller('node_registration')->create(array(
+                                 'nid' => $node->nid,
+                                 'node' => $node,
+                           ));
+                           $form = drupal_get_form('node_registration_form', $registration);
+                           //hiding elements that we don't need
+                           $form['account']['#prefix']= '<div class="hidden">';
+                           $form['account']['#suffix']= '</div>';
+                           $form['slots']['#prefix']= '<div class="hidden">';
+                           $form['slots']['#suffix']= '</div>';
+   
+                           $form['actions']['submit']['#attributes']['class'][] = "gradient-lightgreen";
+                           $form['#action'] .= '?destination=calendar/upcoming#event' . $node->nid;
+                           unset($form['actions']['return']);
+                           print drupal_render($form);
+                        }
                      ?>
                   </div>  
             </div>
