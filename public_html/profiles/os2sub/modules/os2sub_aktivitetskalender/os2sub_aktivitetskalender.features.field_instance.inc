@@ -13,7 +13,13 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
   // Exported field_instance: 'node-event_calendar-body'
   $field_instances['node-event_calendar-body'] = array(
     'bundle' => 'event_calendar',
-    'default_value' => NULL,
+      'default_value' => array(
+          0 => array(
+              'summary' => '',
+              'value' => '',
+              'format' => 'full_html',
+          ),
+      ),
     'deleted' => 0,
     'description' => '',
     'display' => array(

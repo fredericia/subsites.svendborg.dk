@@ -13,7 +13,13 @@ function os2sub_banner_field_default_field_instances() {
   // Exported field_instance: 'node-banner-body'
   $field_instances['node-banner-body'] = array(
     'bundle' => 'banner',
-    'default_value' => NULL,
+    'default_value' => array(
+      0 => array(
+          'summary' => '',
+          'value' => '',
+          'format' => 'full_html',
+      ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
