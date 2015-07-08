@@ -13,7 +13,13 @@ function os2web_base_field_default_field_instances() {
   // Exported field_instance: 'node-media-body'
   $field_instances['node-media-body'] = array(
     'bundle' => 'media',
-    'default_value' => NULL,
+      'default_value' => array(
+          0 => array(
+              'summary' => '',
+              'value' => '',
+              'format' => 'full_html',
+          ),
+      ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -430,7 +436,13 @@ function os2web_base_field_default_field_instances() {
   // Exported field_instance: 'node-media-field_os2web_base_field_summary'
   $field_instances['node-media-field_os2web_base_field_summary'] = array(
     'bundle' => 'media',
-    'default_value' => NULL,
+      'default_value' => array(
+          0 => array(
+              'summary' => '',
+              'value' => '',
+              'format' => 'full_html',
+          ),
+      ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
