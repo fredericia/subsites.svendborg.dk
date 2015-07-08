@@ -154,7 +154,7 @@ function workbench_default_page_manager_handlers() {
       'admin_title' => 'Sample Variant',
       'title' => 'My Workbench created through Panels.',
       'body' => '<em>You are viewing "My Workbench" as created by Page Manager and Panels. The module Views Content Panes is also recommended. Please read the <a href="http://drupal.org/node/1226174" target="_blank">Workbench documentation</a> for the best practices in using Panels and Page Manager with Workbench.</em>',
-      'format' => 'filtered_html',
+      'format' => 'full_html',
       'substitute' => 0,
     );
     $pane->cache = array();

@@ -48,33 +48,15 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
       'better_formats' => array(
         'allowed_formats' => array(
           'blokindhold' => 0,
-          'filtered_html' => 'filtered_html',
           'full_html' => 'full_html',
-          'php_code' => 0,
-          'plain_text' => 'plain_text',
           'raw' => 0,
         ),
         'allowed_formats_toggle' => 1,
         'default_order_toggle' => 0,
         'default_order_wrapper' => array(
           'formats' => array(
-            'blokindhold' => array(
-              'weight' => -7,
-            ),
-            'filtered_html' => array(
-              'weight' => 0,
-            ),
             'full_html' => array(
               'weight' => 1,
-            ),
-            'php_code' => array(
-              'weight' => -6,
-            ),
-            'plain_text' => array(
-              'weight' => -8,
-            ),
-            'raw' => array(
-              'weight' => 0,
             ),
           ),
         ),
@@ -237,12 +219,7 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'settings' => array(
       'better_formats' => array(
         'allowed_formats' => array(
-          'blokindhold' => 'blokindhold',
-          'filtered_html' => 'filtered_html',
           'full_html' => 'full_html',
-          'php_code' => 'php_code',
-          'plain_text' => 'plain_text',
-          'raw' => 'raw',
         ),
         'allowed_formats_toggle' => 0,
         'default_order_toggle' => 0,
@@ -251,20 +228,8 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
             'blokindhold' => array(
               'weight' => -7,
             ),
-            'filtered_html' => array(
-              'weight' => 0,
-            ),
             'full_html' => array(
               'weight' => 1,
-            ),
-            'php_code' => array(
-              'weight' => -6,
-            ),
-            'plain_text' => array(
-              'weight' => -8,
-            ),
-            'raw' => array(
-              'weight' => 0,
             ),
           ),
         ),
@@ -318,33 +283,14 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
       'better_formats' => array(
         'allowed_formats' => array(
           'blokindhold' => 'blokindhold',
-          'filtered_html' => 'filtered_html',
           'full_html' => 'full_html',
-          'php_code' => 'php_code',
-          'plain_text' => 'plain_text',
-          'raw' => 'raw',
         ),
         'allowed_formats_toggle' => 0,
         'default_order_toggle' => 0,
         'default_order_wrapper' => array(
           'formats' => array(
-            'blokindhold' => array(
-              'weight' => -7,
-            ),
-            'filtered_html' => array(
-              'weight' => 0,
-            ),
             'full_html' => array(
               'weight' => 1,
-            ),
-            'php_code' => array(
-              'weight' => -6,
-            ),
-            'plain_text' => array(
-              'weight' => -8,
-            ),
-            'raw' => array(
-              'weight' => 0,
             ),
           ),
         ),
@@ -397,34 +343,14 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'settings' => array(
       'better_formats' => array(
         'allowed_formats' => array(
-          'blokindhold' => 'blokindhold',
-          'filtered_html' => 'filtered_html',
           'full_html' => 'full_html',
-          'php_code' => 'php_code',
-          'plain_text' => 'plain_text',
-          'raw' => 'raw',
         ),
         'allowed_formats_toggle' => 0,
         'default_order_toggle' => 0,
         'default_order_wrapper' => array(
           'formats' => array(
-            'blokindhold' => array(
-              'weight' => -7,
-            ),
-            'filtered_html' => array(
-              'weight' => 0,
-            ),
             'full_html' => array(
               'weight' => 1,
-            ),
-            'php_code' => array(
-              'weight' => -6,
-            ),
-            'plain_text' => array(
-              'weight' => -8,
-            ),
-            'raw' => array(
-              'weight' => 0,
             ),
           ),
         ),
@@ -477,34 +403,14 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'settings' => array(
       'better_formats' => array(
         'allowed_formats' => array(
-          'blokindhold' => 'blokindhold',
-          'filtered_html' => 'filtered_html',
           'full_html' => 'full_html',
-          'php_code' => 'php_code',
-          'plain_text' => 'plain_text',
-          'raw' => 'raw',
         ),
         'allowed_formats_toggle' => 0,
         'default_order_toggle' => 0,
         'default_order_wrapper' => array(
           'formats' => array(
-            'blokindhold' => array(
-              'weight' => -7,
-            ),
-            'filtered_html' => array(
-              'weight' => 0,
-            ),
             'full_html' => array(
               'weight' => 1,
-            ),
-            'php_code' => array(
-              'weight' => -6,
-            ),
-            'plain_text' => array(
-              'weight' => -8,
-            ),
-            'raw' => array(
-              'weight' => 0,
             ),
           ),
         ),
@@ -621,34 +527,14 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'settings' => array(
       'better_formats' => array(
         'allowed_formats' => array(
-          'blokindhold' => 'blokindhold',
-          'filtered_html' => 'filtered_html',
           'full_html' => 'full_html',
-          'php_code' => 'php_code',
-          'plain_text' => 'plain_text',
-          'raw' => 'raw',
         ),
         'allowed_formats_toggle' => 0,
         'default_order_toggle' => 0,
         'default_order_wrapper' => array(
           'formats' => array(
-            'blokindhold' => array(
-              'weight' => -7,
-            ),
-            'filtered_html' => array(
-              'weight' => 0,
-            ),
             'full_html' => array(
               'weight' => 1,
-            ),
-            'php_code' => array(
-              'weight' => -6,
-            ),
-            'plain_text' => array(
-              'weight' => -8,
-            ),
-            'raw' => array(
-              'weight' => 0,
             ),
           ),
         ),
@@ -701,34 +587,14 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'settings' => array(
       'better_formats' => array(
         'allowed_formats' => array(
-          'blokindhold' => 'blokindhold',
-          'filtered_html' => 'filtered_html',
           'full_html' => 'full_html',
-          'php_code' => 'php_code',
-          'plain_text' => 'plain_text',
-          'raw' => 'raw',
         ),
         'allowed_formats_toggle' => 0,
         'default_order_toggle' => 0,
         'default_order_wrapper' => array(
           'formats' => array(
-            'blokindhold' => array(
-              'weight' => -7,
-            ),
-            'filtered_html' => array(
-              'weight' => 0,
-            ),
             'full_html' => array(
               'weight' => 1,
-            ),
-            'php_code' => array(
-              'weight' => -6,
-            ),
-            'plain_text' => array(
-              'weight' => -8,
-            ),
-            'raw' => array(
-              'weight' => 0,
             ),
           ),
         ),
@@ -781,34 +647,14 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     'settings' => array(
       'better_formats' => array(
         'allowed_formats' => array(
-          'blokindhold' => 'blokindhold',
-          'filtered_html' => 'filtered_html',
           'full_html' => 'full_html',
-          'php_code' => 'php_code',
-          'plain_text' => 'plain_text',
-          'raw' => 'raw',
         ),
         'allowed_formats_toggle' => 0,
         'default_order_toggle' => 0,
         'default_order_wrapper' => array(
           'formats' => array(
-            'blokindhold' => array(
-              'weight' => -7,
-            ),
-            'filtered_html' => array(
-              'weight' => 0,
-            ),
             'full_html' => array(
               'weight' => 1,
-            ),
-            'php_code' => array(
-              'weight' => -6,
-            ),
-            'plain_text' => array(
-              'weight' => -8,
-            ),
-            'raw' => array(
-              'weight' => 0,
             ),
           ),
         ),
