@@ -17,7 +17,7 @@ function os2web_spotbox_field_default_field_instances() {
       0 => array(
         'summary' => '',
         'value' => '',
-        'format' => 'filtered_html',
+        'format' => 'full_html',
       ),
     ),
     'deleted' => 0,
@@ -693,38 +693,14 @@ function os2web_spotbox_field_default_field_instances() {
     'settings' => array(
       'better_formats' => array(
         'allowed_formats' => array(
-          'blokindhold' => 'blokindhold',
-          'filtered_html' => 'filtered_html',
           'full_html' => 'full_html',
-          'mailchimp_campaign' => 'mailchimp_campaign',
-          'php_code' => 'php_code',
-          'plain_text' => 'plain_text',
-          'raw' => 'raw',
         ),
         'allowed_formats_toggle' => 0,
         'default_order_toggle' => 0,
         'default_order_wrapper' => array(
           'formats' => array(
-            'blokindhold' => array(
-              'weight' => -7,
-            ),
-            'filtered_html' => array(
-              'weight' => 0,
-            ),
             'full_html' => array(
               'weight' => 1,
-            ),
-            'mailchimp_campaign' => array(
-              'weight' => 0,
-            ),
-            'php_code' => array(
-              'weight' => -6,
-            ),
-            'plain_text' => array(
-              'weight' => -8,
-            ),
-            'raw' => array(
-              'weight' => 0,
             ),
           ),
         ),
