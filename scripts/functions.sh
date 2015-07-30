@@ -59,6 +59,18 @@ check_existence_create() {
     echo "ERROR: Database, $DBDIR/$DBNAME already exists"
     exit 10
   fi
+
+  # Check if database user already exists
+  local DBNAME=${SITENAME//\./_}
+  local DBNAME=${DBNAME//\-/_}
+  DBUSER=$(echo "$DBNAME" | cut -c 1-16)
+  EXISTS=$(mysql -ss mysql -e "SELECT EXISTS(SELECT 1 FROM mysql.user WHERE user = \"$DBUSER\");")
+
+  if [ $EXISTS -ne 0 ]
+  then
+    echo "ERROR: Database user, $DBUSER already exists"
+    exit 10
+  fi
 }
 
 check_existence_delete() {
