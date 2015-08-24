@@ -89,14 +89,22 @@
         <div class="contact-block-tel"><?php print render($content['field_os2web_contact_field_info'])?> </div>
         
          <?php if(isset($node->field_os2web_contact_field_phone['und'])):?>
-        <div class="phone"><?php print render($content['field_os2web_contact_field_phone'])?></div>
+        <h4 class="phone">
+	        	        		<a href="tel:<?php print $node->field_os2web_contact_field_phone['und'][0]['value']; ?>">
+		        		<?php print $node->field_os2web_contact_field_phone['und'][0]['value']; ?>
+		        	</a>     
+	        </h4>
         <?php endif; ?>
+
+
 
         <?php 
 	        if(isset($node->field_os2web_contact_field_email['und'])):?>
         		<div class="btn-show-all like-panel-lightnblue">
-	        		<?php print render($content['field_os2web_contact_field_email'])?>
-	        	</div>
+	        		<a href="mailto:<?php print $node->field_os2web_contact_field_email['und'][0]['value']; ?>">
+		        		<?php print $node->field_os2web_contact_field_email['und'][0]['value']; ?>
+		        	</a>
+		        </div>
         <?php endif; ?>
 		
 		<?php
