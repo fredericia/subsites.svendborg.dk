@@ -10,10 +10,10 @@
 function os2sub_uses_and_tools_filter_default_formats() {
   $formats = array();
 
-  // Exported format: Full HTML.
+  // Exported format: HTML.
   $formats['full_html'] = array(
     'format' => 'full_html',
-    'name' => 'Full HTML',
+    'name' => 'HTML',
     'cache' => 1,
     'status' => 1,
     'weight' => 1,
@@ -27,11 +27,6 @@ function os2sub_uses_and_tools_filter_default_formats() {
       ),
       'filter_autop' => array(
         'weight' => 1,
-        'status' => 1,
-        'settings' => array(),
-      ),
-      'media_filter' => array(
-        'weight' => 2,
         'status' => 1,
         'settings' => array(),
       ),
