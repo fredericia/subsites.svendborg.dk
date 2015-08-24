@@ -330,7 +330,6 @@ if ((!empty($view) && $view->name =='svendborg_gallery' && $view->current_displa
 
   if (drupal_is_front_page()) {
     // Frontpage big menu.
-    $variables['page']['front_big_menu'] = _svendborg_subsitetheme_get_front_big_menu_buttons();
 
     // Frontpage large carousel.
     $variables['page']['front_large_carousel'] = _svendborg_subsitetheme_get_large_carousel();
@@ -645,45 +644,9 @@ function svendborg_subsitetheme_file_formatter_table($variables) {
   return empty($rows) ? '' : theme('table', array('header' => $header, 'rows' => $rows));
 }
 /**
-<<<<<<< Updated upstream
  * Retrieve front page big menu buttons.
  */
-function _svendborg_subsitetheme_get_front_big_menu_buttons() {
-  $front_big_menu = '';
-  $tree = menu_tree_all_data('menu-indholdsmenu', $link = NULL, $max_depth = 3);
-/*
-  foreach ($tree as $key => $menu_item) {
-    $title = $menu_item['link']['link_title'];
-    $path = drupal_get_path_alias($menu_item['link']['link_path']);
-    switch ($title) {
-      case 'Kommunen':
-        $menu_links[0] = array('mlid' => array('title' => $title, 'path' => $path));
-        break;
 
-      case 'Borger':
-        $menu_links[1] = array('mlid' => array('title' => $title, 'path' => $path));
-        break;
-
-      case 'Erhverv':
-        $menu_links[2] = array('mlid' => array('title' => $title, 'path' => $path));
-        break;
-
-      case 'Politik':
-        $menu_links[3] = array('mlid' => array('title' => $title, 'path' => $path));
-        break;
-    }
-  }
-  ksort($menu_links);
-  foreach ($menu_links as $menus) {
-    foreach ($menus as $key => $menu_item) {
-      $front_big_menu .= '<div class="menu-' . $key . ' front-indholsdmenu col-md-3 col-sm-3 col-xs-12">';
-      $front_big_menu .= '<h2 class="menu-front ' . $menu_item['title'] . '">';
-      $front_big_menu .= '<a title="' . $menu_item['title'] . '" href="' . $menu_item['path'] . '" class="' . $menu_item['title'] . '">' . $menu_item['title'] . '</a>';
-      $front_big_menu .= '</h2></div>';
-    }
-  }*/
-  return $front_big_menu;
-}
 /**
  * Retrieve large carousel.
  */
