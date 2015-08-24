@@ -196,7 +196,7 @@ if ($node && $node->type == "os2web_base_contentpage"){
       '#theme_wrappers' => array('region'),
       '#region' => 'sidebar_first',   
       'content' => array(
-        '#markup' =>  drupal_render(menu_tree('menu-menu-indholdsmenu')),
+        '#markup' =>  drupal_render(menu_tree('main-menu')),
          '#classes' => array('indholdsmenu') 
      ),
     );
