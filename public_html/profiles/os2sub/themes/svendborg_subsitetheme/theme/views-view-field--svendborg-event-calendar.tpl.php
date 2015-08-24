@@ -39,13 +39,19 @@ global $language ;
                     <div class="col-xs-12 "><h1><?php print $node->title?></h1> <?php print $node->body['und'][0]['value']?></div> 
                 <?php endif;?>
             </div> 
-            <div class="event-contact">
-                  <div class="col-sm-3 col-xs-12">
+            <div class="event-contact row">
+	            
+	             <?php if(isset($node->field_event_calendar_field_org['und'])):?>
+	                <div class="col-sm-3 col-xs-12">
                     <label> <?php print t('Address');?></label>
                     <div><?php print $node->field_event_calendar_field_org['und'][0]['value']?></div>
                     <div><?php print $node->field_event_calendar_addr['und'][0]['value']?></div>
-                    <div><?php print $node->field_event_calendar_zip['und'][0]['value']?>, <?php print $node->field_event_calendar_by['und'][0]['value']?></div>
-                  </div> 
+                    <div><?php print $node->field_event_calendar_zip['und'][0]['value']?>, 
+                    	<?php print $node->field_event_calendar_by['und'][0]['value']?></div>  
+                  </div>
+                  <?php endif; ?>
+
+	             <?php if(isset($node->field_event_calendar_kontakt_per['und'])):?>
                   <div class="col-sm-5 col-xs-12">
                     <label> <?php print t('Contact');?></label>
                     <div><?php print $node->field_event_calendar_kontakt_per['und'][0]['value']?></div>
@@ -54,6 +60,9 @@ global $language ;
                     <div><a href="mailto:<?php print $node->field_event_calendar_email['und'][0]['value']?>"> <?php print t('Send en mail');?></a></div>
                    <?php endif; ?>
                   </div>
+                  <?php endif; ?>
+                  
+                  
                   <div class="col-sm-3 col-xs-12 col-sm-offset-1">
                      <?php if ($node->registration->status == 1):?>
                      <a class="btn-back gradient-lightgreen btn-book-place" href="#" data-node-id="<?php print $node->nid; ?>"><?php print t('Book your place'); ?></a>
