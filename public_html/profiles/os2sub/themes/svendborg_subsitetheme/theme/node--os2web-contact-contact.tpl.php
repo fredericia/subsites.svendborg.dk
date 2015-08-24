@@ -87,32 +87,15 @@
       
         <h2> <?php  print $node->field_os2web_contact_field_dept['und'][0]['value']; ?> </h2>
         <div class="contact-block-tel"><?php print render($content['field_os2web_contact_field_info'])?> </div>
-        <?php if (isset($node->field_os2web_contact_field_show['und']) && $node->field_os2web_contact_field_show['und'][0]['value']==1):?>
-        <div class="contact-block-open-hours">
-            <?php if(isset($node->field_os2web_contact_field_monop['und'])):?>
-               <?php print t('Mon')?>: <?php print render($content['field_os2web_contact_field_monop'])?> - <?php print render($content['field_os2web_contact_field_moncl'])?><br/>
-             <?php endif; ?>
-            <?php if(isset($node->field_os2web_contact_field_tueop['und'])):?>
-               <?php print t('Tue')?>: <?php print render($content['field_os2web_contact_field_tueop'])?> - <?php print render($content['field_os2web_contact_field_tuecl'])?><br/>
-            <?php endif; ?>
-            <?php if(isset($node->field_os2web_contact_field_wedop['und'])):?>
-               <?php print t('Wed')?>: <?php print render($content['field_os2web_contact_field_wedop'])?> - <?php print render($content['field_os2web_contact_field_wedcl'])?><br/>
-             <?php endif; ?>
-            <?php if(isset($node->field_os2web_contact_field_thuop['und'])):?>
-              <?php print t('Thu')?>: <?php print render($content['field_os2web_contact_field_thuop'])?> - <?php print render($content['field_os2web_contact_field_thucl'])?><br/>
-            <?php endif; ?>
-            <?php if(isset($node->field_os2web_contact_field_friop['und'])):?>
-               <?php print t('Fri')?>: <?php print render($content['field_os2web_contact_field_friop'])?> - <?php print render($content['field_os2web_contact_field_fricl'])?><br/>
-            <?php endif; ?>
-            <?php if(isset($node->field_os2web_contact_field_satop['und'])):?>
-               <?php print t('Sat')?>: <?php print render($content['field_os2web_contact_field_satop'])?> - <?php print render($content['field_os2web_contact_field_satcl'])?><br/>
-            <?php endif; ?>
-            <?php if(isset($node->field_os2web_contact_field_sunop['und'])):?>
-                <?php print t('Sun')?>: <?php print render($content['field_os2web_contact_field_sunop'])?> - <?php print render($content['field_os2web_contact_field_suncl'])?><br/>
-            <?php endif; ?>
-        </div>
-        <?php endif;?>
-        <div class="btn-show-all like-panel-lightnblue"><a href=""><?php print 'Se alle personer'?></a></div>
+        
+         <?php if(isset($node->field_os2web_contact_field_phone['und'])):?>
+        <div class="phone"><?php print render($content['field_os2web_contact_field_phone'])?></div>
+        <?php endif; ?>
+
+        <?php if(isset($node->field_os2web_contact_field_email['und'])):?>
+        <div class="btn-show-all like-panel-lightnblue"><?php print render($content['field_os2web_contact_field_email'])?></div>
+        <?php endif; ?>
+
         
         <?php
           hide($content['comments']);

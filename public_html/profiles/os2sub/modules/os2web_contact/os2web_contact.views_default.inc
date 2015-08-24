@@ -108,7 +108,7 @@ function os2web_contact_views_default_views() {
     'thousand_separator' => '',
     'prefix_suffix' => 0,
   );
-  /* Felt: Indhold: Man-Ons, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['id'] = 'field_os2web_contact_field_mowcl';
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['table'] = 'field_data_field_os2web_contact_field_mowcl';
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['field'] = 'field_os2web_contact_field_mowcl';
@@ -118,7 +118,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['alter']['text'] = ' - [field_os2web_contact_field_mowcl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Man-Ons, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_mowop']['id'] = 'field_os2web_contact_field_mowop';
   $handler->display->display_options['fields']['field_os2web_contact_field_mowop']['table'] = 'field_data_field_os2web_contact_field_mowop';
   $handler->display->display_options['fields']['field_os2web_contact_field_mowop']['field'] = 'field_os2web_contact_field_mowop';
@@ -128,7 +128,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_mowop']['alter']['text'] = '<div class="dag">Mandag - onsdag:</div><div class="aaben"> [field_os2web_contact_field_mowop][field_os2web_contact_field_mowcl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_mowop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_mowop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Mandag, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_moncl']['id'] = 'field_os2web_contact_field_moncl';
   $handler->display->display_options['fields']['field_os2web_contact_field_moncl']['table'] = 'field_data_field_os2web_contact_field_moncl';
   $handler->display->display_options['fields']['field_os2web_contact_field_moncl']['field'] = 'field_os2web_contact_field_moncl';
@@ -136,7 +136,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_moncl']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_contact_field_moncl']['alter']['text'] = ' - [field_os2web_contact_field_moncl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_moncl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Mandag, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_monop']['id'] = 'field_os2web_contact_field_monop';
   $handler->display->display_options['fields']['field_os2web_contact_field_monop']['table'] = 'field_data_field_os2web_contact_field_monop';
   $handler->display->display_options['fields']['field_os2web_contact_field_monop']['field'] = 'field_os2web_contact_field_monop';
@@ -146,7 +146,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_monop']['alter']['text'] = '<div class="dag">Mandag:</div><div class="aaben"> [field_os2web_contact_field_monop][field_os2web_contact_field_moncl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_monop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_monop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Tirsdag, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_tuecl']['id'] = 'field_os2web_contact_field_tuecl';
   $handler->display->display_options['fields']['field_os2web_contact_field_tuecl']['table'] = 'field_data_field_os2web_contact_field_tuecl';
   $handler->display->display_options['fields']['field_os2web_contact_field_tuecl']['field'] = 'field_os2web_contact_field_tuecl';
@@ -154,7 +154,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_tuecl']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_contact_field_tuecl']['alter']['text'] = ' - [field_os2web_contact_field_tuecl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_tuecl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Tirsdag, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_tueop']['id'] = 'field_os2web_contact_field_tueop';
   $handler->display->display_options['fields']['field_os2web_contact_field_tueop']['table'] = 'field_data_field_os2web_contact_field_tueop';
   $handler->display->display_options['fields']['field_os2web_contact_field_tueop']['field'] = 'field_os2web_contact_field_tueop';
@@ -164,7 +164,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_tueop']['alter']['text'] = '<div class="dag">Tirsdag:</div><div class="aaben"> [field_os2web_contact_field_tueop][field_os2web_contact_field_tuecl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_tueop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_tueop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Onsdag, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_wedcl']['id'] = 'field_os2web_contact_field_wedcl';
   $handler->display->display_options['fields']['field_os2web_contact_field_wedcl']['table'] = 'field_data_field_os2web_contact_field_wedcl';
   $handler->display->display_options['fields']['field_os2web_contact_field_wedcl']['field'] = 'field_os2web_contact_field_wedcl';
@@ -172,7 +172,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_wedcl']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_contact_field_wedcl']['alter']['text'] = ' - [field_os2web_contact_field_wedcl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_wedcl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Onsdag, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_wedop']['id'] = 'field_os2web_contact_field_wedop';
   $handler->display->display_options['fields']['field_os2web_contact_field_wedop']['table'] = 'field_data_field_os2web_contact_field_wedop';
   $handler->display->display_options['fields']['field_os2web_contact_field_wedop']['field'] = 'field_os2web_contact_field_wedop';
@@ -182,7 +182,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_wedop']['alter']['text'] = '<div class="dag">Onsdag:</div><div class="aaben"> [field_os2web_contact_field_wedop][field_os2web_contact_field_wedcl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_wedop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_wedop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Torsdag, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_thucl']['id'] = 'field_os2web_contact_field_thucl';
   $handler->display->display_options['fields']['field_os2web_contact_field_thucl']['table'] = 'field_data_field_os2web_contact_field_thucl';
   $handler->display->display_options['fields']['field_os2web_contact_field_thucl']['field'] = 'field_os2web_contact_field_thucl';
@@ -190,7 +190,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_thucl']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_contact_field_thucl']['alter']['text'] = ' - [field_os2web_contact_field_thucl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_thucl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Torsdag, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_thuop']['id'] = 'field_os2web_contact_field_thuop';
   $handler->display->display_options['fields']['field_os2web_contact_field_thuop']['table'] = 'field_data_field_os2web_contact_field_thuop';
   $handler->display->display_options['fields']['field_os2web_contact_field_thuop']['field'] = 'field_os2web_contact_field_thuop';
@@ -200,7 +200,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_thuop']['alter']['text'] = '<div class="dag">Torsdag:</div><div class="aaben"> [field_os2web_contact_field_thuop][field_os2web_contact_field_thucl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_thuop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_thuop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Fredag, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_fricl']['id'] = 'field_os2web_contact_field_fricl';
   $handler->display->display_options['fields']['field_os2web_contact_field_fricl']['table'] = 'field_data_field_os2web_contact_field_fricl';
   $handler->display->display_options['fields']['field_os2web_contact_field_fricl']['field'] = 'field_os2web_contact_field_fricl';
@@ -208,7 +208,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_fricl']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_contact_field_fricl']['alter']['text'] = ' - [field_os2web_contact_field_fricl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_fricl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Fredag, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_friop']['id'] = 'field_os2web_contact_field_friop';
   $handler->display->display_options['fields']['field_os2web_contact_field_friop']['table'] = 'field_data_field_os2web_contact_field_friop';
   $handler->display->display_options['fields']['field_os2web_contact_field_friop']['field'] = 'field_os2web_contact_field_friop';
@@ -218,7 +218,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_friop']['alter']['text'] = '<div class="dag">Fredag:</div><div class="aaben"> [field_os2web_contact_field_friop][field_os2web_contact_field_fricl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_friop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_friop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Lørdag, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_satcl']['id'] = 'field_os2web_contact_field_satcl';
   $handler->display->display_options['fields']['field_os2web_contact_field_satcl']['table'] = 'field_data_field_os2web_contact_field_satcl';
   $handler->display->display_options['fields']['field_os2web_contact_field_satcl']['field'] = 'field_os2web_contact_field_satcl';
@@ -227,7 +227,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_satcl']['alter']['text'] = ' - [field_os2web_contact_field_satcl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_satcl']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_satcl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Lørdag, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_satop']['id'] = 'field_os2web_contact_field_satop';
   $handler->display->display_options['fields']['field_os2web_contact_field_satop']['table'] = 'field_data_field_os2web_contact_field_satop';
   $handler->display->display_options['fields']['field_os2web_contact_field_satop']['field'] = 'field_os2web_contact_field_satop';
@@ -237,7 +237,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_satop']['alter']['text'] = '<div class="dag">Lørdag:</div><div class="aaben"> [field_os2web_contact_field_satop][field_os2web_contact_field_satcl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_satop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_satop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Søndag, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_suncl']['id'] = 'field_os2web_contact_field_suncl';
   $handler->display->display_options['fields']['field_os2web_contact_field_suncl']['table'] = 'field_data_field_os2web_contact_field_suncl';
   $handler->display->display_options['fields']['field_os2web_contact_field_suncl']['field'] = 'field_os2web_contact_field_suncl';
@@ -245,7 +245,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_suncl']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_contact_field_suncl']['alter']['text'] = ' - [field_os2web_contact_field_friop][field_os2web_contact_field_fricl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_suncl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Søndag, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_sunop']['id'] = 'field_os2web_contact_field_sunop';
   $handler->display->display_options['fields']['field_os2web_contact_field_sunop']['table'] = 'field_data_field_os2web_contact_field_sunop';
   $handler->display->display_options['fields']['field_os2web_contact_field_sunop']['field'] = 'field_os2web_contact_field_sunop';
@@ -255,7 +255,7 @@ function os2web_contact_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_contact_field_sunop']['alter']['text'] = '<div class="dag">Søndag:</div><div class="aaben"> [field_os2web_contact_field_sunop][field_os2web_contact_field_suncl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_sunop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_sunop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Vis åbningstider */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_show']['id'] = 'field_os2web_contact_field_show';
   $handler->display->display_options['fields']['field_os2web_contact_field_show']['table'] = 'field_data_field_os2web_contact_field_show';
   $handler->display->display_options['fields']['field_os2web_contact_field_show']['field'] = 'field_os2web_contact_field_show';
@@ -335,7 +335,7 @@ function os2web_contact_views_default_views() {
     'field_os2web_contact_field_show' => 0,
     'field_os2web_contact_field_callc' => 0,
   );
-  /* Felt: Indhold: Vis åbningstider */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_show_1']['id'] = 'field_os2web_contact_field_show_1';
   $handler->display->display_options['fields']['field_os2web_contact_field_show_1']['table'] = 'field_data_field_os2web_contact_field_show';
   $handler->display->display_options['fields']['field_os2web_contact_field_show_1']['field'] = 'field_os2web_contact_field_show';
@@ -443,7 +443,7 @@ return os2web_contact_get_block();
     'thousand_separator' => '',
     'prefix_suffix' => 0,
   );
-  /* Felt: Indhold: Man-Ons, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['id'] = 'field_os2web_contact_field_mowcl';
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['table'] = 'field_data_field_os2web_contact_field_mowcl';
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['field'] = 'field_os2web_contact_field_mowcl';
@@ -453,7 +453,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['alter']['text'] = ' - [field_os2web_contact_field_mowcl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_mowcl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Man-Ons, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_mowop']['id'] = 'field_os2web_contact_field_mowop';
   $handler->display->display_options['fields']['field_os2web_contact_field_mowop']['table'] = 'field_data_field_os2web_contact_field_mowop';
   $handler->display->display_options['fields']['field_os2web_contact_field_mowop']['field'] = 'field_os2web_contact_field_mowop';
@@ -463,7 +463,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_mowop']['alter']['text'] = '<div class="dag">Mandag - onsdag:</div><div class="aaben"> [field_os2web_contact_field_mowop][field_os2web_contact_field_mowcl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_mowop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_mowop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Mandag, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_moncl']['id'] = 'field_os2web_contact_field_moncl';
   $handler->display->display_options['fields']['field_os2web_contact_field_moncl']['table'] = 'field_data_field_os2web_contact_field_moncl';
   $handler->display->display_options['fields']['field_os2web_contact_field_moncl']['field'] = 'field_os2web_contact_field_moncl';
@@ -471,7 +471,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_moncl']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_contact_field_moncl']['alter']['text'] = ' - [field_os2web_contact_field_moncl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_moncl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Mandag, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_monop']['id'] = 'field_os2web_contact_field_monop';
   $handler->display->display_options['fields']['field_os2web_contact_field_monop']['table'] = 'field_data_field_os2web_contact_field_monop';
   $handler->display->display_options['fields']['field_os2web_contact_field_monop']['field'] = 'field_os2web_contact_field_monop';
@@ -481,7 +481,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_monop']['alter']['text'] = '<div class="dag">Mandag:</div><div class="aaben"> [field_os2web_contact_field_monop][field_os2web_contact_field_moncl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_monop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_monop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Tirsdag, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_tuecl']['id'] = 'field_os2web_contact_field_tuecl';
   $handler->display->display_options['fields']['field_os2web_contact_field_tuecl']['table'] = 'field_data_field_os2web_contact_field_tuecl';
   $handler->display->display_options['fields']['field_os2web_contact_field_tuecl']['field'] = 'field_os2web_contact_field_tuecl';
@@ -489,7 +489,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_tuecl']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_contact_field_tuecl']['alter']['text'] = ' - [field_os2web_contact_field_tuecl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_tuecl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Tirsdag, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_tueop']['id'] = 'field_os2web_contact_field_tueop';
   $handler->display->display_options['fields']['field_os2web_contact_field_tueop']['table'] = 'field_data_field_os2web_contact_field_tueop';
   $handler->display->display_options['fields']['field_os2web_contact_field_tueop']['field'] = 'field_os2web_contact_field_tueop';
@@ -499,7 +499,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_tueop']['alter']['text'] = '<div class="dag">Tirsdag:</div><div class="aaben"> [field_os2web_contact_field_tueop][field_os2web_contact_field_tuecl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_tueop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_tueop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Onsdag, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_wedcl']['id'] = 'field_os2web_contact_field_wedcl';
   $handler->display->display_options['fields']['field_os2web_contact_field_wedcl']['table'] = 'field_data_field_os2web_contact_field_wedcl';
   $handler->display->display_options['fields']['field_os2web_contact_field_wedcl']['field'] = 'field_os2web_contact_field_wedcl';
@@ -507,7 +507,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_wedcl']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_contact_field_wedcl']['alter']['text'] = ' - [field_os2web_contact_field_wedcl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_wedcl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Onsdag, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_wedop']['id'] = 'field_os2web_contact_field_wedop';
   $handler->display->display_options['fields']['field_os2web_contact_field_wedop']['table'] = 'field_data_field_os2web_contact_field_wedop';
   $handler->display->display_options['fields']['field_os2web_contact_field_wedop']['field'] = 'field_os2web_contact_field_wedop';
@@ -517,7 +517,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_wedop']['alter']['text'] = '<div class="dag">Onsdag:</div><div class="aaben"> [field_os2web_contact_field_wedop][field_os2web_contact_field_wedcl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_wedop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_wedop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Torsdag, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_thucl']['id'] = 'field_os2web_contact_field_thucl';
   $handler->display->display_options['fields']['field_os2web_contact_field_thucl']['table'] = 'field_data_field_os2web_contact_field_thucl';
   $handler->display->display_options['fields']['field_os2web_contact_field_thucl']['field'] = 'field_os2web_contact_field_thucl';
@@ -525,7 +525,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_thucl']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_contact_field_thucl']['alter']['text'] = ' - [field_os2web_contact_field_thucl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_thucl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Torsdag, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_thuop']['id'] = 'field_os2web_contact_field_thuop';
   $handler->display->display_options['fields']['field_os2web_contact_field_thuop']['table'] = 'field_data_field_os2web_contact_field_thuop';
   $handler->display->display_options['fields']['field_os2web_contact_field_thuop']['field'] = 'field_os2web_contact_field_thuop';
@@ -535,7 +535,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_thuop']['alter']['text'] = '<div class="dag">Torsdag:</div><div class="aaben"> [field_os2web_contact_field_thuop][field_os2web_contact_field_thucl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_thuop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_thuop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Fredag, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_fricl']['id'] = 'field_os2web_contact_field_fricl';
   $handler->display->display_options['fields']['field_os2web_contact_field_fricl']['table'] = 'field_data_field_os2web_contact_field_fricl';
   $handler->display->display_options['fields']['field_os2web_contact_field_fricl']['field'] = 'field_os2web_contact_field_fricl';
@@ -543,7 +543,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_fricl']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_contact_field_fricl']['alter']['text'] = ' - [field_os2web_contact_field_fricl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_fricl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Fredag, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_friop']['id'] = 'field_os2web_contact_field_friop';
   $handler->display->display_options['fields']['field_os2web_contact_field_friop']['table'] = 'field_data_field_os2web_contact_field_friop';
   $handler->display->display_options['fields']['field_os2web_contact_field_friop']['field'] = 'field_os2web_contact_field_friop';
@@ -553,7 +553,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_friop']['alter']['text'] = '<div class="dag">Fredag:</div><div class="aaben"> [field_os2web_contact_field_friop][field_os2web_contact_field_fricl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_friop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_friop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Lørdag, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_satcl']['id'] = 'field_os2web_contact_field_satcl';
   $handler->display->display_options['fields']['field_os2web_contact_field_satcl']['table'] = 'field_data_field_os2web_contact_field_satcl';
   $handler->display->display_options['fields']['field_os2web_contact_field_satcl']['field'] = 'field_os2web_contact_field_satcl';
@@ -562,7 +562,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_satcl']['alter']['text'] = ' - [field_os2web_contact_field_satcl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_satcl']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_satcl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Lørdag, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_satop']['id'] = 'field_os2web_contact_field_satop';
   $handler->display->display_options['fields']['field_os2web_contact_field_satop']['table'] = 'field_data_field_os2web_contact_field_satop';
   $handler->display->display_options['fields']['field_os2web_contact_field_satop']['field'] = 'field_os2web_contact_field_satop';
@@ -572,7 +572,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_satop']['alter']['text'] = '<div class="dag">Lørdag:</div><div class="aaben"> [field_os2web_contact_field_satop][field_os2web_contact_field_satcl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_satop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_satop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Søndag, lukker */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_suncl']['id'] = 'field_os2web_contact_field_suncl';
   $handler->display->display_options['fields']['field_os2web_contact_field_suncl']['table'] = 'field_data_field_os2web_contact_field_suncl';
   $handler->display->display_options['fields']['field_os2web_contact_field_suncl']['field'] = 'field_os2web_contact_field_suncl';
@@ -580,7 +580,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_suncl']['alter']['alter_text'] = TRUE;
   $handler->display->display_options['fields']['field_os2web_contact_field_suncl']['alter']['text'] = ' - [field_os2web_contact_field_friop][field_os2web_contact_field_fricl]';
   $handler->display->display_options['fields']['field_os2web_contact_field_suncl']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Søndag, åbner */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_sunop']['id'] = 'field_os2web_contact_field_sunop';
   $handler->display->display_options['fields']['field_os2web_contact_field_sunop']['table'] = 'field_data_field_os2web_contact_field_sunop';
   $handler->display->display_options['fields']['field_os2web_contact_field_sunop']['field'] = 'field_os2web_contact_field_sunop';
@@ -590,7 +590,7 @@ return os2web_contact_get_block();
   $handler->display->display_options['fields']['field_os2web_contact_field_sunop']['alter']['text'] = '<div class="dag">Søndag:</div><div class="aaben"> [field_os2web_contact_field_sunop][field_os2web_contact_field_suncl]</div>';
   $handler->display->display_options['fields']['field_os2web_contact_field_sunop']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_contact_field_sunop']['hide_empty'] = TRUE;
-  /* Felt: Indhold: Vis åbningstider */
+  /* Felt: Handler mangler eller er i stykker */
   $handler->display->display_options['fields']['field_os2web_contact_field_show_1']['id'] = 'field_os2web_contact_field_show_1';
   $handler->display->display_options['fields']['field_os2web_contact_field_show_1']['table'] = 'field_data_field_os2web_contact_field_show';
   $handler->display->display_options['fields']['field_os2web_contact_field_show_1']['field'] = 'field_os2web_contact_field_show';
@@ -705,25 +705,25 @@ return os2web_contact_get_block();
     t('<a id="tlf" href="tel:[field_os2web_contact_field_phone]" title="Telefon: [field_os2web_contact_field_phone]">[field_os2web_contact_field_phone]</a>'),
     t(' - [field_os2web_contact_field_mowcl]'),
     t('<div class="dag">Mandag - onsdag:</div><div class="aaben"> [field_os2web_contact_field_mowop][field_os2web_contact_field_mowcl]</div>'),
-    t('Mandag, lukker'),
+    t('Handler i stykker field_data_field_os2web_contact_field_moncl.field_os2web_contact_field_moncl'),
     t(' - [field_os2web_contact_field_moncl]'),
     t('<div class="dag">Mandag:</div><div class="aaben"> [field_os2web_contact_field_monop][field_os2web_contact_field_moncl]</div>'),
-    t('Tirsdag, lukker'),
+    t('Handler i stykker field_data_field_os2web_contact_field_tuecl.field_os2web_contact_field_tuecl'),
     t(' - [field_os2web_contact_field_tuecl]'),
     t('<div class="dag">Tirsdag:</div><div class="aaben"> [field_os2web_contact_field_tueop][field_os2web_contact_field_tuecl]</div>'),
-    t('Onsdag, lukker'),
+    t('Handler i stykker field_data_field_os2web_contact_field_wedcl.field_os2web_contact_field_wedcl'),
     t(' - [field_os2web_contact_field_wedcl]'),
     t('<div class="dag">Onsdag:</div><div class="aaben"> [field_os2web_contact_field_wedop][field_os2web_contact_field_wedcl]</div>'),
-    t('Torsdag, lukker'),
+    t('Handler i stykker field_data_field_os2web_contact_field_thucl.field_os2web_contact_field_thucl'),
     t(' - [field_os2web_contact_field_thucl]'),
     t('<div class="dag">Torsdag:</div><div class="aaben"> [field_os2web_contact_field_thuop][field_os2web_contact_field_thucl]</div>'),
-    t('Fredag, lukker'),
+    t('Handler i stykker field_data_field_os2web_contact_field_fricl.field_os2web_contact_field_fricl'),
     t(' - [field_os2web_contact_field_fricl]'),
     t('<div class="dag">Fredag:</div><div class="aaben"> [field_os2web_contact_field_friop][field_os2web_contact_field_fricl]</div>'),
-    t('Lørdag, lukker'),
+    t('Handler i stykker field_data_field_os2web_contact_field_satcl.field_os2web_contact_field_satcl'),
     t(' - [field_os2web_contact_field_satcl]'),
     t('<div class="dag">Lørdag:</div><div class="aaben"> [field_os2web_contact_field_satop][field_os2web_contact_field_satcl]</div>'),
-    t('Søndag, lukker'),
+    t('Handler i stykker field_data_field_os2web_contact_field_suncl.field_os2web_contact_field_suncl'),
     t(' - [field_os2web_contact_field_friop][field_os2web_contact_field_fricl]'),
     t('<div class="dag">Søndag:</div><div class="aaben"> [field_os2web_contact_field_sunop][field_os2web_contact_field_suncl]</div>'),
     t('[field_os2web_contact_field_mowop]
@@ -743,7 +743,7 @@ return os2web_contact_get_block();
 <p>Borgerservice i Hornslet og Ebeltoft har lukket fredag.</p>
 
 <p>Du kan få hjælp til selvbetjening på <a href="http://bibliotek.syddjurs.dk">bibliotekerne</a>.</p>'),
-    t('Vis åbningstider'),
+    t('Handler i stykker field_data_field_os2web_contact_field_show.field_os2web_contact_field_show'),
     t('Alle'),
     t('Block'),
     t('<a href="mailto:[field_os2web_contact_field_email-value]">[field_os2web_contact_field_email]</a>'),

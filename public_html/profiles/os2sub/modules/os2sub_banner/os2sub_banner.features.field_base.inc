@@ -71,5 +71,30 @@ function os2sub_banner_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
+  // Exported field_base: 'field_hvid_tekst'
+  $field_bases['field_hvid_tekst'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_hvid_tekst',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => 'black',
+        1 => 'white',
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
   return $field_bases;
 }

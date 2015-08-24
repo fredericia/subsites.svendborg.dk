@@ -17,6 +17,7 @@ function os2web_contact_user_default_permissions() {
       'Administrator' => 'Administrator',
       'Kommunikation' => 'Kommunikation',
       'Webmaster' => 'Webmaster',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'node',
   );
@@ -26,6 +27,7 @@ function os2web_contact_user_default_permissions() {
     'name' => 'delete any os2web_contact_contact content',
     'roles' => array(
       'Administrator' => 'Administrator',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'node',
   );
@@ -37,6 +39,7 @@ function os2web_contact_user_default_permissions() {
       'Administrator' => 'Administrator',
       'Kommunikation' => 'Kommunikation',
       'Webmaster' => 'Webmaster',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'node',
   );
@@ -48,6 +51,7 @@ function os2web_contact_user_default_permissions() {
       'Administrator' => 'Administrator',
       'Kommunikation' => 'Kommunikation',
       'Webmaster' => 'Webmaster',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'node',
   );
@@ -59,6 +63,7 @@ function os2web_contact_user_default_permissions() {
       'Administrator' => 'Administrator',
       'Kommunikation' => 'Kommunikation',
       'Webmaster' => 'Webmaster',
+      'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'node',
   );

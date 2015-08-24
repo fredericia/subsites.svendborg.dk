@@ -15,9 +15,9 @@ function os2sub_banner_field_default_field_instances() {
     'bundle' => 'banner',
     'default_value' => array(
       0 => array(
-          'summary' => '',
-          'value' => '',
-          'format' => 'full_html',
+        'summary' => '',
+        'value' => '',
+        'format' => 'full_html',
       ),
     ),
     'deleted' => 0,
@@ -104,7 +104,9 @@ function os2sub_banner_field_default_field_instances() {
       'default_image' => 0,
       'epsacrop' => array(
         'styles' => array(
-          'os2web_spotbox_image' => 0,
+          'os2sub_220x130' => 0,
+          'os2sub_300x175' => 0,
+          'os2sub_banner' => 'os2sub_banner',
           'svendborg_content_image' => 0,
           'svendborg_spotbox' => 0,
         ),
@@ -113,18 +115,34 @@ function os2sub_banner_field_default_field_instances() {
       'file_extensions' => 'png gif jpg jpeg',
       'max_filesize' => '',
       'max_resolution' => '',
-      'min_resolution' => '',
+      'min_resolution' => '320x1200',
       'title_field' => 1,
       'user_register_form' => FALSE,
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'image',
+      'module' => 'media',
       'settings' => array(
-        'preview_image_style' => 'svendborg_content_image',
+        'allowed_schemes' => array(
+          'public' => 'public',
+          'youtube' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'media_internet' => 0,
+          'upload' => 0,
+          'youtube' => 0,
+        ),
         'progress_indicator' => 'throbber',
       ),
-      'type' => 'image_image',
+      'type' => 'media_generic',
       'weight' => 42,
     ),
   );
@@ -174,10 +192,54 @@ function os2sub_banner_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'node-banner-field_hvid_tekst'
+  $field_instances['node-banner-field_hvid_tekst'] = array(
+    'bundle' => 'banner',
+    'default_value' => array(
+      0 => array(
+        'value' => 0,
+      ),
+    ),
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'list',
+        'settings' => array(),
+        'type' => 'list_default',
+        'weight' => 3,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_hvid_tekst',
+    'label' => 'Hvid tekst',
+    'required' => 0,
+    'settings' => array(
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'options',
+      'settings' => array(
+        'display_label' => 1,
+      ),
+      'type' => 'options_onoff',
+      'weight' => 44,
+    ),
+  );
+
   // Translatables
   // Included for use with string extractors like potx.
   t('Billede');
   t('Body');
+  t('Hvid tekst');
   t('Vis på sider');
 
   return $field_instances;
