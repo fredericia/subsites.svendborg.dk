@@ -13,6 +13,7 @@ dependencies[] = features
 dependencies[] = field_group
 dependencies[] = image
 dependencies[] = list
+dependencies[] = media
 dependencies[] = node
 dependencies[] = node_registration
 dependencies[] = number

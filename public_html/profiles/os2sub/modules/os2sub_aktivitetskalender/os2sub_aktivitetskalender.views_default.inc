@@ -481,7 +481,7 @@ function os2sub_aktivitetskalender_views_default_views() {
     t('Block'),
     t('Upcoming'),
     t('Upcoming events block'),
-    t('<a href="calendar/upcoming#event[nid]">Aben</a>
+    t('<a href="calendar/upcoming#event[nid]">Åben</a>
 '),
   );
   $export['aktiviteter'] = $view;

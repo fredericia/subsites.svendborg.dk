@@ -13,13 +13,13 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
   // Exported field_instance: 'node-event_calendar-body'
   $field_instances['node-event_calendar-body'] = array(
     'bundle' => 'event_calendar',
-      'default_value' => array(
-          0 => array(
-              'summary' => '',
-              'value' => '',
-              'format' => 'full_html',
-          ),
+    'default_value' => array(
+      0 => array(
+        'summary' => '',
+        'value' => '',
+        'format' => 'full_html',
       ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -473,9 +473,10 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
       'default_image' => 0,
       'epsacrop' => array(
         'styles' => array(
+          'os2sub_220x130' => 0,
+          'os2sub_300x175' => 0,
           'os2sub_banner' => 0,
-          'os2web_spotbox_image' => 0,
-          'svendborg_content_image' => 0,
+          'svendborg_content_image' => 'svendborg_content_image',
           'svendborg_spotbox' => 0,
         ),
       ),
@@ -489,12 +490,28 @@ function os2sub_aktivitetskalender_field_default_field_instances() {
     ),
     'widget' => array(
       'active' => 1,
-      'module' => 'image',
+      'module' => 'media',
       'settings' => array(
-        'preview_image_style' => 'thumbnail',
+        'allowed_schemes' => array(
+          'public' => 'public',
+          'youtube' => 0,
+        ),
+        'allowed_types' => array(
+          'audio' => 0,
+          'document' => 0,
+          'image' => 'image',
+          'video' => 0,
+        ),
+        'browser_plugins' => array(
+          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_my_files' => 0,
+          'media_internet' => 0,
+          'upload' => 0,
+          'youtube' => 0,
+        ),
         'progress_indicator' => 'throbber',
       ),
-      'type' => 'image_image',
+      'type' => 'media_generic',
       'weight' => 1,
     ),
   );
