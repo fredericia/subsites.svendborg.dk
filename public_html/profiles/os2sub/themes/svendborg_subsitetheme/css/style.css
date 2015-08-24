@@ -12071,13 +12071,11 @@ h2.menu-footer a.Kommunen {
   text-align: right;
 }
 .news-block .four-news-block .views-row-first,
-.news-block .three-news-block .views-row-first,
-.news-block .two-news-block .views-row-first {
+.news-block .three-news-block .views-row-first {
   padding-left: 0 !important;
 }
 .news-block .four-news-block .views-row-last,
-.news-block .three-news-block .views-row-last,
-.news-block .two-news-block .views-row-last {
+.news-block .three-news-block .views-row-last {
   padding-right: 0 !important;
 }
 .four-news-block .views-row div.image {

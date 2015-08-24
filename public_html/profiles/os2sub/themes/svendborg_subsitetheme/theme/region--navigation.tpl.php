@@ -66,7 +66,8 @@
 
       <nav role="navigation">
         <div class="nav_main_menu">
-          <?php print render($page['primary_nav']); ?>          
+          <ul class="menu nav navbar-nav"><li><a href="/search" class="searchicon"></a></li></ul>        
+          <?php print render($page['primary_nav']); ?>  
         </div>
         <?php //print render($page['secondary_nav']); ?>
       </nav>

@@ -27,7 +27,6 @@ features[menu_links][] = main-menu_blog:nyheder
 features[menu_links][] = main-menu_forside:<front>
 features[menu_links][] = main-menu_galleri:gallery
 features[menu_links][] = main-menu_kalender:calendar/upcoming
-features[menu_links][] = main-menu_sg:search
 features[menu_links][] = menu-top-right_login:user
 features[menu_links][] = menu-top-right_sitemap:sitemap
 features[variable][] = less_engine

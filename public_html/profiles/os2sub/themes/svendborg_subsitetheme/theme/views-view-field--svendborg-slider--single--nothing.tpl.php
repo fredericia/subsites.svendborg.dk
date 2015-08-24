@@ -26,6 +26,8 @@
     $node = node_load($row->nid);
     $image_uri = file_create_url($node->field_banner_billede['und'][0]['uri']);
     $overlay_class = '';
+    $whitetext = $node->field_hvid_tekst['und'][0];
+    
     if (theme_get_setting('slider_overlay','svendborg_subsitetheme')) {
 	$background = "background-image: url('" . $image_uri . "')"
 	    . "background-image: -moz-linear-gradient(left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%), url('" . $image_uri . "');"
@@ -49,7 +51,7 @@
 		    $html .= '<div class="title">';
 			    $html .= $node->title;
 		    $html .= '</div>';
-		    $html .= '<a href="/node/' . $row->nid . '" class="btn gradient-deepdarkgreen">Tag kontakt idag';
+		    $html .= '<a href="#" class="btn gradient-deepdarkgreen">Tag kontakt idag';
 		    $html .= '</a>';
 		$html .= '</div>';//class="col-xs-8"
 

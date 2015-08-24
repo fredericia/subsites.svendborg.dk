@@ -94,27 +94,6 @@ function svendborg_views_menu_default_menu_links() {
     'weight' => -43,
     'customized' => 1,
   );
-  // Exported menu link: main-menu_sg:search
-  $menu_links['main-menu_sg:search'] = array(
-    'menu_name' => 'main-menu',
-    'link_path' => 'search',
-    'router_path' => 'search',
-    'link_title' => 'Søg',
-    'options' => array(
-      'attributes' => array(
-        'title' => '',
-      ),
-      'alter' => TRUE,
-      'identifier' => 'main-menu_sg:search',
-    ),
-    'module' => 'menu',
-    'hidden' => 0,
-    'external' => 0,
-    'has_children' => 0,
-    'expanded' => 0,
-    'weight' => -41,
-    'customized' => 1,
-  );
   // Exported menu link: menu-top-right_login:user
   $menu_links['menu-top-right_login:user'] = array(
     'menu_name' => 'menu-top-right',
@@ -163,7 +142,6 @@ function svendborg_views_menu_default_menu_links() {
   t('Kalender');
   t('Login');
   t('Sitemap');
-  t('Søg');
 
 
   return $menu_links;

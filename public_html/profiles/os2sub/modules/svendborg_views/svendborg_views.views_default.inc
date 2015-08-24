@@ -1718,7 +1718,7 @@ function svendborg_views_views_default_views() {
   /* Display: two last news */
   $handler = $view->new_display('block', 'two last news', 'block_5');
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'two-news-block';
+  $handler->display->display_options['css_class'] = 'two-news-block row';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '2';
