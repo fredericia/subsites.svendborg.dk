@@ -92,10 +92,18 @@
         <div class="phone"><?php print render($content['field_os2web_contact_field_phone'])?></div>
         <?php endif; ?>
 
-        <?php if(isset($node->field_os2web_contact_field_email['und'])):?>
-        <div class="btn-show-all like-panel-lightnblue"><?php print render($content['field_os2web_contact_field_email'])?></div>
+        <?php 
+	        if(isset($node->field_os2web_contact_field_email['und'])):?>
+        		<div class="btn-show-all like-panel-lightnblue">
+	        		<?php print render($content['field_os2web_contact_field_email'])?>
+	        	</div>
         <?php endif; ?>
-
+		
+		<?php
+			if (node_access('update',$node)){
+				print l(t('Edit'),'node/'.$node->nid.'/edit' );
+			}
+		?>
         
         <?php
           hide($content['comments']);
