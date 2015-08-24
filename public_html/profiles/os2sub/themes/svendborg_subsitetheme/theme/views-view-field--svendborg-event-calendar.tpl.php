@@ -26,12 +26,12 @@ global $language ;
     </div>
     <div class="col-sm-9 col-xs-12 ">
         <div class="event-content">
-            <div class="short-aktivity">
+            <div class="short-aktivity row">
                 <div class="col-sm-9 col-xs-12 title"><?php print $node->title?></div> 
                 <div class="col-sm-3 col-xs-12 open-link"><a class='open-activity' href="/" ><?php print t('Show more')?></a></div> 
             </div>
         <div class="full-aktivity">
-            <div class="event-description">
+            <div class="event-description row">
                 <?php if(isset($public_filename)):?>
                     <div class="col-sm-3 col-xs-12 image"><img src="<?php print  $public_filename?>"></div> 
                     <div class="col-sm-9 col-xs-12"><h1><?php print $node->title?></h1> <?php print $node->body['und'][0]['value']?></div> 
