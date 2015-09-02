@@ -263,7 +263,7 @@ function os2web_news_page_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Intro / Resume (maks 2 linier!) */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -465,7 +465,7 @@ function os2web_news_page_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Intro / Resume (maks 2 linier!) */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -496,7 +496,7 @@ function os2web_news_page_views_default_views() {
   $handler->display->display_options['sorts']['created']['table'] = 'node';
   $handler->display->display_options['sorts']['created']['field'] = 'created';
   $handler->display->display_options['sorts']['created']['order'] = 'DESC';
-  /* Kontekstuelt filter: Indhold: Overordnet placering (field_os2web_base_field_struct) */
+  /* Kontekstuelt filter: Indhold: Portalkategori (field_os2web_base_field_struct) */
   $handler->display->display_options['arguments']['field_os2web_base_field_struct_tid']['id'] = 'field_os2web_base_field_struct_tid';
   $handler->display->display_options['arguments']['field_os2web_base_field_struct_tid']['table'] = 'field_data_field_os2web_base_field_struct';
   $handler->display->display_options['arguments']['field_os2web_base_field_struct_tid']['field'] = 'field_os2web_base_field_struct_tid';
@@ -611,7 +611,7 @@ function os2web_news_page_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Intro / Resume (maks 2 linier!) */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -734,7 +734,7 @@ function os2web_news_page_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Intro / Resume (maks 2 linier!) */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -802,7 +802,7 @@ function os2web_news_page_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Intro / Resume (maks 2 linier!) */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -867,7 +867,7 @@ function os2web_news_page_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Intro / Resume (maks 2 linier!) */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -945,7 +945,7 @@ function os2web_news_page_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Intro / Resume (maks 2 linier!) */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
@@ -1023,7 +1023,7 @@ function os2web_news_page_views_default_views() {
   $handler->display->display_options['fields']['title']['label'] = '';
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  /* Felt: Indhold: Intro / Resume (maks 2 linier!) */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';
