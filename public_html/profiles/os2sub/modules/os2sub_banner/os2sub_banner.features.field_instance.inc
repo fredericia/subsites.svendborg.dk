@@ -62,7 +62,7 @@ function os2sub_banner_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 41,
+      'weight' => 3,
     ),
   );
 
@@ -134,16 +134,16 @@ function os2sub_banner_field_default_field_instances() {
           'video' => 0,
         ),
         'browser_plugins' => array(
-          'media_default--media_browser_1' => 0,
+          'media_default--media_browser_1' => 'media_default--media_browser_1',
           'media_default--media_browser_my_files' => 0,
           'media_internet' => 0,
-          'upload' => 0,
+          'upload' => 'upload',
           'youtube' => 0,
         ),
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 42,
+      'weight' => 5,
     ),
   );
 
@@ -188,7 +188,7 @@ function os2sub_banner_field_default_field_instances() {
         'content_taxonomy_opt_groups' => FALSE,
       ),
       'type' => 'options_select',
-      'weight' => 43,
+      'weight' => 6,
     ),
   );
 
@@ -231,7 +231,66 @@ function os2sub_banner_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 44,
+      'weight' => 7,
+    ),
+  );
+
+  // Exported field_instance: 'node-banner-field_knap_link'
+  $field_instances['node-banner-field_knap_link'] = array(
+    'bundle' => 'banner',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_default',
+        'weight' => 4,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'node',
+    'field_name' => 'field_knap_link',
+    'label' => 'Knap / link',
+    'required' => 0,
+    'settings' => array(
+      'attributes' => array(
+        'class' => '',
+        'configurable_title' => 0,
+        'rel' => 'nofollow',
+        'target' => 'default',
+        'title' => '',
+      ),
+      'display' => array(
+        'url_cutoff' => 80,
+      ),
+      'enable_tokens' => 1,
+      'linkit' => array(
+        'button_text' => 'Søg internt',
+        'enable' => 1,
+        'profile' => 'os2sub_linkit',
+      ),
+      'rel_remove' => 'default',
+      'title' => 'optional',
+      'title_maxlength' => 128,
+      'title_value' => '',
+      'url' => 0,
+      'user_register_form' => FALSE,
+      'validate_url' => 1,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'link',
+      'settings' => array(),
+      'type' => 'link_field',
+      'weight' => 4,
     ),
   );
 
@@ -240,6 +299,7 @@ function os2sub_banner_field_default_field_instances() {
   t('Billede');
   t('Body');
   t('Hvid tekst');
+  t('Knap / link');
   t('Vis på sider');
 
   return $field_instances;

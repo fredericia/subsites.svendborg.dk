@@ -38,10 +38,9 @@ function os2sub_uses_and_tools_ckeditor_profile_defaults() {
     [\'Bold\',\'Italic\',\'Underline\',\'Strike\',\'-\',\'Subscript\',\'Superscript\',\'-\',\'RemoveFormat\'],
     [\'NumberedList\',\'BulletedList\',\'-\',\'Outdent\',\'Indent\',\'Blockquote\',\'CreateDiv\'],
     [\'JustifyLeft\',\'JustifyCenter\',\'JustifyRight\',\'JustifyBlock\',\'-\',\'BidiLtr\',\'BidiRtl\',\'-\',\'Language\'],
-    [\'Link\',\'Unlink\',\'Anchor\'],
+    [\'Link\',\'Unlink\',\'linkit\',\'Anchor\'],
     [\'DrupalBreak\',\'Styles\'],
     \'/\',
-    
     [\'TextColor\',\'BGColor\'],
     [\'Maximize\',\'ShowBlocks\']
 ]',
