@@ -13,13 +13,13 @@ function os2web_base_field_default_field_instances() {
   // Exported field_instance: 'node-media-body'
   $field_instances['node-media-body'] = array(
     'bundle' => 'media',
-      'default_value' => array(
-          0 => array(
-              'summary' => '',
-              'value' => '',
-              'format' => 'full_html',
-          ),
+    'default_value' => array(
+      0 => array(
+        'summary' => '',
+        'value' => '',
+        'format' => 'full_html',
       ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -436,13 +436,13 @@ function os2web_base_field_default_field_instances() {
   // Exported field_instance: 'node-media-field_os2web_base_field_summary'
   $field_instances['node-media-field_os2web_base_field_summary'] = array(
     'bundle' => 'media',
-      'default_value' => array(
-          0 => array(
-              'summary' => '',
-              'value' => '',
-              'format' => 'full_html',
-          ),
+    'default_value' => array(
+      0 => array(
+        'summary' => '',
+        'value' => '',
+        'format' => 'full_html',
       ),
+    ),
     'deleted' => 0,
     'description' => '',
     'display' => array(
@@ -1526,8 +1526,8 @@ function os2web_base_field_default_field_instances() {
         'label' => 'hidden',
         'module' => 'photoswipe',
         'settings' => array(
-          'photoswipe_image_style' => '',
-          'photoswipe_node_style' => 'medium',
+          'photoswipe_image_style' => 'gallery',
+          'photoswipe_node_style' => 'gallery-thumb',
         ),
         'type' => 'photoswipe',
         'weight' => 0,
