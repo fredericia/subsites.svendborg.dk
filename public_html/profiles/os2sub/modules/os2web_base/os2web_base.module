@@ -66,3 +66,9 @@ function os2web_base_os2web_help($sections) {
 
   return $sections;
 }
+
+function os2web_base_webform_node_defaults_alter(&$defaults) {
+  $defaults['confirmation'] = 'Tak for det';
+  $defaults['confirmation_format'] = 'full_html';
+  $defaults['redirect_url'] = '<none>';
+}
