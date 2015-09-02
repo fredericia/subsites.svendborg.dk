@@ -190,6 +190,12 @@ $form['svendborg_subsitetheme_setting']['socialicon'] = array(
     '#default_value' => theme_get_setting('phone', 'svendborg_subsitetheme'),
     '#description'   => t("Enter your phone number. Leave blank to hide."),
   );
+  $form['svendborg_subsitetheme_setting']['footer-contact']['email'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Email'),
+    '#default_value' => theme_get_setting('email', 'svendborg_subsitetheme'),
+    '#description'   => t("Enter your email. Leave blank to hide."),
+  );
 
 $form['#submit'][] = 'svendborg_subsitetheme_settings_form_submit';
 $themes = list_themes();

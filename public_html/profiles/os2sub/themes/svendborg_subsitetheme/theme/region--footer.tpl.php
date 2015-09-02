@@ -100,10 +100,31 @@ print "<h2 class='menu-footer " . $menu_item['link']['link_title']. "'>
        <?php endif?>     
        
         <div class="col-xs-12 footer-address">
-           <?php print theme_get_setting('company-name', 'svendborg_subsitetheme'); ?> | 
-           <?php print theme_get_setting('address', 'svendborg_subsitetheme'); ?> | 
-           <?php print theme_get_setting('index', 'svendborg_subsitetheme'); ?> <?php print theme_get_setting('city', 'svendborg_subsitetheme'); ?> | 
-          Tlf <?php print theme_get_setting('phone', 'svendborg_subsitetheme'); ?> 
+           
+           <?php if (theme_get_setting('company-name', 'svendborg_subsitetheme')):?>
+           		<?php print theme_get_setting('company-name', 'svendborg_subsitetheme'); ?> | 
+           <?php endif;?>
+           
+           <?php if (theme_get_setting('address', 'svendborg_subsitetheme')):?>
+           		<?php print theme_get_setting('address', 'svendborg_subsitetheme'); ?> | 
+           <?php endif;?>
+           
+           <?php if (theme_get_setting('index', 'svendborg_subsitetheme')):?>
+           		<?php print theme_get_setting('index', 'svendborg_subsitetheme'); ?>
+           <?php endif;?>
+           		
+           <?php if (theme_get_setting('city', 'svendborg_subsitetheme')):?>
+           		<?php print theme_get_setting('city', 'svendborg_subsitetheme'); ?> | 
+           <?php endif;?>
+           
+           <?php if (theme_get_setting('phone', 'svendborg_subsitetheme')):?>
+		   		Tlf <a href="tel:<?php print theme_get_setting('phone', 'svendborg_subsitetheme'); ?>"><?php print theme_get_setting('phone', 'svendborg_subsitetheme'); ?></a> | 
+           <?php endif;?>
+           
+           <?php if (theme_get_setting('email', 'svendborg_subsitetheme')):?>
+          E-mail <a href="mailto:<?php print theme_get_setting('email', 'svendborg_subsitetheme'); ?>"><?php print theme_get_setting('email', 'svendborg_subsitetheme'); ?></a>
+           <?php endif;?>
+
         </div> 
          <div class="col-xs-12 footer-copyright">
           Copyright 2015® · <?php print theme_get_setting('company-name', 'svendborg_subsitetheme'); ?></div>
