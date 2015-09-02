@@ -9525,9 +9525,12 @@ fieldset[disabled] .btn-orange.active {
 }
 .contact-block .panel-body div.contact-block-tel {
   font-family: 'Titillium Web', Geneva, Verdana, sans-serif;
-  font-size: 32px;
-  font-weight: 600;
+  text-align: left;
 }
+.contact-block .panel-body div.contact-block-tel .field-items {
+	padding: 5px;
+}
+
 .contact-block .panel-body .contact-block-open-hours {
   color: #a9cce3;
   font-family: 'Open Sans', Geneva, Verdana, sans-serif;
