@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2015-05-22 08:53+0200\n"
-"PO-Revision-Date: 2015-08-24 21:57+0100\n"
+"PO-Revision-Date: 2015-09-02 11:30+0100\n"
 "Last-Translator: Franz Skaaning <franz@robusta.dk>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -9331,7 +9331,7 @@ msgstr ""
 
 #: /da/calendar/upcoming
 msgid "Vis Commende"
-msgstr ""
+msgstr "Vis kommende"
 
 #: /da/calendar/upcoming
 msgid "Vis Alle"
@@ -14792,15 +14792,15 @@ msgstr ""
 
 #: /
 msgid "By"
-msgstr ""
+msgstr "Af"
 
 #: /
 msgid "Kontaktpersonen"
-msgstr ""
+msgstr "Kontaktpersonen"
 
 #: /
 msgid "Organization"
-msgstr ""
+msgstr "Organisation"
 
 #: /da/admin/structure/views/view/culture_calendar/edit
 msgid "Handler i stykker field_data_field_kulturkalender_dato.field_kulturkalender_dato"
