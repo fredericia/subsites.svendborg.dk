@@ -123,6 +123,14 @@ $form['svendborg_subsitetheme_setting']['slider_settings']['calendar_page_slider
     '#default_value' => theme_get_setting('calendar_page_slider_text','svendborg_subsitetheme'),
     '#description'   => t("Text for banner on calendar page"),
  );
+ 
+ $form['svendborg_subsitetheme_setting']['slider_settings']['calendar_slider_overlay'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show dark overlay on <strong>calendar slider</strong>'),
+    '#default_value' => theme_get_setting('calendar_slider_overlay','svendborg_subsitetheme'),
+    '#description'   => t("Check this option to show dark overlay on the calendar slider banner"),
+ );
+ 
 $form['svendborg_subsitetheme_setting']['socialicon'] = array(
     '#type' => 'fieldset',
     '#title' => t('Social Icon'),
