@@ -9419,8 +9419,8 @@ fieldset[disabled] .btn-orange.active {
   margin-bottom: 10px;
 }
 .related-pages.boxes div.image .img-responsive {
-  min-height: 100%;
   min-width: 100%;
+  height: auto;
 }
 .related-pages.boxes a {
   margin-left: 10px;
@@ -12040,7 +12040,7 @@ h2.menu-footer a.Kommunen {
 .news-block .three-news-block .views-row div.image img,
 .news-block .two-news-block .views-row div.image img {
   min-width: 100%;
-  min-height: 100%;
+  height: auto;
 }
 .news-block .four-news-block .views-row div.news-title,
 .news-block .three-news-block .views-row div.news-title,
@@ -12217,10 +12217,7 @@ and open the template in the editor.
   overflow: hidden;
   display: block;
 }
-.page-gallery .view-svendborg-gallery .views-row .field-image img {
-  min-width: 100%;
-  min-height: 100%;
-}
+
 .page-gallery .view-svendborg-gallery .views-row .field-image a:hover div.hover {
   display: block;
 }
@@ -12248,10 +12245,7 @@ and open the template in the editor.
   overflow: hidden;
   margin-bottom: 10px;
 }
-.photoswipe-gallery .row a img {
-  min-width: 100%;
-  min-height: 100%;
-}
+
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
