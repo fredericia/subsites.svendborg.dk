@@ -23,13 +23,22 @@
  */
 ?>
 <?php
+
     $node = node_load($row->nid);
-    $image_uri = file_create_url($node->field_banner_billede['und'][0]['uri']);
+    //$image_uri = file_create_url($node->field_banner_billede['und'][0]['uri']);
+    $image = array(
+        'style_name' => 'os2sub_banner',
+        'path' => $node->field_banner_billede['und'][0]['uri'],
+   );
+   $img_tag= theme('image_style', $image);
+   preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $img_tag, $result);
+   $image_uri = array_pop($result);
+ 
     $overlay_class = '';
     $whitetext = $node->field_hvid_tekst['und'][0];
     
     if (theme_get_setting('slider_overlay','svendborg_subsitetheme')) {
-	$background = "background-image: url('" . $image_uri . "')"
+	$background = "background-image: url('" .  $image_uri . "')" 
 	    . "background-image: -moz-linear-gradient(left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%), url('" . $image_uri . "');"
 	    . "background-image: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0.85)), color-stop(100%, rgba(0,0,0,0.85))), url('" . $image_uri . "');"
 	    . "background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%), url('" . $image_uri . "');"
@@ -39,12 +48,12 @@
 	    . "filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );";
 	$overlay_class = 'overlay';
     } else {
-	$background = "background-image: url('" . $image_uri . "')";
+	$background = "background-image: url('" .  $image_uri . "')";
     }
 
     $show_frontpage_nodes = (theme_get_setting('promoted_nodes','svendborg_subsitetheme') && theme_get_setting('promoted_nodes_location','svendborg_subsitetheme') === 'slider');
 
-    $html = '<div class="slider-cover single ' . $overlay_class . '" style="' . $background .'">';
+    $html = '><div class="slider-cover single ' . $overlay_class . '" style="' . $background .'">';
 	$html .= '<div class="container">';
 	    $html .= '<div class="row">';
 		$html .= '<div class="' . ($show_frontpage_nodes? 'col-xs-7' : 'text-center') . '">';
@@ -65,4 +74,5 @@
 	$html .= '</div>';//class="conteiner"
     $html .= '</div>';//class="slider-cover"
     print $html;
+    
 ?>
