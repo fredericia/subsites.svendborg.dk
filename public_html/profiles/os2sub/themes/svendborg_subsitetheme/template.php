@@ -191,7 +191,7 @@ if ($node && $node->type == "os2web_base_contentpage"){
       ),
     );
   }
-  if ($node && ($node->type == "os2web_base_contentpage" )){
+  if ($node && ($node->type != "os2web_base_news" )){
     $variables['page']['sidebar_first'] = array(
       '#theme_wrappers' => array('region'),
       '#region' => 'sidebar_first',   
