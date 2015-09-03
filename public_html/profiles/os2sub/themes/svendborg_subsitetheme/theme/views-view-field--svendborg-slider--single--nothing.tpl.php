@@ -53,7 +53,7 @@
 
     $show_frontpage_nodes = (theme_get_setting('promoted_nodes','svendborg_subsitetheme') && theme_get_setting('promoted_nodes_location','svendborg_subsitetheme') === 'slider');
 
-    $html = '><div class="slider-cover single ' . $overlay_class . '" style="' . $background .'">';
+    $html = '<div class="slider-cover single ' . $overlay_class . '" style="' . $background .'">';
 	$html .= '<div class="container">';
 	    $html .= '<div class="row">';
 		$html .= '<div class="' . ($show_frontpage_nodes? 'col-xs-7' : 'text-center') . '">';
