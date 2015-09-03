@@ -172,7 +172,10 @@ if ($node && $node->type == "os2web_base_news"){
   }
 
 if ($node && $node->type == "os2web_base_contentpage"){
-      $variables['page']['activities'] =TRUE;
+     $block = block_load('views', 'aktiviteter-block_2');
+     if (($block->visibility=='1' && drupal_match_path(drupal_get_path_alias(current_path()), $block->pages))
+           || ($block->visibility=='0' && !drupal_match_path(drupal_get_path_alias(current_path()), $block->pages)))
+       $variables['page']['activities'] =TRUE;
       
   }
   // When a node's menu link is deaktivated and has no siblings, menu_block is
