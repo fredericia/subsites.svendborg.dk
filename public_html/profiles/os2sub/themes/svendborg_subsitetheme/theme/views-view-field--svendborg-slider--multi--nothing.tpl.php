@@ -57,7 +57,6 @@
     for ($i = $current_row; $i < $total_row; $i++){
 	$indicators .= '<span class="indicator"><span class="inactive"> </span></span>';// . '<img src="' . $indicator_inactive_uri. '" class="inactive">' . '</span>';
     }
-
     $show_frontpage_nodes = (theme_get_setting('promoted_nodes','svendborg_subsitetheme') && theme_get_setting('promoted_nodes_location','svendborg_subsitetheme') === 'slider');
 
     $html = '<div class="slider-cover multi" style="' . $background .'">';
@@ -69,8 +68,11 @@
                        $html .= '<a href="' . url(drupal_get_path_alias('node/' . $node->field_banner_vis_paa_sider['und'][0]['nid'])). '">';
 				//$html .= '<span class="indicators">';
 				 ////   $html .= $indicators;
-				//$html .= '</span>';
-				$html .= $node->title; 
+				//$html .= '</span>';                       
+                                if (!empty($node->field_banner_text['und'][0]['value']))
+                                    $html .= $node->field_banner_text['und'][0]['value'];
+                                else
+                                    $html .= $node->title; 
                                
 			    $html .= '</a>';
                     }
@@ -78,7 +80,10 @@
                        //$html .= '<span class="indicators">';
 				  //  $html .= $indicators;
 				//$html .= '</span>';
-				$html .= $node->title; 
+				  if (!empty($node->field_banner_text['und'][0]['value']))
+                                    $html .= $node->field_banner_text['und'][0]['value'];
+                                else
+                                    $html .= $node->title; 
                     }
 		    $html .= '</div>';//class="title"
 		$html .= '</div>';//class="col-xs-8"
@@ -90,7 +95,9 @@
 		    $html .= '</div>';
 		}
 	    $html .= '</div>';//class="row"
-	$html .= '</div>';//class="container"
+	$html .= '</div>';//class="container"        
     $html .= '</div>';//class="slider-cover"
+    if (!empty($node->field_knap_link['und'][0]['url'])) 
+            $html = '<a href="' . $node->field_knap_link['und'][0]['url'] . '">' . $html . '</a>';
     print $html;
 ?>
