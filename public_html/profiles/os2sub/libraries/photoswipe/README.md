@@ -9,27 +9,28 @@ JavaScript image gallery for mobile and desktop.
 
 - [Documentation and getting started guide](http://photoswipe.com/documentation/getting-started.html).
 - [Demo and script home page](http://photoswipe.com).
-
-Optionally, install via Bower: `bower install photoswipe`.
-
+- [NPM](https://www.npmjs.com/package/photoswipe) `npm install photoswipe`.
+- Bower `bower install photoswipe`.
 
 ## Location of files
 
-- Generated PhotoSwipe JS, CSS files, SVG & PNG sprites are in the [dist/](https://github.com/dimsemenov/PhotoSwipe/tree/master/dist) folder.
-- Source files are in the [src/](https://github.com/dimsemenov/PhotoSwipe/tree/master/src) folder.
-- Files for the website (demo & documentation) are in the [website/](https://github.com/dimsemenov/PhotoSwipe/tree/master/website) folder.
-- The documentation itself is in [website/documentation/](https://github.com/dimsemenov/PhotoSwipe/tree/master/website/documentation).
+- Compiled PhotoSwipe JS and CSS files, SVG and PNG sprites are in the [dist/](https://github.com/dimsemenov/PhotoSwipe/tree/master/dist) folder.
+- Source files (.JS and .SCSS) are in the [src/](https://github.com/dimsemenov/PhotoSwipe/tree/master/src) folder.  Note that PhotoSwipe uses Autoprefixer when compiling SASS files.
+- Demo website is in the [website/](https://github.com/dimsemenov/PhotoSwipe/tree/master/website) folder.
+- Documentation markdown files are in [website/documentation/](https://github.com/dimsemenov/PhotoSwipe/tree/master/website/documentation).
 
-## Plugins or extensions
+## Plugins / extensions / addons
 
+- [Ruby gem](https://rubygems.org/gems/photoswipe-rails).
+- [Ember.js addon](https://github.com/poetic/ember-cli-photoswipe).
 - [Eager app](https://eager.io/app/DvuKIoU8iTOt).
 - [Koken CMS plugin](https://github.com/DanielMuller/koken-plugin-photoswipe).
 
-Wrote a plugin for some CMS? <a href='mailto:diiiimaaaa@gmail.com?subject="PhotoSwipe Plugin"'>Email me</a> and I’ll post a link to it here.
+Coded something useful? <a href='mailto:diiiimaaaa@gmail.com?subject="PhotoSwipe Plugin"'>Email me</a> and I’ll post a link to it here.
 
 ## Build 
 
-To compile PhotoSwipe by yourself, first make sure that you have [Node.js](http://nodejs.org/), [Grunt.js](https://github.com/cowboy/grunt), [Ruby](http://www.ruby-lang.org/) and [Jekyll](https://github.com/mojombo/jekyll/) installed, then:
+To compile PhotoSwipe by yourself, make sure that you have [Node.js](http://nodejs.org/), [Grunt.js](https://github.com/cowboy/grunt), [Ruby](http://www.ruby-lang.org/) and [Jekyll](https://github.com/mojombo/jekyll/) installed, then:
 
 1) Clone the repository
 
@@ -39,14 +40,14 @@ To compile PhotoSwipe by yourself, first make sure that you have [Node.js](http:
 
 	cd PhotoSwipe && npm install
 
-3) Now simply run `grunt` to generate the JS and CSS files in the `dist` folder and the site in the `_site/` folder.
+3) Run `grunt` to generate the JS and CSS files in the `dist` folder and the site in the `_site/` folder
 
 	grunt
 
 Optionally:
 
-- Run `grunt watch` to automatically rebuild files when you change files in `src/` or in `website/`.
-- Run `grunt nosite` to just build the JS and CSS files (output is folder `dist/`).
+- Run `grunt watch` to automatically rebuild files (JS, CSS, demo website and documentation) when you change files in `src/` or in `website/`.
+- Run `grunt nosite` to build just JS and CSS files (output is folder `dist/`).
 - Run `grunt pswpbuild` to build just JS files. Param `--pswp-exclude` allows to exclude modules, for example `grunt pswpbuild --pswp-exclude=history` will exclude history module.
 
 ## Using PhotoSwipe?

@@ -59,7 +59,7 @@ module.exports = function(grunt) {
     // https://github.com/nDmitry/grunt-autoprefixer
     autoprefixer: { 
       options: {
-        browsers: ['last 3 versions', 'android 3', 'ie 9', 'ios 6', 'bb 10']
+        browsers: ['last 3 versions', 'android 3', 'ie 9', 'bb 10']
       },
       no_dest: {
         src: ['dist/photoswipe.css', 'dist/default-skin/default-skin.css']
@@ -123,12 +123,12 @@ module.exports = function(grunt) {
           {src: ['src/css/default-skin/default-skin.svg'], dest: 'dist/default-skin/default-skin.svg'},
           {src: ['src/css/default-skin/default-skin.png'], dest: 'dist/default-skin/default-skin.png'},
           {src: ['src/css/default-skin/preloader.gif'], dest: 'dist/default-skin/preloader.gif'},
-          {src: ['dist/**'], dest: '_site/'}
+          {expand: true, src: ['dist/**'], dest: '_site/'}
         ]
       },
       main: {
         files: [
-          {src: ['dist/**'], dest: 'website/'}
+          {expand: true, src: ['dist/**'], dest: 'website/'}
         ]
       }
 

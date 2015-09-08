@@ -26,7 +26,7 @@ First things that you should know before you start:
 - All code in the documentation is pure Vanilla JS and supports IE 8 and above. If your website or app uses some JavaScript framework (like jQuery or MooTools) or you don't need to support old browsers – feel free to simplify the code.
 - Avoid serving big images (larger than 2000x1500px) for mobile, as they will dramatically reduce animation performance and can cause crash (especially on iOS Safari). Possible solutions: [serve responsive images](responsive-images.html), or open image on a separate page, or use libraries that support image tiling (like [Leaflet](http://leafletjs.com/)). [More info in FAQ](faq.html#mobile-crash).
 
-## Initialization
+## <a name="initialization"></a> Initialization
 
 ### <a name="init-include-files"></a>Step 1: include JS and CSS files
 
@@ -36,7 +36,7 @@ You can find them in [dist/](https://github.com/dimsemenov/PhotoSwipe/tree/maste
 <!-- Core CSS file -->
 <link rel="stylesheet" href="path/to/photoswipe.css"> 
 
-<!-- Skin CSS file (optional)
+<!-- Skin CSS file (styling of UI - buttons, caption, etc.)
 	 In the folder of skin CSS file there are also:
 	 - .png and .svg icons sprite, 
 	 - preloader.gif (for browsers that do not support CSS animations) -->
@@ -66,7 +66,7 @@ require([
 });
 ```
 
-And also, you can install it via Bower (`bower install photoswipe`).
+And also, you can install it via Bower (`bower install photoswipe`), or [NPM](https://www.npmjs.com/package/photoswipe) (`npm install photoswipe`).
 
 ### <a name="init-add-pswp-to-dom"></a>Step 2: add PhotoSwipe (.pswp) element to DOM 
 
@@ -196,11 +196,11 @@ At the end you should get something like this:
 </div>
 
 
-## Creating an Array of Slide Objects
+## <a name="creating-slide-objects-array"></a> Creating an Array of Slide Objects
 
 Each object in the array should contain data about slide, it can be anything that you wish to display in PhotoSwipe - path to image, caption string, number of shares, comments, etc.
 
-By default PhotoSwipe uses just 5 properties: `src` (path to image), `w` (image width), `h` (image height), `msrc` (path to small image placeholder, large image will be loaded on top), 'html' (custom HTML, [more about it](custom-html-in-slides.html)). 
+By default PhotoSwipe uses just 5 properties: `src` (path to image), `w` (image width), `h` (image height), `msrc` (path to small image placeholder, large image will be loaded on top), `html` (custom HTML, [more about it](custom-html-in-slides.html)). 
 
 During the navigation, PhotoSwipe adds its own properties to this object (like `minZoom` or `loaded`).
 
@@ -255,14 +255,14 @@ Let's assume that you have a list of links/thumbnails that look like this ([more
 ```html
 <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
 
-	<figure itemscope itemtype="http://schema.org/ImageObject">
+	<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
 		<a href="large-image.jpg" itemprop="contentUrl" data-size="600x400">
 		    <img src="small-image.jpg" itemprop="thumbnail" alt="Image description" />
 		</a>
 		<figcaption itemprop="caption description">Image caption</figcaption>
 	</figure>
 
-	<figure itemscope itemtype="http://schema.org/ImageObject">
+	<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
 		<a href="large-image.jpg" itemprop="contentUrl" data-size="600x400">
 		    <img src="small-image.jpg" itemprop="thumbnail" alt="Image description" />
 		</a>
@@ -411,14 +411,10 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 			params.gid = parseInt(params.gid, 10);
 		}
 
-		if(!params.hasOwnProperty('pid')) {
-			return params;
-		}
-		params.pid = parseInt(params.pid, 10);
 		return params;
 	};
 
-	var openPhotoSwipe = function(index, galleryElement, disableAnimation) {
+	var openPhotoSwipe = function(index, galleryElement, disableAnimation, fromURL) {
 		var pswpElement = document.querySelectorAll('.pswp')[0],
 			gallery,
 			options,
@@ -428,7 +424,6 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 		// define options (if needed)
 		options = {
-			index: index,
 
 			// define gallery index (for URL)
 			galleryUID: galleryElement.getAttribute('data-pswp-uid'),
@@ -443,6 +438,30 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 			}
 
 		};
+
+		// PhotoSwipe opened from URL
+		if(fromURL) {
+	    	if(options.galleryPIDs) {
+	    		// parse real index when custom PIDs are used 
+	    		// http://photoswipe.com/documentation/faq.html#custom-pid-in-url
+	    		for(var j = 0; j < items.length; j++) {
+	    			if(items[j].pid == index) {
+	    				options.index = j;
+	    				break;
+	    			}
+	    		}
+		    } else {
+		    	// in URL indexes start from 1
+		    	options.index = parseInt(index, 10) - 1;
+		    }
+	    } else {
+	    	options.index = parseInt(index, 10);
+	    }
+
+	    // exit if index not found
+	    if( isNaN(options.index) ) {
+	    	return;
+	    }
 
 		if(disableAnimation) {
 			options.showAnimationDuration = 0;
@@ -463,8 +482,8 @@ var initPhotoSwipeFromDOM = function(gallerySelector) {
 
 	// Parse URL and open gallery if it contains #&pid=3&gid=1
 	var hashData = photoswipeParseHash();
-	if(hashData.pid > 0 && hashData.gid > 0) {
-		openPhotoSwipe( hashData.pid - 1 ,  galleryElements[ hashData.gid - 1 ], true );
+	if(hashData.pid && hashData.gid) {
+		openPhotoSwipe( hashData.pid ,  galleryElements[ hashData.gid - 1 ], true, true );
 	}
 };
 
@@ -487,11 +506,11 @@ Tip: you may download example from CodePen to play with it locally (`Edit on Cod
 - If you're not experienced in pure JavaScript and don't know how to parse DOM, refer to [QuirksMode](http://quirksmode.org/dom/core/#gettingelements) and [documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Element.getElementsByTagName).
 - Note that IE8 does not support HTML5 `<figure>` and `<figcaption>` elements, so you need to include [html5shiv](https://github.com/aFarkas/html5shiv) in `<head>` section ([cdnjs hosted version](http://cdnjs.com/libraries/html5shiv/) is used in example):
 
-```html
-<!--[if lt IE 9]>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
-<![endif]-->
-```
+    ```html
+    <!--[if lt IE 9]>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <![endif]-->
+    ```
 
 
 ## About

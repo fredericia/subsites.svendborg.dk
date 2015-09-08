@@ -127,37 +127,20 @@ var _getItemAt,
 			return;
 		}
 
-		var animate,
-			isSwiping = self.isDragging() && !self.isZooming(),
-			slideMightBeVisible = index === _currentItemIndex || self.isMainScrollAnimating() || isSwiping;
-
-		// fade in loaded image only when current holder is active, or might be visible
-		if(!preventAnimation && (_likelyTouchDevice || _options.alwaysFadeIn) && slideMightBeVisible) {
-			animate = true;
-		}
-
 		if(img) {
-			if(animate) {
-				img.style.opacity = 0;
-			}
 
 			item.imageAppended = true;
-
+			_setImageSize(item, img);
+			
 			baseDiv.appendChild(img);
 
-			if(animate) {
+			if(keepPlaceholder) {
 				setTimeout(function() {
-					img.style.opacity = 1;
-					if(keepPlaceholder) {
-						setTimeout(function() {
-							// hide image placeholder "behind"
-							if(item && item.loaded && item.placeholder) {
-								item.placeholder.style.display = 'none';
-								item.placeholder = null;
-							}
-						}, 500);
+					if(item && item.loaded && item.placeholder) {
+						item.placeholder.style.display = 'none';
+						item.placeholder = null;
 					}
-				}, 50);
+				}, 500);
 			}
 		}
 	},
@@ -202,6 +185,26 @@ var _getItemAt,
 			
 		}
 	},
+	_setImageSize = function(item, img, maxRes) {
+		if(!item.src) {
+			return;
+		}
+
+		if(!img) {
+			img = item.container.lastChild;
+		}
+
+		var w = maxRes ? item.w : Math.round(item.w * item.fitRatio),
+			h = maxRes ? item.h : Math.round(item.h * item.fitRatio);
+		
+		if(item.placeholder && !item.loaded) {
+			item.placeholder.style.width = w + 'px';
+			item.placeholder.style.height = h + 'px';
+		}
+
+		img.style.width = w + 'px';
+		img.style.height = h + 'px';
+	},
 	_appendImagesPool = function() {
 
 		if(_imagesToAppendPool.length) {
@@ -210,7 +213,7 @@ var _getItemAt,
 			for(var i = 0; i < _imagesToAppendPool.length; i++) {
 				poolItem = _imagesToAppendPool[i];
 				if( poolItem.holder.index === poolItem.index ) {
-					_appendImage(poolItem.index, poolItem.item, poolItem.baseDiv, poolItem.img);
+					_appendImage(poolItem.index, poolItem.item, poolItem.baseDiv, poolItem.img, false, poolItem.clearPlaceholder);
 				}
 			}
 			_imagesToAppendPool = [];
@@ -227,11 +230,16 @@ _registerModule('Controller', {
 			index = _getLoopedId(index);
 			var item = _getItemAt(index);
 
-			if(!item || !item.src || item.loaded || item.loading) {
+			if(!item || item.loaded || item.loading) {
 				return;
 			}
 
 			_shout('gettingData', index, item);
+
+			if (!item.src) {
+				return;
+			}
+
 			_preloadImage(item);
 		},
 		initController: function() {
@@ -360,6 +368,8 @@ _registerModule('Controller', {
 			}
 
 			_checkForError(item);
+
+			_calculateItemSize(item, _viewportSize);
 			
 			if(item.src && !item.loadError && !item.loaded) {
 
@@ -369,12 +379,6 @@ _registerModule('Controller', {
 					if(!_isOpen) {
 						return;
 					}
-
-					// Apply hw-acceleration only after image is loaded.
-					// This is webkit progressive image loading bugfix.
-					// https://bugs.webkit.org/show_bug.cgi?id=108630
-					// https://code.google.com/p/chromium/issues/detail?id=404547
-					item.img.style.webkitBackfaceVisibility = 'hidden';
 
 					// check if holder hasn't changed while image was loading
 					if(holder && holder.index === index ) {
@@ -396,10 +400,11 @@ _registerModule('Controller', {
 									baseDiv:baseDiv,
 									img:item.img,
 									index:index,
-									holder:holder
+									holder:holder,
+									clearPlaceholder:true
 								});
 							} else {
-								_appendImage(index, item, baseDiv, item.img, _mainScrollAnimating || _initialZoomRunning);
+								_appendImage(index, item, baseDiv, item.img, _mainScrollAnimating || _initialZoomRunning, true);
 							}
 						} else {
 							// remove preloader & mini-img
@@ -426,8 +431,7 @@ _registerModule('Controller', {
 						placeholder.src = item.msrc;
 					}
 					
-					placeholder.style.width = item.w + 'px';
-					placeholder.style.height = item.h + 'px';
+					_setImageSize(item, placeholder);
 
 					baseDiv.appendChild(placeholder);
 					item.placeholder = placeholder;
@@ -460,13 +464,12 @@ _registerModule('Controller', {
 			} else if(item.src && !item.loadError) {
 				// image object is created every time, due to bugs of image loading & delay when switching images
 				img = framework.createEl('pswp__img', 'img');
-				img.style.webkitBackfaceVisibility = 'hidden';
 				img.style.opacity = 1;
 				img.src = item.src;
+				_setImageSize(item, img);
 				_appendImage(index, item, baseDiv, img, true);
 			}
 			
-			_calculateItemSize(item, _viewportSize);
 
 			if(!_initialContentSet && index === _currentItemIndex) {
 				_currZoomElementStyle = baseDiv.style;
