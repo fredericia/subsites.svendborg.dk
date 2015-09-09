@@ -74,7 +74,7 @@ function svendborg_gallery_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_photo_1']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_base_field_photo_1']['click_sort_column'] = 'fid';
   $handler->display->display_options['fields']['field_os2web_base_field_photo_1']['settings'] = array(
-    'image_style' => 'medium',
+    'image_style' => 'gallery-thumb',
     'image_link' => '',
   );
   $handler->display->display_options['fields']['field_os2web_base_field_photo_1']['group_column'] = 'entity_id';
@@ -151,6 +151,7 @@ function svendborg_gallery_views_default_views() {
     t(' [field_os2web_base_field_photo_1]
 <div class="hover">[title]<div class="image-cnt">[field_os2web_base_field_photo] [nothing_1] </div></div>'),
     t('Page'),
+    t('more'),
   );
   $export['svendborg_gallery'] = $view;
 
