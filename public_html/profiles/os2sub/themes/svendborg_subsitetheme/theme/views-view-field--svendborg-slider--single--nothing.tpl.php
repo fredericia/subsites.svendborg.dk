@@ -35,8 +35,11 @@
    $image_uri = array_pop($result);
  
     $overlay_class = '';
-    $whitetext = $node->field_hvid_tekst['und'][0];
-    
+   $whitetext = '';
+ 
+    if ((boolean)$node->field_hvid_tekst['und'][0]['value'])
+      $whitetext = 'white';
+      
     if (theme_get_setting('slider_overlay','svendborg_subsitetheme')) {
 	$background = "background-image: url('" .  $image_uri . "')" 
 	    . "background-image: -moz-linear-gradient(left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%), url('" . $image_uri . "');"
@@ -57,11 +60,15 @@
 	$html .= '<div class="container">';
 	    $html .= '<div class="row">';
 		$html .= '<div class="' . ($show_frontpage_nodes? 'col-xs-7' : 'text-center') . '">';
-		    $html .= '<div class="title">';
-			    $html .= $node->title;
+		    $html .= '<div class="title ' . $whitetext .'">';
+			 if (!empty($node->field_banner_text['und'][0]['value']))
+                            $html .= $node->field_banner_text['und'][0]['value'];
+                         else
+                           $html .= $node->title; 
+                    
 		    $html .= '</div>';
-		    $html .= '<a href="#" class="btn gradient-deepdarkgreen">Tag kontakt idag';
-		    $html .= '</a>';
+                    if (!empty($node->field_knap_link['und'][0]['url']) && !empty($node->field_knap_link['und'][0]['title']))
+                        $html .= '<a href="' .$node->field_knap_link['und'][0]['url'] .'" class="btn gradient-deepdarkgreen">' . $node->field_knap_link['und'][0]['title'] . '</a>';
 		$html .= '</div>';//class="col-xs-8"
 
 		//printing frontpage_nodes block, if activated
