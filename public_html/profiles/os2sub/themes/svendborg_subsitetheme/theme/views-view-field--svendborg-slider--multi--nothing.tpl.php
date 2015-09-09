@@ -28,10 +28,8 @@
         'style_name' => 'os2sub_banner',
         'path' => $node->field_banner_billede['und'][0]['uri'],
    );
-    var_dump($image);
-   $img_tag= theme('image_style', $image);
+    $img_tag= theme('image_style', $image);
    preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $img_tag, $result);
-   var_dump($result);
    $image_uri = array_pop($result);
     //$image_uri = file_create_url($node->field_banner_billede['und'][0]['uri']);
     if (theme_get_setting('slider_overlay','svendborg_subsitetheme')) {
