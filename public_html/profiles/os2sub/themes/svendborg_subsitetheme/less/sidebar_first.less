@@ -157,7 +157,13 @@
                       font-weight: normal;
                       text-transform: none;
                       padding-top: 5px;
-                     padding-bottom: 5px;
+                      padding-bottom: 5px;
+                      display: block;
+                      white-space: pre-wrap;
+                      white-space: -moz-pre-wrap;
+                      white-space: -pre-wrap;
+                      white-space: -o-pre-wrap;
+                      word-wrap: break-word;
                      &:hover{
                          background: none;
                          color: @brand-lightgreen;
@@ -216,7 +222,6 @@
     .region-sidebar-first->ul.menu.nav {
             li:not(.active-trail){
                 display:none;
-            }
-        }
-   
+             }
+    }
 }  
