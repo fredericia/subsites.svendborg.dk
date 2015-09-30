@@ -144,6 +144,13 @@
         color: #FFF;
       }
     }
+    &.no-overlay {
+      .title {
+	      padding: 10px;
+	      background-color: #FFF;
+      }
+    }
+
     &.multi {
       .title {
         background-color: rgba(255, 255, 255, 0.75);
@@ -211,9 +218,7 @@
    .slider-cover.single {
         .btn.gradient-deepdarkgreen{
         width: 150px;
-        
-    }
-   
+         }
     
     .btn.gradient-deepdarkgreen.not-here {
         background: none;
@@ -221,11 +226,18 @@
         border:@brand-lightgreen 2px solid; 
         padding: 8px 15px;
       }
+   
       div.link{
           display:inline-block;
           margin-right:15px;
       }
-    } 
+    }
+    .slider-cover.single.no-overlay {
+    	.btn.gradient-deepdarkgreen.not-here {
+        	background: #fff;
+        	color: #333;}	   
+     }
+      
     .slider-cover.overlay .title {
             margin-top: 80px;
         }
