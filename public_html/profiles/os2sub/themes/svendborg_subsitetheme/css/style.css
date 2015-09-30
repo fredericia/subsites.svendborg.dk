@@ -11353,9 +11353,7 @@ h2.menu-footer a.Kommunen {
   background: none;
 }
 #footer-contacts {
-  /*margin: 25px 0 50px 0;*/
   margin: 0;
-  height: 270px;
   background: #313139;
   text-align: center;
   font-size: 11px;
