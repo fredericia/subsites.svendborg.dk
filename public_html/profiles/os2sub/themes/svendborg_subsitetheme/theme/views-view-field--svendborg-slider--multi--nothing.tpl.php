@@ -34,12 +34,12 @@
     //$image_uri = file_create_url($node->field_banner_billede['und'][0]['uri']);
     if (theme_get_setting('slider_overlay','svendborg_subsitetheme')) {
 	$background = "background-image: url('" . $image_uri . "')"
-	    . "background-image: -moz-linear-gradient(left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%), url('" . $image_uri . "');"
-	    . "background-image: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0.85)), color-stop(100%, rgba(0,0,0,0.85))), url('" . $image_uri . "');"
-	    . "background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%), url('" . $image_uri . "');"
-	    . "background-image: -o-linear-gradient(left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%), url('" . $image_uri . "');"
-	    . "background-image: -ms-linear-gradient(left, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%), url('" . $image_uri . "');"
-	    . "background-image: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.85) 100%), url('" . $image_uri . "');"
+	    . "background-image: -moz-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url('" . $image_uri . "');"
+	    . "background-image: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0.75)), color-stop(100%, rgba(0,0,0,0.75))), url('" . $image_uri . "');"
+	    . "background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url('" . $image_uri . "');"
+	    . "background-image: -o-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url('" . $image_uri . "');"
+	    . "background-image: -ms-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url('" . $image_uri . "');"
+	    . "background-image: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url('" . $image_uri . "');"
 	    . "filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );";
     } else {
 	$background = "background-image: url('" . $image_uri . "')";
