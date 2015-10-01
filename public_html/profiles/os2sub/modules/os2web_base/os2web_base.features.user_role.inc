@@ -22,18 +22,6 @@ function os2web_base_user_default_roles() {
     'weight' => 3,
   );
 
-  // Exported role: Kommunikation.
-  $roles['Kommunikation'] = array(
-    'name' => 'Kommunikation',
-    'weight' => 6,
-  );
-
-  // Exported role: Student.
-  $roles['Student'] = array(
-    'name' => 'Student',
-    'weight' => 2,
-  );
-
   // Exported role: Webmaster.
   $roles['Webmaster'] = array(
     'name' => 'Webmaster',

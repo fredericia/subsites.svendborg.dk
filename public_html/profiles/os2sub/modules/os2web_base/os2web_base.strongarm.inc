@@ -585,7 +585,7 @@ function os2web_base_strongarm() {
           'weight' => '0',
         ),
         'metatags' => array(
-          'weight' => '4',
+          'weight' => '2',
         ),
         'redirect' => array(
           'weight' => '5',

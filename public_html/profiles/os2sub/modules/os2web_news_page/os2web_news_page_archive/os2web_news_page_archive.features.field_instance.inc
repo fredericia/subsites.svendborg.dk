@@ -84,7 +84,7 @@ function os2web_news_page_archive_field_default_field_instances() {
         'year_range' => '-3:+3',
       ),
       'type' => 'date_popup',
-      'weight' => 47,
+      'weight' => 53,
     ),
   );
 
