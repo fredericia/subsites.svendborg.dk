@@ -71,6 +71,18 @@ function svendborg_frontpage_nodes_views_default_views() {
     '***CURRENT_LANGUAGE***' => '***CURRENT_LANGUAGE***',
     'und' => 'und',
   );
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['operator'] = 'not in';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'banner' => 'banner',
+    'os2web_contact_contact' => 'os2web_contact_contact',
+    'media' => 'media',
+    'os2web_base_selfservice_link' => 'os2web_base_selfservice_link',
+    'velkomst' => 'velkomst',
+  );
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
