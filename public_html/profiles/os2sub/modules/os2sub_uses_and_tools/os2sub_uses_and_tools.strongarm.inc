@@ -133,7 +133,7 @@ function os2sub_uses_and_tools_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'extlink_target';
-  $strongarm->value = 0;
+  $strongarm->value = '_blank';
   $export['extlink_target'] = $strongarm;
 
   $strongarm = new stdClass();
