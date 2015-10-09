@@ -3,6 +3,10 @@
 ( function ($) {  
    $(document).ready(function(){
 
+     $('.header_fixed .navbar-nav > li > .dropdown-menu .dropdown > a')
+       .removeAttr('data-target')
+       .removeAttr('data-toggle');
+
     var button = 'filter-all';
     var button_class = "btn-primary";
     var button_normal = "btn-blacknblue";

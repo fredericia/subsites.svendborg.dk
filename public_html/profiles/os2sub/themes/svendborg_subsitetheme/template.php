@@ -246,7 +246,7 @@ if (!empty($view) && $view->name =='svendborg_news_view' && $view->current_displ
  $variables['page']['prev_news_block'] =TRUE;
  $variables['page']['activities'] =TRUE;
 }
-if ((!empty($view) && $view->name =='svendborg_gallery' && $view->current_display=='page')|| (node && $node->type == "os2web_base_gallery" )) {
+if ((!empty($view) && $view->name =='svendborg_gallery' && $view->current_display=='page')|| ($node && $node->type == "os2web_base_gallery" )) {
     if (!$sidebar_second_hidden && empty($variables['page']['sidebar_first'])) {
         
     $variables['page']['sidebar_first'] = array(
@@ -455,21 +455,33 @@ function get_the_classes($nid) {
   return $top_parent_term;
 }
 
-/*
+/**
+ * Implements theme_menu_link().
+ */
 function svendborg_subsitetheme_menu_link(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
+
   if ($element['#below']) {
     // Prevent dropdown functions from being added to management menu so it
     // does not affect the navbar module.
     if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
       $sub_menu = drupal_render($element['#below']);
     }
-    elseif ($element['#original_link']['in_active_trail']) {
-      $sub_menu = drupal_render($element['#below']);
-    }
-    else {
-      $element['#attributes']['class'][] = 'has-children';
+    elseif ((!empty($element['#original_link']['depth']))) {
+      // Add our own wrapper.
+      unset($element['#below']['#theme_wrappers']);
+      $sub_menu = '<ul class="dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+      // Generate as standard dropdown.
+      $element['#title'] .= ' <span class="caret"></span>';
+      $element['#attributes']['class'][] = 'dropdown';
+      $element['#localized_options']['html'] = TRUE;
+
+      // Set dropdown trigger element to # to prevent inadvertant page loading
+      // when a submenu link is clicked.
+      $element['#localized_options']['attributes']['data-target'] = '#';
+      $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
+      $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
     }
   }
   // On primary navigation menu, class 'active' is not set on active menu item.
@@ -478,8 +490,9 @@ function svendborg_subsitetheme_menu_link(array $variables) {
     $element['#attributes']['class'][] = 'active';
   }
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
+//  xdebug_break();
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
-}*/
+}
 
 /**
  * Theme function to output tablinks for classic Quicktabs style tabs.
