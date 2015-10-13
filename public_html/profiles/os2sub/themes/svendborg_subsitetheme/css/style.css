@@ -11680,8 +11680,8 @@ h2.menu-footer a.Kommunen {
 .page-calendar-slider .slider-cover .frontpage-nodes {
   margin-top: 40px;
 }
-.view-svendborg-slider .slider-cover .frontpage-nodes .views-row:not(:first-child),
-.page-calendar-slider .slider-cover .frontpage-nodes .views-row:not(:first-child) {
+.view-svendborg-slider .slider-cover .frontpage-nodes .views-row,
+.page-calendar-slider .slider-cover .frontpage-nodes .views-row {
   background: rgba(238, 238, 238, 0.85);
 }
 .page-calendar-slider .slider-cover.single .btn.gradient-deepdarkgreen {
@@ -12101,7 +12101,6 @@ h2.menu-footer a.Kommunen {
 }
 .frontpage-nodes .views-row {
   vertical-align: middle;
-  background-color: #eeeeee;
   border-radius: 3px;
   margin-bottom: 13px;
 }
