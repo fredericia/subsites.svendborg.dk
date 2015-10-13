@@ -1533,9 +1533,9 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['block_description'] = 'frontpage and carousel';
 
   /* Display: Page blog  */
-  $handler = $view->new_display('page', 'Page blog ', 'page_3');
+  $handler = $view->new_display('page', 'Nyheder ', 'page_3');
   $handler->display->display_options['defaults']['title'] = FALSE;
-  $handler->display->display_options['title'] = 'Blog';
+  $handler->display->display_options['title'] = 'Nyheder';
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '6';
@@ -1618,7 +1618,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['path'] = 'nyheder';
   $handler->display->display_options['menu']['type'] = 'tab';
-  $handler->display->display_options['menu']['title'] = 'Blog';
+  $handler->display->display_options['menu']['title'] = 'Nyheder';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
@@ -2175,7 +2175,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['operator'] = 'empty';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['group'] = 2;
   $handler->display->display_options['path'] = 'nyheder/nyhedsarkiv';
-  $handler->display->display_options['menu']['title'] = 'Blog';
+  $handler->display->display_options['menu']['title'] = 'Nyheder';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
@@ -2276,8 +2276,8 @@ function svendborg_views_views_default_views() {
     t('Se Alle'),
     t('frontpage and carousel'),
     t('frontpage and carousel small'),
-    t('Page blog '),
-    t('Blog'),
+    t('Nyheder '),
+    t('Nyheder'),
     t('forfatter'),
     t('Oprettelsesdato'),
     t('<div class="news-row>
