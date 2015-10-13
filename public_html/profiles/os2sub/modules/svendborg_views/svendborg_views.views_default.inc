@@ -2196,7 +2196,7 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['footer']['area']['id'] = 'area';
   $handler->display->display_options['footer']['area']['table'] = 'views';
   $handler->display->display_options['footer']['area']['field'] = 'area';
-  $handler->display->display_options['footer']['area']['content'] = '<a href="/nyheder/nyhedsarkiv">ABEN NYHEDSARKIV</a>';
+  $handler->display->display_options['footer']['area']['content'] = '<a href="/nyheder">Se flere</a>';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Felt: Indhold: Oprettelsesdato */
@@ -2319,7 +2319,7 @@ function svendborg_views_views_default_views() {
   </div>
 </div>'),
     t('Latest news 3 col'),
-    t('<a href="/nyheder/nyhedsarkiv">ABEN NYHEDSARKIV</a>'),
+    t('<a href="/nyheder">Se flere</a>'),
   );
   $export['svendborg_news_view'] = $view;
 
