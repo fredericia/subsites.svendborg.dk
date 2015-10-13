@@ -31,7 +31,7 @@
       <div class="container footer-first-block">
         <div class="row-no-padding">
             <div class='footer-logo col-sm-2 col-xs-12'>
-            <img id="footer-logo" src="/<?php print drupal_get_path('theme','svendborg_subsitetheme'); ?>/images/footer_logo.png" title="<?php print $page['site_name'] ?>" />
+            <img id="footer-logo" class="logo-img" src="/<?php print drupal_get_path('theme','svendborg_subsitetheme'); ?>/images/footer_logo.png" title="<?php print $page['site_name'] ?>" />
 
           </div>
           <div class="col-sm-10 col-sx-12">  
@@ -76,7 +76,7 @@ print "<h2 class='menu-footer " . $menu_item['link']['link_title']. "'>
       </div>  
     </div>    
     <!-- footer contacts social-icons -->
-    <div class="lcontainer-fluid clearfix" id="footer-contacts">
+    <div class="lcontainer-fluid clearfix footer-contacts" id="footer-contacts">
       <div class="container">
         <div class="row">
         <?php if (theme_get_setting('facebook_url', 'svendborg_subsitetheme')
