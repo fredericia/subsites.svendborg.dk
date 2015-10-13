@@ -8377,14 +8377,7 @@ The provided classes are intended to be used with the array-like variables
 .fa-medium:before {
   content: "\f23a";
 }
-a {
-  color: #30353c;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: none;
-  color: #2474a8;
-}
+
 .bottom-padding {
   padding-bottom: 20px;
 }
