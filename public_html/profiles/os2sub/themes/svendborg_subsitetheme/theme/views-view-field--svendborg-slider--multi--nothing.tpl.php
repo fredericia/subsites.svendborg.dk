@@ -72,7 +72,7 @@
 		$html .= '<div class="col-sm-7 col-xs-12">';
 		    $html .= '<div class="title">';
                    if (isset($node->field_banner_vis_paa_sider['und']) && !empty($node->field_banner_vis_paa_sider['und'][0]['nid'])){
-                       $html .= '<a class="blabla" href="' . url(drupal_get_path_alias('node/' . $node->field_banner_vis_paa_sider['und'][0]['nid'])). '">';
+                       $html .= '<a href="' . url(drupal_get_path_alias('node/' . $node->field_banner_vis_paa_sider['und'][0]['nid'])). '">';
 				//$html .= '<span class="indicators">';
 				 ////   $html .= $indicators;
 				//$html .= '</span>';                       
@@ -105,6 +105,6 @@
 	$html .= '</div>';//class="container"        
     $html .= '</div>';//class="slider-cover"
     if (!empty($node->field_knap_link['und'][0]['url'])) 
-            $html = '<a href="' . $node->field_knap_link['und'][0]['url'] . '">' . $html . '</a>';
+            $html = '<a class="blabla" href="' . $node->field_knap_link['und'][0]['url'] . '">' . $html . '</a>';
     print $html;
 ?>
