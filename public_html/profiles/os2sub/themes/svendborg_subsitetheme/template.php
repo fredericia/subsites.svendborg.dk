@@ -189,7 +189,7 @@ if ($node && $node->type == "os2web_base_contentpage"){
       '#theme_wrappers' => array('region'),
       '#region' => 'sidebar_first',        
       'dummy_content' => array(
-        '#markup' => '<a class ="btn-back gradient-lightgreen" href="'.$url.'">'. t('Back') . '</a>'       ,
+        '#markup' => '<a class ="btn-back gradient-lightgreen" href="/nyheder">Nyhedsoversigt</a>'       ,
         
       ),
     );
