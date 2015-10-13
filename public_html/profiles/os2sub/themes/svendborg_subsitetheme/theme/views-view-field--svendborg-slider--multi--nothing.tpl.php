@@ -105,6 +105,6 @@
 	$html .= '</div>';//class="container"        
     $html .= '</div>';//class="slider-cover"
     if (!empty($node->field_knap_link['und'][0]['url'])) 
-            $html = '<a class="blabla" href="' . $node->field_knap_link['und'][0]['url'] . '">' . $html . '</a>';
+            $html = '<a class="blablahest" href="' . $node->field_knap_link['und'][0]['url'] . '">' . $html . '</a>';
     print $html;
 ?>
