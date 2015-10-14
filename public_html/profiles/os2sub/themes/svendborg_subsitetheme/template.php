@@ -7,18 +7,19 @@
 /**
  * Implements template_preprocess_page().
  */
-function svendborg_subsitetheme_process_page(&$variables,$hook) {
+function svendborg_subsitetheme_process_page(&$variables, $hook) {
   // Hook into color.module.
   if (module_exists('color')) {
     _color_page_alter($variables);
   }
 }
+
 function svendborg_subsitetheme_preprocess_page(&$variables) {
- //   var_dump($variables['page']['content']);
+  //   var_dump($variables['page']['content']);
   // Remove all Taxonomy auto listings here.
-   
-   $term = NULL;
-    if (arg(0) == 'taxonomy' && arg(1) == 'term' && is_numeric(arg(2))) {
+
+  $term = NULL;
+  if (arg(0) == 'taxonomy' && arg(1) == 'term' && is_numeric(arg(2))) {
     $term = taxonomy_term_load(arg(2));
     $term_name = $term->vocabulary_machine_name;
     unset($variables['page']['content']['system_main']['no_content']);
@@ -56,15 +57,16 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
 
   // Get all the nodes selvbetjeningslinks and give them to the template.
   if (($node && $links = field_get_items('node', $node, 'field_os2web_base_field_selfserv')) ||
-      ($term && $links = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_selfserv'))) {
+    ($term && $links = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_selfserv'))
+  ) {
     $variables['page']['os2web_selfservicelinks'] = _svendborg_subsitetheme_get_selfservicelinks($links);
   }
 
-  
+
   // Get all the nodes selvbetjeningslinks and give them to the template.
- if ($node && $link = _svendborg_subsitetheme_get_contact()) {
+  if ($node && $link = _svendborg_subsitetheme_get_contact()) {
     $variables['page']['contact']['nid'] = $link;
-  
+
   }
 
   // Get all related links to this node.
@@ -72,36 +74,43 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
 
   $related_links = array();
   if (($node && $links = field_get_items('node', $node, 'field_os2web_base_field_related')) ||
-      ($term && $links = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_related'))) {
+    ($term && $links = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_related'))
+  ) {
     foreach ($links as $link) {
       $link_node = node_load($link['nid']);
-      if($link_node->language != $node->language)          continue;
+      if ($link_node->language != $node->language) {
+        continue;
+      }
       if ($link_node) {
         $related_links[$link['nid']] = array(
-          'nid' => $link['nid'],
+          'nid'   => $link['nid'],
           'title' => $link_node->title,
           'class' => 'int-link',
         );
-        
-        if ($image = field_get_items('node', $link_node, 'field_os2web_base_field_lead_img'))
-           $related_links[$link['nid']]['image'] = $image[0]['uri'];
-        if ($image = field_get_items('node', $link_node, 'field_os2web_base_field_image'))
-           $related_links[$link['nid']]['image'] = $image[0]['uri'];
-        if ($summary = field_get_items('node', $link_node, 'field_os2web_base_field_summary'))
-           $related_links[$link['nid']]['summary'] = $summary[0]['summary'];
+
+        if ($image = field_get_items('node', $link_node, 'field_os2web_base_field_lead_img')) {
+          $related_links[$link['nid']]['image'] = $image[0]['uri'];
+        }
+        if ($image = field_get_items('node', $link_node, 'field_os2web_base_field_image')) {
+          $related_links[$link['nid']]['image'] = $image[0]['uri'];
+        }
+        if ($summary = field_get_items('node', $link_node, 'field_os2web_base_field_summary')) {
+          $related_links[$link['nid']]['summary'] = $summary[0]['summary'];
+        }
       }
     }
   }
   // 2. Get all related links related to the KLE number on the node. Only get
   // these if the checkbox "Skjul relaterede links" isn't checked.
   if (($node &&
-        (!isset($node->field_os2web_base_field_hidlinks['und'][0]['value']) ||
+      (!isset($node->field_os2web_base_field_hidlinks['und'][0]['value']) ||
         $node->field_os2web_base_field_hidlinks['und'][0]['value'] == '0') &&
-        $kle_items = field_get_items('node', $node, 'field_os2web_base_field_kle_ref')) ||
-      ($term &&
-        (!isset($term->field_os2web_base_field_hidlinks['und'][0]['value']) ||
+      $kle_items = field_get_items('node', $node, 'field_os2web_base_field_kle_ref')) ||
+    ($term &&
+      (!isset($term->field_os2web_base_field_hidlinks['und'][0]['value']) ||
         $term->field_os2web_base_field_hidlinks['und'][0]['value'] == '0') &&
-        $kle_items = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_kle_ref'))) {
+      $kle_items = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_kle_ref'))
+  ) {
 
     foreach ($kle_items as $kle) {
       // Get all nodes which have the same KLE number as this node.
@@ -119,19 +128,24 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
             continue;
           }
           $link_node = node_load($link->nid);
-          if($link_node->language != $node->language)          continue;
+          if ($link_node->language != $node->language) {
+            continue;
+          }
           if ($link_node) {
             $related_links[$link->nid] = array(
-              'nid' => $link->nid,
+              'nid'   => $link->nid,
               'title' => $link_node->title,
               'class' => 'kle-link',
             );
-          if ($image = field_get_items('node', $link_node, 'field_os2web_base_field_lead_img'))
-           $related_links[$link->nid]['image'] = $image[0]['uri'];
-          if ($image = field_get_items('node', $link_node, 'field_os2web_base_field_image'))
-           $related_links[$link->nid]['image'] = $image[0]['uri'];
-         if ($summary = field_get_items('node', $link_node, 'field_os2web_base_field_summary'))
-           $related_links[$link->nid]['summary'] = $summary[0]['summary'];  
+            if ($image = field_get_items('node', $link_node, 'field_os2web_base_field_lead_img')) {
+              $related_links[$link->nid]['image'] = $image[0]['uri'];
+            }
+            if ($image = field_get_items('node', $link_node, 'field_os2web_base_field_image')) {
+              $related_links[$link->nid]['image'] = $image[0]['uri'];
+            }
+            if ($summary = field_get_items('node', $link_node, 'field_os2web_base_field_summary')) {
+              $related_links[$link->nid]['summary'] = $summary[0]['summary'];
+            }
           }
 
         }
@@ -141,10 +155,11 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
 
   // External related links.
   if (($node && $ext_links = field_get_items('node', $node, 'field_os2web_base_field_ext_link')) ||
-      ($term && $ext_links = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_ext_link'))) {
+    ($term && $ext_links = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_ext_link'))
+  ) {
     foreach ($ext_links as $link) {
       $related_links[] = array(
-        'url' => $link['url'],
+        'url'   => $link['url'],
         'title' => $link['title'],
         'class' => 'ext-link',
       );
@@ -155,7 +170,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
   // We need to load it here, in order to get messages loaded.
   if ($node && $webform = field_get_items('node', $node, 'field_os2web_base_field_webform')) {
     $variables['node']->content['os2web_webform'] = array(
-      'os2web_webform' => array(
+      'os2web_webform'  => array(
         '#markup' => _svendborg_subsitetheme_get_webform($webform[0]['nid']),
       ),
       '#theme_wrappers' => array('container'),
@@ -166,17 +181,19 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
     // Provide the related links to the templates.
     $variables['page']['related_links'] = $related_links;
   }
-if ($node && $node->type == "os2web_base_news"){
-      $variables['page']['prev_news_block'] =TRUE;
-      //$variables['page']['back_button'] = TRUE;
+  if ($node && $node->type == "os2web_base_news") {
+    $variables['page']['prev_news_block'] = TRUE;
+    //$variables['page']['back_button'] = TRUE;
   }
 
-if ($node && $node->type == "os2web_base_contentpage"){
-     $block = block_load('views', 'aktiviteter-block_2');
-     if (($block->visibility=='1' && drupal_match_path(drupal_get_path_alias(current_path()), $block->pages))
-           || ($block->visibility=='0' && !drupal_match_path(drupal_get_path_alias(current_path()), $block->pages)))
-       $variables['page']['activities'] =TRUE;
-      
+  if ($node && $node->type == "os2web_base_contentpage") {
+    $block = block_load('views', 'aktiviteter-block_2');
+    if (($block->visibility == '1' && drupal_match_path(drupal_get_path_alias(current_path()), $block->pages))
+      || ($block->visibility == '0' && !drupal_match_path(drupal_get_path_alias(current_path()), $block->pages))
+    ) {
+      $variables['page']['activities'] = TRUE;
+    }
+
   }
   // When a node's menu link is deaktivated and has no siblings, menu_block is
   // empty, and then sidebar_first are hidden. We want to force the
@@ -184,35 +201,35 @@ if ($node && $node->type == "os2web_base_contentpage"){
   $active_trail = menu_get_active_trail();
   $current_trail = end($active_trail);
 
-  if ($node && ($node->type == "os2web_base_news" )){
+  if ($node && ($node->type == "os2web_base_news")) {
     $variables['page']['sidebar_first'] = array(
       '#theme_wrappers' => array('region'),
-      '#region' => 'sidebar_first',        
-      'dummy_content' => array(
-        '#markup' => '<a class ="btn-back gradient-lightgreen" href="/nyheder">Nyhedsoversigt</a>'       ,
-        
+      '#region'         => 'sidebar_first',
+      'dummy_content'   => array(
+        '#markup' => '<a class ="btn-back gradient-lightgreen" href="/nyheder">Nyhedsoversigt</a>',
+
       ),
     );
   }
-  if ($node && ($node->type != "os2web_base_news" )){
+  if ($node && ($node->type != "os2web_base_news")) {
     $variables['page']['sidebar_first'] = array(
       '#theme_wrappers' => array('region'),
-      '#region' => 'sidebar_first',   
-      'content' => array(
-        '#markup' =>  drupal_render(menu_tree('main-menu')),
-         '#classes' => array('indholdsmenu') 
-     ),
+      '#region'         => 'sidebar_first',
+      'content'         => array(
+        '#markup'  => drupal_render(menu_tree('main-menu')),
+        '#classes' => array('indholdsmenu')
+      ),
     );
-  
-  }  
- 
+
+  }
+
   // Hack to force the sidebar_second to be rendered if we have anything to put
   // in it.
   if (!$sidebar_second_hidden && empty($variables['page']['sidebar_second']) && (!empty($variables['page']['prev_news_block']) || !empty($variables['page']['contact']) || $variables['page']['activities'] || !empty($variables['page']['os2web_selfservicelinks']))) {
     $variables['page']['sidebar_second'] = array(
       '#theme_wrappers' => array('region'),
-      '#region' => 'sidebar_second',
-      'dummy_content' => array(
+      '#region'         => 'sidebar_second',
+      'dummy_content'   => array(
         '#markup' => ' ',
       ),
     );
@@ -220,46 +237,48 @@ if ($node && $node->type == "os2web_base_contentpage"){
   if (empty($variables['page']['content_bottom']) && !empty($variables['page']['related_links'])) {
     $variables['page']['content_bottom'] = array(
       '#theme_wrappers' => array('region'),
-      '#region' => 'content_bottom',       
-      'dummy_content' => array(
+      '#region'         => 'content_bottom',
+      'dummy_content'   => array(
         '#markup' => ' ',
       ),
     );
-     if ($node && ($node->type == "os2web_base_news"))
-       $variables['page']['related_pages_type'] = "boxes";
-     if ($node && ($node->type == "os2web_base_contentpage"))
-       $variables['page']['related_pages_type'] = "links";
-     
+    if ($node && ($node->type == "os2web_base_news")) {
+      $variables['page']['related_pages_type'] = "boxes";
+    }
+    if ($node && ($node->type == "os2web_base_contentpage")) {
+      $variables['page']['related_pages_type'] = "links";
+    }
+
   }
-$view = views_get_page_view(); 
-if (!empty($view) && $view->name =='svendborg_news_view' && $view->current_display=='page_3') {
+  $view = views_get_page_view();
+  if (!empty($view) && $view->name == 'svendborg_news_view' && $view->current_display == 'page_3') {
     if (!$sidebar_second_hidden && empty($variables['page']['sidebar_second'])) {
-    $variables['page']['sidebar_second'] = array(
-      '#theme_wrappers' => array('region'),
-      '#region' => 'sidebar_second',
-      'dummy_content' => array(
-        '#markup' => ' ',
-      ),
-    );
-  
-}
- $variables['page']['prev_news_block'] =TRUE;
- $variables['page']['activities'] =TRUE;
-}
-if ((!empty($view) && $view->name =='svendborg_gallery' && $view->current_display=='page')|| (node && $node->type == "os2web_base_gallery" )) {
+      $variables['page']['sidebar_second'] = array(
+        '#theme_wrappers' => array('region'),
+        '#region'         => 'sidebar_second',
+        'dummy_content'   => array(
+          '#markup' => ' ',
+        ),
+      );
+
+    }
+    $variables['page']['prev_news_block'] = TRUE;
+    $variables['page']['activities'] = TRUE;
+  }
+  if ((!empty($view) && $view->name == 'svendborg_gallery' && $view->current_display == 'page') || ($node && $node->type == "os2web_base_gallery")) {
     if (!$sidebar_second_hidden && empty($variables['page']['sidebar_first'])) {
-        
-    $variables['page']['sidebar_first'] = array(
-      '#theme_wrappers' => array('region'),
-      '#region' => 'sidebar_first',   
-      'content' => array(
-        '#markup' =>  drupal_render(menu_tree_output(menu_navigation_tree('main-menu', 0))),
-     ),
-    );
-  
-}
- 
-}
+
+      $variables['page']['sidebar_first'] = array(
+        '#theme_wrappers' => array('region'),
+        '#region'         => 'sidebar_first',
+        'content'         => array(
+          '#markup' => drupal_render(menu_tree_output(menu_navigation_tree('main-menu', 0))),
+        ),
+      );
+
+    }
+
+  }
 
   // On taxonomy pages, add a news list in second sidebar.
   if ($term) {
@@ -273,8 +292,8 @@ if ((!empty($view) && $view->name =='svendborg_gallery' && $view->current_displa
       if (empty($variables['page']['sidebar_second'])) {
         $variables['page']['sidebar_second'] = array(
           '#theme_wrappers' => array('region'),
-          '#region' => 'sidebar_second',
-            
+          '#region'         => 'sidebar_second',
+
         );
       }
       $variables['page']['sidebar_second']['os2web_news_lists'] = array('#markup' => $view->render());
@@ -283,13 +302,13 @@ if ((!empty($view) && $view->name =='svendborg_gallery' && $view->current_displa
       $variables['page']['sidebar_first'] = array();
     }
   }
-  
-  
+
 
   // Spotbox handling. Find all spotboxes for this node, and add them to
   // content_bottom.
   if (($node && $spotboxes = field_get_items('node', $node, 'field_os2web_base_field_spotbox')) ||
-      ($term && !$term_is_top && $spotboxes = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_spotbox'))) {
+    ($term && !$term_is_top && $spotboxes = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_spotbox'))
+  ) {
 
     if (empty($variables['page']['sidebar_second'])) {
       $spotbox_render = drupal_render(_svendborg_subsitetheme_get_spotboxes($spotboxes));
@@ -299,11 +318,11 @@ if ((!empty($view) && $view->name =='svendborg_gallery' && $view->current_displa
     }
 
     $variables['page']['content']['os2web_spotbox'] = array(
-      'os2web_spotbox' => array(
+      'os2web_spotbox'  => array(
         '#markup' => $spotbox_render,
       ),
       '#theme_wrappers' => array('container'),
-      '#attributes' => array(
+      '#attributes'     => array(
         'class' => array('row', 'spotboxes'),
       ),
     );
@@ -311,7 +330,8 @@ if ((!empty($view) && $view->name =='svendborg_gallery' && $view->current_displa
 
   // If node has hidden the sidebar, set content to null.
   if (($node && $hide_sidebar_field = field_get_items('node', $node, 'field_svendborg_hide_sidebar')) ||
-      ($term && $hide_sidebar_field = field_get_items('taxonomy_term', $term, 'field_svendborg_hide_sidebar'))) {
+    ($term && $hide_sidebar_field = field_get_items('taxonomy_term', $term, 'field_svendborg_hide_sidebar'))
+  ) {
     if ($hide_sidebar_field[0]['value']) {
       $variables['page']['sidebar_second'] = array();
       $sidebar_second_hidden = TRUE;
@@ -320,10 +340,10 @@ if ((!empty($view) && $view->name =='svendborg_gallery' && $view->current_displa
 
   // Add out fonts from Google Fonts API.
   drupal_add_html_head(array(
-    '#tag' => 'link',
+    '#tag'        => 'link',
     '#attributes' => array(
       'href' => 'http://fonts.googleapis.com/css?family=Titillium+Web:400,600,700|Open+Sans:400,700',
-      'rel' => 'stylesheet',
+      'rel'  => 'stylesheet',
       'type' => 'text/css',
     ),
   ), 'google_font_svendborg_subsitetheme');
@@ -340,7 +360,7 @@ if ((!empty($view) && $view->name =='svendborg_gallery' && $view->current_displa
     // Frontpage small carousel.
     $variables['page']['front_small_carousel'] = _svendborg_subsitetheme_get_front_small_carousel();
   }
-  
+
 }
 
 /**
@@ -363,34 +383,37 @@ function svendborg_subsitetheme_preprocess_taxonomy_term(&$variables) {
       $variables['news_term_branding'] = _svendborg_subsitetheme_get_large_carousel();
       $variables['news_term_content'] = _svendborg_subsitetheme_get_term_news_content();
       $variables['news_term_right_sidebar'] = _svendborg_subsitetheme_get_term_news_filer_and_quicktabs();
-      $variables['os2web_spotboxes'] = ($spotboxes) ?  _svendborg_subsitetheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-6 col-md-6 col-lg-6') : '';
+      $variables['os2web_spotboxes'] = ($spotboxes) ? _svendborg_subsitetheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-6 col-md-6 col-lg-6') : '';
     }
     else {
       $variables['os2web_spotboxes'] = ($spotboxes) ? _svendborg_subsitetheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-4 col-md-4 col-lg-4') : '';
     }
   }
   if (isset($term->field_alternative_display['und'][0]['value']) &&
-        $term->field_alternative_display['und'][0]['value'] == 1) {
+    $term->field_alternative_display['und'][0]['value'] == 1
+  ) {
     $variables['term_display_alternative'] = TRUE;
   }
 
 }
+
 function svendborg_subsitetheme_process_html(&$variables) {
- if (module_exists('color')) {
+  if (module_exists('color')) {
     _color_html_alter($variables);
   }
 }
+
 /**
  * Implements THEME_preprocess_html().
  */
 function svendborg_subsitetheme_preprocess_html(&$variables) {
-      
+
   // Add conditional stylesheets for IE.
   drupal_add_css(path_to_theme() . '/css/ie.css', array(
-    'group' => CSS_THEME,
-    'browsers' => array('IE' => 'lte IE 8', '!IE' => FALSE),
+    'group'      => CSS_THEME,
+    'browsers'   => array('IE' => 'lte IE 8', '!IE' => FALSE),
     'preprocess' => FALSE,
-    'weight' => 115,
+    'weight'     => 115,
   ));
 
   if (arg(0) == 'taxonomy' && arg(1) == 'term' && is_numeric(arg(2))) {
@@ -407,17 +430,18 @@ function svendborg_subsitetheme_preprocess_html(&$variables) {
 
   // Setup IE meta tag to force IE rendering mode.
   $meta_ie_render_engine = array(
-    '#type' => 'html_tag',
-    '#tag' => 'meta',
+    '#type'       => 'html_tag',
+    '#tag'        => 'meta',
     '#attributes' => array(
       'http-equiv' => 'X-UA-Compatible',
-      'content' => 'IE=8,IE=Edge,chrome=1',
+      'content'    => 'IE=8,IE=Edge,chrome=1',
     ),
-    '#weight' => '-99999',
+    '#weight'     => '-99999',
   );
   // Add header meta tag for IE to head.
   drupal_add_html_head($meta_ie_render_engine, 'meta_ie_render_engine');
 }
+
 /**
  * Implements hook_preprocess_node().
  */
@@ -433,6 +457,7 @@ function svendborg_subsitetheme_preprocess_node(&$vars) {
   // Make "node--NODETYPE--VIEWMODE.tpl.php" templates available for nodes.
   $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__' . $vars['view_mode'];
 }
+
 /**
  * Retrieve the top term tid for node class array.
  */
@@ -455,21 +480,33 @@ function get_the_classes($nid) {
   return $top_parent_term;
 }
 
-/*
+/**
+ * Implements theme_menu_link().
+ */
 function svendborg_subsitetheme_menu_link(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
+
   if ($element['#below']) {
     // Prevent dropdown functions from being added to management menu so it
     // does not affect the navbar module.
     if (($element['#original_link']['menu_name'] == 'management') && (module_exists('navbar'))) {
       $sub_menu = drupal_render($element['#below']);
     }
-    elseif ($element['#original_link']['in_active_trail']) {
-      $sub_menu = drupal_render($element['#below']);
-    }
-    else {
-      $element['#attributes']['class'][] = 'has-children';
+    elseif ((!empty($element['#original_link']['depth']))) {
+      // Add our own wrapper.
+      unset($element['#below']['#theme_wrappers']);
+      $sub_menu = '<ul class="dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+      // Generate as standard dropdown.
+      $element['#title'] .= ' <span class="caret"></span>';
+      $element['#attributes']['class'][] = 'dropdown';
+      $element['#localized_options']['html'] = TRUE;
+
+      // Set dropdown trigger element to # to prevent inadvertant page loading
+      // when a submenu link is clicked.
+      $element['#localized_options']['attributes']['data-target'] = '#';
+      $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
+      $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
     }
   }
   // On primary navigation menu, class 'active' is not set on active menu item.
@@ -479,7 +516,7 @@ function svendborg_subsitetheme_menu_link(array $variables) {
   }
   $output = l($element['#title'], $element['#href'], $element['#localized_options']);
   return '<li' . drupal_attributes($element['#attributes']) . '>' . $output . $sub_menu . "</li>\n";
-}*/
+}
 
 /**
  * Theme function to output tablinks for classic Quicktabs style tabs.
@@ -491,7 +528,7 @@ function svendborg_subsitetheme_qt_quicktabs_tabset($vars) {
     'attributes' => array(
       'class' => 'quicktabs-tabs quicktabs-style-' . $vars['tabset']['#options']['style'],
     ),
-    'items' => array(),
+    'items'      => array(),
   );
   foreach (element_children($vars['tabset']['tablinks']) as $key) {
     $item = array();
@@ -503,7 +540,7 @@ function svendborg_subsitetheme_qt_quicktabs_tabset($vars) {
         $class = "last";
       }
       if ($key == $vars['tabset']['#options']['active']) {
-        $item['class'] = array('active','tab-' . $key, $class);
+        $item['class'] = array('active', 'tab-' . $key, $class);
       }
       else {
         $item['class'] = array('tab-' . $key, $class);
@@ -575,7 +612,7 @@ function _svendborg_subsitetheme_get_selfservicelinks($links) {
       if (!empty($link_fields)) {
         $link_field = array_shift($link_fields);
         $selfservicelinks[$link['nid']] = array(
-          'url' => $link_field['url'],
+          'url'   => $link_field['url'],
           'title' => $link_field['title'],
         );
       }
@@ -609,7 +646,10 @@ function svendborg_subsitetheme_file_link($variables) {
   $file = $variables['file'];
   $icon_directory = $variables['icon_directory'];
   $url = file_create_url($file->uri);
-  $icon = theme('file_icon', array('file' => $file, 'icon_directory' => $icon_directory));
+  $icon = theme('file_icon', array(
+    'file'           => $file,
+    'icon_directory' => $icon_directory
+  ));
   // Set options as per anchor format described at
   // http://microformats.org/wiki/file-format-examples
   $options = array(
@@ -626,7 +666,7 @@ function svendborg_subsitetheme_file_link($variables) {
     $options['attributes']['title'] = check_plain($file->filename);
   }
   // Open files of particular mime types in new window.
-  $new_window_mimetypes = array('application/pdf','text/plain');
+  $new_window_mimetypes = array('application/pdf', 'text/plain');
   if (in_array($file->filemime, $new_window_mimetypes)) {
     $options['attributes']['target'] = '_blank';
   }
@@ -644,8 +684,12 @@ function svendborg_subsitetheme_file_formatter_table($variables) {
       theme('file_link', array('file' => (object) $item)),
     );
   }
-  return empty($rows) ? '' : theme('table', array('header' => $header, 'rows' => $rows));
+  return empty($rows) ? '' : theme('table', array(
+    'header' => $header,
+    'rows'   => $rows
+  ));
 }
+
 /**
  * Retrieve front page big menu buttons.
  */
@@ -741,6 +785,7 @@ function _svendborg_subsitetheme_get_large_carousel() {
   $large_carousel .= '</div>';
   return $large_carousel;
 }
+
 /**
  * Retrieve small carousel.
  */
@@ -824,6 +869,7 @@ function _svendborg_subsitetheme_get_front_small_carousel() {
   $front_small_carousel .= '<div class="front-seperator"></div>';
   return $front_small_carousel;
 }
+
 /**
  * Retrieve the news term filter and quicktabs.
  */
@@ -853,6 +899,7 @@ function _svendborg_subsitetheme_get_term_news_filer_and_quicktabs() {
   return $news_term_right_sidebar;
 
 }
+
 /**
  * Retrieve news term content view.
  */
@@ -868,8 +915,8 @@ function _svendborg_subsitetheme_get_term_news_content() {
 }
 
 /**
-=======
->>>>>>> Stashed changes
+ * =======
+ * >>>>>>> Stashed changes
  * Helper. Returns almost the same as render(node_view()) for a webform.
  *
  * Instead of a fully loaded render array, though, it returns markup, without
@@ -897,37 +944,37 @@ function _svendborg_subsitetheme_get_webform($nid) {
 function _svendborg_subsitetheme_block_render($module, $block_id) {
   $block = block_load($module, $block_id);
   $block_content = _block_render_blocks(array($block));
-  $build = _block_get_renderable_array($block_content);            
-  $block_rendered =  drupal_render($build);
+  $build = _block_get_renderable_array($block_content);
+  $block_rendered = drupal_render($build);
   return $block_rendered;
 }
 
-function _svendborg_subsitetheme_get_contact (){
-     $menuParent = menu_get_active_trail();
- 
-  for ($i=count($menuParent)-1;$i>=0;$i--){
-   // var_dump($menuParent[$i]["link_path"]);
+function _svendborg_subsitetheme_get_contact() {
+  $menuParent = menu_get_active_trail();
+
+  for ($i = count($menuParent) - 1; $i >= 0; $i--) {
+    // var_dump($menuParent[$i]["link_path"]);
     $node1 = menu_get_object('node', 1, $menuParent[$i]["link_path"]);
-    if (isset($node1->field_os2web_base_field_contact['und'])){
-        return$link[0]['nid']=$node1->field_os2web_base_field_contact['und'][0]['nid'];
-        
-       
+    if (isset($node1->field_os2web_base_field_contact['und'])) {
+      return $link[0]['nid'] = $node1->field_os2web_base_field_contact['und'][0]['nid'];
+
+
     }
-      
- }
- return false;
+
+  }
+  return FALSE;
 }
 
 function svendborg_subsitetheme_preprocess_views_view_unformatted(&$var) {
   // Determine if this view's content should render in columns.
   // @see: _YOUR_THEME_views_columns();
-   // var_dump('here');
+  // var_dump('here');
   _svendborg_subsitetheme_views_columns($var, array(
-    'svendborg_news_view|svendborg_latest_news_two_col' => 2,
+    'svendborg_news_view|svendborg_latest_news_two_col'   => 2,
     'svendborg_news_view|svendborg_latest_news_three_col' => 3,
   ));
-    
-  
+
+
 }
 
 /**
@@ -982,7 +1029,7 @@ function _svendborg_subsitetheme_views_columns(array &$var, array $views = array
   }
   if ($render_all && $current_column < ($columns - 1)) {
     $diff = ($columns - 1) - $current_column;
-    for ($i=0; $i < $diff; $i++) {
+    for ($i = 0; $i < $diff; $i++) {
       $current_column++;
       $var['columns'][$current_column] = array();
     }
@@ -993,8 +1040,8 @@ function _svendborg_subsitetheme_views_columns(array &$var, array $views = array
   foreach (array_keys($var['columns']) as $id) {
     $html_id = $id + 1;
     $var['columns_classes_array'][$id][] = 'views-column';
-    $var['columns_classes_array'][$id][] = 'col-sm-'. 12/$columns;
-    $var['columns_classes_array'][$id][] = 'views-column-' . $html_id ;
+    $var['columns_classes_array'][$id][] = 'col-sm-' . 12 / $columns;
+    $var['columns_classes_array'][$id][] = 'views-column-' . $html_id;
     $var['columns_classes_array'][$id][] = 'views-column-' . ($html_id % 2 ? 'odd' : 'even');
     if ($id == 0) {
       $var['columns_classes_array'][$id][] = 'views-column-first';
@@ -1009,24 +1056,24 @@ function _svendborg_subsitetheme_views_columns(array &$var, array $views = array
 
 function svendborg_subsitetheme_less_variables_alter(&$less_variables, $system_name) {
   $color_palette = variable_get('color_svendborg_subsitetheme_palette', FALSE);
-  if (empty($color_palette)){
-      $color_palette = array(
-          'brand-lightblue' => '#2880b9',
-          'brand-lightgreen' => '#85c500',
-          'gradient-light' => '#0086ca',
-          'introtekst' => '#2880b9',
-      );
-  }  
-  foreach ($color_palette as $key=>$value) {
-      $color_palette['@' . $key]=$color_palette[$key];
-      unset($color_palette[$key]);
+  if (empty($color_palette)) {
+    $color_palette = array(
+      'brand-lightblue'  => '#2880b9',
+      'brand-lightgreen' => '#85c500',
+      'gradient-light'   => '#0086ca',
+      'introtekst'       => '#2880b9',
+    );
+  }
+  foreach ($color_palette as $key => $value) {
+    $color_palette['@' . $key] = $color_palette[$key];
+    unset($color_palette[$key]);
   }
 
   $less_variables = $color_palette;
 }
 
-function svendborg_subsitetheme_photoswipe_imagefield($variables){
-   $class = array('photoswipe');
+function svendborg_subsitetheme_photoswipe_imagefield($variables) {
+  $class = array('photoswipe');
   if (!empty($variables['image']['style_name'])) {
     $image = theme('image_style', $variables['image']);
   }
@@ -1035,18 +1082,19 @@ function svendborg_subsitetheme_photoswipe_imagefield($variables){
   }
 
   $options = array(
-    'html' => TRUE,
+    'html'       => TRUE,
     'attributes' => array(
-      'class' => implode(' ', $class),
-      'data-size' => $variables['dimensions'],
-      'data-overlay-title' => $variables['image']['title'] . '<span alt="desc">'. $variables['image']['alt'] . '</span>'
+      'class'              => implode(' ', $class),
+      'data-size'          => $variables['dimensions'],
+      'data-overlay-title' => $variables['image']['title'] . '<span alt="desc">' . $variables['image']['alt'] . '</span>'
     )
   );
   return l($image, $variables['path'], $options);
 }
+
 function svendborg_subsitetheme_views_slideshow_pager_widget_render($vars) {
-   $js_vars = array(
-   'viewsSlideshowPager' => array(
+  $js_vars = array(
+    'viewsSlideshowPager' => array(
       $vars['vss_id'] => array(
         $vars['location'] => array(
           'type' => preg_replace('/_(.?)/e', "strtoupper('$1')", $vars['settings']['type']),
@@ -1054,23 +1102,30 @@ function svendborg_subsitetheme_views_slideshow_pager_widget_render($vars) {
       ),
     ),
   );
- 		 
+
   drupal_add_js($js_vars, 'setting');
 
   // Create some attributes
   $attributes['class'] = 'widget_pager container widget_pager_' . $vars['location'];
   $attributes['id'] = 'widget_pager_' . $vars['location'] . '_' . $vars['vss_id'];
-     return theme($vars['settings']['type'], array('vss_id' => $vars['vss_id'], 'view' => $vars['view'], 'settings' => $vars['settings'], 'location' => $vars['location'], 'attributes' => $attributes));
+  return theme($vars['settings']['type'], array(
+    'vss_id'     => $vars['vss_id'],
+    'view'       => $vars['view'],
+    'settings'   => $vars['settings'],
+    'location'   => $vars['location'],
+    'attributes' => $attributes
+  ));
 }
+
 function menu_navigation_tree($menu_name, $level = 0) {
   // Don't even bother querying the menu table if no menu is specified.
   if (empty($menu_name)) {
     return array();
   }
-  
+
 // Get the menu hierarchy for the current page.
   $tree = menu_tree_page_data($menu_name);
-  
+
 // Go down the active trail until the right level is reached.
   while ($level-- > 0 && $tree) {
     // Loop through the current level's items until we find one that is in trail.
@@ -1084,4 +1139,3 @@ function menu_navigation_tree($menu_name, $level = 0) {
   }
   return $tree;
 }
-?>

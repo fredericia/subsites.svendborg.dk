@@ -124,6 +124,22 @@
   .navbar-nav > li {
     padding-left: 10px;
     padding-right: 10px;
+
+    > .dropdown-menu {
+
+      > .dropdown {
+
+        > a {
+          .caret {
+            display: none;
+          }
+        }
+
+        .dropdown-menu {
+          display: none;
+        }
+      }
+    }
     &.expanded.open {
         @media (max-width: 767px) {
             background: none;
