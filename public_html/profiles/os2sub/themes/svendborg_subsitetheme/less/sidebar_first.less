@@ -96,153 +96,153 @@
 }
 
 .block-facetapi { background-color: #FFF;
-	ul { padding-left: 18px;}
+  ul { padding-left: 18px;}
 }
 
 .btn-back{
-    display: block;
-    vertical-align: middle;
-    font-size: 11px;
-    font-weight: 700;
+  display: block;
+  vertical-align: middle;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  font-family: @font-family-sans-serif;
+  border-radius: @border-radius-small;
+  padding: 10px 10px;
+  text-transform: uppercase;
+  &:active,
+  &:hover {
+    text-decoration: none;
     color: #fff;
-    font-family: @font-family-sans-serif;
-    border-radius: @border-radius-small;
-    padding: 10px 10px;
-    text-transform: uppercase;
-    &:active,
-    &:hover {
-       text-decoration: none;
-       color: #fff;
-    }    
+  }
 }
 .region-sidebar-first {
-    #block-menu-menu-menu-indholdsmenu{
-        ul.menu {
-        li:not(.active-trail){
-            display:block;
-        }
-    }
-    }
+  #block-menu-menu-menu-indholdsmenu{
     ul.menu {
-        li:not(.active-trail){
-            display:none;
+      li:not(.active-trail){
+        display:block;
+      }
+    }
+  }
+  ul.menu {
+    li:not(.active-trail){
+      display:none;
+    }
+    ul.dropdown-menu{
+      position: relative;
+      z-index: 0;
+      float: none;
+      top: auto;
+      left: auto;
+      padding: 5px 0;
+      margin: 2px 0 0;
+      list-style: none;
+      font-size: 14px;
+      background-color: #ffffff;
+      border: none;
+      border-radius: none;
+      -webkit-box-shadow: none;
+      -moz-box-shadow: none;
+      box-shadow: none;
+      background-clip: none;
+      display: block;
+      margin: 0;
+      padding: 0;
+      background: none;
+      li {
+        display:block;
+        border: none;
+        a {
+          font-size: 11px;
+          color: #404040;
+          font-weight: normal;
+          text-transform: none;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          display: block;
+          white-space: pre-wrap;
+          white-space: -moz-pre-wrap;
+          white-space: -pre-wrap;
+          white-space: -o-pre-wrap;
+          word-wrap: break-word;
+          &:hover{
+            background: none;
+            color: @brand-lightgreen;
+          }
         }
-        ul.dropdown-menu{
-            position: relative;
-            z-index: 0;
-            float: none;
-            top: auto;
-            left: auto;
-            padding: 5px 0;
-            margin: 2px 0 0;
-            list-style: none;
-            font-size: 14px;
-            background-color: #ffffff;
-            border: none;
-            border-radius: none;
-             -webkit-box-shadow: none;
-            -moz-box-shadow: none;
-             box-shadow: none;
-             background-clip: none;  
-             display: block;
-             margin: 0;
-             padding: 0;
-             background: none;
-             li { 
-                 display:block;
-                 border: none;
-               a { 
-                     font-size: 11px;
-                      color: #404040;
-                      font-weight: normal;
-                      text-transform: none;
-                      padding-top: 5px;
-                      padding-bottom: 5px;
-                      display: block;
-                      white-space: pre-wrap;
-                      white-space: -moz-pre-wrap;
-                      white-space: -pre-wrap;
-                      white-space: -o-pre-wrap;
-                      word-wrap: break-word;
-                     &:hover{
-                         background: none;
-                         color: @brand-lightgreen;
-                     }
-                 }
-              }
-              li.active{
-                  a{
-                      color: @brand-lightgreen;
-                  }
-              }
-           }    
-             li {   
-                border-bottom: #eeeded 2px solid;
-                border-bottom: #eeeded 2px solid;
-               a {   
-                     font-size: 11px;
-                     font-weight: 700;
-                     text-transform: uppercase;
-                     color: #404040;      
-                     &:hover{
-                         border-radius: @border-radius-small; 
-                     }
-                 }
-                 
-              }
-          
-        
-        li.active-trail{
-            a{                
-            border-radius: @border-radius-small; 
-            color: #fff;
-            span.caret {
-                display: none
-              }
-               
-            }
-            ul.dropdown-menu{
-                display: block;
-                margin-top: 5px;
-                margin-bottom: 5px;
-                
-               }
-               li{
-                   a {
-                       background: none;
-                       color: #404040
-                   }
-               }   
-            
+      }
+      li.active{
+        a{
+          color: @brand-lightgreen;
+        }
+      }
+    }
+    li {
+      border-bottom: #eeeded 2px solid;
+      border-bottom: #eeeded 2px solid;
+      a {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: #404040;
+        &:hover{
+          border-radius: @border-radius-small;
+        }
+      }
+
+    }
+
+
+    li.active-trail{
+      a{
+        border-radius: @border-radius-small;
+        color: #fff;
+        span.caret {
+          display: none
         }
 
-      > li {
+      }
+      ul.dropdown-menu{
+        display: block;
+        margin-top: 5px;
+        margin-bottom: 5px;
 
-        // Second level
-        ul {
+      }
+      li{
+        a {
+          background: none;
+          color: #404040
+        }
+      }
 
-          > li {
+    }
 
-            // Third level
-            > ul {
+    > li {
 
-              > li {
+      // Second level
+      ul {
 
-                > a {
-                  padding-left: 30px;
-                }
+        > li {
+
+          // Third level
+          > ul {
+
+            > li {
+
+              > a {
+                padding-left: 30px;
               }
             }
           }
         }
       }
     }
+  }
 }
 
 .node-type-os2web-base-contentpage {
-    .region-sidebar-first->ul.menu.nav {
-            li:not(.active-trail){
-                display:none;
-             }
+  .region-sidebar-first->ul.menu.nav {
+    li:not(.active-trail){
+      display:none;
     }
+  }
 }  
