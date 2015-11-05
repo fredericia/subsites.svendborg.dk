@@ -735,17 +735,16 @@
         padding-top: @padding-xs-vertical;
        
     }
-    .views-column-first {
-        padding-left: 0 !important;
-    }
-    .views-column-last {
-        padding-right: 0 !important;
-        border-right: none !important;
-    }
-    .views-column {
+
+		.views-column {
+			margin-bottom: 10px;
+		}
+		
+		.view-content .col-sm-4.views-column:not(.views-column-last),
+		.view-content .col-sm-6.views-column:not(.views-row-even) {
         border-right: #eee 2px solid;
-       
     }
+
     .view-footer {
         clear: both;
         a{

@@ -10,7 +10,7 @@ if (!empty($title)) {
    
   print '<h3>' . t($title) . '</h3>';
 }
-
+print '<div class="row">';
 // Render columns if needed.
 if ($columns) {
   print '<div class="view-columns view-columns-' . count($columns) . '">';
@@ -29,4 +29,5 @@ else {
     print '<div' . ($classes_array[$id] ? ' class="' . $classes_array[$id] .'"' : '') . '>' . $row . '</div>';
   }
 }
+print '</div>';
 
