@@ -12144,14 +12144,11 @@ h2.menu-footer a.Kommunen {
   padding-bottom: 1px;
   padding-top: 1px;
 }
-.latest-news-block .views-column-first {
-  padding-left: 0 !important;
-}
-.latest-news-block .views-column-last {
-  padding-right: 0 !important;
-  border-right: none !important;
-}
 .latest-news-block .views-column {
+  margin-bottom: 10px;
+}
+.latest-news-block .view-content .col-sm-4.views-column:not(.views-column-last),
+.latest-news-block .view-content .col-sm-6.views-column:not(.views-row-even) {
   border-right: #eee 2px solid;
 }
 .latest-news-block .view-footer {
