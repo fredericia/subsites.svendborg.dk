@@ -1714,6 +1714,12 @@ function svendborg_views_views_default_views() {
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['operator'] = '<';
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['group'] = 2;
   $handler->display->display_options['filters']['field_os2web_news_page_archive_value']['default_date'] = 'now';
+  /* Filterkriterie: Indhold: Arkiveringsdato (field_os2web_news_page_archive) */
+  $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['id'] = 'field_os2web_news_page_archive_value_1';
+  $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['table'] = 'field_data_field_os2web_news_page_archive';
+  $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['field'] = 'field_os2web_news_page_archive_value';
+  $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['operator'] = 'empty';
+  $handler->display->display_options['filters']['field_os2web_news_page_archive_value_1']['group'] = 2;
 
   /* Display: two last news */
   $handler = $view->new_display('block', 'two last news', 'block_5');
