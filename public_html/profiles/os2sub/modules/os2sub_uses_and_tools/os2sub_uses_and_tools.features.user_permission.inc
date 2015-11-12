@@ -10,6 +10,16 @@
 function os2sub_uses_and_tools_user_default_permissions() {
   $permissions = array();
 
+  // Exported permission: 'access administration menu'.
+  $permissions['access administration menu'] = array(
+    'name' => 'access administration menu',
+    'roles' => array(
+      'Editor' => 'Editor',
+      'subsiteadmin' => 'subsiteadmin',
+    ),
+    'module' => 'admin_menu',
+  );
+
   // Exported permission: 'access administration pages'.
   $permissions['access administration pages'] = array(
     'name' => 'access administration pages',
