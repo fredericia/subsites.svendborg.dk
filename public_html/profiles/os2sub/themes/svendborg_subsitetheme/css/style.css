@@ -12460,3 +12460,4 @@ and open the template in the editor.
 .page-calendar .view-svendborg-event-calendar .block-book-place {
   margin-top: 20px;
 }
+.frontpage-nodes .views-row span a { background-color: rgba(255, 255, 255, 0.8); }
