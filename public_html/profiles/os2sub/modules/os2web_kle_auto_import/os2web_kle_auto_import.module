@@ -331,9 +331,35 @@ function _os2web_kle_auto_import_convert_xml($org_xml) {
  */
 function os2web_kle_auto_import_cron() {
 
+  // Check if KLE feed importer has been run after this module was installed
+  $first_run = variable_get('os2web_kle_auto_import_first_run', TRUE);
+
+  if ($first_run) {
+    _os2web_kle_auto_import_run_feed();
+    variable_set('os2web_kle_auto_import_first_run', FALSE);
+  }
+
+
   $next_run = variable_get('os2web_kle_auto_import_next_run', strtotime('now + ' . OS2WEB_KLE_AUTO_IMPORT_DEFAULT_SCHEDULE . ' days'));
 
   if ($next_run <= time()) {
     os2web_kle_auto_import_run();
+  }
+}
+
+/**
+ * Run the Feeds importer.
+ */
+function _os2web_kle_auto_import_run_feed() {
+
+  $source = feeds_source('os2web_taxonomies_feed_kle');
+
+  if (is_object($source)) {
+
+    $config = array(
+      'process_in_background' => TRUE,
+    );
+    $source->importer->addConfig($config);
+    $source->startImport();
   }
 }
