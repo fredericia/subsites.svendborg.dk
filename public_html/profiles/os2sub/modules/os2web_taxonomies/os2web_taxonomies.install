@@ -11,7 +11,7 @@ function os2web_taxonomies_enable() {
   //Set default KLE taxonomy feed url
   $source = feeds_source('os2web_taxonomies_feed_kle');
   $config = $source->getConfig();
-  $config['FeedsFileFetcher']['source'] = drupal_get_path('module', 'os2web_taxonomies') . '/data/kle.xml';
+  $config['FeedsFileFetcher']['source'] = 'public://kle.xml';
   $source->setConfig($config);
   $source->save();
 

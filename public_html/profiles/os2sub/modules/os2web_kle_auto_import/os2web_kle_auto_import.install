@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function os2web_kle_auto_import_install() {
+  // Import the XML file when installing the module
+  os2web_kle_auto_import_run();
+
+  variable_set('os2web_kle_auto_import_first_run', TRUE);
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function os2web_kle_auto_import_uninstall() {
+  variable_del('os2web_kle_auto_import_url');
+  variable_del('os2web_kle_auto_import_last_run');
+  variable_del('os2web_kle_auto_import_next_run');
+  variable_del('os2web_kle_auto_import_destination_url');
+  variable_del('os2web_kle_auto_import_schedule');
+  variable_del('os2web_kle_auto_import_first_run');
+}

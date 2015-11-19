@@ -1,0 +1,370 @@
+<?php
+
+define('OS2WEB_KLE_AUTO_IMPORT_RETSINFO_URL' , 'http://www.retsinfo.dk/_GETDOC_/ACCN/');
+define('OS2WEB_KLE_AUTO_IMPORT_DEFAULT_SCHEDULE', 30);
+define('OS2WEB_KLE_AUTO_IMPORT_DEFAULT_KLE_URL', 'http://www.klxml.dk/download/XML-ver2-0/KLE-Emneplan_Version2-0.xml');
+define('OS2WEB_KLE_AUTO_IMPORT_DESTINATION_URL', 'public://kle.xml');
+
+/**
+ * Implements hook_menu().
+ */
+function os2web_kle_auto_import_menu() {
+  $items = array();
+  $items['admin/config/services/kle_import'] = array(
+    'title' => t('KLE Auto Import'),
+    'description' => t('Administrer indstillinger til KLE Auto Import'),
+    'page callback'    => 'drupal_get_form',
+    'page arguments'   => array('_os2web_kle_auto_import_menu_settings'),
+    'access arguments' => array('access administration pages'),
+  );
+  return $items;
+}
+
+function _os2web_kle_auto_import_menu_settings() {
+
+  $form['os2web_kle_auto_import_url'] = array(
+    '#title' => t('URL til KLE XML fil'),
+    '#type' => 'textfield',
+    '#size' => 80,
+    '#required' => TRUE,
+    '#default_value' => variable_get('os2web_kle_auto_import_url', OS2WEB_KLE_AUTO_IMPORT_DEFAULT_KLE_URL),
+  );
+
+  $form['os2web_kle_auto_import_destination_url'] = array(
+    '#title' => t('URL til lokal KLE XML fil'),
+    '#description' => t('Intern URL hvor den konverterede XML fil skal placeres (f.eks. public://kle.xml).'),
+    '#type' => 'textfield',
+    '#size' => 80,
+    '#required' => TRUE,
+    '#default_value' => variable_get('os2web_kle_auto_import_destination_url', OS2WEB_KLE_AUTO_IMPORT_DESTINATION_URL),
+  );
+
+  $form['os2web_kle_auto_import_retsinfo_url'] = array(
+    '#title' => t('Base URL til retsinfo (SKAL have afsluttende "/")'),
+    '#type' => 'textfield',
+    '#size' => 80,
+    '#required' => TRUE,
+    '#default_value' => variable_get('os2web_kle_auto_import_retsinfo_url', OS2WEB_KLE_AUTO_IMPORT_RETSINFO_URL),
+  );
+
+  $form['os2web_kle_auto_import_schedule'] = array(
+    '#title' => t('Antal dage mellem importen køres'),
+    '#type' => 'textfield',
+    '#size' => 80,
+    '#required' => TRUE,
+    '#default_value' => variable_get('os2web_kle_auto_import_schedule', OS2WEB_KLE_AUTO_IMPORT_DEFAULT_SCHEDULE),
+  );
+
+  $last_run_var = variable_get('os2web_kle_auto_import_last_run', 0);
+  $last_run = ($last_run_var != 0 ? format_date($last_run_var, 'long') : t('aldrig'));
+
+  // Display when import last ran
+  $form['os2web_kle_auto_import_last_run'] = array(
+    '#type' => 'markup',
+    '#prefix' => '<p>' . t('Sidste import kørte: '),
+    '#suffix' => '</p>',
+    '#markup' => '<em>' . $last_run . '</em>',
+  );
+
+  // Display when next import will take place
+  $next_run = variable_get('os2web_kle_auto_import_next_run', strtotime('+ ' . OS2WEB_KLE_AUTO_IMPORT_DEFAULT_SCHEDULE. ' days', $last_run_var));
+  $form['os2web_kle_auto_import_next_run'] = array(
+    '#type' => 'markup',
+    '#prefix' => '<p>' . t('Næste import køres: '),
+    '#suffix' => '</p>',
+    '#markup' => '<em>' . format_date($next_run, 'long') . '</em>',
+  );
+
+  $form['os2web_kle_auto_import_run_now'] = array(
+    '#type'   => 'submit',
+    '#value'  => t('Indlæs og konverter XML fil nu'),
+    '#submit' => array('os2web_kle_auto_import_run'),
+  );
+
+  return system_settings_form($form);
+}
+
+function os2web_kle_auto_import_run() {
+
+  // Load XML file from url and convert to feed-import-friendly format
+  $remote_url = variable_get('os2web_kle_auto_import_url', OS2WEB_KLE_AUTO_IMPORT_DEFAULT_KLE_URL);
+
+  $curl = curl_init();
+  curl_setopt_array($curl, Array(
+    CURLOPT_URL            => $remote_url,
+    CURLOPT_RETURNTRANSFER => TRUE,
+    CURLOPT_ENCODING       => 'UTF-8'
+  ));
+
+  $curl_data = curl_exec($curl);
+
+  // Check if file transfer went well
+  if (curl_getinfo($curl, CURLINFO_HTTP_CODE) != 200) {
+    drupal_set_message(t('XML fil kunne ikke hentes fra %remote_url.', array('%remote_url' => $remote_url)), 'error');
+    return;
+  }
+  curl_close($curl);
+
+  // Create XML object from file
+  if (! $xml_obj = simplexml_load_string($curl_data)) {
+    drupal_set_message('Fil hentet fra %remote_url er ikke et XML dokument.', array('%remote_url' => $remote_url), 'error');
+    return;
+  }
+
+  // Check if XML file is a KLE XML file
+  if (! $xml_obj->xpath('/KLE-Emneplan')) {
+    drupal_set_message('XML fil kunne ikke konverteres, da denne ikke er en KLE XML fil.', 'error');
+    return;
+  }
+
+  // Start converting file to a Feed importer friendly format
+  $converted_xml = _os2web_kle_auto_import_convert_xml($xml_obj);
+
+  // Write XML file to public directory
+  $local_url = variable_get('os2web_kle_auto_import_destination_url', OS2WEB_KLE_AUTO_IMPORT_DESTINATION_URL);
+  if (file_unmanaged_save_data($converted_xml, $local_url, FILE_EXISTS_REPLACE)) {
+    // Set timestamp for when import was last run and when to run next
+    variable_set('os2web_kle_auto_import_last_run', time());
+    variable_set('os2web_kle_auto_import_next_run', strtotime('now + ' . OS2WEB_KLE_AUTO_IMPORT_DEFAULT_SCHEDULE. ' days'));
+
+    drupal_set_message(t('XML konverteret til brug af feed importer.'));
+  }
+  else {
+    drupal_set_message(t('XML kunne ikke skrives til %url', array('%url' => $local_url)), 'error');
+  }
+}
+
+/**
+ * Convert the XML file from KL to a Feeds importer friendly format.
+ *
+ * @param $org_xml
+ * @return string
+ */
+function _os2web_kle_auto_import_convert_xml($org_xml) {
+
+  $retsinfo_base_url = variable_get('os2web_kle_auto_import_retsinfo_url', OS2WEB_KLE_AUTO_IMPORT_RETSINFO_URL);
+
+  $dom_doc = new DOMDocument('1.0', 'utf-8');
+  $root_element = $dom_doc->createElement('Taxonomy');
+
+  $name_node = $dom_doc->createElement('Name');
+  $name_node->nodeValue = 'KLE';
+  $root_element->appendChild($name_node);
+
+  $description_node = $dom_doc->createElement('Description');
+  $description_node->nodeValue = 'KL Emnesystematik';
+  $root_element->appendChild($description_node);
+
+  $dom_doc->appendChild($root_element);
+  foreach ($org_xml->Hovedgruppe as $hovedgruppe) {
+
+    /*
+     * Hovedgruppe
+     */
+    // <Taxon>
+    $taxon_node = $dom_doc->createElement('Taxon');
+    $root_element->appendChild($taxon_node);
+
+    // <Key>
+    $key_node = $dom_doc->createElement('Key');
+    $key_node->nodeValue = (string) $hovedgruppe->HovedgruppeNr;
+    $taxon_node->appendChild($key_node);
+
+    // <Name>
+    $name_node = $dom_doc->createElement('Name');
+    $name_node->nodeValue = (string) $hovedgruppe->HovedgruppeTitel;
+    $taxon_node->appendChild($name_node);
+
+    // Check if Hovedgruppe is discontinued
+    if ($hovedgruppe->xpath('HovedgruppeAdministrativInfo/Historisk/UdgaaetDato')) {
+      $discontinued_node = $dom_doc->createAttribute('Discontinued');
+      $discontinued_node->value = 'true';
+      $taxon_node->appendChild($discontinued_node);
+    }
+
+    // Check for Hovedgruppevejledning
+    if ($hovedgruppe->xpath('HovedgruppeVejledning/VejledningTekst')) {
+      $description_node = $dom_doc->createElement('Description');
+      $description_node->nodeValue = $hovedgruppe->HovedgruppeVejledning->VejledningTekst->saveXML();
+      $taxon_node->appendChild($description_node);
+    }
+
+    /*
+     * Gruppe
+     */
+    foreach($hovedgruppe->Gruppe as $gruppe) {
+
+      // <Taxon>
+      $gruppe_taxon = $dom_doc->createElement('Taxon');
+      $root_element->appendChild($gruppe_taxon);
+
+      // <Key>
+      $gruppe_key = $dom_doc->createElement('Key');
+      $gruppe_key->nodeValue = (string) $gruppe->GruppeNr;
+      $gruppe_key_parent = $dom_doc->createAttribute('ParentKey');
+      $gruppe_key_parent->value = (string) $hovedgruppe->HovedgruppeNr;
+      $gruppe_taxon->appendChild($gruppe_key);
+      $gruppe_taxon->appendChild($gruppe_key_parent);
+
+      // <Name>
+      $gruppe_name = $dom_doc->createElement('Name');
+      $gruppe_name->nodeValue = (string) $gruppe->GruppeTitel;
+      $gruppe_taxon->appendChild($gruppe_name);
+
+      // Check if Gruppe is discontinued
+      if ($gruppe->xpath('GruppeAdministrativInfo/Historisk/UdgaaetDato')) {
+        $gruppe_discontinued = $dom_doc->createAttribute('Discontinued');
+        $gruppe_discontinued->value = 'true';
+        $gruppe_taxon->appendChild($gruppe_discontinued);
+      }
+
+      // Check for Gruppevejledning
+      if ($gruppe->xpath('GruppeVejledning/VejledningTekst')) {
+        $gruppe_description = $dom_doc->createElement('Description');
+        $gruppe_description->nodeValue = $gruppe->GruppeVejledning->VejledningTekst->saveXML();
+        $gruppe_taxon->appendChild($gruppe_description);
+      }
+
+      // Check for tags <Tag> (*RetskildeReference)
+      if ($gruppe_references = $gruppe->xpath('GruppeRetskildeReference')) {
+        foreach ($gruppe_references as $reference) {
+          $gruppe_tag = $dom_doc->createElement('Tag');
+          $gruppe_taxon->appendChild($gruppe_tag);
+          $gruppe_tagtype = $dom_doc->createAttribute('TagType');
+          $gruppe_tagtype->value = 'Retskildereference';
+          $gruppe_tag->appendChild($gruppe_tagtype);
+
+          $gruppe_tag_id = $dom_doc->createAttribute('TagTypeSqlID');
+          $gruppe_tag_id->value = 2;
+          $gruppe_tag->appendChild($gruppe_tag_id);
+
+          $gruppe_ref_key = $dom_doc->createElement('Key');
+          // Check if element 'ParagrafEllerKapitel'
+          if ($gruppe_paragraph = $gruppe->xpath('EmneRetskildeReference/ParagrafEllerKapitel')) {
+            $gruppe_ref_key->nodeValue = (string) $reference->RetskildeTitel . ' ' . $gruppe_paragraph[0];
+          }
+          else {
+            $gruppe_ref_key->nodeValue = (string) $reference->RetskildeTitel;
+          }
+          $gruppe_tag->appendChild($gruppe_ref_key);
+
+          $gruppe_value = $dom_doc->createElement('Value');
+          $gruppe_value->nodeValue = $retsinfo_base_url . (string) $reference->RetsinfoAccessionsNr;
+          $gruppe_tag->appendChild($gruppe_value);
+        }
+      }
+
+      /*
+       * Emne
+       */
+      foreach ($gruppe->Emne as $emne) {
+
+        // <Taxon>
+        $emne_taxon = $dom_doc->createElement('Taxon');
+        $root_element->appendChild($emne_taxon);
+
+        // <Key>
+        $emne_key = $dom_doc->createElement('Key');
+        $emne_key->nodeValue = (string) $emne->EmneNr;
+        $emne_key_parent = $dom_doc->createAttribute('ParentKey');
+        $emne_key_parent->value = (string) $gruppe->GruppeNr;
+        $emne_taxon->appendChild($emne_key);
+        $emne_taxon->appendChild($emne_key_parent);
+
+        // <Name
+        $emne_name = $dom_doc->createElement('Name');
+        $emne_name->nodeValue = (string) $emne->EmneTitel;
+        $emne_taxon->appendChild($emne_name);
+
+        // Check if Emne is discontinued
+        if ($emne->xpath('EmneAdministrativInfo/Historisk/UdgaaetDato')) {
+          $emne_discontinued = $dom_doc->createAttribute('Discontinued');
+          $emne_discontinued->value = 'true';
+          $emne_taxon->appendChild($emne_discontinued);
+        }
+
+        // Check for Emnevejledning
+        if ($emne->xpath('EmneVejledning/VejledningTekst')) {
+          $emne_description = $dom_doc->createElement('Description');
+          $emne_description->nodeValue = $emne->EmneVejledning->VejledningTekst->saveXML();
+          $emne_taxon->appendChild($emne_description);
+        }
+
+        // Check for tags <Tag> (*RetskildeReference)
+        if ($emne_references = $emne->xpath('EmneRetskildeReference')) {
+          foreach ($emne_references as $reference) {
+            $emne_tag = $dom_doc->createElement('Tag');
+            $emne_taxon->appendChild($emne_tag);
+            $emne_tagtype = $dom_doc->createAttribute('TagType');
+            $emne_tagtype->value = 'Retskildereference';
+            $emne_tag->appendChild($emne_tagtype);
+
+            $emne_tag_id = $dom_doc->createAttribute('TagTypeSqlID');
+            $emne_tag_id->value = 2;
+            $emne_tag->appendChild($emne_tag_id);
+
+            $emne_ref_key = $dom_doc->createElement('Key');
+            // Check if element 'ParagrafEllerKapitel'
+            if ($emne_paragraph = $emne->xpath('EmneRetskildeReference/ParagrafEllerKapitel')) {
+              $emne_ref_key->nodeValue = (string) $reference->RetskildeTitel . ' ' . $emne_paragraph[0];
+            }
+            else {
+              $emne_ref_key->nodeValue = (string) $reference->RetskildeTitel;
+            }
+            $emne_tag->appendChild($emne_ref_key);
+
+            $emne_value = $dom_doc->createElement('Value');
+            $emne_value->nodeValue = $retsinfo_base_url . (string) $reference->RetsinfoAccessionsNr;
+            $emne_tag->appendChild($emne_value);
+          }
+        }
+      }
+    }
+  }
+  return $dom_doc->saveXML();
+}
+
+/**
+ * Check if we need to run the import and conversion.
+ *
+ * Implements hook_cron().
+ */
+function os2web_kle_auto_import_cron() {
+
+  // Check if KLE feed importer has been run after this module was installed
+  $first_run = variable_get('os2web_kle_auto_import_first_run', TRUE);
+
+  if ($first_run) {
+    _os2web_kle_auto_import_run_feed();
+    variable_set('os2web_kle_auto_import_first_run', FALSE);
+  }
+
+
+  $next_run = variable_get('os2web_kle_auto_import_next_run', strtotime('now + ' . OS2WEB_KLE_AUTO_IMPORT_DEFAULT_SCHEDULE . ' days'));
+
+  if ($next_run <= time()) {
+    os2web_kle_auto_import_run();
+  }
+}
+
+/**
+ * Run the Feeds importer.
+ */
+function _os2web_kle_auto_import_run_feed() {
+
+  // Set config
+  $source = feeds_source('os2web_taxonomies_feed_kle');
+  $config = $source->getConfig();
+  $config['FeedsFileFetcher']['source'] = 'public://kle.xml';
+  $source->setConfig($config);
+  $source->save();
+
+  if (is_object($source)) {
+
+    $config = array(
+      'process_in_background' => TRUE,
+    );
+    $source->importer->addConfig($config);
+    $source->startImport();
+  }
+}

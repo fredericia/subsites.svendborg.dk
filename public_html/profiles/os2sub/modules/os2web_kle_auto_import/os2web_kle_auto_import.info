@@ -1,0 +1,6 @@
+name = OS2web KLE Auto Updater
+description = Automatically updates KLE terms from remote XML file.
+core = 7.x
+version = 7.x-1.0
+
+dependencies[] = os2web_taxonomies
