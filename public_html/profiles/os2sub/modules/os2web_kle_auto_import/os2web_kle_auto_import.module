@@ -352,7 +352,12 @@ function os2web_kle_auto_import_cron() {
  */
 function _os2web_kle_auto_import_run_feed() {
 
+  // Set config
   $source = feeds_source('os2web_taxonomies_feed_kle');
+  $config = $source->getConfig();
+  $config['FeedsFileFetcher']['source'] = 'public://kle.xml';
+  $source->setConfig($config);
+  $source->save();
 
   if (is_object($source)) {
 
