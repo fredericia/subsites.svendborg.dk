@@ -70,7 +70,7 @@ $show_frontpage_nodes = (theme_get_setting('promoted_nodes', 'svendborg_subsitet
 $html = '<div class="slider-cover multi" style="' . $background . '">';
 $html .= '<div class="container">';
 $html .= '<div class="row">';
-$html .= '<div class="col-md-7">';
+$html .= '<div class="col-sm-7">';
 $html .= '<div class="title">';
 if (isset($node->field_banner_vis_paa_sider['und']) && !empty($node->field_banner_vis_paa_sider['und'][0]['nid'])) {
   $html .= '<a href="' . url(drupal_get_path_alias('node/' . $node->field_banner_vis_paa_sider['und'][0]['nid'])) . '">';
@@ -102,7 +102,7 @@ $html .= '</div>';//class="col-xs-8"
 
 //printing frontpage_nodes block, if activated
 if ($show_frontpage_nodes) {
-  $html .= '<div class="col-md-4 col-md-offset-1 hidden-sm hidden-xs">';
+  $html .= '<div class="col-sm-4 col-sm-offset-1 hidden-xs">';
   $html .= _svendborg_subsitetheme_block_render('views', 'frontpage_nodes-block');
   $html .= '</div>';
 }

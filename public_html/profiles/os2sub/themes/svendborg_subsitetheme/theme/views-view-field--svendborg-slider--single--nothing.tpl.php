@@ -59,7 +59,7 @@
     $html = '<div class="slider-cover single ' . $overlay_class . '" style="' . $background .'">';
 	$html .= '<div class="container">';
 	    $html .= '<div class="row">';
-		$html .= '<div class="' . ($show_frontpage_nodes? 'col-md-7' : 'text-center') . '">';
+		$html .= '<div class="' . ($show_frontpage_nodes? 'col-sm-7' : 'text-center') . '">';
 		    $html .= '<div class="title ' . $whitetext .'">';
 			 if (!empty($node->field_banner_text['und'][0]['value']))
                             $html .= $node->field_banner_text['und'][0]['value'];
@@ -73,7 +73,7 @@
 
 		//printing frontpage_nodes block, if activated
 		if ($show_frontpage_nodes) {
-		    $html .= '<div class="col-md-4 col-md-offset-1 hidden-sm hidden-xs">';
+		    $html .= '<div class="col-sm-4 col-sm-offset-1 hidden-xs">';
 		    $html .= _svendborg_subsitetheme_block_render('views', 'frontpage_nodes-block');
 		    $html .= '</div>';
 		}
