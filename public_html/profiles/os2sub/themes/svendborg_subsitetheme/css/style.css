@@ -10904,10 +10904,7 @@ div.node-os2web-base-news .field-name-body {
   font: 14px 'Open Sans', Geneva, Verdana, sans-serif;
   color: #404040;
 }
-div.node-os2web-base-contentpage .field-name-body h1,
-div.node-os2web-base-news .field-name-body h1,
-div.node-os2web-base-contentpage .field-name-body h2,
-div.node-os2web-base-news .field-name-body h2,
+
 div.node-os2web-base-contentpage .field-name-body h3,
 div.node-os2web-base-news .field-name-body h3,
 div.node-os2web-base-contentpage .field-name-body h4,
@@ -12212,6 +12209,7 @@ h2.menu-footer a.Kommunen {
   padding: 0 45px 0 15px;
   vertical-align: middle;
 }
+.frontpage-nodes .views-row span a { background-color: rgba(255, 255, 255, 0.8); }
 .frontpage-nodes .views-row span a {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
@@ -12459,4 +12457,3 @@ and open the template in the editor.
 .page-calendar .view-svendborg-event-calendar .block-book-place {
   margin-top: 20px;
 }
-.frontpage-nodes .views-row span a { background-color: rgba(255, 255, 255, 0.8); }
