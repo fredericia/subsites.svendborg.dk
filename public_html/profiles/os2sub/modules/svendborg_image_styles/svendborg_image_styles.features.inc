@@ -14,7 +14,7 @@ function svendborg_image_styles_image_default_styles() {
   $styles['svendborg_content_image'] = array(
     'label' => 'svendborg_content_image',
     'effects' => array(
-      18 => array(
+      1 => array(
         'name' => 'epsacrop_crop',
         'data' => array(
           'width' => 918,
@@ -29,7 +29,7 @@ function svendborg_image_styles_image_default_styles() {
         ),
         'weight' => -10,
       ),
-      21 => array(
+      2 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
           'width' => 918,
