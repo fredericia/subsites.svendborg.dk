@@ -20,14 +20,6 @@ function media_browser_plus_views_api() {
  */
 function media_browser_plus_menu() {
   $path = drupal_get_path('module', 'media_browser_plus');
-  $items['admin/content/file/thumbnailsJSON'] = array(
-    'title' => 'Load Media Entities',
-    'page callback' => 'media_browser_plus_thumbnailsJSON',
-    'page arguments' => array(),
-    'access callback' => 'media_browser_plus_access',
-    'access arguments' => array('view file'),
-    'type' => MENU_CALLBACK,
-  );
   $items['admin/content/file/%file/move-to-folder/%taxonomy_term'] = array(
     'title' => 'Load Media Entities',
     'page callback' => 'media_browser_plus_move_file_callback',
@@ -51,7 +43,13 @@ function media_browser_plus_menu() {
     // Following approach comes from the media module.
     // @todo Investigate passing file IDs in query string rather than a menu
     // argument and then deprecate media_multi_load().
-    $items['admin/content/file/delete-multiple/%media_multi'] = array(
+
+    // @TODO Version compatibility cleanup.
+    $callback_function = '%media_multi';
+    if (module_exists('media_bulk_upload')) {
+      $callback_function = '%media_bulk_upload_multi';
+    }
+    $items['admin/content/file/delete-multiple/' . $callback_function] = array(
       'title' => 'Delete multiple files',
       'page callback' => 'drupal_get_form',
       'page arguments' => array('file_entity_multiple_delete_confirm', 4),
@@ -63,7 +61,12 @@ function media_browser_plus_menu() {
   }
   // If there's an archiver available provide the multi download.
   if (count(archiver_get_info())) {
-    $items['admin/content/file/download-multiple/%media_multi'] = array(
+    // @TODO Version compatibility cleanup.
+    $callback_function = '%media_multi';
+    if (module_exists('media_bulk_upload')) {
+      $callback_function = '%media_bulk_upload_multi';
+    }
+    $items['admin/content/file/download-multiple/' . $callback_function] = array(
       'title' => 'Download multiple files',
       'page callback' => 'media_browser_plus_download_multiple_files',
       'page arguments' => array(4),
@@ -438,7 +441,7 @@ function media_browser_plus_construct_dir_path($term = NULL) {
 /**
  * Moves and saves a file.
  *
- * Every managed file that is saved or updated,should pass through this to
+ * Every managed file that is saved or updated, should pass through this to
  * ensure the filesystem location matches the folder term.
  *
  * @param int $tid
@@ -455,6 +458,11 @@ function media_browser_plus_construct_dir_path($term = NULL) {
  *   TRUE on success.
  */
 function media_browser_plus_move_file($tid, $file, $replace = FILE_EXISTS_RENAME, $save = TRUE) {
+  // No need to process the file if its location is not managed.
+  if (!variable_get('media_browser_plus_filesystem_folders', TRUE)) {
+    return TRUE;
+  }
+
   $local_stream_wrappers = media_get_local_stream_wrappers();
   $scheme = file_uri_scheme($file->uri);
 
@@ -505,6 +513,7 @@ function media_browser_plus_taxonomy_term_presave($term) {
   $vocabulary = taxonomy_vocabulary_machine_name_load('media_folders');
   if (!empty($vocabulary) && $term->vid == $vocabulary->vid) {
     $parent = NULL;
+    $root_folder = media_browser_plus_get_media_root_folder();
     // Check if parent handling is necessary.
     if (isset($term->parent)) {
       // Ensure we're dealing with an array.
@@ -518,13 +527,10 @@ function media_browser_plus_taxonomy_term_presave($term) {
       // Fetch the used parent.
       $parent = reset($term->parent);
     }
-    // A subfolder term is always child of the root folder.
-    if (empty($parent)) {
-      // Condition is necessary to ensure we don't interfere while installing
-      // the module.
-      if ($root_folder = media_browser_plus_get_media_root_folder()) {
-        $term->parent = array($root_folder->tid);
-      }
+    // A subfolder term is always child of the root folder. Condition ensures
+    // we don't interfere while installing the module.
+    if ($root_folder && (!isset($parent) || (empty($parent) && $term->tid != $root_folder->tid))) {
+      $term->parent = array($root_folder->tid);
     }
     // Actions if this is an existing term.
     if (!empty($term->tid)) {
@@ -592,7 +598,36 @@ function media_browser_plus_taxonomy_term_update($term) {
 }
 
 /**
+ * Implements hook_form_FORM_ID_alter() for taxonomy_form_term().
+ *
+ * @see media_browser_plus_form_taxonomy_term_confirm_delete_submit()
+ */
+function media_browser_plus_form_taxonomy_form_term_alter(&$form, &$form_state) {
+  // Just modify if this is is / contains the confirm delete form.
+  if (isset($form_state['confirm_delete'])) {
+    array_unshift($form['#submit'], 'media_browser_plus_form_taxonomy_term_confirm_delete_submit');
+  }
+}
+
+/**
+ * Submit handler for preparing for term deletion.
+ *
+ * Because hook_taxonomy_term_delete() is invoked after all data are removed
+ * from the db we fill the static cache so that it's still possible to build
+ * the necessary paths to clean the filesystem.
+ *
+ * @see media_browser_plus_taxonomy_term_delete()
+ */
+function media_browser_plus_form_taxonomy_term_confirm_delete_submit(&$form, &$form_state) {
+  // Fill the static caches needed to clean the filesystem.
+  taxonomy_get_parents($form_state['values']['tid']);
+  taxonomy_get_parents_all($form_state['values']['tid']);
+}
+
+/**
  * Implements hook_taxonomy_term_delete().
+ *
+ * @see media_browser_plus_form_taxonomy_term_confirm_delete_submit()
  */
 function media_browser_plus_taxonomy_term_delete($term) {
   static $term_hierarchy_filter;
@@ -640,8 +675,7 @@ function media_browser_plus_taxonomy_term_delete($term) {
         }
       }
       // Also delete the folder when it's empty.
-      if ($all_files_deleted) {
-        $dir = media_browser_plus_construct_dir_path($folder);
+      if ($all_files_deleted && ($dir = media_browser_plus_construct_dir_path($folder))) {
         foreach (media_get_local_stream_wrappers() as $scheme => $scheme_info) {
           $folder_path = file_stream_wrapper_uri_normalize($scheme . '://' . $dir);
           if (!@drupal_rmdir($folder_path)) {
