@@ -48,7 +48,7 @@
       </div>
    </div>      
     <?php endif; ?>
-      <?php if(!empty($page['page']['contact']) && (!isset($page['page']['term_is_top']) || $page['page']['term_is_top'] == FALSE)) : ?>
+      <?php if(!empty($page['page']['contact'])) : ?>
      <div class="contact-block">
       
         <?php $contact_content =  node_view(node_load($page['page']['contact']['nid']));
@@ -74,3 +74,5 @@
     <?php if ($content_attributes): ?></div><?php endif; ?>
   </aside>
 <?php endif; ?>
+
+

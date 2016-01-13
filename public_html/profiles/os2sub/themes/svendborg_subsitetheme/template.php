@@ -62,9 +62,8 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
     $variables['page']['os2web_selfservicelinks'] = _svendborg_subsitetheme_get_selfservicelinks($links);
   }
 
-
   // Get all the nodes selvbetjeningslinks and give them to the template.
-  if ($node && $link = _svendborg_subsitetheme_get_contact()) {
+  if ($node && $link = _svendborg_subsitetheme_get_contact($node->nid)) {
     $variables['page']['contact']['nid'] = $link;
 
   }
@@ -949,19 +948,22 @@ function _svendborg_subsitetheme_block_render($module, $block_id) {
   return $block_rendered;
 }
 
-function _svendborg_subsitetheme_get_contact() {
+function _svendborg_subsitetheme_get_contact($nid) {
   $menuParent = menu_get_active_trail();
-
+   
   for ($i = count($menuParent) - 1; $i >= 0; $i--) {
     // var_dump($menuParent[$i]["link_path"]);
-    $node1 = menu_get_object('node', 1, $menuParent[$i]["link_path"]);
-    if (isset($node1->field_os2web_base_field_contact['und'])) {
-      return $link[0]['nid'] = $node1->field_os2web_base_field_contact['und'][0]['nid'];
-
-
+    
+    $node = menu_get_object('node', 1, $menuParent[$i]["link_path"]);
+    if (empty($node)) {
+      $node = node_load($nid);
     }
 
+    if (isset($node->field_os2web_base_field_contact['und'])) {
+      return $link[0]['nid'] = $node->field_os2web_base_field_contact['und'][0]['nid'];
+    }
   }
+
   return FALSE;
 }
 
