@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "POT-Creation-Date: 2015-05-22 08:53+0200\n"
-"PO-Revision-Date: 2015-09-02 11:30+0100\n"
+"PO-Revision-Date: 2016-01-13 13:03+0100\n"
 "Last-Translator: Franz Skaaning <franz@robusta.dk>\n"
 "Language-Team: LANGUAGE <EMAIL@ADDRESS>\n"
 "MIME-Version: 1.0\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "Language: da\n"
-"X-Generator: Poedit 1.8.1\n"
+"X-Generator: Poedit 1.8.6\n"
 
 #: profiles/os2sub/themes/bootstrap/js/bootstrap.admin.js
 msgid "@size Buttons"
@@ -29256,7 +29256,7 @@ msgstr "Book din plads her"
 
 #: /da/calendar/upcoming
 msgid "Future events"
-msgstr "Vis commende"
+msgstr "Vis kommende"
 
 msgid "Show all"
 msgstr "Vis alle"
