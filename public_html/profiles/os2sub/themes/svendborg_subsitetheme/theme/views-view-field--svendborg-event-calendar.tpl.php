@@ -20,7 +20,7 @@ global $language ;
    <div class="col-sm-3 col-xs-12  ">
         <div class="event-date">
             <span class="day"> <?php print date("j.", strtotime($node->event_calendar_date['und'][0]['value']));?> </span>
-            <span class="month"><?php print date("M Y", strtotime($node->event_calendar_date['und'][0]['value']));?></span>
+            <span class="month"><?php print t(date("M", strtotime($node->event_calendar_date['und'][0]['value'])));?> <?php print date("Y", strtotime($node->event_calendar_date['und'][0]['value']));?></span>
             <span class="time"><?php print date("H:i", strtotime($node->event_calendar_date['und'][0]['value']));?>  - <?php print date("H:i", strtotime($node->event_calendar_date['und'][0]['value2']));?> </span>
         </div>
     </div>
@@ -46,7 +46,7 @@ global $language ;
                     <label> <?php print t('Address');?></label>
                     <div><?php print $node->field_event_calendar_field_org['und'][0]['value']?></div>
                     <div><?php print $node->field_event_calendar_addr['und'][0]['value']?></div>
-                    <div><?php print $node->field_event_calendar_zip['und'][0]['value']?>, 
+                    <div><?php print $node->field_event_calendar_zip['und'][0]['value']?> 
                     	<?php print $node->field_event_calendar_by['und'][0]['value']?></div>  
                   </div>
                   <?php endif; ?>
