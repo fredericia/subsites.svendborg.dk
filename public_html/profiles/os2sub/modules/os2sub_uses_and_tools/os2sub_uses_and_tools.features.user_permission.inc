@@ -1606,16 +1606,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'module' => 'epsacrop',
   );
 
-  // Exported permission: 'import media'.
-  $permissions['import media'] = array(
-    'name' => 'import media',
-    'roles' => array(
-      'Editor' => 'Editor',
-      'subsiteadmin' => 'subsiteadmin',
-    ),
-    'module' => 'media',
-  );
-
   // Exported permission: 'notify of path changes'.
   $permissions['notify of path changes'] = array(
     'name' => 'notify of path changes',
