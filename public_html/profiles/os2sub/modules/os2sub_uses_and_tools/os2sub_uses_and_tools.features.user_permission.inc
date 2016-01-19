@@ -314,15 +314,6 @@ function os2sub_uses_and_tools_user_default_permissions() {
     'module' => 'system',
   );
 
-  // Exported permission: 'administer news type-4'.
-  $permissions['administer news type-4'] = array(
-    'name' => 'administer news type-4',
-    'roles' => array(
-      'Editor' => 'Editor',
-    ),
-    'module' => 'os2web_news_page',
-  );
-
   // Exported permission: 'administer node registration'.
   $permissions['administer node registration'] = array(
     'name' => 'administer node registration',
@@ -1082,7 +1073,7 @@ function os2sub_uses_and_tools_user_default_permissions() {
   $permissions['display EU Cookie Compliance popup'] = array(
     'name' => 'display EU Cookie Compliance popup',
     'roles' => array(
-      'subsiteadmin' => 'subsiteadmin',
+      'anonymous user' => 'anonymous user',
     ),
     'module' => 'eu_cookie_compliance',
   );
