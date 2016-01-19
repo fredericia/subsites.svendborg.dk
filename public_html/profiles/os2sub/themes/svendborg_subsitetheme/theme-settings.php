@@ -130,6 +130,18 @@ $form['svendborg_subsitetheme_setting']['slider_settings']['calendar_page_slider
     '#default_value' => theme_get_setting('calendar_slider_overlay','svendborg_subsitetheme'),
     '#description'   => t("Check this option to show dark overlay on the calendar slider banner"),
  );
+  
+  $form['svendborg_subsitetheme_setting']['slider_settings']['project_page_slider_image'] = array(
+   '#title' => t('Project page banner'),
+    '#description' => t('Banner image for project page'),
+     '#type' => 'managed_file',
+
+    '#upload_location' => 'public://',
+   '#upload_validators' => array(
+   'file_validate_extensions' => array('gif png jpg jpeg'),
+ ),
+    '#default_value' => theme_get_setting('project_page_slider_image','svendborg_subsitetheme'),
+  );
  
 $form['svendborg_subsitetheme_setting']['socialicon'] = array(
     '#type' => 'fieldset',
@@ -214,7 +226,7 @@ $form_state['build_info']['files'][] = str_replace("/$active_theme.info", '', $t
 }
 
 function svendborg_subsitetheme_settings_form_submit(&$form, $form_state) {
-   $image_fid = $form_state['values']['calendar_page_slider_image'];
+  $image_fid = $form_state['values']['calendar_page_slider_image'];
   
   $image = file_load($image_fid);
   if (is_object($image)) {
@@ -226,6 +238,22 @@ function svendborg_subsitetheme_settings_form_submit(&$form, $form_state) {
 
       file_save($image);
     file_usage_add($image, 'svendborg_subsitetheme', 'theme', 1);
+
+     }
+
+  }
+  $image_fid2 = $form_state['values']['project_page_slider_image'];
+  
+  $image2 = file_load($image_fid2);
+  if (is_object($image2)) {
+
+    // Check to make sure that the file is set to be permanent.
+
+    if ($image2->status == 0) {
+      $image2->status = FILE_STATUS_PERMANENT;
+
+      file_save($image2);
+    file_usage_add($image2, 'svendborg_subsitetheme', 'theme', 1);
 
      }
 

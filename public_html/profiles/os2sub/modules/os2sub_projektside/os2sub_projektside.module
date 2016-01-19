@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OS2sub Projektside feature.
+ */
+
+include_once 'os2sub_projektside.features.inc';

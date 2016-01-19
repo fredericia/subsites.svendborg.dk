@@ -455,6 +455,14 @@ function svendborg_subsitetheme_preprocess_node(&$vars) {
   }
   // Make "node--NODETYPE--VIEWMODE.tpl.php" templates available for nodes.
   $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__' . $vars['view_mode'];
+  
+  if ($vars['type'] == 'os2web_base_contentpage' ) {
+    if(module_exists(os2sub_projektside)) { 
+      if ($vars['view_mode'] == 'full') {
+        $vars['sections'] = views_embed_view('os2sub_projektside', array('block_1'));
+      }
+    }
+  }
 }
 
 /**

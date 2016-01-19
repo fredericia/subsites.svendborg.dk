@@ -97,6 +97,24 @@
         </section>
     <?php endif;?>
   <?php endif;?>
+  <?php if(drupal_get_path_alias($_GET['q']) == 'projekter'):?>
+  
+    <?php if (theme_get_setting('slider_active','svendborg_subsitetheme')) :
+
+
+    $image_uri= file_create_url(file_load(theme_get_setting('project_page_slider_image','svendborg_subsitetheme'))->uri);
+    $overlay_class = '';
+    $background = "background-image: url('" . $image_uri . "')";
+    $overlay_classcal = 'no-overlay';
+    
+    $html = '<div class="page-calendar-slider "><div class="slider-cover single ' . $overlay_classcal . '" style="' . $background .'">';
+    $html .= '</div>';//class="view-svendborg-slider"
+    print $html;
+    
+    endif;?>
+  
+  <?php endif;?>
+  
   <?php if(drupal_get_path_alias($_GET['q']) == 'calendar/upcoming' || drupal_get_path_alias($_GET['q']) == 'calendar/all'):?>
     <div class='front-main-container-wrapper'>
     <?php if (theme_get_setting('slider_active','svendborg_subsitetheme')) :?>
