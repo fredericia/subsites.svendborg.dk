@@ -42,6 +42,12 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
     '#default_value' => theme_get_setting('activites','svendborg_subsitetheme'),
     '#description'   => t("Check this option to show Activites block in page."),
   );
+ $form['svendborg_subsitetheme_setting']['frontpage_layout']['facebookfeed'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show <strong>Facebook Page Feed block</strong> on the frontpage'),
+    '#default_value' => theme_get_setting('facebookfeed','svendborg_subsitetheme'),
+    '#description'   => t("Input the Facebook URL to show a Facebook Page Feed on the frontpage."),
+  );
  $form['svendborg_subsitetheme_setting']['frontpage_layout']['newstext'] = array(
     '#type' => 'textfield',
     '#title' => t('Header for news'),

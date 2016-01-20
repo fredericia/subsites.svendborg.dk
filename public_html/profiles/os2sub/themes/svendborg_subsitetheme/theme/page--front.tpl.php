@@ -59,15 +59,82 @@
       <div class="region region-sidebar-second col-sm-4 col-xs-12">
           <?php if (theme_get_setting('promoted_nodes','svendborg_subsitetheme') ):?>
        <div class="frontpage-nodes-block <?php (theme_get_setting('promoted_nodes_location','svendborg_subsitetheme') === 'slider')?  print 'hidden-sm hidden-md hidden-lg' : print ''?>">
-        <?php //$block_search_form = module_invoke('search', 'block_view', 'search'); ?>
+     
         <?php print _svendborg_subsitetheme_block_render('views', 'frontpage_nodes-block'); ?>
       </div>
       <?php endif;?>
-     <?php if (theme_get_setting('activites','svendborg_subsitetheme')) :?>
-      <div class="activites-block">
-          <?php  print _svendborg_subsitetheme_block_render('views', 'aktiviteter-block_2'); ?>
-      </div>
-     <?php endif;?>
+     
+          <?php if (theme_get_setting('facebookfeed','svendborg_subsitetheme')) :?>
+
+            <div style="width: 100%">
+             <div id="fb-root"></div>
+                <script>(function(d, s, id) {
+                  var js, fjs = d.getElementsByTagName(s)[0];
+                  if (d.getElementById(id)) return;
+                  js = d.createElement(s); js.id = id;
+                  js.src = "//connect.facebook.net/da_DK/sdk.js#xfbml=1&version=v2.5&appId=198415943519297";
+                  fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+                
+                
+                <div class="fb-page" style="margin-bottom: 20px;" 
+                  <?php if (theme_get_setting('facebook_url', 'svendborg_subsitetheme')):?>
+                    
+                    data-href="<?php print theme_get_setting('facebook_url', 'svendborg_subsitetheme') ?>"
+                    
+                    <?php else : ?>
+                    data-href="https://www.facebook.com/Svendborg" 
+                    <?php endif; ?>
+                    
+                  data-tabs="timeline,events" 
+                  data-small-header="true" 
+                  data-adapt-container-width="true" 
+                  data-hide-cover="false"
+                  data-show-facepile="false">
+                    <div class="fb-xfbml-parse-ignore">
+                      
+                      <?php if (theme_get_setting('facebook_url', 'svendborg_subsitetheme')):?>
+
+                      <blockquote cite="<?php print theme_get_setting('facebook_url', 'svendborg_subsitetheme') ?>">
+                        <a href="<?php print theme_get_setting('facebook_url', 'svendborg_subsitetheme') ?>">
+                          
+                          <?php if (theme_get_setting('company-name', 'svendborg_subsitetheme')):?>
+                              <?php print theme_get_setting('company-name', 'svendborg_subsitetheme') ?>
+                          <?php else: 
+                              print $site_name;
+                          endif; ?>
+                          </a>
+                        
+                      <?php else : ?>
+                      <blockquote cite="https://www.facebook.com/Svendborg">
+                        <a href="https://www.facebook.com/Svendborg">Svendborg Kommune</a>
+                      
+                      <?php endif; ?>
+                        
+                      </blockquote>
+                    </div>
+                </div>
+              </div>
+     
+          <?php endif;?>
+          
+          <?php if (!theme_get_setting('facebookfeed','svendborg_subsitetheme')) :?>
+        
+             <?php if (theme_get_setting('activites','svendborg_subsitetheme')) :?>
+              <div class="activites-block">
+                  <?php  print _svendborg_subsitetheme_block_render('views', 'aktiviteter-block_2'); ?>
+              </div>
+             <?php endif;?>
+          
+          <?php endif;?>   
+     
+     
+     
+     
+     
+     
+     
+     
       </div>
       
       <div class="clearfix"></div>
