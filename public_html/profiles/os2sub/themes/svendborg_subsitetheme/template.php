@@ -68,6 +68,12 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
 
   }
 
+  // Get all the nodes info box and give them to the template.
+  if ($node && $link = _svendborg_subsitetheme_get_infobox($node->nid)) {
+    $variables['page']['infobox']['nid'] = $link;
+
+  }
+
   // Get all related links to this node.
   // 1. Get all unique related links from the node.
 
@@ -224,7 +230,10 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
 
   // Hack to force the sidebar_second to be rendered if we have anything to put
   // in it.
-  if (!$sidebar_second_hidden && empty($variables['page']['sidebar_second']) && (!empty($variables['page']['prev_news_block']) || !empty($variables['page']['contact']) || $variables['page']['activities'] || !empty($variables['page']['os2web_selfservicelinks']))) {
+  if (!$sidebar_second_hidden && empty($variables['page']['sidebar_second'])
+      && (!empty($variables['page']['prev_news_block']) || !empty($variables['page']['contact'])
+          || $variables['page']['activities'] || !empty($variables['page']['os2web_selfservicelinks'])
+          || !empty($variables['page']['infobox']))) {
     $variables['page']['sidebar_second'] = array(
       '#theme_wrappers' => array('region'),
       '#region'         => 'sidebar_second',
@@ -961,6 +970,27 @@ function _svendborg_subsitetheme_get_contact($nid) {
 
     if (isset($node->field_os2web_base_field_contact['und'])) {
       return $link[0]['nid'] = $node->field_os2web_base_field_contact['und'][0]['nid'];
+    }
+  }
+
+  return FALSE;
+}
+
+function _svendborg_subsitetheme_get_infobox($nid) {
+  $menuParent = menu_get_active_trail();
+
+  for ($i = count($menuParent) - 1; $i >= 0; $i--) {
+
+    $node = menu_get_object('node', 1, $menuParent[$i]["link_path"]);
+    if (empty($node)) {
+      $node = node_load($nid);
+    }
+
+    if (isset($node->field_os2web_base_field_infobox['und'])) {
+      if (isset($node->field_svendborg_hide_infobox['und']) && $node->field_svendborg_hide_infobox['und']['value']) {
+        return FALSE;
+      }
+      return $link[0]['nid'] = $node->field_os2web_base_field_infobox['und'][0]['nid'];
     }
   }
 
