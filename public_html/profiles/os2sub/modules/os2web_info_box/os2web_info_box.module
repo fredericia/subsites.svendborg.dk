@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the OS2web faktaboks feature.
+ */
+
+include_once 'os2web_info_box.features.inc';
