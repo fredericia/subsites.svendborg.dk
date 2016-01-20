@@ -11,7 +11,7 @@ $info=array(
       'brand-lightblue' => t('Footer color'),
       'brand-lightgreen' => t('Content elements color'),
       'gradient-light' => t('Contact block color'),
-      'panel-lightgreen' => t('Faktabox'),
+      'gradient-lightgreen' => t('Faktabox'),
       'introtekst' => t('Introtekst'),
     ),
    'schemes' => array(
@@ -21,7 +21,7 @@ $info=array(
                 'brand-lightblue' => '#2880b9',
                 'brand-lightgreen' => '#85c500',
                 'gradient-light' => '#0086ca',
-                'panel-lightgreen' => '#85c500',
+                'gradient-lightgreen' => '#85c500',
                 'introtekst' => '#0086ca',
         ),
       ),
