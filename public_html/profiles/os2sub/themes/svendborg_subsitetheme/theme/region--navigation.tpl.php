@@ -172,7 +172,9 @@
     <?php endif;?>
     </div>
   <?php endif;?>
-  <?php print render($page['breadcrumb'])?>
+  <div class="container">
+    <?php print render($page['breadcrumb'])?>
+  </div>
 </section>
 
 <?php endif; ?>

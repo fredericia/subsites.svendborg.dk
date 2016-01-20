@@ -9994,7 +9994,7 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
 }
 .breadcrumb {
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
 }
 .breadcrumb li {
   display: inline-block;
@@ -10005,14 +10005,14 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
   text-transform: uppercase;
 }
 .breadcrumb li.active {
-  color: #d8d8d8;
+  color: #85c500;
 }
 .breadcrumb li.active:after {
   content: none;
 }
 .breadcrumb li a {
   padding: 0;
-  color: #d8d8d8;
+  color: #5D5D5D;
 }
 .breadcrumb li:before {
   display: none;
