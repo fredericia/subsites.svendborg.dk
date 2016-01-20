@@ -27,5 +27,6 @@ function os2web_info_box_node_info() {
       'help' => '',
     ),
   );
+  drupal_alter('node_info', $items);
   return $items;
 }
