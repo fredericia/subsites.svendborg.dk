@@ -109,7 +109,7 @@ function os2web_spotbox_field_default_field_instances() {
         'module' => 'image',
         'settings' => array(
           'image_link' => '',
-          'image_style' => 'os2web_spotbox_image_300',
+          'image_style' => 'svendborg_spotbox',
         ),
         'type' => 'image',
         'weight' => 2,
@@ -454,7 +454,7 @@ function os2web_spotbox_field_default_field_instances() {
     'entity_type' => 'node',
     'field_name' => 'field_os2web_spotbox_ref_kle',
     'label' => 'KL Emneord',
-    'required' => 1,
+    'required' => 0,
     'settings' => array(
       'user_register_form' => FALSE,
     ),
@@ -463,7 +463,6 @@ function os2web_spotbox_field_default_field_instances() {
       'module' => 'taxonomy',
       'settings' => array(
         'autocomplete_path' => 'taxonomy/autocomplete',
-        'content_taxonomy_autocomplete_new_terms' => 'deny',
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',

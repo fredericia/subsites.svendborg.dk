@@ -4,9 +4,22 @@
 
 <div class='front-main-container-wrapper'>
   <div class='main-container container'>
-    <?php print render($page['header']); ?>
-    <div class='row'>
+    <?php 
+      print render($page['header']); 
 
+      if(module_exists(os2web_spotbox)) {
+            if (theme_get_setting('spotbox','svendborg_subsitetheme')) :
+            ?>
+              <div class="spotboxes row">
+                <?php 
+                  $view = views_get_view('os2web_frontpage_spotboxes');
+                  print $view->render('block');
+                ?>
+              </div>
+            <?php endif;
+          } ?>      
+
+    <div class='row'>
       <!-- page--front.tpl.php-->
       <div class="col-sm-8  col-xs-12">          
           

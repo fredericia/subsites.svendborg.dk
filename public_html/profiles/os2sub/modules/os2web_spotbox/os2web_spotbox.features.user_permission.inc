@@ -16,7 +16,6 @@ function os2web_spotbox_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'Editor' => 'Editor',
-      'Kommunikation' => 'Kommunikation',
       'Webmaster' => 'Webmaster',
     ),
     'module' => 'node',
@@ -27,7 +26,6 @@ function os2web_spotbox_user_default_permissions() {
     'name' => 'delete any os2web_spotbox_box content',
     'roles' => array(
       'Administrator' => 'Administrator',
-      'Kommunikation' => 'Kommunikation',
       'Webmaster' => 'Webmaster',
     ),
     'module' => 'node',
@@ -39,7 +37,6 @@ function os2web_spotbox_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'Editor' => 'Editor',
-      'Kommunikation' => 'Kommunikation',
       'Webmaster' => 'Webmaster',
     ),
     'module' => 'node',
@@ -51,7 +48,6 @@ function os2web_spotbox_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'Editor' => 'Editor',
-      'Kommunikation' => 'Kommunikation',
       'Webmaster' => 'Webmaster',
     ),
     'module' => 'node',
@@ -63,7 +59,6 @@ function os2web_spotbox_user_default_permissions() {
     'roles' => array(
       'Administrator' => 'Administrator',
       'Editor' => 'Editor',
-      'Kommunikation' => 'Kommunikation',
       'Webmaster' => 'Webmaster',
     ),
     'module' => 'node',

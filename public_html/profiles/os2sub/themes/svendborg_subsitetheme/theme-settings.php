@@ -30,7 +30,12 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
     '#default_value' => theme_get_setting('welcome','svendborg_subsitetheme'),
     '#description'   => t("Check this option to show welcome text in page."),
   );
-
+  $form['svendborg_subsitetheme_setting']['frontpage_layout']['spotbox'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show <strong>spotboxes</strong> on the frontpage'),
+    '#default_value' => theme_get_setting('spotbox','svendborg_subsitetheme'),
+    '#description'   => t("Check this option to show spotboxes on the frontpage."),
+  );
  $form['svendborg_subsitetheme_setting']['frontpage_layout']['activites'] = array(
     '#type' => 'checkbox',
     '#title' => t('Show <strong>Activites block</strong> in a frontpage'),
