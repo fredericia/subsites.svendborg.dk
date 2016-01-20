@@ -9297,12 +9297,12 @@ fieldset[disabled] .btn-orange.active {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0086ca', endColorstr='#ff0079b7', GradientType=0);
 }
-.panel-lightgreen > .panel-body,
-.panel-lightgreen > .panel-body > div.like-panel-lightnblue {
-  background-image: -webkit-linear-gradient(top, #85c500 0%, #79b300 55%);
-  background-image: linear-gradient(to bottom, #85c500 0%, #79b300 55%);
+.panel-lightyellow > .panel-body,
+.panel-lightyellow > .panel-body > div.like-panel-lightnblue {
+  background-image: -webkit-linear-gradient(top, #e9e83a 0%, #d3d100 55%);
+  background-image: linear-gradient(to bottom, #e9e83a 0%, #d3d100 55%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff85c500', endColorstr='#ff79b300', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe9e83a', endColorstr='#ffd3d100', GradientType=0);
 }
 .panel-lightblue > .panel-heading,
 .like-panel.like-panel-lightblue {
