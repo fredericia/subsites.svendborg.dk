@@ -42,6 +42,12 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
     '#default_value' => theme_get_setting('activites','svendborg_subsitetheme'),
     '#description'   => t("Check this option to show Activites block in page."),
   );
+ $form['svendborg_subsitetheme_setting']['frontpage_layout']['newstext'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Header for news'),
+    '#default_value' => theme_get_setting('newstext', 'svendborg_subsitetheme'),
+    '#description'   => t("Enter a header text to display over news items on the frontapge. Leave blank to hide."),
+  );
  $form['svendborg_subsitetheme_setting']['frontpage_layout']['large_news'] = array(
     '#type' => 'radios',
     '#title' => t('Show <strong>large news</strong> in a frontpage'),
