@@ -55,7 +55,7 @@
       ?>
     </div>
     <?php endif; ?>
-    <?php if(!empty($page['page']['contact'])) : ?>
+    <?php if(!empty($page['page']['infobox'])) : ?>
     <div class="info-box">
       <?php $infobox_content =  node_view(node_load($page['page']['infobox']['nid']));
         print render( $infobox_content)
