@@ -82,7 +82,7 @@
 
 <?php if(!$page) : ?>
 
- <div class="panel panel-blacknblue">
+ <div class="panel gradient-lightgreen">
     <div class="panel-body ">
       <h2> <?php  print $node->field_os2web_info_box_heading['und'][0]['value']; ?> </h2>
       <div class="os2web-infobox-block">

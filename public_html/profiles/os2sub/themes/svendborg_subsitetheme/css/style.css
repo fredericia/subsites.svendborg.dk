@@ -9514,12 +9514,26 @@ fieldset[disabled] .btn-orange.active {
   vertical-align: middle;
   color: #333333;
 }
-.info-box,
+.info-box {
+  float: right;
+  width: 100%;
+}
+.info-box .panel-body {
+  border-radius: 3px;
+  text-align: left;
+  color: #fff;
+  padding: 15px 10px 10px 10px;
+}
+.info-box .panel-body h2 {
+  font-family: 'Titillium Web', Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+}
 .contact-block {
   float: right;
   width: 100%;
 }
-.info-box .panel-body,
 .contact-block .panel-body {
   /* #gradient > .vertical(#0086ca, #0079b7, 0%, 50%);*/
   border-radius: 3px;
@@ -9527,29 +9541,24 @@ fieldset[disabled] .btn-orange.active {
   color: #fff;
   padding-top: 15px;
 }
-.info-box .panel-body h2,
 .contact-block .panel-body h2 {
   font-family: 'Titillium Web', Geneva, Verdana, sans-serif;
   font-weight: 600;
   padding: 0;
   margin: 0;
 }
-.info-box .panel-body div.contact-block-tel,
 .contact-block .panel-body div.contact-block-tel {
   font-family: 'Titillium Web', Geneva, Verdana, sans-serif;
   text-align: justify;
 }
-.info-box .panel-body div.contact-block-tel .field-items,
 .contact-block .panel-body div.contact-block-tel .field-items {
   padding: 10px;
 }
-.info-box .panel-body .btn-show-all,
 .contact-block .panel-body .btn-show-all {
   padding: 10px 0;
   /* #gradient > .vertical(#0086ca, #007cbb, 0%, 100%);*/
   border-radius: 3px;
 }
-.info-box .panel-body .btn-show-all a,
 .contact-block .panel-body .btn-show-all a {
   color: #fff;
   display: block;

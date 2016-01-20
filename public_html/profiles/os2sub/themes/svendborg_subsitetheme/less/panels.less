@@ -391,7 +391,22 @@
         }
     }
 }
-.info-box,
+.info-box {
+  float: right;
+  width: 100%;
+  .panel-body {
+    border-radius: @border-radius-small;
+    text-align: left;
+    color: #fff;
+    padding: 15px 10px 10px 10px;
+    h2 {
+      font-family: @font-familiy-web;
+      font-weight: 600;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
 .contact-block {
     float: right;
     width: 100%;
