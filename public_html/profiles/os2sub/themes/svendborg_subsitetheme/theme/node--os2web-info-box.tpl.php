@@ -84,9 +84,9 @@
 
  <div class="panel panel-blacknblue">
     <div class="panel-body ">
-      <h2> <?php  print $node->field_os2web_infobox_heading['und'][0]['value']; ?> </h2>
-      <div class="os2wen-infobox-block">
-        <?php print render($content['field_os2web_infobox_body'])?>
+      <h2> <?php  print $node->field_os2web_info_box_heading['und'][0]['value']; ?> </h2>
+      <div class="os2web-infobox-block">
+        <?php print render($content['field_os2web_info_box_body'])?>
       </div>
 
       <?php
@@ -99,7 +99,7 @@
         hide($content['links']);
         hide($content['field_tags']);
         hide($content['print_links']);
-        hide($content['field_os2web_infobox_heading']);
+        hide($content['field_os2web_info_box_heading']);
 
       ?>
       
