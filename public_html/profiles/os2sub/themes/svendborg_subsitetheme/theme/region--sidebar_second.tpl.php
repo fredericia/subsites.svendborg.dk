@@ -46,16 +46,21 @@
           <?php endforeach; ?>
         </div>
       </div>
-   </div>      
+   </div>
     <?php endif; ?>
-      <?php if(!empty($page['page']['contact'])) : ?>
-     <div class="contact-block">
-      
-        <?php $contact_content =  node_view(node_load($page['page']['contact']['nid']));
+    <?php if(!empty($page['page']['contact'])) : ?>
+    <div class="contact-block">
+      <?php $contact_content =  node_view(node_load($page['page']['contact']['nid']));
         print render( $contact_content)
-        ?>
-        
-   </div>      
+      ?>
+    </div>
+    <?php endif; ?>
+    <?php if(!empty($page['page']['contact'])) : ?>
+    <div class="info-box">
+      <?php $infobox_content =  node_view(node_load($page['page']['infobox']['nid']));
+        print render( $infobox_content)
+      ?>
+    </div>
     <?php endif; ?>
       
    <?php if(!empty($page['page']['activities']) && (!isset($page['page']['term_is_top']) || $page['page']['term_is_top'] == FALSE)) : ?>
