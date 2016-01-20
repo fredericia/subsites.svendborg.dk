@@ -9297,6 +9297,7 @@ fieldset[disabled] .btn-orange.active {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0086ca', endColorstr='#ff0079b7', GradientType=0);
 }
+.panel-lightgreen > .panel-body,
 .panel-lightgreen > .panel-body > div.like-panel-lightnblue {
   background-image: -webkit-linear-gradient(top, #85c500 0%, #79b300 55%);
   background-image: linear-gradient(to bottom, #85c500 0%, #79b300 55%);
