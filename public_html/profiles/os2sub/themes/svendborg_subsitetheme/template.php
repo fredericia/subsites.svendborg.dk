@@ -987,9 +987,10 @@ function _svendborg_subsitetheme_get_infobox($nid) {
     }
 
     if (isset($node->field_os2web_base_field_infobox['und'])) {
-      if (isset($node->field_svendborg_hide_infobox['und']) && $node->field_svendborg_hide_infobox['und']['value']) {
+      if (isset($node->field_svendborg_hide_infobox['und']) && $node->field_svendborg_hide_infobox['und'][0]['value']) {
         return FALSE;
       }
+
       return $link[0]['nid'] = $node->field_os2web_base_field_infobox['und'][0]['nid'];
     }
   }
@@ -1093,7 +1094,7 @@ function svendborg_subsitetheme_less_variables_alter(&$less_variables, $system_n
       'brand-lightblue'  => '#2880b9',
       'brand-lightgreen' => '#85c500',
       'gradient-light'   => '#0086ca',
-      'gradient-lightyellow' => '#85c500',
+      'gradient-darkyellow' => '#d3d100',
       'introtekst'       => '#2880b9',
     );
   }

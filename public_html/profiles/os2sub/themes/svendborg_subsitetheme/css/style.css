@@ -9299,10 +9299,10 @@ fieldset[disabled] .btn-orange.active {
 }
 .panel-lightyellow > .panel-body,
 .panel-lightyellow > .panel-body > div.like-panel-lightnblue {
-  background-image: -webkit-linear-gradient(top, #e9e83a 0%, #d3d100 55%);
-  background-image: linear-gradient(to bottom, #e9e83a 0%, #d3d100 55%);
+  background-image: -webkit-linear-gradient(top, #d3d100 0%, #e9e83a 55%);
+  background-image: linear-gradient(to bottom, #d3d100 0%, #e9e83a 55%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffe9e83a', endColorstr='#ffd3d100', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd3d100', endColorstr='#ffe9e83a', GradientType=0);
 }
 .panel-lightblue > .panel-heading,
 .like-panel.like-panel-lightblue {
