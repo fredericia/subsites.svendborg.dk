@@ -641,7 +641,8 @@ function os2web_base_field_group_info() {
     'weight' => '6',
     'children' => array(
       0 => 'field_os2web_base_field_ext_link',
-      1 => 'field_os2web_base_field_related',
+      1 => 'field_os2web_base_field_kle_ref',
+      2 => 'field_os2web_base_field_related',
     ),
     'format_type' => 'htab',
     'format_settings' => array(

@@ -175,7 +175,6 @@ features[field_instance][] = node-os2web_base_news-field_os2web_base_field_relat
 features[field_instance][] = node-os2web_base_news-field_os2web_base_field_spotbox
 features[field_instance][] = node-os2web_base_news-field_os2web_base_field_summary
 features[field_instance][] = node-os2web_base_news-field_os2web_base_field_video
-features[field_instance][] = node-os2web_base_news-field_os2web_news_page_type
 features[field_instance][] = node-os2web_base_rotating_image-body
 features[field_instance][] = node-os2web_base_rotating_image-field_os2web_base_field_promote
 features[field_instance][] = node-os2web_base_rotating_image-field_os2web_base_field_rota_img
