@@ -6562,6 +6562,9 @@ body.admin-menu {
 body.toolbar-drawer {
   padding-top: 30px !important;
 }
+.region-sidebar-second .view-id-frontpage_nodes .views-row span a {
+  background-color: #ededed;
+}
 /*
 LESS variables are information about icon's compiled state, stored under its original file name
 
@@ -9294,6 +9297,13 @@ fieldset[disabled] .btn-orange.active {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0086ca', endColorstr='#ff0079b7', GradientType=0);
 }
+.panel-lightyellow > .panel-body,
+.panel-lightyellow > .panel-body > div.like-panel-lightnblue {
+  background-image: -webkit-linear-gradient(top, #d3d100 0%, #e9e83a 55%);
+  background-image: linear-gradient(to bottom, #d3d100 0%, #e9e83a 55%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd3d100', endColorstr='#ffe9e83a', GradientType=0);
+}
 .panel-lightblue > .panel-heading,
 .like-panel.like-panel-lightblue {
   background-image: -webkit-linear-gradient(top, #2880b9 0%, #2474a8 55%);
@@ -9510,6 +9520,22 @@ fieldset[disabled] .btn-orange.active {
   padding: 0 15px;
   vertical-align: middle;
   color: #333333;
+}
+.info-box {
+  float: right;
+  width: 100%;
+}
+.info-box .panel-body {
+  border-radius: 3px;
+  text-align: left;
+  color: #fff;
+  padding: 15px 10px 10px 10px;
+}
+.info-box .panel-body h2 {
+  font-family: 'Titillium Web', Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
 }
 .contact-block {
   float: right;
@@ -9968,7 +9994,7 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
 }
 .breadcrumb {
   margin-bottom: 30px;
-  text-align: center;
+  text-align: left;
 }
 .breadcrumb li {
   display: inline-block;
@@ -9979,14 +10005,14 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
   text-transform: uppercase;
 }
 .breadcrumb li.active {
-  color: #d8d8d8;
+  color: #85c500;
 }
 .breadcrumb li.active:after {
   content: none;
 }
 .breadcrumb li a {
   padding: 0;
-  color: #d8d8d8;
+  color: #5D5D5D;
 }
 .breadcrumb li:before {
   display: none;
@@ -10904,7 +10930,11 @@ div.node-os2web-base-news .field-name-body {
   font: 14px 'Open Sans', Geneva, Verdana, sans-serif;
   color: #404040;
 }
-
+div.node-os2web-base-contentpage .field-name-body h2,
+div.node-os2web-base-news .field-name-body h2 {
+  font-size: 23px;
+  text-transform: uppercase;
+}
 div.node-os2web-base-contentpage .field-name-body h3,
 div.node-os2web-base-news .field-name-body h3,
 div.node-os2web-base-contentpage .field-name-body h4,
@@ -12200,6 +12230,7 @@ h2.menu-footer a.Kommunen {
   position: relative;
 }
 .frontpage-nodes .views-row span a {
+  background-color: rgba(255, 255, 255, 0.8);
   display: table-cell;
   font-size: 18px;
   font-family: 'Titillium Web', Geneva, Verdana, sans-serif;
@@ -12209,8 +12240,7 @@ h2.menu-footer a.Kommunen {
   padding: 0 45px 0 15px;
   vertical-align: middle;
 }
-.frontpage-nodes .views-row span a { 
-  background-color: rgba(255, 255, 255, 0.8);
+.frontpage-nodes .views-row span a {
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
