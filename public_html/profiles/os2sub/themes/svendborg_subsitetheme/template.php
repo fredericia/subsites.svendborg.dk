@@ -536,6 +536,9 @@ function svendborg_subsitetheme_menu_link(array $variables) {
       $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
       $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
     }
+    if ($menu_location = theme_get_setting('menu_location_setting','svendborg_subsitetheme')) {
+      $sub_menu = drupal_render($element['#below']);
+    }
   }
   // On primary navigation menu, class 'active' is not set on active menu item.
   // @see https://drupal.org/node/1896674
