@@ -514,7 +514,7 @@ function get_the_classes($nid) {
 function svendborg_subsitetheme_menu_link(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
-
+  $element['#attributes']['class'][] = 'main_menu_li';
   if ($element['#below']) {
     // Prevent dropdown functions from being added to management menu so it
     // does not affect the navbar module.
