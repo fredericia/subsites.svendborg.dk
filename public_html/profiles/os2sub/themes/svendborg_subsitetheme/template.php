@@ -273,8 +273,12 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
     $variables['page']['prev_news_block'] = TRUE;
     $variables['page']['activities'] = TRUE;
   }
+
+  $menu_location = theme_get_setting('menu_location_setting','svendborg_subsitetheme');
+
   if ((!empty($view) && $view->name == 'svendborg_gallery' && $view->current_display == 'page') || ($node && $node->type == "os2web_base_gallery")) {
-    if (!$sidebar_second_hidden && empty($variables['page']['sidebar_first'])) {
+    // Menu location: 0 for sidebar_first, 1 for top.
+    if (!$sidebar_second_hidden && empty($variables['page']['sidebar_first']) && !$menu_location) {
 
       $variables['page']['sidebar_first'] = array(
         '#theme_wrappers' => array('region'),
@@ -367,6 +371,13 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
 
     // Frontpage small carousel.
     $variables['page']['front_small_carousel'] = _svendborg_subsitetheme_get_front_small_carousel();
+  }
+
+  // Menu location settings.
+   $primary_navigation_name = variable_get('menu_main_links_source', 'main-menu');
+  if ($menu_location) {
+    // Navigation
+    $variables['primary_navigation'] = _bellcom_generate_menu($primary_navigation_name, 'main-navigation');
   }
 
 }
