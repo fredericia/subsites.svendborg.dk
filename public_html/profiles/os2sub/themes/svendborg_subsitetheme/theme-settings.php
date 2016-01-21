@@ -26,7 +26,7 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
          0 => t('Left'),
          1 => t('Top'),
        ),
-    '#default_value' => 0,
+    '#default_value' => theme_get_setting('menu_location_setting', 'svendborg_subsitetheme'),
   );
   $form['svendborg_subsitetheme_setting']['footer_blocks'] = array(
     '#type'          => 'fieldset',
