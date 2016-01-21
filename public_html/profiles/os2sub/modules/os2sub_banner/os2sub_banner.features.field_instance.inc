@@ -105,6 +105,12 @@ function os2sub_banner_field_default_field_instances() {
         'type' => 'text_default',
         'weight' => 5,
       ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
       'teaser' => array(
         'label' => 'above',
         'settings' => array(),
