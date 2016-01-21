@@ -87,14 +87,12 @@ function os2web_base_field_group_info() {
   $field_group->parent_name = 'group_os2web_base_group_content';
   $field_group->data = array(
     'label' => 'Indstillinger',
-    'weight' => '9',
+    'weight' => '10',
     'children' => array(
       0 => 'field_svendborg_hide_sidebar',
       1 => 'field_os2web_base_field_contact',
       2 => 'field_os2web_base_field_hidlinks',
       3 => 'field_svendborg_hide_contact',
-      4 => 'field_os2web_base_field_infobox',
-      5 => 'field_svendborg_hide_infobox',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -119,7 +117,7 @@ function os2web_base_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Indholdsside',
-    'weight' => '2',
+    'weight' => '1',
     'children' => array(
       0 => 'group_os2web_base_group_3',
       1 => 'group_os2web_base_group_extras',
@@ -127,6 +125,8 @@ function os2web_base_field_group_info() {
       3 => 'group_os2web_base_group_images',
       4 => 'group_relationer',
       5 => 'group_spotbokse',
+      6 => 'group_projekt',
+      7 => 'group_os2web_paragraph',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
@@ -600,6 +600,34 @@ function os2web_base_field_group_info() {
   $field_group = new stdClass();
   $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
   $field_group->api_version = 1;
+  $field_group->identifier = 'group_os2web_paragraph|node|os2web_base_contentpage|form';
+  $field_group->group_name = 'group_os2web_paragraph';
+  $field_group->entity_type = 'node';
+  $field_group->bundle = 'os2web_base_contentpage';
+  $field_group->mode = 'form';
+  $field_group->parent_name = 'group_os2web_base_group_content';
+  $field_group->data = array(
+    'label' => 'Afsnit',
+    'weight' => '8',
+    'children' => array(
+      0 => 'field_os2web_paragraph',
+    ),
+    'format_type' => 'htab',
+    'format_settings' => array(
+      'formatter' => 'closed',
+      'instance_settings' => array(
+        'description' => '',
+        'classes' => 'group-os2web-paragraph field-group-htab',
+        'required_fields' => 1,
+        'id' => '',
+      ),
+    ),
+  );
+  $export['group_os2web_paragraph|node|os2web_base_contentpage|form'] = $field_group;
+
+  $field_group = new stdClass();
+  $field_group->disabled = FALSE; /* Edit this to true to make a default field_group disabled initially */
+  $field_group->api_version = 1;
   $field_group->identifier = 'group_relationer|node|os2web_base_contentpage|form';
   $field_group->group_name = 'group_relationer';
   $field_group->entity_type = 'node';
@@ -608,7 +636,7 @@ function os2web_base_field_group_info() {
   $field_group->parent_name = 'group_os2web_base_group_content';
   $field_group->data = array(
     'label' => 'Relationer',
-    'weight' => '8',
+    'weight' => '9',
     'children' => array(
       0 => 'field_os2web_base_field_ext_link',
       1 => 'field_os2web_base_field_related',
@@ -700,6 +728,8 @@ function os2web_base_field_group_info() {
     'children' => array(
       0 => 'field_os2web_base_field_spotbox',
       1 => 'field_os2web_base_field_webform',
+      2 => 'field_os2web_base_field_infobox',
+      3 => 'field_svendborg_hide_infobox',
     ),
     'format_type' => 'htab',
     'format_settings' => array(

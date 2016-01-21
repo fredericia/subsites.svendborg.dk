@@ -367,10 +367,10 @@ function os2web_base_strongarm() {
       ),
       'form' => array(
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '21',
+          'weight' => '3',
         ),
         'workbench_access' => array(
           'weight' => '0',
@@ -397,7 +397,7 @@ function os2web_base_strongarm() {
           'weight' => '7',
         ),
         'metatags' => array(
-          'weight' => '40',
+          'weight' => '4',
         ),
         'redirect' => array(
           'weight' => '30',
