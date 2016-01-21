@@ -13,6 +13,21 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
     '#collapsible' => FALSE,
     '#collapsed' => FALSE,
   );
+  $form['svendborg_subsitetheme_setting']['menu_location'] = array(
+    '#type'          => 'fieldset',
+    '#title' => 'Menu position',
+    '#weight' => -3,
+    '#description' => t('Vælg en menu placering'),
+  );
+  $form['svendborg_subsitetheme_setting']['menu_location']['menu_location_setting'] = array(
+    '#type' => 'select',
+    '#title' => t('Selected'),
+    '#options' => array(
+         0 => t('Left'),
+         1 => t('Top'),
+       ),
+    '#default_value' => theme_get_setting('menu_location_setting', 'svendborg_subsitetheme'),
+  );
   $form['svendborg_subsitetheme_setting']['footer_blocks'] = array(
     '#type'          => 'fieldset',
     '#title' => 'Footer blokke',

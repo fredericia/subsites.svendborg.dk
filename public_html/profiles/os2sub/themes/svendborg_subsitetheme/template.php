@@ -3,7 +3,7 @@
  * @file
  * template.php
  */
-
+include( dirname(__FILE__) . '/include/menu.inc');
 /**
  * Implements template_preprocess_page().
  */
@@ -54,6 +54,8 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
   }
   $sidebar_second_hidden = FALSE;
   $sidebar_first_hidden = FALSE;
+  $menu_location = theme_get_setting('menu_location_setting','svendborg_subsitetheme');
+
 
   // Get all the nodes selvbetjeningslinks and give them to the template.
   if (($node && $links = field_get_items('node', $node, 'field_os2web_base_field_selfserv')) ||
@@ -216,7 +218,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
       ),
     );
   }
-  if ($node && ($node->type != "os2web_base_news")) {
+  if ($node && ($node->type != "os2web_base_news") && !$menu_location) {
     $variables['page']['sidebar_first'] = array(
       '#theme_wrappers' => array('region'),
       '#region'         => 'sidebar_first',
@@ -273,8 +275,10 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
     $variables['page']['prev_news_block'] = TRUE;
     $variables['page']['activities'] = TRUE;
   }
+
   if ((!empty($view) && $view->name == 'svendborg_gallery' && $view->current_display == 'page') || ($node && $node->type == "os2web_base_gallery")) {
-    if (!$sidebar_second_hidden && empty($variables['page']['sidebar_first'])) {
+    // Menu location: 0 for sidebar_first, 1 for top.
+    if (!$sidebar_second_hidden && empty($variables['page']['sidebar_first']) && !$menu_location) {
 
       $variables['page']['sidebar_first'] = array(
         '#theme_wrappers' => array('region'),
@@ -367,6 +371,13 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
 
     // Frontpage small carousel.
     $variables['page']['front_small_carousel'] = _svendborg_subsitetheme_get_front_small_carousel();
+  }
+
+  // Menu location settings.
+   $primary_navigation_name = variable_get('menu_main_links_source', 'main-menu');
+  if ($menu_location) {
+    // Navigation
+    $variables['primary_navigation'] = _bellcom_generate_menu($primary_navigation_name, 'main-navigation');
   }
 
 }
@@ -496,6 +507,7 @@ function get_the_classes($nid) {
   return $top_parent_term;
 }
 
+
 /**
  * Implements theme_menu_link().
  */
@@ -520,7 +532,7 @@ function svendborg_subsitetheme_menu_link(array $variables) {
 
       // Set dropdown trigger element to # to prevent inadvertant page loading
       // when a submenu link is clicked.
-      $element['#localized_options']['attributes']['data-target'] = '#';
+      //$element['#localized_options']['attributes']['data-target'] = '#';
       $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
       $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
     }
