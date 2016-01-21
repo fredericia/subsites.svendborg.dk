@@ -377,7 +377,6 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
    $primary_navigation_name = variable_get('menu_main_links_source', 'main-menu');
   if ($menu_location) {
     // Navigation
-    $variables['primary_navigation'] = _bellcom_generate_menu($primary_navigation_name, 'main-navigation');
   }
 
 }
