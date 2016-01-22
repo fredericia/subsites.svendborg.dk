@@ -376,10 +376,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
   // Menu location settings.
    $primary_navigation_name = variable_get('menu_main_links_source', 'main-menu');
   if ($menu_location) {
-    // Navigation
-    // Attach the CSS and JavaScript assets.
-    $path = drupal_get_path('theme', 'svendborg_subsitetheme');
-    drupal_add_js($path . '/js/svendborg_top_menu.js');
+    drupal_add_js(array('menu_location' => $menu_location), 'setting');
 
   }
 
@@ -527,7 +524,13 @@ function svendborg_subsitetheme_menu_link(array $variables) {
     elseif ((!empty($element['#original_link']['depth']))) {
       // Add our own wrapper.
       unset($element['#below']['#theme_wrappers']);
-      $sub_menu = '<ul class="dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+      $class =  "dropdown-menu";
+      if ($menu_location = theme_get_setting('menu_location_setting','svendborg_subsitetheme')) {
+        $class .= ' ' . 'dropdown-me';
+      }
+      $sub_menu = '<ul class="' . $class . '">' . drupal_render($element['#below']) . '</ul>';
+
+
       // Generate as standard dropdown.
       $element['#title'] .= ' <span class="caret"></span>';
       $element['#attributes']['class'][] = 'dropdown';
@@ -539,9 +542,7 @@ function svendborg_subsitetheme_menu_link(array $variables) {
       $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
       //$element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
     }
-    if ($menu_location = theme_get_setting('menu_location_setting','svendborg_subsitetheme')) {
-      $sub_menu = '<ul class="dropdown-me">' . drupal_render($element['#below']) . '</ul>';
-    }
+
   }
   // On primary navigation menu, class 'active' is not set on active menu item.
   // @see https://drupal.org/node/1896674
