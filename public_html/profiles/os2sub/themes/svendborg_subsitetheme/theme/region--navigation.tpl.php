@@ -79,17 +79,9 @@
     </div>
     </div>
     </div>
-    <div class='primary_nav_top container'>
-      <div class='row'>
-        <div class='menu_nav' id='menu_nav_top'>
-          <?php if($menu = _svendborg_top_menu_get_menu_tree('main-menu', NULL, 3)): ?>
-
-            <?php foreach ($menu as $item) {
-              print "<div class='" . $item['class'] . "'>";
-              print drupal_render(menu_tree_output($item));
-              print "</div>";
-              } ?>
-          <?php endif; ?>
+    <div class='primary_nav_top row'>
+      <div class='container'>
+        <ul class='menu_nav' id='menu_nav_top'>
         </div>
       </div>
     </div>

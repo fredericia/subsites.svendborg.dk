@@ -523,7 +523,7 @@ function svendborg_subsitetheme_menu_link(array $variables) {
     elseif ((!empty($element['#original_link']['depth']))) {
       // Add our own wrapper.
       unset($element['#below']['#theme_wrappers']);
-      $sub_menu = '<ul class="dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+      $sub_menu = '<ul class="dropdown-me">' . drupal_render($element['#below']) . '</ul>';
       // Generate as standard dropdown.
       $element['#title'] .= ' <span class="caret"></span>';
       $element['#attributes']['class'][] = 'dropdown';
@@ -533,10 +533,10 @@ function svendborg_subsitetheme_menu_link(array $variables) {
       // when a submenu link is clicked.
       //$element['#localized_options']['attributes']['data-target'] = '#';
       $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
-      $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
+      //$element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
     }
     if ($menu_location = theme_get_setting('menu_location_setting','svendborg_subsitetheme')) {
-      $sub_menu = drupal_render($element['#below']);
+     // $sub_menu = drupal_render($element['#below']);
     }
   }
   // On primary navigation menu, class 'active' is not set on active menu item.
