@@ -408,20 +408,21 @@
       span.caret {
         display: none;
       }
-    }
-    a,
-    a {
-      &.dropdown-toggle {
-        font-size: 15px;
-
+      ul.dropdown-me {
+        a {
+          font-size: 12px;
+        }
       }
-      font-size: 12px;
+    }
+    > a.dropdown-toggle {
+        font-size: 15px;
+    }
+    a {
       color: #fff;
       &:hover,
       &.active,
       &.active-trail {
         color: @brand-lightgreen;
-        font-weight: bold;
       }
     }
 
