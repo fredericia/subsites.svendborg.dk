@@ -1401,16 +1401,19 @@ function os2web_base_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
-        'label' => 'above',
-        'module' => 'field_collection',
+        'label' => 'hidden',
+        'module' => 'field_collection_fieldset',
         'settings' => array(
           'add' => 'Tilføj',
+          'collapsed' => 1,
+          'collapsible' => 1,
           'delete' => 'Slet',
-          'description' => TRUE,
+          'description' => 1,
           'edit' => 'Redigér',
+          'legend' => 'field_os2web_paragraph_title',
           'view_mode' => 'full',
         ),
-        'type' => 'field_collection_view',
+        'type' => 'field_collection_fieldset_view',
         'weight' => 22,
       ),
       'spotbox' => array(
