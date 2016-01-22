@@ -377,6 +377,10 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
    $primary_navigation_name = variable_get('menu_main_links_source', 'main-menu');
   if ($menu_location) {
     // Navigation
+    // Attach the CSS and JavaScript assets.
+    $path = drupal_get_path('theme', 'svendborg_subsitetheme');
+    drupal_add_js($path . '/js/svendborg_top_menu.js');
+
   }
 
 }

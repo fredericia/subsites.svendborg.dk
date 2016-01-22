@@ -81,7 +81,7 @@
     </div>
     <div class='primary_nav_top row'>
       <div class='container'>
-        <ul class='menu_nav' id='menu_nav_top'>
+        <ul class='menu_nav' id='menu_nav_top'></ul>
         </div>
       </div>
     </div>
