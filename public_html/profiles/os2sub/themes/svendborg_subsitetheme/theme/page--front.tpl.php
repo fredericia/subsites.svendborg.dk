@@ -34,7 +34,7 @@
       <?php if (theme_get_setting('large_news','svendborg_subsitetheme')== 2) :?>
       <div class="news-block">
                 <?php if (theme_get_setting('newstext','svendborg_subsitetheme')) :?>
-            <h2 class="newstitle block-title"><?php print theme_get_setting('newstext', 'svendborg_subsitetheme') ?></h2>
+            <h2 class="newstitle block-title 2-news"><?php print theme_get_setting('newstext', 'svendborg_subsitetheme') ?></h2>
         <?php endif;?>
         <?php //$block_search_form = module_invoke('search', 'block_view', 'search'); ?>
         <?php $view = views_get_view('svendborg_news_view');
