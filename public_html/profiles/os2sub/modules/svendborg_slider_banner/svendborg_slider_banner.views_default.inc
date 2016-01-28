@@ -189,7 +189,6 @@ function svendborg_slider_banner_views_default_views() {
     t('overwritten in template'),
     t('Single'),
     t('used for display more than one banner nodes'),
-    t('more'),
     t('Multi'),
   );
   $export['svendborg_slider'] = $view;

@@ -140,5 +140,39 @@ function svendborg_blocks_default_fe_block_settings() {
     'visibility' => 0,
   );
 
+  $export['views-os2sub_banner-block_2'] = array(
+    'cache' => -1,
+    'custom' => 0,
+    'delta' => 'os2sub_banner-block_2',
+    'module' => 'views',
+    'node_types' => array(
+      0 => 'os2web_base_contentpage',
+    ),
+    'pages' => '',
+    'roles' => array(),
+    'themes' => array(
+      'adminimal' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'adminimal',
+        'weight' => 0,
+      ),
+      'bootstrap' => array(
+        'region' => '',
+        'status' => 0,
+        'theme' => 'bootstrap',
+        'weight' => 0,
+      ),
+      'svendborg_subsitetheme' => array(
+        'region' => 'navigation',
+        'status' => 1,
+        'theme' => 'svendborg_subsitetheme',
+        'weight' => 0,
+      ),
+    ),
+    'title' => '',
+    'visibility' => 0,
+  );
+
   return $export;
 }

@@ -19,6 +19,7 @@ dependencies[] = node_registration
 dependencies[] = number
 dependencies[] = options
 dependencies[] = os2web_base
+dependencies[] = os2web_spotbox
 dependencies[] = strongarm
 dependencies[] = taxonomy
 dependencies[] = text

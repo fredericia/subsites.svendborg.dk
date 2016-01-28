@@ -178,6 +178,79 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['nid']['break_phrase'] = TRUE;
+
+  /* Display: Blok 2 */
+  $handler = $view->new_display('block', 'Blok 2', 'block_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['defaults']['css_class'] = FALSE;
+  $handler->display->display_options['css_class'] = 'container';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['style_options']['row_class'] = 'panel';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
+  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Felt: Indhold: Titel */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['link_to_node'] = FALSE;
+  /* Felt: Felt: Banner */
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['id'] = 'field_os2web_base_field_banner';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['table'] = 'field_data_field_os2web_base_field_banner';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['field'] = 'field_os2web_base_field_banner';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['alter']['alter_text'] = TRUE;
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_type'] = '0';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['settings'] = array(
+    'image_style' => 'os2sub_banner',
+    'image_link' => '',
+  );
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_limit'] = '1';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_offset'] = '0';
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Kontekstuelt filter: Indhold: Nid */
+  $handler->display->display_options['arguments']['nid']['id'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['table'] = 'node';
+  $handler->display->display_options['arguments']['nid']['field'] = 'nid';
+  $handler->display->display_options['arguments']['nid']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['nid']['exception']['title'] = 'Alle';
+  $handler->display->display_options['arguments']['nid']['default_argument_type'] = 'node';
+  $handler->display->display_options['arguments']['nid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['nid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['nid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['nid']['specify_validation'] = TRUE;
+  $handler->display->display_options['defaults']['filter_groups'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filterkriterie: Indhold: Udgivet */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filterkriterie: Indhold: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'os2web_base_contentpage' => 'os2web_base_contentpage',
+  );
   $translatables['os2sub_banner'] = array(
     t('Master'),
     t('OS2sub Banner'),
@@ -202,6 +275,7 @@ function os2sub_banner_views_default_views() {
     t('Forsidebanner Block'),
     t('Indholdsside Banner Block'),
     t('Alle'),
+    t('Blok 2'),
   );
   $export['os2sub_banner'] = $view;
 

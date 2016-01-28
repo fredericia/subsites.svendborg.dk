@@ -151,7 +151,6 @@ function svendborg_gallery_views_default_views() {
     t(' [field_os2web_base_field_photo_1]
 <div class="hover">[title]<div class="image-cnt">[field_os2web_base_field_photo] [nothing_1] </div></div>'),
     t('Page'),
-    t('more'),
   );
   $export['svendborg_gallery'] = $view;
 
