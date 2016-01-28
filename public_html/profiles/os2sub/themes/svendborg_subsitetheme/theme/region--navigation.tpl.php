@@ -85,8 +85,10 @@
           <ul class='menu_nav' id='menu_nav_top'></ul>
           </div>
         </div>
+      <div class='primay_nav_top_overlay'>
+
       </div>
-    </div>
+      </div>
   </header>
   <?php  if(drupal_match_path(drupal_get_path_alias($_GET['q']), theme_get_setting('slider_paths','svendborg_subsitetheme'))):?>
     <?php if (theme_get_setting('slider_active','svendborg_subsitetheme')) :?>

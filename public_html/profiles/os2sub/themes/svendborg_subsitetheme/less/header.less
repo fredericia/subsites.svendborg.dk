@@ -333,6 +333,7 @@
     
     &.active{
         color: @brand-lightgreen;
+        font-size: 13px;
         &:after {
       content: none;
       }
@@ -340,18 +341,20 @@
     a {
       padding: 0;
       color: #5D5D5D;
+      font-size: 13px;
     }
 
     &:before {
       display: none;
     }
     &:after {
-      color: #d8d8d8;
+      color: #5D5D5D;
       font-family: @font-family-sans-serif;
       font-weight: 700;
-      content: " - ";
+      content: " / ";
       padding-left:4px;
       padding-right:4px;
+      font-size: 16px;
     }
 
     i {
@@ -379,9 +382,8 @@
 
 .primary_nav_top.row {
   display: none;
-  background: rgba(0, 0, 0, 0.71);
+
   padding-bottom: 15px;
-  padding-top: 20px;
   margin-left: 0;
   margin-right: 0;
   width: 100%;
@@ -389,11 +391,25 @@
   position: fixed;
   z-index: 9999;
   top: 94px;
-  height: 100vh;
+
+  .primay_nav_top_overlay {
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.71);
+  }
   .primay_nav_top_bg {
     background: #fff;
+    border-bottom: 1px solid #969696;
+    padding: 29px 0 0;
+    -webkit-transform: translateZ(0);
+    -webkit-transition: top 0.2s ease;
+    -moz-transition: top 0.2s ease;
+    -ms-transition: top 0.2s ease;
+    -o-transition: top 0.2s ease;
+    transition: top 0.2s ease;
+
     .container {
       text-align: right;
+      padding: 20px 20px;
     }
     ul {
       padding-left: 0px;
@@ -412,16 +428,20 @@
           display: none;
         }
         ul.dropdown-me {
+          margin-top: 10px;
           a {
-            font-size: 12px;
+            font-size: 14px;
+            margin-top: 10px;
           }
         }
       }
       > a.dropdown-toggle {
-          font-size: 15px;
+          font-size: 18px;
+          margin-bottom: 20px;
       }
       a {
-        color: #fff;
+        font-size: 18px;
+        color: #000;
         &:hover,
         &.active,
         &.active-trail {

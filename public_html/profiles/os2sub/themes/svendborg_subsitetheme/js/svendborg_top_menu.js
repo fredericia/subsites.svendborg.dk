@@ -6,7 +6,7 @@
   Drupal.behaviors.top_menu = {
     attach: function(context) {
       $('.primary_nav_top').hide();
-      var menu_link = $(".header_main_menu .nav_main_menu li.main_menu_li.expanded");
+      var menu_link = $(".header_main_menu .nav_main_menu li.main_menu_li");
       if ($(window).width() > 767) {
         var menu_location = Drupal.settings.menu_location;
         if (menu_location) {
@@ -15,10 +15,11 @@
             $(this).find('ul.dropdown-menu').removeClass('dropdown-menu');
             var data = $(this).find('ul.dropdown-me').html();
 
-            if ($(this).hasClass('open')) {
+            /*if ($(this).hasClass('open')) {
               $('.primary_nav_top').hide();
-            }
-            else if (!data) {
+            }*/
+
+            if ( data=== undefined || data === null) {
               $('.primary_nav_top').hide();
             }
             else {
@@ -28,11 +29,12 @@
             $('#menu_nav_top').html(data);
           },
             function() {
-              //$('.primary_nav_top').hide();
+
           });
-          $('.primary_nav_top').hover(function(){
-            $(this).show();
-          }, function() {
+
+          $('div.primay_nav_top_overlay').hover(function(){
+            console.log('mouse on');
+
             $('.primary_nav_top').hide();
           });
         }
