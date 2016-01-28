@@ -1,7 +1,7 @@
 <?php
   
   /*
-   * Implements hook_hode_insert().
+   * Implements hook_node_insert().
    */
 function bellcom_menu_expanded_node_insert($node){
   if ($node->menu['enabled'] == 1){

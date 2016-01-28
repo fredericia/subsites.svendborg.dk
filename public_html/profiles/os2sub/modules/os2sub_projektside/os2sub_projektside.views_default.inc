@@ -117,7 +117,7 @@ function os2sub_projektside_views_default_views() {
   $handler->display->display_options['filters']['type']['value'] = array(
     'os2web_base_contentpage' => 'os2web_base_contentpage',
   );
-  /* Filterkriterie: Indhold: Vis på projektside (field_os2web_base_isproject) */
+  /* Filterkriterie: Handler mangler eller er i stykker */
   $handler->display->display_options['filters']['field_os2web_base_isproject_value']['id'] = 'field_os2web_base_isproject_value';
   $handler->display->display_options['filters']['field_os2web_base_isproject_value']['table'] = 'field_data_field_os2web_base_isproject';
   $handler->display->display_options['filters']['field_os2web_base_isproject_value']['field'] = 'field_os2web_base_isproject_value';
@@ -256,7 +256,7 @@ function os2sub_projektside_views_default_views() {
   $handler->display->display_options['fields']['title']['element_type'] = 'h3';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
-  /* Felt: Indhold: Resume - lang overskrift */
+  /* Felt: Indhold: Resume (maks 2 linier!) */
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['id'] = 'field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['table'] = 'field_data_field_os2web_base_field_summary';
   $handler->display->display_options['fields']['field_os2web_base_field_summary']['field'] = 'field_os2web_base_field_summary';

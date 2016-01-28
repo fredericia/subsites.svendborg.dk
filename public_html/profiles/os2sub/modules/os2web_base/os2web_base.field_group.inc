@@ -87,7 +87,7 @@ function os2web_base_field_group_info() {
   $field_group->parent_name = 'group_os2web_base_group_content';
   $field_group->data = array(
     'label' => 'Indstillinger',
-    'weight' => '9',
+    'weight' => '11',
     'children' => array(
       0 => 'field_svendborg_hide_sidebar',
       1 => 'field_os2web_base_field_contact',
@@ -121,12 +121,14 @@ function os2web_base_field_group_info() {
     'label' => 'Indholdsside',
     'weight' => '2',
     'children' => array(
-      0 => 'group_os2web_base_group_3',
-      1 => 'group_os2web_base_group_extras',
-      2 => 'group_os2web_base_group_general',
-      3 => 'group_os2web_base_group_images',
-      4 => 'group_relationer',
-      5 => 'group_spotbokse',
+      0 => 'group_projekt',
+      1 => 'group_os2web_base_group_3',
+      2 => 'group_os2web_base_group_extras',
+      3 => 'group_os2web_base_group_general',
+      4 => 'group_os2web_base_group_images',
+      5 => 'group_os2web_paragraph',
+      6 => 'group_relationer',
+      7 => 'group_spotbokse',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
@@ -608,7 +610,7 @@ function os2web_base_field_group_info() {
   $field_group->parent_name = 'group_os2web_base_group_content';
   $field_group->data = array(
     'label' => 'Afsnit',
-    'weight' => '8',
+    'weight' => '9',
     'children' => array(
       0 => 'field_os2web_paragraph',
     ),
