@@ -95,6 +95,7 @@ function os2web_base_field_group_info() {
       3 => 'field_svendborg_hide_contact',
       4 => 'field_os2web_base_field_infobox',
       5 => 'field_svendborg_hide_infobox',
+      6 => 'field_os2web_base_field_sympage',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -119,7 +120,7 @@ function os2web_base_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Indholdsside',
-    'weight' => '2',
+    'weight' => '1',
     'children' => array(
       0 => 'group_projekt',
       1 => 'group_os2web_base_group_3',
@@ -151,7 +152,7 @@ function os2web_base_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Hentet fra kommunens sagssystem',
-    'weight' => '10',
+    'weight' => '11',
     'children' => array(),
     'format_type' => 'hidden',
     'format_settings' => array(
