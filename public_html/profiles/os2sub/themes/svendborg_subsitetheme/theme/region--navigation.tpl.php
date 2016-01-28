@@ -204,3 +204,4 @@
 </section>
 
 <?php endif; ?>
+<?php print $content; ?>
