@@ -87,12 +87,14 @@ function os2web_base_field_group_info() {
   $field_group->parent_name = 'group_os2web_base_group_content';
   $field_group->data = array(
     'label' => 'Indstillinger',
-    'weight' => '10',
+    'weight' => '9',
     'children' => array(
       0 => 'field_svendborg_hide_sidebar',
       1 => 'field_os2web_base_field_contact',
       2 => 'field_os2web_base_field_hidlinks',
       3 => 'field_svendborg_hide_contact',
+      4 => 'field_os2web_base_field_infobox',
+      5 => 'field_svendborg_hide_infobox',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
@@ -117,7 +119,7 @@ function os2web_base_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Indholdsside',
-    'weight' => '1',
+    'weight' => '2',
     'children' => array(
       0 => 'group_os2web_base_group_3',
       1 => 'group_os2web_base_group_extras',
@@ -125,8 +127,6 @@ function os2web_base_field_group_info() {
       3 => 'group_os2web_base_group_images',
       4 => 'group_relationer',
       5 => 'group_spotbokse',
-      6 => 'group_projekt',
-      7 => 'group_os2web_paragraph',
     ),
     'format_type' => 'htabs',
     'format_settings' => array(
@@ -149,7 +149,7 @@ function os2web_base_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Hentet fra kommunens sagssystem',
-    'weight' => '12',
+    'weight' => '8',
     'children' => array(),
     'format_type' => 'hidden',
     'format_settings' => array(
@@ -636,7 +636,7 @@ function os2web_base_field_group_info() {
   $field_group->parent_name = 'group_os2web_base_group_content';
   $field_group->data = array(
     'label' => 'Relationer',
-    'weight' => '9',
+    'weight' => '8',
     'children' => array(
       0 => 'field_os2web_base_field_ext_link',
       1 => 'field_os2web_base_field_related',
@@ -728,8 +728,6 @@ function os2web_base_field_group_info() {
     'children' => array(
       0 => 'field_os2web_base_field_spotbox',
       1 => 'field_os2web_base_field_webform',
-      2 => 'field_os2web_base_field_infobox',
-      3 => 'field_svendborg_hide_infobox',
     ),
     'format_type' => 'htab',
     'format_settings' => array(
