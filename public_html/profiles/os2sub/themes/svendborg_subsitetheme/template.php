@@ -208,7 +208,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
   $active_trail = menu_get_active_trail();
   $current_trail = end($active_trail);
 
-  if ($node && ($node->type == "os2web_base_news")) {
+  if ($node && ($node->type == "os2web_base_news") && !$menu_location) {
     $variables['page']['sidebar_first'] = array(
       '#theme_wrappers' => array('region'),
       '#region'         => 'sidebar_first',
