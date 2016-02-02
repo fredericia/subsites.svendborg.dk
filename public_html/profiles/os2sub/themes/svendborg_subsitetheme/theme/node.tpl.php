@@ -137,11 +137,8 @@
       hide($content['field_svendborg_hide_sidebar']);
       hide($content['field_svendborg_hide_contact']);
       hide($content['field_os2web_base_field_hidlinks']);
-      hide($content['field_os2web_paragraph']);
-      
-
-              hide($content['field_os2web_base_isproject']);
-              hide($content['field_os2web_base_isproject_part']);            
+      hide($content['field_os2web_base_isproject']);
+      hide($content['field_os2web_base_isproject_part']);            
 
       if ($node->type = 'os2web_base_contentpage'): 
             if(isset($content['field_os2web_base_isproject'])) : 
@@ -171,13 +168,12 @@
  
 
 <div id="node-<?php print $node->nid; ?>" class="embedded-node clearfix"<?php print $attributes; ?>>
-  <div class="wrap">
+
     <?php
       print render($content['field_os2web_base_field_summary']);
       print render($content['body']);
 
     ?>
-  </div>
 
 </div>
  
