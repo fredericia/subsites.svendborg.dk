@@ -138,18 +138,16 @@
       hide($content['field_svendborg_hide_contact']);
       hide($content['field_os2web_base_field_hidlinks']);
       
-          if(module_exists(os2sub_projektside)) { 
+
               hide($content['field_os2web_base_isproject']);
               hide($content['field_os2web_base_isproject_part']);            
-          }
 
       if ($node->type = 'os2web_base_contentpage'): 
-          if(module_exists(os2sub_projektside)) { 
             if(isset($content['field_os2web_base_isproject'])) : 
 
-              if (isset($sections)): print $sections; endif;
+              if (isset($sections)): print $sections; 
+              endif;
             endif;  
-          }
       endif;
       
       print render($content['field_os2web_base_field_summary']);
