@@ -142,13 +142,7 @@
               hide($content['field_os2web_base_isproject']);
               hide($content['field_os2web_base_isproject_part']);            
 
-      if ($node->type = 'os2web_base_contentpage'): 
-            if(isset($content['field_os2web_base_isproject'])) : 
 
-              if (isset($sections)): print $sections; 
-              endif;
-            endif;  
-      endif;
       
       print render($content['field_os2web_base_field_summary']);
       print render($content['body']);
