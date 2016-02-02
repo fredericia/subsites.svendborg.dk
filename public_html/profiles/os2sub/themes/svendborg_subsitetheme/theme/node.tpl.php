@@ -137,6 +137,7 @@
       hide($content['field_svendborg_hide_sidebar']);
       hide($content['field_svendborg_hide_contact']);
       hide($content['field_os2web_base_field_hidlinks']);
+      hide($content['field_os2web_paragraph']);
       
 
               hide($content['field_os2web_base_isproject']);
