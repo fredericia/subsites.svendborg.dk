@@ -79,7 +79,7 @@
  * @ingroup themeable
  */
 ?>
-
+<?php if ($page): ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php if ((!$page && !empty($title)) || !empty($title_prefix) || !empty($title_suffix) || $display_submitted): ?>
   <header>
@@ -142,7 +142,13 @@
               hide($content['field_os2web_base_isproject']);
               hide($content['field_os2web_base_isproject_part']);            
 
+      if ($node->type = 'os2web_base_contentpage'): 
+            if(isset($content['field_os2web_base_isproject'])) : 
 
+              if (isset($sections)): print $sections; 
+              endif;
+            endif;  
+      endif;
       
       print render($content['field_os2web_base_field_summary']);
       print render($content['body']);
@@ -158,5 +164,22 @@
   <?php endif; ?>
   <?php print render($content['comments']); ?>
 </div>
+
+<?php else: ?>
  
+ 
+
+<div id="node-<?php print $node->nid; ?>" class="embedded-node clearfix"<?php print $attributes; ?>>
+  <div class="wrap">
+    <?php
+      print render($content['field_os2web_base_field_summary']);
+      print render($content['body']);
+
+    ?>
+  </div>
+
+</div>
+ 
+ 
+  <?php endif; ?>
     
