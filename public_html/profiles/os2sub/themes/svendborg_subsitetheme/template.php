@@ -984,7 +984,8 @@ function _svendborg_subsitetheme_block_render($module, $block_id) {
 
 function _svendborg_subsitetheme_get_contact($nid) {
   $menuParent = menu_get_active_trail();
-   
+  $currrent_node = node_load($nid);
+
   for ($i = count($menuParent) - 1; $i >= 0; $i--) {
     // var_dump($menuParent[$i]["link_path"]);
     
@@ -994,9 +995,8 @@ function _svendborg_subsitetheme_get_contact($nid) {
     }
 
     if (isset($node->field_os2web_base_field_contact['und'])) {
-      $hide = field_get_items('node', $node, 'field_svendborg_hide_contact');
-      if (($hide && !$hide[0]['value'])
-          || !$hide) {
+      $hide = field_get_items('node', $currrent_node, 'field_svendborg_hide_contact');
+      if (($hide && !$hide[0]['value']) || !$hide) {
         return $link[0]['nid'] = $node->field_os2web_base_field_contact['und'][0]['nid'];
       }
     }
@@ -1007,6 +1007,7 @@ function _svendborg_subsitetheme_get_contact($nid) {
 
 function _svendborg_subsitetheme_get_infobox($nid) {
   $menuParent = menu_get_active_trail();
+  $currrent_node = node_load($nid);
 
   for ($i = count($menuParent) - 1; $i >= 0; $i--) {
 
@@ -1016,11 +1017,10 @@ function _svendborg_subsitetheme_get_infobox($nid) {
     }
 
     if (isset($node->field_os2web_base_field_infobox['und'])) {
-      if (isset($node->field_svendborg_hide_infobox['und']) && $node->field_svendborg_hide_infobox['und'][0]['value']) {
-        return FALSE;
+      $hide = field_get_items('node', $currrent_node, 'field_svendborg_hide_infobox');
+      if (($hide && !$hide[0]['value']) || !$hide) {
+        return $link[0]['nid'] = $node->field_os2web_base_field_infobox['und'][0]['nid'];
       }
-
-      return $link[0]['nid'] = $node->field_os2web_base_field_infobox['und'][0]['nid'];
     }
   }
 
