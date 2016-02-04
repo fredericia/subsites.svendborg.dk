@@ -968,7 +968,11 @@ function _svendborg_subsitetheme_get_contact($nid) {
     }
 
     if (isset($node->field_os2web_base_field_contact['und'])) {
-      return $link[0]['nid'] = $node->field_os2web_base_field_contact['und'][0]['nid'];
+      $hide = field_get_items('node', $node, 'field_svendborg_hide_contact');
+      if (($hide && !$hide[0]['value'])
+          || !$hide) {
+        return $link[0]['nid'] = $node->field_os2web_base_field_contact['und'][0]['nid'];
+      }
     }
   }
 
