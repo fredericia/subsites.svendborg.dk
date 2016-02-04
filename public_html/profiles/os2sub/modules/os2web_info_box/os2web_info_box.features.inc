@@ -19,7 +19,7 @@ function os2web_info_box_ctools_plugin_api($module = NULL, $api = NULL) {
 function os2web_info_box_node_info() {
   $items = array(
     'os2web_info_box' => array(
-      'name' => t('OS2web faktaboks'),
+      'name' => t('Faktaboks'),
       'base' => 'node_content',
       'description' => t('Faktaboks til indholdsside'),
       'has_title' => '1',
