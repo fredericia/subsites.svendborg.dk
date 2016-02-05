@@ -174,33 +174,31 @@ function bc_subsites_node_validate($node, $form, &$form_state) {
  * Implements hook_node_presave().
  */
 function bc_subsites_node_presave($node) {
-  if ($node->type == 'subsite') {
-    $sitename = $node->title;
-    $domains = array();
+  $sitename = $node->title;
+  $domains = array();
 
-    $field = field_get_items('node', $node, 'field_domains');
-    foreach ($field as $delta => $value) {
-      $domains[] = $value['value'];
-    }
+  $field = field_get_items('node', $node, 'field_domains');
+  foreach ($field as $delta => $value) {
+    $domains[] = $value['value'];
+  }
 
-    $field = field_get_items('node', $node, 'field_admin_mail');
-    $email = $field[0]['value'];
+  $field = field_get_items('node', $node, 'field_admin_mail');
+  $email = $field[0]['value'];
 
-    if ($node->is_new) {
-      bc_subsites_create($sitename, $email);
-      bc_subsites_add_domains($sitename, $domains);
-    }
-    else {
-      if ($field = field_get_items('node', $node->original, 'field_domains')) {
+  if ($node->is_new) {
+    bc_subsites_create($sitename, $email);
+    bc_subsites_add_domains($sitename, $domains);
+  }
+  else {
+    if ($field = field_get_items('node', $node->original, 'field_domains')) {
 
-        foreach ($field as $delta => $value) {
-          $original_domains[] = $value['value'];
-        }
-
-        bc_subsites_remove_domains($sitename, $original_domains);
+      foreach ($field as $delta => $value) {
+        $original_domains[] = $value['value'];
       }
-      bc_subsites_add_domains($sitename, $domains);
+
+      bc_subsites_remove_domains($sitename, $original_domains);
     }
+    bc_subsites_add_domains($sitename, $domains);
   }
 }
 
