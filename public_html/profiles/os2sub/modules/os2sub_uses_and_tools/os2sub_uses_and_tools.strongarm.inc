@@ -67,6 +67,8 @@ function os2sub_uses_and_tools_strongarm() {
     'popup_enabled' => 1,
     'popup_clicking_confirmation' => 1,
     'popup_position' => 0,
+    'popup_agree_button_message' => 'OK, I agree',
+    'popup_disagree_button_message' => 'No, give me more info',
     'popup_info' => array(
       'value' => '<p><strong>Vi bruger cookies.</strong><br />
 Nogle sikrer at hjemmesiden&nbsp;virker, andre samler statistik ind til forbedring af din brugeroplevelse.<br />
@@ -76,18 +78,40 @@ Ved at klikke Ja accpterer du brugen af cookies på denne hjemmeside.</p>
     ),
     'popup_agreed_enabled' => 0,
     'popup_hide_agreed' => 0,
+    'popup_find_more_button_message' => 'More info',
+    'popup_hide_button_message' => 'Skjul',
     'popup_agreed' => array(
       'value' => 'Tak for din accept.',
       'format' => 'plain_text',
     ),
     'popup_link' => 'node/13',
+    'popup_link_new_window' => 1,
     'popup_height' => '',
     'popup_width' => '100%',
     'popup_delay' => '1',
     'popup_bg_hex' => '0779BF',
     'popup_text_hex' => 'ffffff',
+    'domains_option' => '1',
+    'domains_list' => '',
+    'exclude_paths' => '',
   );
   $export['eu_cookie_compliance_da'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'eu_cookie_compliance_en';
+  $strongarm->value = array(
+    'popup_info' => array(
+      'value' => '<h2>We use cookies on this site to enhance your user experience</h2><p>By clicking any link on this page you are giving your consent for us to set cookies.</p>',
+      'format' => 'plain_text',
+    ),
+    'popup_agreed' => array(
+      'value' => '<h2>Thank you for accepting cookies</h2><p>You can now hide this message or find out more about cookies.</p>',
+      'format' => 'plain_text',
+    ),
+  );
+  $export['eu_cookie_compliance_en'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */

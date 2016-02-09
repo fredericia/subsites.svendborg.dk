@@ -247,6 +247,7 @@ features[variable][] = advagg_ie_css_selector_limiter_value
 features[variable][] = advagg_include_base_url
 features[variable][] = advagg_js_fix_type
 features[variable][] = eu_cookie_compliance_da
+features[variable][] = eu_cookie_compliance_en
 features[variable][] = extlink_alert
 features[variable][] = extlink_alert_text
 features[variable][] = extlink_class
