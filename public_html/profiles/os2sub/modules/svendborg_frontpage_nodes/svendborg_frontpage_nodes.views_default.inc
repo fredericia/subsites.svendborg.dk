@@ -77,10 +77,12 @@ function svendborg_frontpage_nodes_views_default_views() {
   $handler->display->display_options['filters']['type']['field'] = 'type';
   $handler->display->display_options['filters']['type']['operator'] = 'not in';
   $handler->display->display_options['filters']['type']['value'] = array(
+    'event_calendar' => 'event_calendar',
     'banner' => 'banner',
     'os2web_contact_contact' => 'os2web_contact_contact',
     'media' => 'media',
     'os2web_base_selfservice_link' => 'os2web_base_selfservice_link',
+    'os2web_spotbox_box' => 'os2web_spotbox_box',
     'velkomst' => 'velkomst',
   );
 
