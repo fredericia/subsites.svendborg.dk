@@ -47,14 +47,14 @@ function svendborg_image_styles_image_default_styles() {
       12 => array(
         'name' => 'epsacrop_crop',
         'data' => array(
-          'width' => 272,
-          'height' => 126,
+          'width' => 367,
+          'height' => 170,
           'anchor' => 'center-center',
           'jcrop_settings' => array(
             'aspect_ratio' => 2.15,
-            'bgcolor' => 'black',
+            'bgcolor' => 'white',
             'bgopacity' => 0.6,
-            'fallback' => 0,
+            'fallback' => 1,
           ),
         ),
         'weight' => 1,
@@ -62,8 +62,8 @@ function svendborg_image_styles_image_default_styles() {
       22 => array(
         'name' => 'image_scale_and_crop',
         'data' => array(
-          'width' => 272,
-          'height' => 126,
+          'width' => 367,
+          'height' => 170,
         ),
         'weight' => 2,
       ),
