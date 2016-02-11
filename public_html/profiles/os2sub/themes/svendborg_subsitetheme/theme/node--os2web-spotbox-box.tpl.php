@@ -1,5 +1,6 @@
-<div id="node-<?php print $node->nid; ?>" class="panel panel-spotbox <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
+<div id="node-<?php print $node->nid; ?>" class="panel panel-spotbox <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+  <?php print render($title_suffix); ?>
   <?php $spotbox_url = (isset($variables['elements']['#spotbox_url'])) ? $variables['elements']['#spotbox_url'] : $spotbox_url; ?>
     <?php if(!empty($spotbox_url)) : ?>
       <a href="<?php print $spotbox_url ?>">
@@ -15,6 +16,7 @@
       <div class="table">
         <div class="table-row">
           <div class="table-cell gradient-lightgreen">
+
               <h3 class="panel-title "><?php print render($content['field_os2web_spotbox_text']); ?></h3>
           </div>
         </div>
