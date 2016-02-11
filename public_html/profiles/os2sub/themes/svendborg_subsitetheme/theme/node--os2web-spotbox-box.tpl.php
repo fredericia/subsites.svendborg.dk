@@ -17,9 +17,15 @@
     <?php if(!empty($content['field_os2web_spotbox_text'])) : ?>
     <div class="item-text">
       <div class="bubble">
-        <span>
-          <h3><?php print render($content['field_os2web_spotbox_text']); ?></h3>
-        </span>
+        <div class="table">
+          <div class="table-row">
+            <div class="table-cell">
+              <span>
+                <h3><?php print render($content['field_os2web_spotbox_text']); ?></h3>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <?php endif; ?>
@@ -39,3 +45,4 @@ $img_rendered = field_view_value('node',$node,'field_media',$field_image_all[0],
 array('type' => 'file_rendered','settings'=>array('file_view_mode' => 'custom_view_mode')));
 
 ?>
+
