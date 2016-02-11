@@ -14,10 +14,8 @@
     <?php if(!empty($content['field_os2web_spotbox_text'])) : ?>
       <div class="table">
         <div class="table-row">
-          <div class="table-cell">
-            <span>
-              <h3 class="panel-title gradient-lightgreen"><?php print render($content['field_os2web_spotbox_text']); ?></h3>
-            </span>
+          <div class="table-cell gradient-lightgreen">
+            <h3 class="panel-title "><?php print render($content['field_os2web_spotbox_text']); ?></h3>
           </div>
         </div>
       </div>
