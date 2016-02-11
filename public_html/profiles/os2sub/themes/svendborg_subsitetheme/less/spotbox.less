@@ -66,10 +66,36 @@ div.node-os2web-spotbox-box {
 .caption {
   .item-text {
     position: relative;
-    min-height: 65px;
     text-align: center;
     .bubble {
-      .bubble(0px,65px);
+      
+      .table-cell {
+        padding: 10px 15px;
+        .bubble(0px,80px);
+        min-height: 80px;
+        vertical-align: middle;
+      }
     }
   }
 }
+
+.table {
+	display: table;
+	width: 100%;
+	border-collapse: collapse;
+
+	.table-row {
+		display: table-row;
+	}
+
+	.table-head {
+		font-weight: bold;
+	}
+
+	.table-head,
+	.table-cell {
+		display: table-cell;
+		vertical-align: top;
+	}
+}
+

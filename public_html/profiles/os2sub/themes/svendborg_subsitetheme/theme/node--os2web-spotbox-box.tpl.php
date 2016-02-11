@@ -12,11 +12,23 @@
     <?php endif; ?>
     
     <?php if(!empty($content['field_os2web_spotbox_text'])) : ?>
-          <h3 class="panel-title gradient-lightgreen">
-            <?php print render($content['field_os2web_spotbox_text']); ?></h3>
+      <div class="table">
+        <div class="table-row">
+          <div class="table-cell">
+            <span>
+              <h3 class="panel-title gradient-lightgreen"><?php print render($content['field_os2web_spotbox_text']); ?></h3>
+            </span>
+          </div>
+        </div>
+      </div>
     <?php endif; ?>
-        <?php if(!empty($spotbox_url)) : ?>
+    
+    <?php if(!empty($spotbox_url)) : ?>
       </a>
     <?php endif; ?>
 
 </div> <!-- /.node -->
+
+
+
+
