@@ -15,9 +15,7 @@
       <div class="table">
         <div class="table-row">
           <div class="table-cell gradient-lightgreen">
-            <div>
               <h3 class="panel-title "><?php print render($content['field_os2web_spotbox_text']); ?></h3>
-            </div>
           </div>
         </div>
       </div>
