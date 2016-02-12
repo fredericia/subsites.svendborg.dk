@@ -275,7 +275,7 @@ function bc_subsite_execute($command) {
   $script_path = variable_get('bc_subsites_script_dir');
   $complete_command = "sudo $script_path$command";
 
-  $log = file_directory_temp() . '/' . preg_replace("/[^a-zA-Z0-9]+/", "", $command) . rand(0, 20) . '.log';
+  $log = file_directory_temp() . '/' . preg_replace("/[^a-zA-Z0-9]+/", "", $command) . '.log';
   $complete_command = 'nohup ' . $complete_command . ' > ' . $log . ' 2>&1 & echo $!';
 
   $pid = exec($complete_command, $op, $return_var);
@@ -284,8 +284,8 @@ function bc_subsite_execute($command) {
   if ($return_var > 0) {
     drupal_set_message(t('Der skete en fejl') . ': '  . end($op), 'error');
   }
-
-  watchdog('bc_subsite', 'Executed command: "%command", pid: <pre>%op</pre>', array('%command' => $command, '%op' => implode("\n", $op)));
+  _bc_subsites_write_dblog($pid, $command);
+  //watchdog('bc_subsite', 'Executed command: "%command", pid: <pre>%op</pre>', array('%command' => $command, '%op' => implode("\n", $op)));
 }
 
 /**
@@ -342,4 +342,10 @@ function _bc_subsites_is_valid_domain_name($domain_name) {
   return (preg_match("/^([a-z\d](-*[a-z\d])*)(\.([a-z\d](-*[a-z\d])*))*$/i", $domain_name)
           && preg_match("/^.{1,253}$/", $domain_name)
           && preg_match("/^[^\.]{1,63}(\.[^\.]{1,63})*$/", $domain_name));
+}
+
+function _bc_subsites_write_dblog($pid, $command) {
+  $filename = preg_replace("/[^a-zA-Z0-9]+/", "", $command) . '.log';
+  $content = file_get_contents(drupal_realpath(file_directory_temp()) . '/' . $filename);
+  watchdog('bc_subsite', 'Executed command: "%command", pid : %pid, result: <pre>%log</pre>', array('%command' => $command, '%pid' => $pid, '%log' => $content));
 }
