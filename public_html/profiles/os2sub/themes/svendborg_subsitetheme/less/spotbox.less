@@ -2,7 +2,7 @@
 div.panel-pane div.node.node-os2web-spotbox-box,
 div.node-os2web-spotbox-box {
 
-  background-color: #FFF;
+  background-color: #ccc;
   border-radius: 4px;
   margin-bottom: 20px;
   
@@ -17,12 +17,13 @@ div.node-os2web-spotbox-box {
     #gradient > .vertical(rgba(14, 14, 14, 0.05), rgba(46, 46, 46, 0.05), 100%, 100%);
   }
 
+  .table { margin-bottom: 0;}
   h3 {
-    text-align: center;
+    text-align: left;
     font-weight: normal;
     text-transform: none;
-    font-size: 18px;
-    line-height: 24px;
+    font-size: 20px;
+    line-height: 22px;
     color: #FFF;
     border-bottom-right-radius: 3px;
     border-bottom-left-radius: 3px;
@@ -31,15 +32,34 @@ div.node-os2web-spotbox-box {
       font-size: 14px;
     }
   }
-    
+    h4 {
+    text-align: left;
+    font-weight: normal;
+    text-transform: none;
+    font-size: 14px;
+    line-height: 16px;
+    color: #FFF;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+
+    @media (max-width:460px) {
+      font-size: 14px;
+    }
+  }
+
   .table-cell {
-    vertical-align: middle;
+    vertical-align: top;
     .gradient-lightgreen;
     height: 68px;
     padding: 10px 15px;
-
   }
-
+  .body-tekst {
+    .table-cell {
+    vertical-align: middle;
+    text-align: center;
+    color: #FFF;
+    font-size: 14px; }
+  }  
   .field-name-field-os2web-spotbox-big-image .field-item,
   .field-name-field-os2web-spotbox-video .field-item {
     position: relative;
