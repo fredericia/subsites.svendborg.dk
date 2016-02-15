@@ -29,7 +29,9 @@
           <div class="table-cell gradient-lightgreen">
 
               <h3 class="panel-title "><?php print render($content['field_os2web_spotbox_text']); ?></h3>
+              <?php if(!empty($content['field_os2web_spotbox_subtitel'])): ?>
               <h4><?php print render($content['field_os2web_spotbox_subtitel']); ?></h4>
+                  <?php endif; ?>
           </div>
         </div>
 
