@@ -91,6 +91,7 @@
                     
                   data-tabs="timeline,events" 
                   data-small-header="true" 
+                  data-width="400" 
                   data-adapt-container-width="true" 
                   data-hide-cover="false"
                   data-show-facepile="false">
