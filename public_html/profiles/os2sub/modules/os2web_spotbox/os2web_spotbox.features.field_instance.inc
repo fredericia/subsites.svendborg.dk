@@ -72,7 +72,7 @@ function os2web_spotbox_field_default_field_instances() {
         'summary_rows' => 5,
       ),
       'type' => 'text_textarea_with_summary',
-      'weight' => 15,
+      'weight' => 14,
     ),
   );
 
@@ -176,7 +176,7 @@ function os2web_spotbox_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 1,
+      'weight' => -3,
     ),
   );
 
@@ -466,7 +466,7 @@ function os2web_spotbox_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => 3,
+      'weight' => -1,
     ),
   );
 
@@ -582,7 +582,7 @@ function os2web_spotbox_field_default_field_instances() {
         'content_taxonomy_opt_groups' => FALSE,
       ),
       'type' => 'options_select',
-      'weight' => 2,
+      'weight' => -2,
     ),
   );
 
@@ -652,7 +652,7 @@ function os2web_spotbox_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'text_textfield',
-      'weight' => 13,
+      'weight' => -4,
     ),
   );
 
@@ -887,7 +887,7 @@ function os2web_spotbox_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'media_generic',
-      'weight' => 16,
+      'weight' => 15,
     ),
   );
 
