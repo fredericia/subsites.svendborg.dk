@@ -9,3 +9,9 @@ background-image: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=1 );'">
 [field_os2web_base_isproject_desc]
 </div></div>
+
+
+
+<?php
+ print $fields['field_os2web_base_field_banner']->content; 
+?>
