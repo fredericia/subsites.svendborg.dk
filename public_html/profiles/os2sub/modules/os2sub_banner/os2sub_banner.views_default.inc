@@ -318,22 +318,44 @@ function os2sub_banner_views_default_views() {
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['table'] = 'field_data_field_os2web_base_field_banner';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['field'] = 'field_os2web_base_field_banner';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_type'] = '0';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_wrapper_type'] = '0';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['element_default_classes'] = FALSE;
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['click_sort_column'] = 'fid';
-  $handler->display->display_options['fields']['field_os2web_base_field_banner']['type'] = 'owlcarousel_formatter';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['type'] = 'image_url';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['settings'] = array(
-    'settings_group' => 'owlcarousel_settings_os2sub-banner',
+    'url_type' => '0',
     'image_style' => 'os2sub_banner',
+    'image_link' => '',
   );
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_limit'] = '1';
   $handler->display->display_options['fields']['field_os2web_base_field_banner']['delta_offset'] = '0';
-  /* Felt: Indhold: Banner text */
-  $handler->display->display_options['fields']['field_banner_text']['id'] = 'field_banner_text';
-  $handler->display->display_options['fields']['field_banner_text']['table'] = 'field_data_field_banner_text';
-  $handler->display->display_options['fields']['field_banner_text']['field'] = 'field_banner_text';
-  $handler->display->display_options['fields']['field_banner_text']['label'] = '';
-  $handler->display->display_options['fields']['field_banner_text']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_banner_text']['element_default_classes'] = FALSE;
-  $handler->display->display_options['fields']['field_banner_text']['type'] = 'text_plain';
+  $handler->display->display_options['fields']['field_os2web_base_field_banner']['separator'] = '';
+  /* Felt: Indhold: Projektbeskrivelse */
+  $handler->display->display_options['fields']['field_os2web_base_isproject_desc']['id'] = 'field_os2web_base_isproject_desc';
+  $handler->display->display_options['fields']['field_os2web_base_isproject_desc']['table'] = 'field_data_field_os2web_base_isproject_desc';
+  $handler->display->display_options['fields']['field_os2web_base_isproject_desc']['field'] = 'field_os2web_base_isproject_desc';
+  $handler->display->display_options['fields']['field_os2web_base_isproject_desc']['label'] = '';
+  $handler->display->display_options['fields']['field_os2web_base_isproject_desc']['alter']['text'] = '<div>
+[field_os2web_base_field_banner]
+[field_os2web_base_isproject_desc] </div>
+<div class="page-calendar-slider ">
+<div class="slider-cover single\'" style="background-image: 
+-moz-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%),  url(\'[field_os2web_base_field_banner]\');
+background-image: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0.75)), color-stop(100%, rgba(0,0,0,0.75))), url(\'[field_os2web_base_field_banner]\');
+background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url(\'[field_os2web_base_field_banner]\');
+background-image: -o-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url(\'[field_os2web_base_field_banner]\');
+background-image: -ms-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url(\'[field_os2web_base_field_banner]\');
+background-image: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url(\'[field_os2web_base_field_banner]\');
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#000000\', endColorstr=\'#000000\', GradientType=1 );\'">
+
+[field_os2web_base_isproject_desc]
+</div></div>';
+  $handler->display->display_options['fields']['field_os2web_base_isproject_desc']['element_type'] = 'span';
+  $handler->display->display_options['fields']['field_os2web_base_isproject_desc']['element_class'] = 'bannertekst';
+  $handler->display->display_options['fields']['field_os2web_base_isproject_desc']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_os2web_base_isproject_desc']['element_default_classes'] = FALSE;
   /* Sorteringskriterie: Indhold: Oprettelsesdato */
   $handler->display->display_options['sorts']['created']['id'] = 'created';
   $handler->display->display_options['sorts']['created']['table'] = 'node';
@@ -374,6 +396,21 @@ function os2sub_banner_views_default_views() {
     t('‹ forrige'),
     t('næste ›'),
     t('sidste »'),
+    t('<div>
+[field_os2web_base_field_banner]
+[field_os2web_base_isproject_desc] </div>
+<div class="page-calendar-slider ">
+<div class="slider-cover single\'" style="background-image: 
+-moz-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%),  url(\'[field_os2web_base_field_banner]\');
+background-image: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0.75)), color-stop(100%, rgba(0,0,0,0.75))), url(\'[field_os2web_base_field_banner]\');
+background-image: -webkit-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url(\'[field_os2web_base_field_banner]\');
+background-image: -o-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url(\'[field_os2web_base_field_banner]\');
+background-image: -ms-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url(\'[field_os2web_base_field_banner]\');
+background-image: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url(\'[field_os2web_base_field_banner]\');
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=\'#000000\', endColorstr=\'#000000\', GradientType=1 );\'">
+
+[field_os2web_base_isproject_desc]
+</div></div>'),
     t('Alle'),
     t('Blok'),
   );
