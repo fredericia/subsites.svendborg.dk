@@ -1,4 +1,6 @@
-<div class="page-calendar-slider ">
+<?php
+  if (!empty($fields['field_os2web_base_field_banner']->content)) : ?>
+  <div class="page-calendar-slider ">
   <div class="slider-cover single" style="background-image: url('<?php print $fields['field_os2web_base_field_banner']->content; ?>')">
     <div class="container">
       <div class="row">
@@ -11,3 +13,5 @@
     </div>
   </div>
 </div>
+<?php endif ;?>
+  
