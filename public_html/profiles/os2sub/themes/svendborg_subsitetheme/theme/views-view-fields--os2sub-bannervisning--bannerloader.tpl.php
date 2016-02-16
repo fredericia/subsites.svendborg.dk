@@ -15,3 +15,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 <?php
  print $fields['field_os2web_base_field_banner']->content; 
 ?>
+
+<?php
+   print "<br><br>";
+    print "Field:  ";
+    print_r($field);                    
+    print "<br><br>";
+    print "Output:  ";
+    print_r($output);
+    print "<br><br>";
+    ?>
