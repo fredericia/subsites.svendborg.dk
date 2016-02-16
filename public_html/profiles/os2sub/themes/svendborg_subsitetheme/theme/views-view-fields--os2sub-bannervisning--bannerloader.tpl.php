@@ -17,6 +17,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 ?>
 
 <?php
+     $node = node_load($row->nid);
+    $field_name = "field_image";
+    $delta = 0;
+
+    $field = field_get_items('node', $node, $field_name);
+    $output = field_view_value('node', $node, $field_name, $field[$delta]);
+
+    print ($output['#item']['uri']);
+  
    print "<br><br>";
     print "Field:  ";
     print_r($field);                    
