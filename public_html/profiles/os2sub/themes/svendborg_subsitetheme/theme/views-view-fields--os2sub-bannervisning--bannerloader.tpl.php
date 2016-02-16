@@ -11,26 +11,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', end
 </div></div>
 
 
-
-<?php
- print $fields['field_os2web_base_field_banner']->content; 
-?>
-
-<?php
-     $node = node_load($row->nid);
-    $field_name = "field_image";
-    $delta = 0;
-
-    $field = field_get_items('node', $node, $field_name);
-    $output = field_view_value('node', $node, $field_name, $field[$delta]);
-
-    print ($output['#item']['uri']);
-  
-   print "<br><br>";
-    print "Field:  ";
-    print_r($field);                    
-    print "<br><br>";
-    print "Output:  ";
-    print_r($output);
-    print "<br><br>";
-    ?>
+<?php print $fields['field_os2web_base_isproject_desc']->content; ?>
