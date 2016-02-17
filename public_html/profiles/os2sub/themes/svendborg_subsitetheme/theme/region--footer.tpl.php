@@ -94,7 +94,7 @@ print "<h2 class='menu-footer " . $menu_item['link']['link_title']. "'>
               <a href="<?php print theme_get_setting('linkedin_url', 'svendborg_subsitetheme') ?>" title="Svendborg Kommune Linkedin" class="footer_linkedin" target="_blank">linkedin</a>
               <?php endif;?>  
            <?php if (theme_get_setting('youtube_url', 'svendborg_subsitetheme')):?>    
-              <a href="<?php print theme_get_setting('linkedin_url', 'svendborg_subsitetheme') ?>" title="Svendborg Kommune Youtube" class="footer_flickr" target="_blank">youtube</a>
+              <a href="<?php print theme_get_setting('youtube_url', 'svendborg_subsitetheme') ?>" title="Svendborg Kommune Youtube" class="footer_flickr" target="_blank">youtube</a>
            <?php endif;?> 
             </div>
        <?php endif?>     
