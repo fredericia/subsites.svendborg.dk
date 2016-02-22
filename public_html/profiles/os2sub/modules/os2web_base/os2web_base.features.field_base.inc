@@ -10,52 +10,6 @@
 function os2web_base_field_default_field_bases() {
   $field_bases = array();
 
-  // Exported field_base: 'body'
-  $field_bases['body'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(
-      0 => 'node',
-    ),
-    'field_name' => 'body',
-    'indexes' => array(
-      'format' => array(
-        0 => 'format',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'text',
-    'settings' => array(),
-    'translatable' => 0,
-    'type' => 'text_with_summary',
-  );
-
-  // Exported field_base: 'field_alternative_display'
-  $field_bases['field_alternative_display'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_alternative_display',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => '',
-        1 => 'Først niveau visning u. nyheder ',
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
-  );
-
   // Exported field_base: 'field_list_as_selvservice'
   $field_bases['field_list_as_selvservice'] = array(
     'active' => 1,
@@ -79,96 +33,6 @@ function os2web_base_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
-  );
-
-  // Exported field_base: 'field_list_as_spotboks'
-  $field_bases['field_list_as_spotboks'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_list_as_spotboks',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => '',
-        1 => '',
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
-  );
-
-  // Exported field_base: 'field_os2web_base_field_banner'
-  $field_bases['field_os2web_base_field_banner'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_banner',
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'image',
-    'settings' => array(
-      'default_image' => 0,
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 0,
-    'type' => 'image',
-  );
-
-  // Exported field_base: 'field_os2web_base_field_contact'
-  $field_bases['field_os2web_base_field_contact'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_contact',
-    'indexes' => array(
-      'nid' => array(
-        0 => 'nid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'node_reference',
-    'settings' => array(
-      'referenceable_types' => array(
-        'kontaktblok' => 0,
-        'kulturkalender' => 0,
-        'media' => 0,
-        'os2bootstrap_carousel' => 0,
-        'os2web_base_contentpage' => 0,
-        'os2web_base_gallery' => 0,
-        'os2web_base_iframe' => 0,
-        'os2web_base_news' => 0,
-        'os2web_base_rotating_image' => 0,
-        'os2web_base_selfservice_link' => 0,
-        'os2web_borger_dk_article' => 0,
-        'os2web_contact_contact' => 'os2web_contact_contact',
-        'os2web_spotbox_box' => 0,
-        'panel' => 0,
-        'spotbokse2' => 0,
-        'webform' => 0,
-      ),
-      'view' => array(
-        'args' => array(),
-        'display_name' => '',
-        'view_name' => '',
-      ),
-    ),
-    'translatable' => 0,
-    'type' => 'node_reference',
   );
 
   // Exported field_base: 'field_os2web_base_field_direct'
@@ -219,35 +83,6 @@ function os2web_base_field_default_field_bases() {
     'type' => 'taxonomy_term_reference',
   );
 
-  // Exported field_base: 'field_os2web_base_field_ext_link'
-  $field_bases['field_os2web_base_field_ext_link'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_ext_link',
-    'indexes' => array(),
-    'locked' => 0,
-    'module' => 'link',
-    'settings' => array(
-      'attributes' => array(
-        'class' => '',
-        'rel' => '',
-        'target' => 'default',
-      ),
-      'display' => array(
-        'url_cutoff' => 80,
-      ),
-      'enable_tokens' => 1,
-      'title' => 'optional',
-      'title_maxlength' => 128,
-      'title_value' => '',
-      'url' => 0,
-    ),
-    'translatable' => 0,
-    'type' => 'link_field',
-  );
-
   // Exported field_base: 'field_os2web_base_field_grp_id'
   $field_bases['field_os2web_base_field_grp_id'] = array(
     'active' => 1,
@@ -267,31 +102,6 @@ function os2web_base_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'text',
-  );
-
-  // Exported field_base: 'field_os2web_base_field_hidlinks'
-  $field_bases['field_os2web_base_field_hidlinks'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_hidlinks',
-    'indexes' => array(
-      'value' => array(
-        0 => 'value',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'list',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => 0,
-        1 => 1,
-      ),
-      'allowed_values_function' => '',
-    ),
-    'translatable' => 0,
-    'type' => 'list_boolean',
   );
 
   // Exported field_base: 'field_os2web_base_field_iframe'
@@ -315,26 +125,42 @@ function os2web_base_field_default_field_bases() {
     'type' => 'text',
   );
 
-  // Exported field_base: 'field_os2web_base_field_image'
-  $field_bases['field_os2web_base_field_image'] = array(
+  // Exported field_base: 'field_os2web_base_field_infobox'
+  $field_bases['field_os2web_base_field_infobox'] = array(
     'active' => 1,
     'cardinality' => 1,
     'deleted' => 0,
     'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_image',
+    'field_name' => 'field_os2web_base_field_infobox',
     'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
+      'nid' => array(
+        0 => 'nid',
       ),
     ),
     'locked' => 0,
-    'module' => 'image',
+    'module' => 'node_reference',
     'settings' => array(
-      'default_image' => 0,
-      'uri_scheme' => 'public',
+      'referenceable_types' => array(
+        'banner' => 0,
+        'event_calendar' => 0,
+        'media' => 0,
+        'os2web_base_contentpage' => 0,
+        'os2web_base_gallery' => 0,
+        'os2web_base_news' => 0,
+        'os2web_base_selfservice_link' => 0,
+        'os2web_contact_contact' => 0,
+        'os2web_info_box' => 'os2web_info_box',
+        'velkomst' => 0,
+        'webform' => 0,
+      ),
+      'view' => array(
+        'args' => array(),
+        'display_name' => '',
+        'view_name' => '',
+      ),
     ),
     'translatable' => 0,
-    'type' => 'image',
+    'type' => 'node_reference',
   );
 
   // Exported field_base: 'field_os2web_base_field_inh_colm'
@@ -360,33 +186,6 @@ function os2web_base_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'list_boolean',
-  );
-
-  // Exported field_base: 'field_os2web_base_field_kle_ref'
-  $field_bases['field_os2web_base_field_kle_ref'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_kle_ref',
-    'indexes' => array(
-      'tid' => array(
-        0 => 'tid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'taxonomy',
-    'settings' => array(
-      'allowed_values' => array(
-        0 => array(
-          'vocabulary' => 'os2web_taxonomies_tax_kle',
-          'parent' => 0,
-        ),
-      ),
-      'options_list_callback' => 'content_taxonomy_allowed_values',
-    ),
-    'translatable' => 0,
-    'type' => 'taxonomy_term_reference',
   );
 
   // Exported field_base: 'field_os2web_base_field_lead_img'
@@ -436,51 +235,6 @@ function os2web_base_field_default_field_bases() {
     ),
     'translatable' => 0,
     'type' => 'taxonomy_term_reference',
-  );
-
-  // Exported field_base: 'field_os2web_base_field_logo'
-  $field_bases['field_os2web_base_field_logo'] = array(
-    'active' => 1,
-    'cardinality' => 1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_logo',
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'image',
-    'settings' => array(
-      'default_image' => 0,
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 0,
-    'type' => 'image',
-  );
-
-  // Exported field_base: 'field_os2web_base_field_media'
-  $field_bases['field_os2web_base_field_media'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_media',
-    'indexes' => array(
-      'fid' => array(
-        0 => 'fid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'file',
-    'settings' => array(
-      'display_default' => 0,
-      'display_field' => 0,
-      'uri_scheme' => 'public',
-    ),
-    'translatable' => 0,
-    'type' => 'file',
   );
 
   // Exported field_base: 'field_os2web_base_field_organiz'
@@ -684,49 +438,6 @@ function os2web_base_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
-  // Exported field_base: 'field_os2web_base_field_related'
-  $field_bases['field_os2web_base_field_related'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_related',
-    'indexes' => array(
-      'nid' => array(
-        0 => 'nid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'node_reference',
-    'settings' => array(
-      'referenceable_types' => array(
-        'kontaktblok' => 0,
-        'kulturkalender' => 0,
-        'media' => 'media',
-        'os2bootstrap_carousel' => 0,
-        'os2web_base_contentpage' => 'os2web_base_contentpage',
-        'os2web_base_gallery' => 0,
-        'os2web_base_iframe' => 0,
-        'os2web_base_news' => 'os2web_base_news',
-        'os2web_base_rotating_image' => 0,
-        'os2web_base_selfservice_link' => 0,
-        'os2web_borger_dk_article' => 'os2web_borger_dk_article',
-        'os2web_contact_contact' => 0,
-        'os2web_spotbox_box' => 0,
-        'panel' => 0,
-        'spotbokse2' => 0,
-        'webform' => 'webform',
-      ),
-      'view' => array(
-        'args' => array(),
-        'display_name' => '',
-        'view_name' => '',
-      ),
-    ),
-    'translatable' => 0,
-    'type' => 'node_reference',
-  );
-
   // Exported field_base: 'field_os2web_base_field_rota_img'
   $field_bases['field_os2web_base_field_rota_img'] = array(
     'active' => 1,
@@ -807,49 +518,6 @@ function os2web_base_field_default_field_bases() {
     'type' => 'datestamp',
   );
 
-  // Exported field_base: 'field_os2web_base_field_selfserv'
-  $field_bases['field_os2web_base_field_selfserv'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_selfserv',
-    'indexes' => array(
-      'nid' => array(
-        0 => 'nid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'node_reference',
-    'settings' => array(
-      'referenceable_types' => array(
-        'keyboard_shortcut' => 0,
-        'kulturkalender' => 0,
-        'media' => 0,
-        'os2bootstrap_carousel' => 0,
-        'os2web_base_contentpage' => 0,
-        'os2web_base_gallery' => 0,
-        'os2web_base_iframe' => 0,
-        'os2web_base_news' => 0,
-        'os2web_base_rotating_image' => 0,
-        'os2web_base_selfservice_link' => 'os2web_base_selfservice_link',
-        'os2web_borger_dk_article' => 0,
-        'os2web_contact_contact' => 0,
-        'os2web_ofir_job' => 0,
-        'os2web_spotbox_box' => 0,
-        'panel' => 0,
-        'webform' => 0,
-      ),
-      'view' => array(
-        'args' => array(),
-        'display_name' => '',
-        'view_name' => '',
-      ),
-    ),
-    'translatable' => 0,
-    'type' => 'node_reference',
-  );
-
   // Exported field_base: 'field_os2web_base_field_source'
   $field_bases['field_os2web_base_field_source'] = array(
     'active' => 1,
@@ -884,49 +552,6 @@ function os2web_base_field_default_field_bases() {
     'settings' => array(),
     'translatable' => 0,
     'type' => 'number_integer',
-  );
-
-  // Exported field_base: 'field_os2web_base_field_spotbox'
-  $field_bases['field_os2web_base_field_spotbox'] = array(
-    'active' => 1,
-    'cardinality' => -1,
-    'deleted' => 0,
-    'entity_types' => array(),
-    'field_name' => 'field_os2web_base_field_spotbox',
-    'indexes' => array(
-      'nid' => array(
-        0 => 'nid',
-      ),
-    ),
-    'locked' => 0,
-    'module' => 'node_reference',
-    'settings' => array(
-      'referenceable_types' => array(
-        'keyboard_shortcut' => 0,
-        'kulturkalender' => 0,
-        'media' => 0,
-        'os2bootstrap_carousel' => 0,
-        'os2web_base_contentpage' => 0,
-        'os2web_base_gallery' => 0,
-        'os2web_base_iframe' => 0,
-        'os2web_base_news' => 0,
-        'os2web_base_rotating_image' => 0,
-        'os2web_base_selfservice_link' => 0,
-        'os2web_borger_dk_article' => 0,
-        'os2web_contact_contact' => 0,
-        'os2web_ofir_job' => 0,
-        'os2web_spotbox_box' => 'os2web_spotbox_box',
-        'panel' => 0,
-        'webform' => 0,
-      ),
-      'view' => array(
-        'args' => array(),
-        'display_name' => '',
-        'view_name' => '',
-      ),
-    ),
-    'translatable' => 0,
-    'type' => 'node_reference',
   );
 
   // Exported field_base: 'field_os2web_base_field_struct'
@@ -974,6 +599,45 @@ function os2web_base_field_default_field_bases() {
     'settings' => array(),
     'translatable' => 0,
     'type' => 'text_with_summary',
+  );
+
+  // Exported field_base: 'field_os2web_base_field_sympage'
+  $field_bases['field_os2web_base_field_sympage'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_os2web_base_field_sympage',
+    'indexes' => array(
+      'nid' => array(
+        0 => 'nid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'node_reference',
+    'settings' => array(
+      'referenceable_types' => array(
+        'banner' => 0,
+        'event_calendar' => 0,
+        'media' => 0,
+        'os2web_base_contentpage' => 'os2web_base_contentpage',
+        'os2web_base_gallery' => 0,
+        'os2web_base_news' => 0,
+        'os2web_base_selfservice_link' => 0,
+        'os2web_contact_contact' => 0,
+        'os2web_info_box' => 0,
+        'os2web_spotbox_box' => 0,
+        'velkomst' => 0,
+        'webform' => 0,
+      ),
+      'view' => array(
+        'args' => array(),
+        'display_name' => '',
+        'view_name' => '',
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'node_reference',
   );
 
   // Exported field_base: 'field_os2web_base_field_text'
@@ -1090,6 +754,103 @@ function os2web_base_field_default_field_bases() {
     'type' => 'node_reference',
   );
 
+  // Exported field_base: 'field_os2web_base_isproject_desc'
+  $field_bases['field_os2web_base_isproject_desc'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_os2web_base_isproject_desc',
+    'indexes' => array(
+      'format' => array(
+        0 => 'format',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => 255,
+    ),
+    'translatable' => 0,
+    'type' => 'text',
+  );
+
+  // Exported field_base: 'field_os2web_base_isproject_part'
+  $field_bases['field_os2web_base_isproject_part'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_os2web_base_isproject_part',
+    'indexes' => array(
+      'nid' => array(
+        0 => 'nid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'node_reference',
+    'settings' => array(
+      'referenceable_types' => array(
+        'banner' => 0,
+        'event_calendar' => 0,
+        'media' => 0,
+        'os2web_base_contentpage' => 'os2web_base_contentpage',
+        'os2web_base_gallery' => 'os2web_base_gallery',
+        'os2web_base_news' => 0,
+        'os2web_base_selfservice_link' => 0,
+        'os2web_contact_contact' => 0,
+        'velkomst' => 0,
+        'webform' => 'webform',
+      ),
+      'view' => array(
+        'args' => array(),
+        'display_name' => '',
+        'view_name' => '',
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'node_reference',
+  );
+
+  // Exported field_base: 'field_os2web_paragraph_ref'
+  $field_bases['field_os2web_paragraph_ref'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_os2web_paragraph_ref',
+    'indexes' => array(
+      'nid' => array(
+        0 => 'nid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'node_reference',
+    'settings' => array(
+      'referenceable_types' => array(
+        'banner' => 0,
+        'event_calendar' => 0,
+        'media' => 0,
+        'os2web_base_contentpage' => 'os2web_base_contentpage',
+        'os2web_base_gallery' => 0,
+        'os2web_base_news' => 0,
+        'os2web_base_selfservice_link' => 0,
+        'os2web_contact_contact' => 0,
+        'os2web_info_box' => 0,
+        'os2web_spotbox_box' => 0,
+        'velkomst' => 0,
+        'webform' => 'webform',
+      ),
+      'view' => array(
+        'args' => array(),
+        'display_name' => '',
+        'view_name' => '',
+      ),
+    ),
+    'translatable' => 0,
+    'type' => 'node_reference',
+  );
+
   // Exported field_base: 'field_spot_link'
   $field_bases['field_spot_link'] = array(
     'active' => 1,
@@ -1137,6 +898,31 @@ function os2web_base_field_default_field_bases() {
       'allowed_values' => array(
         0 => 0,
         1 => 1,
+      ),
+      'allowed_values_function' => '',
+    ),
+    'translatable' => 0,
+    'type' => 'list_boolean',
+  );
+
+  // Exported field_base: 'field_svendborg_hide_infobox'
+  $field_bases['field_svendborg_hide_infobox'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'field_svendborg_hide_infobox',
+    'indexes' => array(
+      'value' => array(
+        0 => 'value',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'list',
+    'settings' => array(
+      'allowed_values' => array(
+        0 => '',
+        1 => 'Skjul faktaboks',
       ),
       'allowed_values_function' => '',
     ),

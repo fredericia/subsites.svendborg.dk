@@ -14,7 +14,6 @@ function os2web_base_user_default_permissions() {
   $permissions['access site map'] = array(
     'name' => 'access site map',
     'roles' => array(
-      'Administrator' => 'Administrator',
       'anonymous user' => 'anonymous user',
       'authenticated user' => 'authenticated user',
       'subsiteadmin' => 'subsiteadmin',
@@ -37,7 +36,6 @@ function os2web_base_user_default_permissions() {
   $permissions['access user contact forms'] = array(
     'name' => 'access user contact forms',
     'roles' => array(
-      'Administrator' => 'Administrator',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'contact',
@@ -47,8 +45,6 @@ function os2web_base_user_default_permissions() {
   $permissions['administer contact forms'] = array(
     'name' => 'administer contact forms',
     'roles' => array(
-      'Administrator' => 'Administrator',
-      'Webmaster' => 'Webmaster',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'contact',
@@ -58,7 +54,6 @@ function os2web_base_user_default_permissions() {
   $permissions['administer content types'] = array(
     'name' => 'administer content types',
     'roles' => array(
-      'Administrator' => 'Administrator',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'node',
@@ -68,8 +63,6 @@ function os2web_base_user_default_permissions() {
   $permissions['administer filters'] = array(
     'name' => 'administer filters',
     'roles' => array(
-      'Administrator' => 'Administrator',
-      'Webmaster' => 'Webmaster',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'filter',
@@ -79,8 +72,6 @@ function os2web_base_user_default_permissions() {
   $permissions['administer image styles'] = array(
     'name' => 'administer image styles',
     'roles' => array(
-      'Administrator' => 'Administrator',
-      'Webmaster' => 'Webmaster',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'image',
@@ -90,8 +81,6 @@ function os2web_base_user_default_permissions() {
   $permissions['bypass node access'] = array(
     'name' => 'bypass node access',
     'roles' => array(
-      'Administrator' => 'Administrator',
-      'Webmaster' => 'Webmaster',
       'subsiteadmin' => 'subsiteadmin',
     ),
     'module' => 'node',
@@ -101,7 +90,6 @@ function os2web_base_user_default_permissions() {
   $permissions['search content'] = array(
     'name' => 'search content',
     'roles' => array(
-      'Administrator' => 'Administrator',
       'anonymous user' => 'anonymous user',
       'subsiteadmin' => 'subsiteadmin',
     ),

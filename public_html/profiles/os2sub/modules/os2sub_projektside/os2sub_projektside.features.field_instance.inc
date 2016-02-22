@@ -25,6 +25,18 @@ function os2sub_projektside_field_default_field_instances() {
         'label' => 'above',
         'settings' => array(),
         'type' => 'hidden',
+        'weight' => 9,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
         'weight' => 5,
       ),
     ),
@@ -54,6 +66,18 @@ function os2sub_projektside_field_default_field_instances() {
     'description' => 'Kort tekst. Vises kun på projektsiden.',
     'display' => array(
       'default' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 7,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
         'label' => 'above',
         'module' => 'text',
         'settings' => array(),
@@ -111,6 +135,21 @@ function os2sub_projektside_field_default_field_instances() {
     'description' => '',
     'display' => array(
       'default' => array(
+        'label' => 'hidden',
+        'module' => 'node_reference',
+        'settings' => array(
+          'node_reference_view_mode' => 'teaser',
+        ),
+        'type' => 'node_reference_node',
+        'weight' => 2,
+      ),
+      'spotbox' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'teaser' => array(
         'label' => 'hidden',
         'module' => 'node_reference',
         'settings' => array(

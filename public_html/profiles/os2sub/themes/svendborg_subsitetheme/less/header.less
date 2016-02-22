@@ -208,6 +208,10 @@
         color: @brand-lightblue;
       }
     }
+    .dropdown-me {
+      display: none;
+
+    }
   }
   
   .navbar-default {
@@ -315,11 +319,11 @@
 }
 
 .breadcrumb {
-  margin-bottom: 30px;
-  text-align: center;
+  margin-bottom: 5px;
+  text-align: left;
   
   li {
-    display: inline-block;    
+    display: inline-block;
     
     margin-bottom: 2px;
     font-family: @font-family-sans-serif;
@@ -328,26 +332,29 @@
     text-transform: uppercase;
     
     &.active{
-        color: #d8d8d8;
+        color: @brand-lightgreen;
+        font-size: 13px;
         &:after {
       content: none;
       }
     }  
     a {
       padding: 0;
-      color: #d8d8d8;
+      color: #5D5D5D;
+      font-size: 13px;
     }
 
     &:before {
       display: none;
     }
     &:after {
-      color: #d8d8d8;
+      color: #5D5D5D;
       font-family: @font-family-sans-serif;
       font-weight: 700;
-      content: " - ";
+      content: " / ";
       padding-left:4px;
       padding-right:4px;
+      font-size: 16px;
     }
 
     i {
@@ -373,3 +380,76 @@
   }
 }
 
+.primary_nav_top.row {
+  display: none;
+
+  padding-bottom: 15px;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  //position: absolute;
+  position: fixed;
+  z-index: 9999;
+  //top: 110px;
+
+  .primay_nav_top_overlay {
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .primay_nav_top_bg {
+    background: #fff;
+    border-bottom: 1px solid #969696;
+    padding: 29px 0 0;
+    -webkit-transform: translateZ(0);
+    -webkit-transition: top 0.2s ease;
+    -moz-transition: top 0.2s ease;
+    -ms-transition: top 0.2s ease;
+    -o-transition: top 0.2s ease;
+    transition: top 0.2s ease;
+
+    .container {
+      text-align: right;
+      padding: 20px 20px;
+    }
+    ul {
+      padding-left: 0px;
+    }
+    ul > li {
+      display: inline-block;
+      list-style: none;
+      text-align: left;
+      vertical-align: top;
+      margin-right: 25px;
+      &.expanded {
+        list-style: none;
+      }
+      &.dropdown {
+        span.caret {
+          display: none;
+        }
+        ul.dropdown-me {
+          margin-top: 10px;
+          a {
+            font-size: 14px;
+            margin-top: 10px;
+          }
+        }
+      }
+      > a.dropdown-toggle {
+          font-size: 18px;
+          margin-bottom: 20px;
+      }
+      a {
+        font-size: 18px;
+        color: #000;
+        &:hover,
+        &.active,
+        &.active-trail {
+          color: @brand-lightgreen;
+        }
+      }
+
+    }
+  }
+
+}

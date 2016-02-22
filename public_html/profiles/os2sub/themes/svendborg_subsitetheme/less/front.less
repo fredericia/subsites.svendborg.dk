@@ -548,6 +548,7 @@
 }
 /******* Front page news ********/
 .news-block {
+  border-top: 1px solid #dedede;
     .four-news-block,
     .three-news-block {
         margin-bottom: 60px;
@@ -574,7 +575,12 @@
 
             } 
             .news-title{  
-                font: 24px @font-familiy-web;  ;     
+                font: 24px @font-familiy-web;
+                &.2-news {
+                  border-top: 1px solid #eee;
+                  padding-top: 24px;
+                  padding-bottom: 24px
+                }   
             }
             .news-summary {
                 font-size: 14px  ;
@@ -592,7 +598,7 @@
         }    
   }
     .two-news-block {
-        margin-bottom: 60px;
+        margin-bottom: 20px;
 
        .views-content {
 	       .row;
@@ -726,6 +732,7 @@
 .latest-news-block {
     color: #30353c;
     margin-bottom: 80px;
+    border-top: 1px solid #dedede;
   
     .views-row {
         font-family: @font-family-sans-serif;

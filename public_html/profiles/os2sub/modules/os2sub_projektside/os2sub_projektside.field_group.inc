@@ -21,11 +21,11 @@ function os2sub_projektside_field_group_info() {
   $field_group->parent_name = 'group_os2web_base_group_content';
   $field_group->data = array(
     'label' => 'Projekt',
-    'weight' => '8',
+    'weight' => '10',
     'children' => array(
-      0 => 'field_os2web_base_isproject',
-      1 => 'field_os2web_base_isproject_part',
-      2 => 'field_os2web_base_isproject_desc',
+      0 => 'field_os2web_base_isproject_part',
+      1 => 'field_os2web_base_isproject_desc',
+      2 => 'field_os2web_base_field_banner',
     ),
     'format_type' => 'htab',
     'format_settings' => array(

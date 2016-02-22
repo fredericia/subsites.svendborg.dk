@@ -86,12 +86,14 @@ function bc_subsites_status() {
 
     if (!isset($op[1])) {
       unset ($_SESSION['bc_subsite_pids'][$pid]);
+      $text = basename($log_file);
+      $text = substr($text, 0, 13);
 
       // Load log and remove logfile.
       $log = file_get_contents($log_file);
       unlink($log_file);
 
-      watchdog('bc_subsite', 'Command pid: %pid, result: <pre>%log</pre>', array('%pid' => $pid, '%log' => $log));
+      watchdog('bc_subsite', 'Executed - "%op", pid: %pid, result: <pre>%log</pre>', array('op' => $text, '%pid' => $pid, '%log' => $log));
     }
     else {
     }
@@ -124,6 +126,10 @@ function bc_subsites_form_alter(&$form, &$form_state, $form_id) {
   // Hide the domains field on create (to avoid race condition when running scripts in parallel)
   if (arg(0) == 'node' && arg(1) == 'add') {
     $form['field_domains']['#access'] = FALSE;
+  }
+  if ($form_id == 'node_delete_confirm' && $form['#node']->type == 'subsite') {
+    $form['actions']['submit']['#submit'][] = 'node_delete_confirm_submit';
+    $form['actions']['submit']['#submit'][] = 'bc_subsites_node_redirect_submit';
   }
 }
 
@@ -266,6 +272,7 @@ function bc_subsites_overview() {
  */
 function bc_subsites_node_delete($node) {
   bc_subsites_delete($node->title);
+
 }
 
 /**
@@ -275,7 +282,7 @@ function bc_subsite_execute($command) {
   $script_path = variable_get('bc_subsites_script_dir');
   $complete_command = "sudo $script_path$command";
 
-  $log = file_directory_temp() . '/' . preg_replace("/[^a-zA-Z0-9]+/", "", $command) . rand(0, 20) . '.log';
+  $log = file_directory_temp() . '/' . preg_replace("/[^a-zA-Z0-9]+/", "", $command) . '.log';
   $complete_command = 'nohup ' . $complete_command . ' > ' . $log . ' 2>&1 & echo $!';
 
   $pid = exec($complete_command, $op, $return_var);
@@ -284,7 +291,6 @@ function bc_subsite_execute($command) {
   if ($return_var > 0) {
     drupal_set_message(t('Der skete en fejl') . ': '  . end($op), 'error');
   }
-
   watchdog('bc_subsite', 'Executed command: "%command", pid: <pre>%op</pre>', array('%command' => $command, '%op' => implode("\n", $op)));
 }
 
@@ -343,3 +349,4 @@ function _bc_subsites_is_valid_domain_name($domain_name) {
           && preg_match("/^.{1,253}$/", $domain_name)
           && preg_match("/^[^\.]{1,63}(\.[^\.]{1,63})*$/", $domain_name));
 }
+

@@ -3,7 +3,7 @@
  * @file
  * template.php
  */
-
+include( dirname(__FILE__) . '/include/menu.inc');
 /**
  * Implements template_preprocess_page().
  */
@@ -54,6 +54,8 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
   }
   $sidebar_second_hidden = FALSE;
   $sidebar_first_hidden = FALSE;
+  $menu_location = theme_get_setting('menu_location_setting','svendborg_subsitetheme');
+
 
   // Get all the nodes selvbetjeningslinks and give them to the template.
   if (($node && $links = field_get_items('node', $node, 'field_os2web_base_field_selfserv')) ||
@@ -65,6 +67,12 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
   // Get all the nodes selvbetjeningslinks and give them to the template.
   if ($node && $link = _svendborg_subsitetheme_get_contact($node->nid)) {
     $variables['page']['contact']['nid'] = $link;
+
+  }
+
+  // Get all the nodes info box and give them to the template.
+  if ($node && $link = _svendborg_subsitetheme_get_infobox($node->nid)) {
+    $variables['page']['infobox']['nid'] = $link;
 
   }
 
@@ -200,7 +208,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
   $active_trail = menu_get_active_trail();
   $current_trail = end($active_trail);
 
-  if ($node && ($node->type == "os2web_base_news")) {
+  if ($node && ($node->type == "os2web_base_news") && !$menu_location) {
     $variables['page']['sidebar_first'] = array(
       '#theme_wrappers' => array('region'),
       '#region'         => 'sidebar_first',
@@ -210,7 +218,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
       ),
     );
   }
-  if ($node && ($node->type != "os2web_base_news")) {
+  if ($node && ($node->type != "os2web_base_news") && !$menu_location) {
     $variables['page']['sidebar_first'] = array(
       '#theme_wrappers' => array('region'),
       '#region'         => 'sidebar_first',
@@ -224,7 +232,10 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
 
   // Hack to force the sidebar_second to be rendered if we have anything to put
   // in it.
-  if (!$sidebar_second_hidden && empty($variables['page']['sidebar_second']) && (!empty($variables['page']['prev_news_block']) || !empty($variables['page']['contact']) || $variables['page']['activities'] || !empty($variables['page']['os2web_selfservicelinks']))) {
+  if (!$sidebar_second_hidden && empty($variables['page']['sidebar_second'])
+      && (!empty($variables['page']['prev_news_block']) || !empty($variables['page']['contact'])
+          || $variables['page']['activities'] || !empty($variables['page']['os2web_selfservicelinks'])
+          || !empty($variables['page']['infobox']))) {
     $variables['page']['sidebar_second'] = array(
       '#theme_wrappers' => array('region'),
       '#region'         => 'sidebar_second',
@@ -264,8 +275,10 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
     $variables['page']['prev_news_block'] = TRUE;
     $variables['page']['activities'] = TRUE;
   }
+
   if ((!empty($view) && $view->name == 'svendborg_gallery' && $view->current_display == 'page') || ($node && $node->type == "os2web_base_gallery")) {
-    if (!$sidebar_second_hidden && empty($variables['page']['sidebar_first'])) {
+    // Menu location: 0 for sidebar_first, 1 for top.
+    if (!$sidebar_second_hidden && empty($variables['page']['sidebar_first']) && !$menu_location) {
 
       $variables['page']['sidebar_first'] = array(
         '#theme_wrappers' => array('region'),
@@ -358,6 +371,13 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
 
     // Frontpage small carousel.
     $variables['page']['front_small_carousel'] = _svendborg_subsitetheme_get_front_small_carousel();
+  }
+
+  // Menu location settings.
+   $primary_navigation_name = variable_get('menu_main_links_source', 'main-menu');
+  if ($menu_location) {
+    drupal_add_js(array('menu_location' => $menu_location), 'setting');
+
   }
 
 }
@@ -457,10 +477,8 @@ function svendborg_subsitetheme_preprocess_node(&$vars) {
   $vars['theme_hook_suggestions'][] = 'node__' . $vars['type'] . '__' . $vars['view_mode'];
   
   if ($vars['type'] == 'os2web_base_contentpage' ) {
-    if(module_exists(os2sub_projektside)) { 
-      if ($vars['view_mode'] == 'full') {
+    if ($vars['view_mode'] == 'full') {
         $vars['sections'] = views_embed_view('os2sub_projektside', array('block_1'));
-      }
     }
   }
 }
@@ -487,13 +505,14 @@ function get_the_classes($nid) {
   return $top_parent_term;
 }
 
+
 /**
  * Implements theme_menu_link().
  */
 function svendborg_subsitetheme_menu_link(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
-
+  $element['#attributes']['class'][] = 'main_menu_li';
   if ($element['#below']) {
     // Prevent dropdown functions from being added to management menu so it
     // does not affect the navbar module.
@@ -503,7 +522,13 @@ function svendborg_subsitetheme_menu_link(array $variables) {
     elseif ((!empty($element['#original_link']['depth']))) {
       // Add our own wrapper.
       unset($element['#below']['#theme_wrappers']);
-      $sub_menu = '<ul class="dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+      $class =  "dropdown-menu";
+      if ($menu_location = theme_get_setting('menu_location_setting','svendborg_subsitetheme')) {
+        $class .= ' ' . 'dropdown-me';
+      }
+      $sub_menu = '<ul class="' . $class . '">' . drupal_render($element['#below']) . '</ul>';
+
+
       // Generate as standard dropdown.
       $element['#title'] .= ' <span class="caret"></span>';
       $element['#attributes']['class'][] = 'dropdown';
@@ -511,10 +536,11 @@ function svendborg_subsitetheme_menu_link(array $variables) {
 
       // Set dropdown trigger element to # to prevent inadvertant page loading
       // when a submenu link is clicked.
-      $element['#localized_options']['attributes']['data-target'] = '#';
+      //$element['#localized_options']['attributes']['data-target'] = '#';
       $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
-      $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
+      //$element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
     }
+
   }
   // On primary navigation menu, class 'active' is not set on active menu item.
   // @see https://drupal.org/node/1896674
@@ -959,7 +985,6 @@ function _svendborg_subsitetheme_block_render($module, $block_id) {
 function _svendborg_subsitetheme_get_contact($nid) {
   $menuParent = menu_get_active_trail();
   $currrent_node = node_load($nid);
-   
   for ($i = count($menuParent) - 1; $i >= 0; $i--) {
     // var_dump($menuParent[$i]["link_path"]);
     
@@ -967,16 +992,31 @@ function _svendborg_subsitetheme_get_contact($nid) {
     if (empty($node)) {
       $node = node_load($nid);
     }
-
     if (isset($node->field_os2web_base_field_contact['und'])) {
       $hide = field_get_items('node', $currrent_node, 'field_svendborg_hide_contact');
-      if (($hide && !$hide[0]['value'])
-          || !$hide) {
+      if (($hide && !$hide[0]['value']) || !$hide) {
         return $link[0]['nid'] = $node->field_os2web_base_field_contact['und'][0]['nid'];
       }
     }
   }
+  return FALSE;
+}
 
+function _svendborg_subsitetheme_get_infobox($nid) {
+  $menuParent = menu_get_active_trail();
+  $currrent_node = node_load($nid);
+  for ($i = count($menuParent) - 1; $i >= 0; $i--) {
+    $node = menu_get_object('node', 1, $menuParent[$i]["link_path"]);
+    if (empty($node)) {
+      $node = node_load($nid);
+    }
+    if (isset($node->field_os2web_base_field_infobox['und'])) {
+      $hide = field_get_items('node', $currrent_node, 'field_svendborg_hide_infobox');
+      if (($hide && !$hide[0]['value']) || !$hide) {
+        return $link[0]['nid'] = $node->field_os2web_base_field_infobox['und'][0]['nid'];
+      }
+    }
+  }
   return FALSE;
 }
 
@@ -1076,6 +1116,7 @@ function svendborg_subsitetheme_less_variables_alter(&$less_variables, $system_n
       'brand-lightblue'  => '#2880b9',
       'brand-lightgreen' => '#85c500',
       'gradient-light'   => '#0086ca',
+      'gradient-darkyellow' => '#d3d100',
       'introtekst'       => '#2880b9',
     );
   }

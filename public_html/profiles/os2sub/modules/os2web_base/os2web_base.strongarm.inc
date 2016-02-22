@@ -311,7 +311,7 @@ function os2web_base_strongarm() {
   $strongarm->value = array(
     'view_modes' => array(
       'teaser' => array(
-        'custom_settings' => FALSE,
+        'custom_settings' => TRUE,
       ),
       'related_block' => array(
         'custom_settings' => TRUE,
@@ -357,9 +357,17 @@ function os2web_base_strongarm() {
             'weight' => '7',
             'visible' => TRUE,
           ),
+          'teaser' => array(
+            'weight' => '7',
+            'visible' => TRUE,
+          ),
         ),
         'language' => array(
           'default' => array(
+            'weight' => '0',
+            'visible' => FALSE,
+          ),
+          'teaser' => array(
             'weight' => '0',
             'visible' => FALSE,
           ),
@@ -367,10 +375,10 @@ function os2web_base_strongarm() {
       ),
       'form' => array(
         'title' => array(
-          'weight' => '-5',
+          'weight' => '0',
         ),
         'path' => array(
-          'weight' => '21',
+          'weight' => '3',
         ),
         'workbench_access' => array(
           'weight' => '0',
@@ -397,7 +405,7 @@ function os2web_base_strongarm() {
           'weight' => '7',
         ),
         'metatags' => array(
-          'weight' => '40',
+          'weight' => '4',
         ),
         'redirect' => array(
           'weight' => '30',

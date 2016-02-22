@@ -1,48 +1,44 @@
-<div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
-  <?php print render($title_prefix); ?>
+
+<div id="node-<?php print $node->nid; ?>" class="panel panel-spotbox <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php print render($title_suffix); ?>
-  <div class="caption">
   <?php $spotbox_url = (isset($variables['elements']['#spotbox_url'])) ? $variables['elements']['#spotbox_url'] : $spotbox_url; ?>
     <?php if(!empty($spotbox_url)) : ?>
       <a href="<?php print $spotbox_url ?>">
-    <?php endif; ?>
+      <div class="table">
 
-    <?php if(!empty($content['field_os2web_spotbox_big_image'])) : ?>
-      <?php print render($content['field_os2web_spotbox_big_image']); ?>
     <?php endif; ?>
+    <?php if(!empty($content['field_os2web_spotbox_big_image'])) : 
+      print render($content['field_os2web_spotbox_big_image']);
+      else: ?>
+
+        <div class="table-row body-tekst" style="height: 170px;">
+          <div class="table-cell gradient-lightgreen">
+                  <?php print render($content['body']); ?>
+          </div>
+        </div>
+
+      <?php endif; ?>
     <?php if(!empty($content['field_os2web_spotbox_video'])) : ?>
-    <?php print render($content['field_os2web_spotbox_video']); ?>
+      <?php print render($content['field_os2web_spotbox_video']); ?>
     <?php endif; ?>
     
     <?php if(!empty($content['field_os2web_spotbox_text'])) : ?>
-    <div class="item-text">
-      <div class="bubble">
-        <div class="table">
-          <div class="table-row">
-            <div class="table-cell">
-              <span>
-                <h3><?php print render($content['field_os2web_spotbox_text']); ?></h3>
-              </span>
-            </div>
+
+        <div class="table-row titel-tekst">
+          <div class="table-cell gradient-lightgreen <?php if(!empty($content['field_os2web_spotbox_subtitel'])): print 'subtitel'; endif; ?>">
+
+              <h3 class="panel-title "><?php print render($content['field_os2web_spotbox_text']); ?></h3>
+              <?php if(!empty($content['field_os2web_spotbox_subtitel'])): ?>
+              <h4><?php print render($content['field_os2web_spotbox_subtitel']); ?></h4>
+                  <?php endif; ?>
           </div>
         </div>
-      </div>
-    </div>
-    <?php endif; ?>
 
+    <?php endif; ?>
+    
     <?php if(!empty($spotbox_url)) : ?>
+      </div>
       </a>
     <?php endif; ?>
-  </div>
 
 </div> <!-- /.node -->
-
-
-<?php
-$field_image_all = field_get_items('node',$node,'field_media');
-
-$img_rendered = field_view_value('node',$node,'field_media',$field_image_all[0],
-array('type' => 'file_rendered','settings'=>array('file_view_mode' => 'custom_view_mode')));
-
-?>
-

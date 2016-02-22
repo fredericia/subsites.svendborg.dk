@@ -79,6 +79,16 @@
     </div>
     </div>
     </div>
+    <div class='primary_nav_top row'>
+      <div class='primay_nav_top_bg'>
+        <div class='container'>
+          <ul class='menu_nav' id='menu_nav_top'></ul>
+          </div>
+        </div>
+      <div class='primay_nav_top_overlay'>
+
+      </div>
+      </div>
   </header>
   <?php  if(drupal_match_path(drupal_get_path_alias($_GET['q']), theme_get_setting('slider_paths','svendborg_subsitetheme'))):?>
     <?php if (theme_get_setting('slider_active','svendborg_subsitetheme')) :?>
@@ -96,23 +106,6 @@
             ?>
         </section>
     <?php endif;?>
-  <?php endif;?>
-  <?php if(drupal_get_path_alias($_GET['q']) == 'projekter'):?>
-  
-    <?php if (theme_get_setting('slider_active','svendborg_subsitetheme')) :
-
-
-    $image_uri= file_create_url(file_load(theme_get_setting('project_page_slider_image','svendborg_subsitetheme'))->uri);
-    $overlay_class = '';
-    $background = "background-image: url('" . $image_uri . "')";
-    $overlay_classcal = 'no-overlay';
-    
-    $html = '<div class="page-calendar-slider "><div class="slider-cover single ' . $overlay_classcal . '" style="' . $background .'">';
-    $html .= '</div>';//class="view-svendborg-slider"
-    print $html;
-    
-    endif;?>
-  
   <?php endif;?>
   
   <?php if(drupal_get_path_alias($_GET['q']) == 'calendar/upcoming' || drupal_get_path_alias($_GET['q']) == 'calendar/all'):?>
@@ -190,7 +183,10 @@
     <?php endif;?>
     </div>
   <?php endif;?>
-  <?php print render($page['breadcrumb'])?>
+  <div class="container">
+    <?php print render($page['breadcrumb'])?>
+  </div>
 </section>
 
 <?php endif; ?>
+<?php print $content; ?>

@@ -1,0 +1,4 @@
+name = Bellcom Menu Expanded
+core = 7.x
+package = Bellcom
+version = 7.x-1.0

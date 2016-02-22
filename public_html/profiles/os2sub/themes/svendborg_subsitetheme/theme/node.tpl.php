@@ -79,7 +79,7 @@
  * @ingroup themeable
  */
 ?>
-
+<?php if ($page): ?>
 <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?> clearfix"<?php print $attributes; ?>>
   <?php if ((!$page && !empty($title)) || !empty($title_prefix) || !empty($title_suffix) || $display_submitted): ?>
   <header>
@@ -137,19 +137,15 @@
       hide($content['field_svendborg_hide_sidebar']);
       hide($content['field_svendborg_hide_contact']);
       hide($content['field_os2web_base_field_hidlinks']);
-      
-          if(module_exists(os2sub_projektside)) { 
-              hide($content['field_os2web_base_isproject']);
-              hide($content['field_os2web_base_isproject_part']);            
-          }
+      hide($content['field_os2web_base_isproject']);
+      hide($content['field_os2web_base_isproject_part']);            
 
       if ($node->type = 'os2web_base_contentpage'): 
-          if(module_exists(os2sub_projektside)) { 
             if(isset($content['field_os2web_base_isproject'])) : 
 
-              if (isset($sections)): print $sections; endif;
+              if (isset($sections)): print $sections; 
+              endif;
             endif;  
-          }
       endif;
       
       print render($content['field_os2web_base_field_summary']);
@@ -166,5 +162,21 @@
   <?php endif; ?>
   <?php print render($content['comments']); ?>
 </div>
+
+<?php else: ?>
  
+ 
+
+<div id="node-<?php print $node->nid; ?>" class="embedded-node clearfix"<?php print $attributes; ?>>
+
+    <?php
+      print render($content['field_os2web_base_field_summary']);
+      print render($content['body']);
+
+    ?>
+
+</div>
+ 
+ 
+  <?php endif; ?>
     

@@ -26,7 +26,8 @@ function os2web_spotbox_field_group_info() {
       0 => 'field_os2web_spotbox_big_image',
       1 => 'field_os2web_spotbox_ref_kle',
       2 => 'field_os2web_spotbox_sitestruct',
-      3 => 'title',
+      3 => 'field_os2web_spotbox_subtitel',
+      4 => 'title',
     ),
     'format_type' => 'htab',
     'format_settings' => array(

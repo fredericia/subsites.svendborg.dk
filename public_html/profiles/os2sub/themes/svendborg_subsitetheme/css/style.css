@@ -6562,6 +6562,9 @@ body.admin-menu {
 body.toolbar-drawer {
   padding-top: 30px !important;
 }
+.region-sidebar-second .view-id-frontpage_nodes .views-row span a {
+  background-color: #ededed;
+}
 /*
 LESS variables are information about icon's compiled state, stored under its original file name
 
@@ -9294,6 +9297,13 @@ fieldset[disabled] .btn-orange.active {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0086ca', endColorstr='#ff0079b7', GradientType=0);
 }
+.panel-lightyellow > .panel-body,
+.panel-lightyellow > .panel-body > div.like-panel-lightnblue {
+  background-image: -webkit-linear-gradient(top, #d3d100 0%, #e9e83a 55%);
+  background-image: linear-gradient(to bottom, #d3d100 0%, #e9e83a 55%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd3d100', endColorstr='#ffe9e83a', GradientType=0);
+}
 .panel-lightblue > .panel-heading,
 .like-panel.like-panel-lightblue {
   background-image: -webkit-linear-gradient(top, #2880b9 0%, #2474a8 55%);
@@ -9511,6 +9521,22 @@ fieldset[disabled] .btn-orange.active {
   vertical-align: middle;
   color: #333333;
 }
+.info-box {
+  float: right;
+  width: 100%;
+}
+.info-box .panel-body {
+  border-radius: 3px;
+  text-align: left;
+  color: #fff;
+  padding: 15px 10px 10px 10px;
+}
+.info-box .panel-body h2 {
+  font-family: 'Titillium Web', Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  padding: 0;
+  margin: 0;
+}
 .contact-block {
   float: right;
   width: 100%;
@@ -9553,7 +9579,6 @@ div.panel-pane div.node.node-os2web-spotbox-box,
 div.node-os2web-spotbox-box {
   background: white;
   border-radius: 4px;
-  padding: 8px;
   margin-bottom: 20px;
 }
 .spotbox img,
@@ -9967,8 +9992,8 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
   overflow-y: initial;
 }
 .breadcrumb {
-  margin-bottom: 30px;
-  text-align: center;
+  margin-bottom: 5px;
+  text-align: left;
 }
 .breadcrumb li {
   display: inline-block;
@@ -9979,14 +10004,14 @@ div.node-os2web-spotbox-box .field-name-field-os2web-spotbox-video iframe {
   text-transform: uppercase;
 }
 .breadcrumb li.active {
-  color: #d8d8d8;
+  color: #85c500;
 }
 .breadcrumb li.active:after {
   content: none;
 }
 .breadcrumb li a {
   padding: 0;
-  color: #d8d8d8;
+  color: #5D5D5D;
 }
 .breadcrumb li:before {
   display: none;
@@ -10904,7 +10929,11 @@ div.node-os2web-base-news .field-name-body {
   font: 14px 'Open Sans', Geneva, Verdana, sans-serif;
   color: #404040;
 }
-
+div.node-os2web-base-contentpage .field-name-body h2,
+div.node-os2web-base-news .field-name-body h2 {
+  font-size: 23px;
+  text-transform: uppercase;
+}
 div.node-os2web-base-contentpage .field-name-body h3,
 div.node-os2web-base-news .field-name-body h3,
 div.node-os2web-base-contentpage .field-name-body h4,
@@ -12071,208 +12100,7 @@ h2.menu-footer a.Kommunen {
 .open-link a:hover {
   color: #30353c;
 }
-/******* Front page news ********/
-.news-block .four-news-block,
-.news-block .three-news-block {
-  margin-bottom: 60px;
-}
-.news-block .four-news-block .views-row,
-.news-block .three-news-block .views-row {
-  display: inline-block;
-  vertical-align: top;
-  margin-bottom: 20px;
-}
-.news-block .four-news-block .views-row div.image,
-.news-block .three-news-block .views-row div.image {
-  width: 100%;
-  height: 180px;
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-.news-block .four-news-block .views-row div.image img,
-.news-block .three-news-block .views-row div.image img {
-  min-width: 100%;
-  min-height: 100%;
-}
-.news-block .four-news-block .views-row div.news-title,
-.news-block .three-news-block .views-row div.news-title,
-.news-block .four-news-block .views-row div.news-summary,
-.news-block .three-news-block .views-row div.news-summary,
-.news-block .four-news-block .views-row span.open-link,
-.news-block .three-news-block .views-row span.open-link {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-.news-block .four-news-block .views-row .news-title,
-.news-block .three-news-block .views-row .news-title {
-  font: 24px 'Titillium Web', Geneva, Verdana, sans-serif;
-}
-.news-block .four-news-block .views-row .news-summary,
-.news-block .three-news-block .views-row .news-summary {
-  font-size: 14px  ;
-}
-.news-block .four-news-block .views-row .open-link,
-.news-block .three-news-block .views-row .open-link {
-  margin-top: 20px;
-  text-align: right;
-}
-.news-block .four-news-block .views-row-first,
-.news-block .three-news-block .views-row-first {
-  padding-left: 0 !important;
-}
-.news-block .four-news-block .views-row-last,
-.news-block .three-news-block .views-row-last {
-  padding-right: 0 !important;
-}
-.news-block .two-news-block {
-  margin-bottom: 60px;
-}
-.news-block .two-news-block .views-content {
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.news-block .two-news-block .views-row {
-  display: inline-block;
-  vertical-align: top;
-  margin-bottom: 20px;
-}
-.news-block .two-news-block .views-row div.image {
-  width: 100%;
-  height: 180px;
-  margin-bottom: 10px;
-  overflow: hidden;
-}
-.news-block .two-news-block .views-row div.image img {
-  min-width: 100%;
-  min-height: 100%;
-}
-.news-block .two-news-block .views-row div.news-title,
-.news-block .two-news-block .views-row div.news-summary,
-.news-block .two-news-block .views-row span.open-link {
-  padding-left: 5px;
-  padding-right: 5px;
-}
-.news-block .two-news-block .views-row .news-title {
-  font: 24px 'Titillium Web', Geneva, Verdana, sans-serif;
-}
-.news-block .two-news-block .views-row .news-summary {
-  font-size: 14px  ;
-}
-.news-block .two-news-block .views-row .open-link {
-  margin-top: 20px;
-  text-align: right;
-}
-.four-news-block .views-row div.image {
-  height: 120px !important;
-  overflow: hidden;
-}
-@media (max-width: 768px) {
-  .news-block .views-row {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-  .latest-news-block .views-column {
-    padding-left: 0 !important;
-    padding-right: 0 !important;
-  }
-}
-.frontpage-nodes {
-  width: 100%;
-  /*.views-row.views-row-first {
-      span{
-       a {
-          color: #fff !important;
-          &:after{
-                    color:  #fff;
-            }
-        }
-       }
-    }*/
-}
-.frontpage-nodes .views-row {
-  vertical-align: middle;
-  border-radius: 3px;
-  margin-bottom: 13px;
-}
-.frontpage-nodes .views-row span {
-  display: table;
-  width: 100%;
-  position: relative;
-}
-.frontpage-nodes .views-row span a {
-  display: table-cell;
-  font-size: 18px;
-  font-family: 'Titillium Web', Geneva, Verdana, sans-serif;
-  font-weight: 600;
-  color: #2f2f2f;
-  height: 68px;
-  padding: 0 45px 0 15px;
-  vertical-align: middle;
-}
-.frontpage-nodes .views-row span a { 
-  background-color: rgba(255, 255, 255, 0.8);
-  -webkit-transform-style: preserve-3d;
-  -moz-transform-style: preserve-3d;
-  transform-style: preserve-3d;
-}
-.frontpage-nodes .views-row span a:after {
-  content: "\f105";
-  font-family: FontAwesome;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  right: 10px;
-  color: #85c500;
-  font-size: 30px;
-  font-weight: lighter;
-}
-.frontpage-nodes .views-row span a:hover {
-  color: #fff;
-}
-.frontpage-nodes .views-row span a:hover:after {
-  color: #fff;
-}
-.latest-news-block {
-  color: #30353c;
-  margin-bottom: 80px;
-}
-.latest-news-block .views-row {
-  font-family: 'Open Sans', Geneva, Verdana, sans-serif;
-  font-size: 16px;
-  padding-bottom: 1px;
-  padding-top: 1px;
-}
-.latest-news-block .views-column {
-  margin-bottom: 10px;
-}
-.latest-news-block .view-content .col-sm-4.views-column:not(.views-column-last),
-.latest-news-block .view-content .col-sm-6.views-column:not(.views-row-even) {
-  border-right: #eee 2px solid;
-}
-.latest-news-block .view-footer {
-  clear: both;
-}
-.latest-news-block .view-footer a {
-  display: block;
-  float: right;
-  padding-right: 20px;
-  font-family: 'Open Sans', Geneva, Verdana, sans-serif;
-  font-size: 11px;
-  color: #404040;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-top: 15px;
-}
-.latest-news-block.with-top-line {
-  margin-top: 20px;
-  border-top: #eee 2px solid;
-}
-.welcome-text {
-  color: #30353c;
-  font-family: 'Open Sans', Geneva, Verdana, sans-serif;
-  font-size: 14px;
-  margin-bottom: 40px;
-}
+
 /*
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates

@@ -54,7 +54,7 @@ scripts[] = 'js/script.js'
 
 scripts[] = 'js/jquery.infinitescroll.min.js'
 scripts[] = 'js/os2web_spotbox_adjust.js'
-
+scripts[] = 'js/svendborg_top_menu.js'
 
 ; Disable BootstrapCDN so the compiled LESS source files can be used.
 settings[bootstrap_cdn] = ''

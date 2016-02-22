@@ -13,6 +13,21 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
     '#collapsible' => FALSE,
     '#collapsed' => FALSE,
   );
+  $form['svendborg_subsitetheme_setting']['menu_location'] = array(
+    '#type'          => 'fieldset',
+    '#title' => 'Menu position',
+    '#weight' => -3,
+    '#description' => t('Vælg en menu placering'),
+  );
+  $form['svendborg_subsitetheme_setting']['menu_location']['menu_location_setting'] = array(
+    '#type' => 'select',
+    '#title' => t('Selected'),
+    '#options' => array(
+         0 => t('Left'),
+         1 => t('Top'),
+       ),
+    '#default_value' => theme_get_setting('menu_location_setting', 'svendborg_subsitetheme'),
+  );
   $form['svendborg_subsitetheme_setting']['footer_blocks'] = array(
     '#type'          => 'fieldset',
     '#title' => 'Footer blokke',
@@ -41,6 +56,12 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
     '#title' => t('Show <strong>Activites block</strong> in a frontpage'),
     '#default_value' => theme_get_setting('activites','svendborg_subsitetheme'),
     '#description'   => t("Check this option to show Activites block in page."),
+  );
+ $form['svendborg_subsitetheme_setting']['frontpage_layout']['facebookfeed'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Show <strong>Facebook Page Feed block</strong> on the frontpage'),
+    '#default_value' => theme_get_setting('facebookfeed','svendborg_subsitetheme'),
+    '#description'   => t("Input the Facebook URL to show a Facebook Page Feed on the frontpage."),
   );
  $form['svendborg_subsitetheme_setting']['frontpage_layout']['newstext'] = array(
     '#type' => 'textfield',
