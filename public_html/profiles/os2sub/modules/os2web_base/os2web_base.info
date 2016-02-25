@@ -38,6 +38,7 @@ dependencies[] = os2web_news_page_archive
 dependencies[] = os2web_paragraph
 dependencies[] = os2web_spotbox
 dependencies[] = os2web_taxonomies
+dependencies[] = os2web_info_box
 dependencies[] = page_manager
 dependencies[] = panels
 dependencies[] = photoswipe
