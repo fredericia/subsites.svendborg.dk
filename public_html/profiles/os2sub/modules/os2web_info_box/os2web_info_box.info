@@ -1,7 +1,7 @@
 name = OS2web faktaboks
 description = OS2web faktaboks til indholdsside
 core = 7.x
-package = Features
+package = OS2Web - Backend
 version = 7.x-1.0
 project = os2web_info_box
 dependencies[] = ctools
