@@ -74,9 +74,14 @@
             <?php print _svendborg_subsitetheme_block_render('views', 'svendborg_news_view-block_9'); ?>
         </div>
     <?php endif?>  
-    <?php if ($content_attributes): ?><div<?php print $content_attributes; ?>><?php endif; ?>
-    <?php print $content; ?>
-    <?php if ($content_attributes): ?></div><?php endif; ?>
+    <?php if ($content): ?>
+     <div class="sidebar-second-content">
+      <?php if ($content_attributes): ?>
+        <div<?php print $content_attributes; ?>><?php endif; ?>
+      <?php print $content; ?>
+      <?php if ($content_attributes): ?></div><?php endif; ?>
+     </div>
+    <?php endif; ?>
   </aside>
 <?php endif; ?>
 
