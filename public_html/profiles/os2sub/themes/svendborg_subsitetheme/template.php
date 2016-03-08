@@ -538,7 +538,9 @@ function svendborg_subsitetheme_menu_link(array $variables) {
       // when a submenu link is clicked.
       //$element['#localized_options']['attributes']['data-target'] = '#';
       $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
-      //$element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
+      if (!$menu_location) {
+        $element['#localized_options']['attributes']['data-toggle'] = 'dropdown';
+      }
     }
 
   }
