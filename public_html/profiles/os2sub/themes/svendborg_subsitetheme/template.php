@@ -1118,7 +1118,7 @@ function svendborg_subsitetheme_less_variables_alter(&$less_variables, $system_n
       'brand-lightblue'  => '#2880b9',
       'brand-lightgreen' => '#85c500',
       'gradient-light'   => '#0086ca',
-      'gradient-darkyellow' => '#d3d100',
+      'gradient-lightyellow' => '#d3d100',
       'introtekst'       => '#2880b9',
     );
   }
