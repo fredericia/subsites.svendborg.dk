@@ -9537,10 +9537,6 @@ fieldset[disabled] .btn-orange.active {
   padding: 0;
   margin: 0;
 }
-.contact-block {
-  float: right;
-  width: 100%;
-}
 .contact-block .panel-body {
   /* #gradient > .vertical(#0086ca, #0079b7, 0%, 50%);*/
   border-radius: 3px;
