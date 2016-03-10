@@ -34,12 +34,17 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
   $form['svendborg_subsitetheme_setting']['menu_location']['menu_width'] = array(
     '#type' => 'checkbox',
     '#title' => t('Wide <strong>left</strong> menu'),
-    '#default_value' => theme_get_setting('menu_width','svendborg_subsitetheme'),
+    '#default_value' => theme_get_setting('menu_width'),
     '#description'   => t("Only valid with left menu position."),
   );
-  
-  
-  
+
+  if (theme_get_setting('menu_width') == TRUE) {
+    $form['general']['grid']['grid_region_columns']['bootstrap_region_grid-sidebar_first']['#value'] = 3;
+  }
+  else {
+    $form['general']['grid']['grid_region_columns']['bootstrap_region_grid-sidebar_first']['#value'] = 2;
+  }
+
   $form['svendborg_subsitetheme_setting']['footer_blocks'] = array(
     '#type'          => 'fieldset',
     '#title' => 'Footer blokke',
@@ -66,14 +71,6 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
     '#default_value' => theme_get_setting('hide_footer_branding','svendborg_subsitetheme'),
     '#description'   => t("Check this option to hide the branding in footer."),
   );
-
-
-
-
-
-
-
-
 
  $form['svendborg_subsitetheme_setting']['frontpage_layout'] = array(
     '#type'          => 'fieldset',

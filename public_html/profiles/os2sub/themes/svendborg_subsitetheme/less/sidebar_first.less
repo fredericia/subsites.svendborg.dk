@@ -121,15 +121,11 @@
 .region-sidebar-first {
 	#block-menu-menu-menu-indholdsmenu {
 		ul.menu {
-			li:not(.active-trail) {
-				display: block;
-			}
+			li:not(.active-trail) { display: block; }
 		}
 	}
 	ul.menu {
-		li:not(.active-trail) {
-			display: none;
-		}
+		li:not(.active-trail) { display: none;}
 		ul.dropdown-menu {
 			position: relative;
 			z-index: 0;
@@ -243,6 +239,13 @@
 			}
 		}
 	}
+	&.col-sm-3 {
+  	ul.menu li a,
+		ul.menu ul.dropdown-menu li a {
+	  font-size: 14px;    		
+		}
+	}
+
 }
 
 .node-type-os2web-base-contentpage {
