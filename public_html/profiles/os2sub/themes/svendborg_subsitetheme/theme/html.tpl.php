@@ -57,7 +57,7 @@
   <![endif]-->
   <?php print $scripts; ?>
 </head>
-<body class="<?php print $classes; ?>" <?php print $attributes;?>>
+<body class="<?php print $classes; ?> <?php if (theme_get_setting('menu_width', 'svendborg_subsitetheme')):?>wide-menu<?php endif;?>" <?php print $attributes;?>>
   <div id="skip-link">
     <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
   </div>

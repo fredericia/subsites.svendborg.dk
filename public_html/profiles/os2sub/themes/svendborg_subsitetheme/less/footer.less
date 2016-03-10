@@ -113,7 +113,6 @@ h2.menu-footer {
 }
 #footer-first-block {
   background-color: @brand-deepdarkblue;
-  /*background-image: url('../images/footer_blue_bg.png');*/
   /* W3C */
   background:
   url('../images/footer_shape.png') no-repeat bottom right,
@@ -151,6 +150,35 @@ h2.menu-footer {
   padding-bottom: 45px;
   padding-top: 45px;
   min-height: 160px;
+  
+  &.no-branding {
+    background:
+    url('../images/footer_shape_nobranding.png') no-repeat bottom right,
+    linear-gradient(top, @brand-lightblue 0%,@brand-deepdarkblue 100%);
+  
+    /* Safari 4-5, Chrome 1-9 */
+    background:
+    url('../images/footer_shape_nobranding.png') no-repeat bottom right,
+    -webkit-gradient(linear, 0% 0%, 0% 100%, from(@brand-lightblue), to(@brand-deepdarkblue));
+  
+    /* Safari 5.1, Chrome 10+ */
+    background:
+    url('../images/footer_shape_nobranding.png') no-repeat bottom right,
+    -webkit-linear-gradient(top, @brand-lightblue, @brand-deepdarkblue);
+  
+    /* Firefox 3.6+ */
+    background:
+    url('../images/footer_shape_nobranding.png') no-repeat bottom right,
+    -moz-linear-gradient(top, @brand-lightblue, @brand-deepdarkblue);
+  
+    /* IE7 - IE9 */
+    filter: e(%("progid:DXImageTransform.Microsoft.gradient(startColorstr='%d', endColorstr='%d', GradientType=0)",argb(@brand-lightblue),argb(@brand-deepdarkblue)));
+  
+    /* IE 10 */
+    background:
+    url('../images/footer_shape_nobranding.png') no-repeat bottom right,
+    -ms-linear-gradient(top, @brand-lightblue, @brand-deepdarkblue); 
+  }
   &:before {
     left: 50%;
     top: 0%;

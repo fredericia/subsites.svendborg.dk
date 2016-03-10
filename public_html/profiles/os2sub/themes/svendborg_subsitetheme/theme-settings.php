@@ -7,15 +7,17 @@
  */
 
 function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_state) {
- $form['svendborg_subsitetheme_setting'] = array(
-    '#type' => 'fieldset',
-    '#title' => t('Svendborg subsitetheme Settings'),
-    '#collapsible' => FALSE,
-    '#collapsed' => FALSE,
-  );
+  
+   $form['subsitetheme_settings'] = array(
+    '#type' => 'vertical_tabs',
+    '#prefix' => '<h2><small>' . t('Site Settings') . '</small></h2>',
+    '#weight' => -11,
+  ); 
+  
   $form['svendborg_subsitetheme_setting']['menu_location'] = array(
     '#type'          => 'fieldset',
-    '#title' => 'Menu position',
+    '#title' => 'Menu',
+    '#group' => 'subsitetheme_settings',
     '#weight' => -3,
     '#description' => t('Vælg en menu placering'),
   );
@@ -28,14 +30,55 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
        ),
     '#default_value' => theme_get_setting('menu_location_setting', 'svendborg_subsitetheme'),
   );
+  
+  $form['svendborg_subsitetheme_setting']['menu_location']['menu_width'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Wide <strong>left</strong> menu'),
+    '#default_value' => theme_get_setting('menu_width','svendborg_subsitetheme'),
+    '#description'   => t("Only valid with left menu position."),
+  );
+  
+  
+  
   $form['svendborg_subsitetheme_setting']['footer_blocks'] = array(
     '#type'          => 'fieldset',
     '#title' => 'Footer blokke',
+    '#group' => 'subsitetheme_settings',
     '#description' => l('Tryk her for at ændre teksten i de 2 footer blokke.', 'subsite_settings'),
   );
+
+ $form['svendborg_subsitetheme_setting']['branding'] = array(
+    '#type'          => 'fieldset',
+    '#title'         => t('Branding'),
+    '#group' => 'subsitetheme_settings',
+    '#weight' => -2,
+    '#description'   => t("Select a layout for the frontpage."),
+  );
+  $form['svendborg_subsitetheme_setting']['branding']['hide_footer_logo'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Hide <strong>footer logo</strong>'),
+    '#default_value' => theme_get_setting('hide_footer_logo','svendborg_subsitetheme'),
+    '#description'   => t("Check this option to hide the logo in footer."),
+  );
+  $form['svendborg_subsitetheme_setting']['branding']['hide_footer_branding'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Hide <strong>footer branding</strong>'),
+    '#default_value' => theme_get_setting('hide_footer_branding','svendborg_subsitetheme'),
+    '#description'   => t("Check this option to hide the branding in footer."),
+  );
+
+
+
+
+
+
+
+
+
  $form['svendborg_subsitetheme_setting']['frontpage_layout'] = array(
     '#type'          => 'fieldset',
     '#title'         => t('Frontpage Layout'),
+    '#group' => 'subsitetheme_settings',
     '#weight' => -2,
     '#description'   => t("Select a layout for the frontpage."),
   );
@@ -117,6 +160,7 @@ function svendborg_subsitetheme_form_system_theme_settings_alter(&$form, &$form_
  $form['svendborg_subsitetheme_setting']['slider_settings'] = array(
     '#type'          => 'fieldset',
     '#title'         => t('Slider banner settings'),
+    '#group' => 'subsitetheme_settings',
     '#weight' => -1,
     '#description'   => t("Specify the settings for the front page slider"),
  );
@@ -178,6 +222,7 @@ $form['svendborg_subsitetheme_setting']['slider_settings']['calendar_page_slider
 $form['svendborg_subsitetheme_setting']['socialicon'] = array(
     '#type' => 'fieldset',
     '#title' => t('Social Icon'),
+    '#group' => 'subsitetheme_settings',
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
   );
@@ -209,6 +254,7 @@ $form['svendborg_subsitetheme_setting']['socialicon'] = array(
  $form['svendborg_subsitetheme_setting']['footer-contact'] = array(
     '#type' => 'fieldset',
     '#title' => t('Footer contact info'),
+    '#group' => 'subsitetheme_settings',
     '#collapsible' => TRUE,
     '#collapsed' => FALSE,
   );
