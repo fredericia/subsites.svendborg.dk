@@ -33,17 +33,16 @@ function os2web_paragraph_field_default_field_instances() {
       'better_formats' => array(
         'allowed_formats' => array(
           'full_html' => 'full_html',
-          'plain_text' => 'plain_text',
         ),
-        'allowed_formats_toggle' => 0,
-        'default_order_toggle' => 0,
+        'allowed_formats_toggle' => 1,
+        'default_order_toggle' => 1,
         'default_order_wrapper' => array(
           'formats' => array(
             'full_html' => array(
-              'weight' => 1,
+              'weight' => -50,
             ),
             'plain_text' => array(
-              'weight' => -8,
+              'weight' => -49,
             ),
           ),
         ),
