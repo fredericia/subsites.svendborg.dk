@@ -67,34 +67,25 @@ function os2sub_uses_and_tools_strongarm() {
     'popup_enabled' => 1,
     'popup_clicking_confirmation' => 1,
     'popup_position' => 0,
-    'popup_agree_button_message' => 'OK, I agree',
-    'popup_disagree_button_message' => 'No, give me more info',
     'popup_info' => array(
-      'value' => '<h2 class="h2">Vi bruger cookies.</h2>
-
-<p>Nogle sikrer at sitet virker, andre samler statistik ind til forbedring af din brugeroplevelse.</p>
+      'value' => '<p><strong>Vi bruger cookies.</strong><br />
+Nogle sikrer at hjemmesiden&nbsp;virker, andre samler statistik ind til forbedring af din brugeroplevelse.<br />
+Ved at klikke Ja accpterer du brugen af cookies på denne hjemmeside.</p>
 ',
       'format' => 'full_html',
     ),
     'popup_agreed_enabled' => 0,
     'popup_hide_agreed' => 0,
-    'popup_find_more_button_message' => 'Mere information',
-    'popup_hide_button_message' => 'Skjul',
     'popup_agreed' => array(
-      'value' => '<p>Tak for det</p>
-',
-      'format' => 'full_html',
+      'value' => 'Tak for din accept.',
+      'format' => 'plain_text',
     ),
-    'popup_link' => 'http://www.svendborg.dk/node/639',
-    'popup_link_new_window' => 1,
+    'popup_link' => 'node/13',
     'popup_height' => '',
     'popup_width' => '100%',
     'popup_delay' => '1',
     'popup_bg_hex' => '0779BF',
     'popup_text_hex' => 'ffffff',
-    'domains_option' => '1',
-    'domains_list' => '',
-    'exclude_paths' => '',
   );
   $export['eu_cookie_compliance_da'] = $strongarm;
 
