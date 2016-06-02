@@ -55,7 +55,6 @@ dependencies[] = os2web_base
 dependencies[] = os2sub_banner
 dependencies[] = os2sub_aktivitetskalender
 dependencies[] = os2sub_frontpage
-dependencies[] = os2web_kle_auto_import
 dependencies[] = a_aa_indekx
 dependencies[] = svendborg_blocks
 dependencies[] = svendborg_calendar
