@@ -74,6 +74,8 @@ Ved at klikke Ja accpterer du brugen af cookies på denne hjemmeside.</p>
 ',
       'format' => 'full_html',
     ),
+    'popup_agree_button_message' => t('Luk'),
+    'popup_disagree_button_message' => t('Læs mere om cookies'),
     'popup_agreed_enabled' => 0,
     'popup_hide_agreed' => 0,
     'popup_agreed' => array(
