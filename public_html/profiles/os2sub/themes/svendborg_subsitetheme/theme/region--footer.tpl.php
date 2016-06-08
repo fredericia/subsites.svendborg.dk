@@ -87,20 +87,24 @@ print "<h2 class='menu-footer " . $menu_item['link']['link_title']. "'>
         <div class="row">
         <?php if (theme_get_setting('facebook_url', 'svendborg_subsitetheme')
                 ||theme_get_setting('twitter_url', 'svendborg_subsitetheme') 
-                || theme_get_setting('linkedin_url', 'svendborg_subsitetheme')
+                ||theme_get_setting('linkedin_url', 'svendborg_subsitetheme')
+                ||theme_get_setting('instagram_url', 'svendborg_subsitetheme')
                 ||theme_get_setting('youtube_url', 'svendborg_subsitetheme')): ?>
             <div class="col-xs-12 social-icons">
            <?php if (theme_get_setting('facebook_url', 'svendborg_subsitetheme')):?>
-              <a href="<?php print theme_get_setting('facebook_url', 'svendborg_subsitetheme') ?>" title="Svendborg Kommune Facebook" class="footer_fb" target="_blank">facebook</a>
+              <a href="<?php print theme_get_setting('facebook_url', 'svendborg_subsitetheme') ?>" title="Facebook" class="footer_fb" target="_blank">facebook</a>
             <?php endif;?> 
             <?php if (theme_get_setting('twitter_url', 'svendborg_subsitetheme')):?>
-              <a href="<?php print theme_get_setting('twitter_url', 'svendborg_subsitetheme') ?>" title="Svendborg Kommune Twitter" class="footer_twitter" target="_blank">facebook</a>
+              <a href="<?php print theme_get_setting('twitter_url', 'svendborg_subsitetheme') ?>" title="Twitter" class="footer_twitter" target="_blank">facebook</a>
             <?php endif;?> 
             <?php if (theme_get_setting('linkedin_url', 'svendborg_subsitetheme')):?>    
-              <a href="<?php print theme_get_setting('linkedin_url', 'svendborg_subsitetheme') ?>" title="Svendborg Kommune Linkedin" class="footer_linkedin" target="_blank">linkedin</a>
+              <a href="<?php print theme_get_setting('linkedin_url', 'svendborg_subsitetheme') ?>" title="Linkedin" class="footer_linkedin" target="_blank">linkedin</a>
+              <?php endif;?>  
+            <?php if (theme_get_setting('instagram_url', 'svendborg_subsitetheme')):?>    
+              <a href="<?php print theme_get_setting('instagram_url', 'svendborg_subsitetheme') ?>" title="Instagram" class="footer_instagram" target="_blank">Instagram</a>
               <?php endif;?>  
            <?php if (theme_get_setting('youtube_url', 'svendborg_subsitetheme')):?>    
-              <a href="<?php print theme_get_setting('youtube_url', 'svendborg_subsitetheme') ?>" title="Svendborg Kommune Youtube" class="footer_flickr" target="_blank">youtube</a>
+              <a href="<?php print theme_get_setting('youtube_url', 'svendborg_subsitetheme') ?>" title="Youtube" class="footer_flickr" target="_blank">youtube</a>
            <?php endif;?> 
             </div>
        <?php endif?>     

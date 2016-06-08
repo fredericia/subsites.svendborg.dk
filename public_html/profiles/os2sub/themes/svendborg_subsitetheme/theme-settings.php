@@ -242,6 +242,12 @@ $form['svendborg_subsitetheme_setting']['socialicon'] = array(
     '#default_value' => theme_get_setting('linkedin_url', 'svendborg_subsitetheme'),
     '#description'   => t("Enter your Linkedin URL. Leave blank to hide."),
   );
+  $form['svendborg_subsitetheme_setting']['socialicon']['instagram_url'] = array(
+    '#type' => 'textfield',
+    '#title' => t('Instagram Address'),
+    '#default_value' => theme_get_setting('instagram_url', 'svendborg_subsitetheme'),
+    '#description'   => t("Enter your Instagram URL. Leave blank to hide."),
+  );
   $form['svendborg_subsitetheme_setting']['socialicon']['youtube_url'] = array(
     '#type' => 'textfield',
     '#title' => t('Youtube Address'),
