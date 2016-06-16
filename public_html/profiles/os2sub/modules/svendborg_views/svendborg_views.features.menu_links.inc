@@ -74,17 +74,17 @@ function svendborg_views_menu_default_menu_links() {
     'customized' => 1,
   );
   // Exported menu link: main-menu_kalender:calendar/upcoming
-  $menu_links['main-menu_kalender:calendar/upcoming'] = array(
+  $menu_links['main-menu_kalender:kalender/kommende'] = array(
     'menu_name' => 'main-menu',
-    'link_path' => 'calendar/upcoming',
-    'router_path' => 'calendar/upcoming',
+    'link_path' => 'kalender/kommende',
+    'router_path' => 'kalender/kommende',
     'link_title' => 'Kalender',
     'options' => array(
       'attributes' => array(
         'title' => '',
       ),
       'alter' => TRUE,
-      'identifier' => 'main-menu_kalender:calendar/upcoming',
+      'identifier' => 'main-menu_kalender:kalender/kommende',
     ),
     'module' => 'system',
     'hidden' => 0,
