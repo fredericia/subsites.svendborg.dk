@@ -9361,9 +9361,9 @@ msgstr ""
 msgid "Autopager jquery plugin in not loaded."
 msgstr ""
 
-#: /da/admin/structure/views/view/aktiviteter/edit/page_4?destination=calendar/all
+#: /da/admin/structure/views/view/aktiviteter/edit/page_4?destination=kalender/alle
 msgid "calendar all events"
-msgstr ""
+msgstr "Vis alle"
 
 #: profiles/os2sub/modules/contrib/i18n/i18n_block/i18n_block.js
 msgid "Not translatable"
