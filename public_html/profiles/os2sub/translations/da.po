@@ -9053,7 +9053,7 @@ msgid ""
 "</div>"
 msgstr ""
 
-#: /da/admin/structure/views/view/aktiviteter/edit/page_4?destination=calendar/upcoming
+#: /da/admin/structure/views/view/aktiviteter/edit/page_4?destination=kalender/kommende
 msgid ""
 "<div class=\"col-sm-3 col-xs-12 event-date\">\n"
 "      [event_calendar_date] >\n"
@@ -9066,7 +9066,7 @@ msgid ""
 "</div>"
 msgstr ""
 
-#: /da/admin/structure/views/view/aktiviteter/edit/page_4?destination=calendar/upcoming
+#: /da/admin/structure/views/view/aktiviteter/edit/page_4?destination=kalender/kommende
 msgid ""
 "<div class=\"col-sm-3 col-xs-12 event-date\">\n"
 "     <span class=\"day\"> [event_calendar_date] .</span>\n"
@@ -9079,7 +9079,7 @@ msgid ""
 "</div>"
 msgstr ""
 
-#: /da/admin/structure/views/view/aktiviteter/edit/page_4?destination=calendar/upcoming
+#: /da/admin/structure/views/view/aktiviteter/edit/page_4?destination=kalender/kommende
 msgid ""
 "<div class=\"col-sm-3 col-xs-12 event-date\">\n"
 "     <span class=\"day\"> [event_calendar_date] </span>\n"
@@ -9263,7 +9263,7 @@ msgstr ""
 msgid "Hentet fra kommunens sagssystem"
 msgstr ""
 
-#: /da/admin/structure/views/view/aktiviteter/edit/page_4?destination=calendar/upcoming
+#: /da/admin/structure/views/view/aktiviteter/edit/page_4?destination=kalender/kommende
 msgid ""
 "<div class=\"col-sm-3 col-xs-12  \">\n"
 "<div class=\"event-date\">\n"
@@ -9309,31 +9309,31 @@ msgid ""
 "</div>"
 msgstr ""
 
-#: /da/calendar/upcoming
+#: /da/kalender/kommende
 msgid "Vis mere"
 msgstr ""
 
-#: /da/calendar/upcoming
+#: /da/kalender/kommende
 msgid "Send en mail"
 msgstr ""
 
-#: /da/admin/structure/views/view/aktiviteter/edit/calendar_page?destination=calendar/upcoming
+#: /da/admin/structure/views/view/aktiviteter/edit/calendar_page?destination=kalender/kommende
 msgid "calendar upcoming events"
 msgstr ""
 
-#: /da/calendar/upcoming
+#: /da/kalender/kommende
 msgid "Vis commende"
 msgstr "Vis kommende"
 
-#: /da/calendar/upcoming
+#: /da/kalender/kommende
 msgid "Vis alle"
 msgstr ""
 
-#: /da/calendar/upcoming
+#: /da/kalender/kommende
 msgid "Vis Commende"
 msgstr "Vis kommende"
 
-#: /da/calendar/upcoming
+#: /da/kalender/kommende
 msgid "Vis Alle"
 msgstr ""
 
@@ -29246,15 +29246,15 @@ msgstr "Kontakt os"
 msgid "See all persons"
 msgstr "Se alle personer"
 
-#: /da/calendar/upcoming
+#: /da/kalender/kommende
 msgid "Address"
 msgstr "Adresse"
 
-#: /da/calendar/upcoming
+#: /da/kalender/kommende
 msgid "Book your place"
 msgstr "Book din plads her"
 
-#: /da/calendar/upcoming
+#: /da/kalender/kommende
 msgid "Future events"
 msgstr "Vis kommende"
 

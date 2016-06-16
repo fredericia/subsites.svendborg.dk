@@ -417,7 +417,7 @@ function os2sub_aktivitetskalender_views_default_views() {
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['ui_name'] = 'Open link';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="/calendar/upcoming#event[nid]">Åben</a>
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '<a href="/kalender/kommende#event[nid]">Åben</a>
 ';
   $handler->display->display_options['fields']['nothing']['element_type'] = 'span';
   $handler->display->display_options['fields']['nothing']['element_class'] = 'open-link';
@@ -480,7 +480,7 @@ function os2sub_aktivitetskalender_views_default_views() {
     t('Block'),
     t('Upcoming'),
     t('Upcoming events block'),
-    t('<a href="/calendar/upcoming#event[nid]">Åben</a>
+    t('<a href="/kalender/kommende#event[nid]">Åben</a>
 '),
   );
   $export['aktiviteter'] = $view;
