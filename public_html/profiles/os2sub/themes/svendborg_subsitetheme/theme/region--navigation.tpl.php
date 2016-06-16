@@ -108,7 +108,7 @@
     <?php endif;?>
   <?php endif;?>
   
-  <?php if(drupal_get_path_alias($_GET['q']) == 'calendar/upcoming' || drupal_get_path_alias($_GET['q']) == 'calendar/all'):?>
+  <?php if(drupal_get_path_alias($_GET['q']) == 'kalender/kommende' || drupal_get_path_alias($_GET['q']) == 'kalender/alle'):?>
     <div class='front-main-container-wrapper'>
     <?php if (theme_get_setting('slider_active','svendborg_subsitetheme')) :?>
         <section class="outer">
@@ -154,7 +154,7 @@
                     $link_class = "btn gradient-deepdarkgreen";
 		    $html .= '</div>';
 		    $html .= '<div class="link"> ';
-                    if(drupal_get_path_alias($_GET['q'])=='calendar/upcoming'){
+                    if(drupal_get_path_alias($_GET['q'])=='kalender/kommende'){
                         $classes_upcoming_link = $link_class;
                         $classes_all_link = $link_class . ' not-here';
                     }
@@ -163,7 +163,7 @@
                         $classes_upcoming_link = $link_class .' not-here';
                     }
                     
-                      $html .='<a href="'. url('calendar/upcoming').'" class="'. $classes_upcoming_link .'">' .t('Future events');
+                      $html .='<a href="'. url('kalender/kommende').'" class="'. $classes_upcoming_link .'">' .t('Future events');
                   
                     $html .= '</div></a>';
                     

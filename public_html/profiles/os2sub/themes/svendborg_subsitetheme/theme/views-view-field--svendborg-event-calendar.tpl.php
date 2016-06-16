@@ -84,7 +84,7 @@ global $language ;
                            $form['slots']['#suffix']= '</div>';
    
                            $form['actions']['submit']['#attributes']['class'][] = "gradient-lightgreen";
-                           $form['#action'] .= '?destination=calendar/upcoming#event' . $node->nid;
+                           $form['#action'] .= '?destination=kalender/kommende#event' . $node->nid;
                            unset($form['actions']['return']);
                            print drupal_render($form);
                         }
