@@ -167,7 +167,7 @@
                   
                     $html .= '</div></a>';
                     
-                    $html .= '<div class="link"> <a href="'. url('calendar/all').'" class="' . $classes_all_link .'">' .t('Show all') .' ( ' .$views_result_cnt .' ) ';
+                    $html .= '<div class="link"> <a href="'. url('kalender/alle').'" class="' . $classes_all_link .'">' .t('Show all') .' ( ' .$views_result_cnt .' ) ';
                     
 		    $html .= '</div></a>';
 		$html .= '</div>';//class="col-xs-8"		
