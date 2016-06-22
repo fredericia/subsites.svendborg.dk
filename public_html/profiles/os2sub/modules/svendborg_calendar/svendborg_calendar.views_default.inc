@@ -271,7 +271,7 @@ function svendborg_calendar_views_default_views() {
   );
   $handler->display->display_options['path'] = 'kalender/kommende';
   $handler->display->display_options['menu']['type'] = 'normal';
-  $handler->display->display_options['menu']['title'] = 'Kalendar';
+  $handler->display->display_options['menu']['title'] = 'Kalender';
   $handler->display->display_options['menu']['weight'] = '0';
   $handler->display->display_options['menu']['name'] = 'main-menu';
   $handler->display->display_options['menu']['context'] = 0;
