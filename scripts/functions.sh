@@ -11,9 +11,9 @@ validate_sitename() {
     echo "ERROR: Domain not valid"
     exit 10
   fi
-  # hardcoded what the domain must end in svendborg.bellcom.dk
-  if [[ ! "$SITENAME" =~ svendborg.bellcom.dk$ ]]; then
-    echo "ERROR: Domain not valid (doesn't end with svendborg.bellcom.dk)"
+  # hardcoded what the domain must end in fredericia.bellcom.dk
+  if [[ ! "$SITENAME" =~ fredericia.bellcom.dk$ ]]; then
+    echo "ERROR: Domain not valid (doesn't end with fredericia.bellcom.dk)"
     exit 10
   fi
 }
@@ -193,8 +193,8 @@ create_dirs() {
 
 create_vhost() {
   debug "Adding and enabling $SITENAME vhost"
-  cp "$VHOSTTEMPLATE" "/etc/apache2/sites-available/$SITENAME"
-  perl -p -i -e "s/\[domain\]/$SITENAME/g" "/etc/apache2/sites-available/$SITENAME"
+  cp "$VHOSTTEMPLATE" "/etc/apache2/sites-available/${SITENAME}.conf"
+  perl -p -i -e "s/\[domain\]/$SITENAME/g" "/etc/apache2/sites-available/${SITENAME}.conf"
   a2ensite "$SITENAME" >/dev/null
   debug "Reloading Apache2"
   /etc/init.d/apache2 reload >/dev/null
@@ -204,21 +204,21 @@ install_drupal() {
   debug "Installing drupal ($SITENAME)"
   # Do a drush site install
   /usr/bin/drush -q -y -r $MULTISITE site-install $PROFILE --locale=da --db-url="mysql://$DBUSER:$DBPASS@localhost/$DBNAME" --sites-subdir="$SITENAME" --account-mail="$EMAIL" --site-mail="$EMAIL" --site-name="$SITENAME" --account-pass="$ADMINPASS"
-
+  debug "drush install"
   # Set tmp
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset file_temporary_path "$TMPDIR"
-
+  #/usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset file_temporary_path "$TMPDIR"
+  debug "drush vset variables"
   # Do some drupal setup here. Could also be done in the install profile.
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset user_register 0
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset error_level 1
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset preprocess_css 1
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset preprocess_js 1
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset cache 1
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset page_cache_maximum_age 10800
-  # translation updates - takes a long time
-  #/usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" l10n-update-refresh
-  #/usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" l10n-update
-  /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" dis update
+ # /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset user_register 0
+ # /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset error_level 1
+ # /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset preprocess_css 1
+ # /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset preprocess_js 1
+ # /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset cache 1
+ # /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" vset page_cache_maximum_age 10800
+ # # translation updates - takes a long time
+ # #/usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" l10n-update-refresh
+ # #/usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" l10n-update
+ # /usr/bin/drush -q -y -r "$MULTISITE" --uri="$SITENAME" dis update
 }
 
 set_permissions() {
@@ -260,7 +260,7 @@ add_subsiteadmin() {
 delete_vhost() {
   debug "Disabling and deleting $SITENAME vhost"
   a2dissite "$SITENAME" >/dev/null
-  rm -f "/etc/apache2/sites-available/$SITENAME"
+  rm -f "/etc/apache2/sites-available/${SITENAME}.conf"
   debug "Reloading Apache2"
   /etc/init.d/apache2 reload >/dev/null
 }
