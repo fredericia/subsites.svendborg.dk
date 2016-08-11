@@ -261,7 +261,7 @@ function fk_subsitetheme_preprocess_page(&$variables) {
 
   }
   $view = views_get_page_view();
-  if (!empty($view) && $view->name == 'fk_news_view' && $view->current_display == 'page_3') {
+  if (!empty($view) && $view->name == 'svendborg_news_view' && $view->current_display == 'page_3') {
     if (!$sidebar_second_hidden && empty($variables['page']['sidebar_second'])) {
       $variables['page']['sidebar_second'] = array(
         '#theme_wrappers' => array('region'),
@@ -736,24 +736,20 @@ function _fk_subsitetheme_get_large_carousel() {
   $large_carousel = '';
   // Branding news view.
   $view = views_get_view('svendborg_news_view');
-
-  if ($view != null) {
-
-    $view->set_arguments(array('branding'));
-    if (!drupal_is_front_page()) {
-      $filter = $view->get_item('front', 'filter', 'promote');
-      $filter['value'] = 1;
-      $view->set_item('front', 'filter', 'promote', $filter);
-    }
-    else {
-      $view->set_display('front');
-    }
-    $view->set_items_per_page(3);
-    $view->pre_execute();
-    $view->execute();
-
-    $results = $view->result;
+  $view->set_arguments(array('branding'));
+  if (!drupal_is_front_page()) {
+    $filter = $view->get_item('front', 'filter', 'promote');
+    $filter['value'] = 1;
+    $view->set_item('front', 'filter', 'promote', $filter);
   }
+  else {
+    $view->set_display('front');
+  }
+  $view->set_items_per_page(3);
+  $view->pre_execute();
+  $view->execute();
+
+  $results = $view->result;
 
   $large_carousel .= '<ol class="carousel-indicators col-md-12 col-sm-12 col-xs-12">';
   foreach ($results as $key => $item) {
@@ -830,7 +826,7 @@ function _fk_subsitetheme_get_large_carousel() {
  */
 function _fk_subsitetheme_get_front_small_carousel() {
   $front_small_carousel = '';
-  $view = views_get_view('fk_news_view');
+  $view = views_get_view('svendborg_news_view');
   $view->set_arguments(array('all'));
   $view->set_display('block_3');
   $view->set_items_per_page(9);
@@ -944,7 +940,7 @@ function _fk_subsitetheme_get_term_news_filer_and_quicktabs() {
  */
 function _fk_subsitetheme_get_term_news_content() {
   $content = '';
-  $view = views_get_view('fk_news_view');
+  $view = views_get_view('svendborg_news_view');
   $view->set_display('block');
   $view->set_arguments(array('nyhed', 'all'));
   $view->pre_execute();
@@ -1031,8 +1027,8 @@ function fk_subsitetheme_preprocess_views_view_unformatted(&$var) {
   // @see: _YOUR_THEME_views_columns();
   // var_dump('here');
   _fk_subsitetheme_views_columns($var, array(
-    'fk_news_view|fk_latest_news_two_col'   => 2,
-    'fk_news_view|fk_latest_news_three_col' => 3,
+    'svendborg_news_view|fk_latest_news_two_col'   => 2,
+    'svendborg_news_view|fk_latest_news_three_col' => 3,
   ));
 
 
