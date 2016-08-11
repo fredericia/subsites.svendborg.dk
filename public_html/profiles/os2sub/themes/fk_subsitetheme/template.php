@@ -735,92 +735,89 @@ function fk_subsitetheme_file_formatter_table($variables) {
 function _fk_subsitetheme_get_large_carousel() {
   $large_carousel = '';
   // Branding news view.
-  $view = views_get_view('fk_news_view');
+  $view = views_get_view('svendborg_news_view');
+  $view->set_arguments(array('branding'));
+  if (!drupal_is_front_page()) {
+    $filter = $view->get_item('front', 'filter', 'promote');
+    $filter['value'] = 1;
+    $view->set_item('front', 'filter', 'promote', $filter);
+  }
+  else {
+    $view->set_display('front');
+  }
+  $view->set_items_per_page(3);
+  $view->pre_execute();
+  $view->execute();
 
-  if ($view) {
-    $view->set_arguments(array('branding'));
-    if (!drupal_is_front_page()) {
-      $filter = $view->get_item('front', 'filter', 'promote');
-      $filter['value'] = 1;
-      $view->set_item('front', 'filter', 'promote', $filter);
+  $results = $view->result;
+
+  $large_carousel .= '<ol class="carousel-indicators col-md-12 col-sm-12 col-xs-12">';
+  foreach ($results as $key => $item) {
+    $large_carousel .= '<li data-target="';
+    if (drupal_is_front_page()) {
+      $large_carousel .= '#front-news-branding" data-slide-to="' . $key . '"';
     }
     else {
-      $view->set_display('front');
+      $large_carousel .= '#nyheder-carousel-large" data-slide-to="' . $key . '"';
     }
-    $view->set_items_per_page(3);
-    $view->pre_execute();
-    $view->execute();
-
-    $results = $view->result;
-
-    $large_carousel .= '<ol class="carousel-indicators col-md-12 col-sm-12 col-xs-12">';
-    foreach ($results as $key => $item) {
-      $large_carousel .= '<li data-target="';
-      if (drupal_is_front_page()) {
-        $large_carousel .= '#front-news-branding" data-slide-to="' . $key . '"';
-      }
-      else {
-        $large_carousel .= '#nyheder-carousel-large" data-slide-to="' . $key . '"';
-      }
-      if ($key == 0) {
-        $large_carousel .= 'class="active"></li>';
-      }
-      else {
-        $large_carousel .= '></li>';
-      }
+    if ($key == 0) {
+      $large_carousel .= 'class="active"></li>';
     }
-    $large_carousel .= '</ol>';
-    $large_carousel .= '<div class="carousel-inner" id="front-carousel-large" >';
-
-    foreach ($results as $key => $item) {
-      if ($key == 0) {
-        $large_carousel .= '<div class="item active">';
-      }
-      else {
-        $large_carousel .= '<div class="item">';
-      }
-      $node = node_load($item->nid);
-      $img = field_get_items('node', $node, 'field_os2web_base_field_lead_img');
-      $image = $img[0];
-      image_get_info($image["filename"]);
-
-      $style = 'fk_content_image';
-      $public_filename = image_style_url($style, $image["uri"]);
-      $path = drupal_get_path_alias('node/' . $node->nid);
-      $large_carousel .= '<a href="' . $path . '" title="' . $node->title . '">';
-      if (drupal_is_front_page()) {
-        $classes = 'col-md-7 col-sm-8 col-xs-12';
-      }
-      else {
-        $classes = 'col-md-8 col-sm-12 col-xs-12';
-      }
-      $large_carousel .= '<div class="row-no-padding ' . $classes;
-      if (drupal_is_front_page()) {
-        $large_carousel .= ' front-branding-img';
-      }
-      $large_carousel .= '">';
-      $large_carousel .= '<img title = "' . $image["title"] . '" src="' . $public_filename . '"/>';
-      $large_carousel .= '</div>';
-      if (drupal_is_front_page()) {
-        $classes = 'col-md-5 col-sm-4 col-xs-12';
-      }
-      else {
-        $classes = 'col-md-4 col-sm-12 col-xs-12';
-      }
-      $large_carousel .= '<div class="carousel-title ' . $classes . '">';
-
-      $large_carousel .= '<div class="title col-md-12">';
-      $large_carousel .= $node->title;
-      $large_carousel .= '</div>';
-
-      $large_carousel .= '<div class="col-md-12">';
-      $large_carousel .= '<a href="' . $path . '" title="' . $node->title . '" class="btn btn-primary">L&aelig;s mere</a>';
-      $large_carousel .= '</div></div>';
-      $large_carousel .= '</a>';
-      $large_carousel .= '</div>';
+    else {
+      $large_carousel .= '></li>';
     }
+  }
+  $large_carousel .= '</ol>';
+  $large_carousel .= '<div class="carousel-inner" id="front-carousel-large" >';
+
+  foreach ($results as $key => $item) {
+    if ($key == 0) {
+      $large_carousel .= '<div class="item active">';
+    }
+    else {
+      $large_carousel .= '<div class="item">';
+    }
+    $node = node_load($item->nid);
+    $img = field_get_items('node', $node, 'field_os2web_base_field_lead_img');
+    $image = $img[0];
+    image_get_info($image["filename"]);
+
+    $style = 'fk_content_image';
+    $public_filename = image_style_url($style, $image["uri"]);
+    $path = drupal_get_path_alias('node/' . $node->nid);
+    $large_carousel .= '<a href="' . $path . '" title="' . $node->title . '">';
+    if (drupal_is_front_page()) {
+      $classes = 'col-md-7 col-sm-8 col-xs-12';
+    }
+    else {
+      $classes = 'col-md-8 col-sm-12 col-xs-12';
+    }
+    $large_carousel .= '<div class="row-no-padding ' . $classes;
+    if (drupal_is_front_page()) {
+      $large_carousel .= ' front-branding-img';
+    }
+    $large_carousel .= '">';
+    $large_carousel .= '<img title = "' . $image["title"] . '" src="' . $public_filename . '"/>';
+    $large_carousel .= '</div>';
+    if (drupal_is_front_page()) {
+      $classes = 'col-md-5 col-sm-4 col-xs-12';
+    }
+    else {
+      $classes = 'col-md-4 col-sm-12 col-xs-12';
+    }
+    $large_carousel .= '<div class="carousel-title ' . $classes . '">';
+
+    $large_carousel .= '<div class="title col-md-12">';
+    $large_carousel .= $node->title;
+    $large_carousel .= '</div>';
+
+    $large_carousel .= '<div class="col-md-12">';
+    $large_carousel .= '<a href="' . $path . '" title="' . $node->title . '" class="btn btn-primary">L&aelig;s mere</a>';
+    $large_carousel .= '</div></div>';
+    $large_carousel .= '</a>';
     $large_carousel .= '</div>';
   }
+  $large_carousel .= '</div>';
   return $large_carousel;
 }
 
