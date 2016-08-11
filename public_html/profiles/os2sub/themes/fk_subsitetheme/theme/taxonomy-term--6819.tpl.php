@@ -6,7 +6,7 @@
       <h1>Nyheder og aktuelt</h1>
       <div  id="nyheder-carousel-large" class="carousel slide" data-ride="carousel">
         <?php
-          drupal_add_js(drupal_get_path('theme', 'svendborg_theme') . '/js/jquery.imagesloaded.js');
+          drupal_add_js(drupal_get_path('theme', 'fk_theme') . '/js/jquery.imagesloaded.js');
           print $news_term_branding;
         ?>
       </div>

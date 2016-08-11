@@ -134,8 +134,8 @@
       hide($content['comments']);
       hide($content['links']);
       hide($content['field_tags']);
-      hide($content['field_svendborg_hide_sidebar']);
-      hide($content['field_svendborg_hide_contact']);
+      hide($content['field_fk_hide_sidebar']);
+      hide($content['field_fk_hide_contact']);
       hide($content['field_os2web_base_field_hidlinks']);
       hide($content['field_os2web_base_isproject']);
       hide($content['field_os2web_base_isproject_part']);            

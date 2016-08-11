@@ -28,15 +28,15 @@
 ?>
   <footer class="region region_footer lcontainer-fluid">
     <div 
-        class="lcontainer-fluid clearfix <?php if (theme_get_setting('hide_footer_branding', 'svendborg_subsitetheme')):?>no-branding <?php endif;?>"  
+        class="lcontainer-fluid clearfix <?php if (theme_get_setting('hide_footer_branding', 'fk_subsitetheme')):?>no-branding <?php endif;?>"  
         id="footer-first-block">
 
       <div class="container footer-first-block">
         <div class="row-no-padding">
             <div class='footer-logo col-sm-2 col-xs-12'>
-              <?php if (!theme_get_setting('hide_footer_logo', 'svendborg_subsitetheme')):?>
+              <?php if (!theme_get_setting('hide_footer_logo', 'fk_subsitetheme')):?>
                 <img id="footer-logo" class="logo-img" 
-                  src="/<?php print drupal_get_path('theme','svendborg_subsitetheme'); ?>/images/footer_logo.png" 
+                  src="/<?php print drupal_get_path('theme','fk_subsitetheme'); ?>/images/footer_logo.png" 
                   title="<?php print $page['site_name'] ?>" />
               <?php endif;?> 
           </div>
@@ -85,59 +85,59 @@ print "<h2 class='menu-footer " . $menu_item['link']['link_title']. "'>
     <div class="lcontainer-fluid clearfix footer-contacts" id="footer-contacts">
       <div class="container">
         <div class="row">
-        <?php if (theme_get_setting('facebook_url', 'svendborg_subsitetheme')
-                ||theme_get_setting('twitter_url', 'svendborg_subsitetheme') 
-                ||theme_get_setting('linkedin_url', 'svendborg_subsitetheme')
-                ||theme_get_setting('instagram_url', 'svendborg_subsitetheme')
-                ||theme_get_setting('youtube_url', 'svendborg_subsitetheme')): ?>
+        <?php if (theme_get_setting('facebook_url', 'fk_subsitetheme')
+                ||theme_get_setting('twitter_url', 'fk_subsitetheme') 
+                ||theme_get_setting('linkedin_url', 'fk_subsitetheme')
+                ||theme_get_setting('instagram_url', 'fk_subsitetheme')
+                ||theme_get_setting('youtube_url', 'fk_subsitetheme')): ?>
             <div class="col-xs-12 social-icons">
-           <?php if (theme_get_setting('facebook_url', 'svendborg_subsitetheme')):?>
-              <a href="<?php print theme_get_setting('facebook_url', 'svendborg_subsitetheme') ?>" title="Facebook" class="footer_fb" target="_blank">facebook</a>
+           <?php if (theme_get_setting('facebook_url', 'fk_subsitetheme')):?>
+              <a href="<?php print theme_get_setting('facebook_url', 'fk_subsitetheme') ?>" title="Facebook" class="footer_fb" target="_blank">facebook</a>
             <?php endif;?> 
-            <?php if (theme_get_setting('twitter_url', 'svendborg_subsitetheme')):?>
-              <a href="<?php print theme_get_setting('twitter_url', 'svendborg_subsitetheme') ?>" title="Twitter" class="footer_twitter" target="_blank">facebook</a>
+            <?php if (theme_get_setting('twitter_url', 'fk_subsitetheme')):?>
+              <a href="<?php print theme_get_setting('twitter_url', 'fk_subsitetheme') ?>" title="Twitter" class="footer_twitter" target="_blank">facebook</a>
             <?php endif;?> 
-            <?php if (theme_get_setting('linkedin_url', 'svendborg_subsitetheme')):?>    
-              <a href="<?php print theme_get_setting('linkedin_url', 'svendborg_subsitetheme') ?>" title="Linkedin" class="footer_linkedin" target="_blank">linkedin</a>
+            <?php if (theme_get_setting('linkedin_url', 'fk_subsitetheme')):?>    
+              <a href="<?php print theme_get_setting('linkedin_url', 'fk_subsitetheme') ?>" title="Linkedin" class="footer_linkedin" target="_blank">linkedin</a>
               <?php endif;?>  
-            <?php if (theme_get_setting('instagram_url', 'svendborg_subsitetheme')):?>    
-              <a href="<?php print theme_get_setting('instagram_url', 'svendborg_subsitetheme') ?>" title="Instagram" class="footer_instagram" target="_blank">Instagram</a>
+            <?php if (theme_get_setting('instagram_url', 'fk_subsitetheme')):?>    
+              <a href="<?php print theme_get_setting('instagram_url', 'fk_subsitetheme') ?>" title="Instagram" class="footer_instagram" target="_blank">Instagram</a>
               <?php endif;?>  
-           <?php if (theme_get_setting('youtube_url', 'svendborg_subsitetheme')):?>    
-              <a href="<?php print theme_get_setting('youtube_url', 'svendborg_subsitetheme') ?>" title="Youtube" class="footer_flickr" target="_blank">youtube</a>
+           <?php if (theme_get_setting('youtube_url', 'fk_subsitetheme')):?>    
+              <a href="<?php print theme_get_setting('youtube_url', 'fk_subsitetheme') ?>" title="Youtube" class="footer_flickr" target="_blank">youtube</a>
            <?php endif;?> 
             </div>
        <?php endif?>     
        
         <div class="col-xs-12 footer-address">
            
-           <?php if (theme_get_setting('company-name', 'svendborg_subsitetheme')):?>
-           		<?php print theme_get_setting('company-name', 'svendborg_subsitetheme'); ?> | 
+           <?php if (theme_get_setting('company-name', 'fk_subsitetheme')):?>
+           		<?php print theme_get_setting('company-name', 'fk_subsitetheme'); ?> | 
            <?php endif;?>
            
-           <?php if (theme_get_setting('address', 'svendborg_subsitetheme')):?>
-           		<?php print theme_get_setting('address', 'svendborg_subsitetheme'); ?> | 
+           <?php if (theme_get_setting('address', 'fk_subsitetheme')):?>
+           		<?php print theme_get_setting('address', 'fk_subsitetheme'); ?> | 
            <?php endif;?>
            
-           <?php if (theme_get_setting('index', 'svendborg_subsitetheme')):?>
-           		<?php print theme_get_setting('index', 'svendborg_subsitetheme'); ?>
+           <?php if (theme_get_setting('index', 'fk_subsitetheme')):?>
+           		<?php print theme_get_setting('index', 'fk_subsitetheme'); ?>
            <?php endif;?>
            		
-           <?php if (theme_get_setting('city', 'svendborg_subsitetheme')):?>
-           		<?php print theme_get_setting('city', 'svendborg_subsitetheme'); ?> | 
+           <?php if (theme_get_setting('city', 'fk_subsitetheme')):?>
+           		<?php print theme_get_setting('city', 'fk_subsitetheme'); ?> | 
            <?php endif;?>
            
-           <?php if (theme_get_setting('phone', 'svendborg_subsitetheme')):?>
-		   		Tlf <a href="tel:<?php print theme_get_setting('phone', 'svendborg_subsitetheme'); ?>"><?php print theme_get_setting('phone', 'svendborg_subsitetheme'); ?></a> | 
+           <?php if (theme_get_setting('phone', 'fk_subsitetheme')):?>
+		   		Tlf <a href="tel:<?php print theme_get_setting('phone', 'fk_subsitetheme'); ?>"><?php print theme_get_setting('phone', 'fk_subsitetheme'); ?></a> | 
            <?php endif;?>
            
-           <?php if (theme_get_setting('email', 'svendborg_subsitetheme')):?>
-          E-mail <a href="mailto:<?php print theme_get_setting('email', 'svendborg_subsitetheme'); ?>"><?php print theme_get_setting('email', 'svendborg_subsitetheme'); ?></a>
+           <?php if (theme_get_setting('email', 'fk_subsitetheme')):?>
+          E-mail <a href="mailto:<?php print theme_get_setting('email', 'fk_subsitetheme'); ?>"><?php print theme_get_setting('email', 'fk_subsitetheme'); ?></a>
            <?php endif;?>
 
         </div> 
          <div class="col-xs-12 footer-copyright">
-          Copyright 2015® · <?php print theme_get_setting('company-name', 'svendborg_subsitetheme'); ?></div>
+          Copyright 2015® · <?php print theme_get_setting('company-name', 'fk_subsitetheme'); ?></div>
         </div>
         </div>
       </div>

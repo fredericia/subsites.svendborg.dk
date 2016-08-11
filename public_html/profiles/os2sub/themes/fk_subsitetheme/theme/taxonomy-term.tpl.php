@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Svendborg template ot taxonomy pages.
+ * fk template ot taxonomy pages.
  *
  * Available variables:
  * - $name: (deprecated) The unsanitized name of the term. Use $term_name
@@ -20,7 +20,7 @@
  *   - taxonomy-term: The current template type, i.e., "theming hook".
  *   - vocabulary-[vocabulary-name]: The vocabulary to which the term belongs to.
  *     For example, if the term is a "Tag" it would result in "vocabulary-tag".
- * - $term_is_top : (svendborg) Boolean wether this term is a top term.
+ * - $term_is_top : (fk) Boolean wether this term is a top term.
  *
  * Other variables:
  * - $term: Full term object. Contains data that may not be safe.
@@ -44,7 +44,7 @@
 ?>
 <article id="taxonomy-term-<?php print $term->tid; ?>" class="<?php print $classes; ?> clearfix">
   <?php
-    hide($content['field_svendborg_hide_sidebar']);
+    hide($content['field_fk_hide_sidebar']);
     hide($content['field_list_as_spotboks']);
     hide($content['field_os2web_base_field_hidlinks']);
     hide($content['field_alternative_display']);

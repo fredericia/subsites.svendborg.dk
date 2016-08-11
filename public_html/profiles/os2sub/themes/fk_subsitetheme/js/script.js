@@ -1,4 +1,4 @@
-/* Svendborg theme script
+/* fk theme script
 */
 ( function ($) {  
    $(document).ready(function(){
@@ -102,17 +102,17 @@
     $(window).bind('scroll', function() {
         var navHeight = $( window ).height();
         if ($(window).scrollTop() > 41 && $(window).width() > 768 ) {
-          $('.header_svendborg header').addClass('navbar-fixed-top');
+          $('.header_fk header').addClass('navbar-fixed-top');
           //$('.header_fixed_inner').addClass('container');
-          //$('.header_svendborg header').removeClass('container');
+          //$('.header_fk header').removeClass('container');
          // $('.main-container').css('padding-top','114px ');
           //$('#fixed-navbar').addClass('row');
-          $('img#front-logo').attr('src', Drupal.settings.basePath + Drupal.settings.pathToTheme + '/images/svendborg_logo.png');
+          $('img#front-logo').attr('src', Drupal.settings.basePath + Drupal.settings.pathToTheme + '/images/fk_logo.png');
        }
         else {
-          $('.header_svendborg header').removeClass('navbar-fixed-top');
+          $('.header_fk header').removeClass('navbar-fixed-top');
           //$('.header_fixed_inner').removeClass('container');
-          //$('.header_svendborg header').addClass('container');
+          //$('.header_fk header').addClass('container');
           $('.main-container').css('padding-top','0');
           //$('#fixed-navbar').removeClass('row');
           $('img#front-logo').attr('src', Drupal.settings.basePath + Drupal.settings.pathToTheme + '/images/footer_logo.png');

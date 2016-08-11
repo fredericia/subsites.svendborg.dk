@@ -26,15 +26,15 @@
  */
 ?>
 <?php if ($page['logo'] || $page['site_name'] || $page['primary_nav'] || $page['secondary_nav'] || $content): ?>
-<section class="outer header_svendborg">
+<section class="outer header_fk">
   <div id="top_menu">
   <div class="container">
     <div class="row">
       <div class="col-xs-6">
-        <?php print _svendborg_subsitetheme_block_render('menu', 'menu-top-left'); ?>
+        <?php print _fk_subsitetheme_block_render('menu', 'menu-top-left'); ?>
       </div>
       <div class="col-xs-6">
-        <?php print _svendborg_subsitetheme_block_render('menu', 'menu-top-right');//login block ?>
+        <?php print _fk_subsitetheme_block_render('menu', 'menu-top-right');//login block ?>
       </div>
     </div>
   </div>
@@ -90,19 +90,19 @@
       </div>
       </div>
   </header>
-  <?php  if(drupal_match_path(drupal_get_path_alias($_GET['q']), theme_get_setting('slider_paths','svendborg_subsitetheme'))):?>
-    <?php if (theme_get_setting('slider_active','svendborg_subsitetheme')) :?>
+  <?php  if(drupal_match_path(drupal_get_path_alias($_GET['q']), theme_get_setting('slider_paths','fk_subsitetheme'))):?>
+    <?php if (theme_get_setting('slider_active','fk_subsitetheme')) :?>
         <section class="outer">
         <?php 
-            $view = views_get_view('svendborg_slider');
+            $view = views_get_view('fk_slider');
             $view->set_display('multi');            
             $view->pre_execute();
              $view->execute();
              $views_result_cnt= count($view->result);
             if ($views_result_cnt>1)         
-                  print _svendborg_subsitetheme_block_render('views', 'svendborg_slider-multi'); 
+                  print _fk_subsitetheme_block_render('views', 'fk_slider-multi'); 
             else
-                 print _svendborg_subsitetheme_block_render('views', 'svendborg_slider-single');
+                 print _fk_subsitetheme_block_render('views', 'fk_slider-single');
             ?>
         </section>
     <?php endif;?>
@@ -110,10 +110,10 @@
   
   <?php if(drupal_get_path_alias($_GET['q']) == 'kalender/kommende' || drupal_get_path_alias($_GET['q']) == 'kalender/alle'):?>
     <div class='front-main-container-wrapper'>
-    <?php if (theme_get_setting('slider_active','svendborg_subsitetheme')) :?>
+    <?php if (theme_get_setting('slider_active','fk_subsitetheme')) :?>
         <section class="outer">
          <?php 
-            $view = views_get_view('svendborg_event_calendar');
+            $view = views_get_view('fk_event_calendar');
             $view->set_display('page_calendar_all');
             $pager = $view->display_handler->get_option('pager');
             $pager['type'] = 'none';
@@ -122,7 +122,7 @@
              $view->execute();
              $views_result_cnt= count($view->result);
          
-          $image_uri= file_create_url(file_load(theme_get_setting('calendar_page_slider_image','svendborg_subsitetheme'))->uri);
+          $image_uri= file_create_url(file_load(theme_get_setting('calendar_page_slider_image','fk_subsitetheme'))->uri);
          
         $overlay_class = '';    
 	$background = "background-image: url('" . $image_uri . "')";
@@ -150,7 +150,7 @@
 	$html .= '<div class="container">';
 	    $html .= '<div class="row">';
 		$html .= '<div class="col-sm-7 col-xs-12">';
-		    $html .= '<div class="title">' . theme_get_setting('calendar_page_slider_text','svendborg_subsitetheme');
+		    $html .= '<div class="title">' . theme_get_setting('calendar_page_slider_text','fk_subsitetheme');
                     $link_class = "btn gradient-deepdarkgreen";
 		    $html .= '</div>';
 		    $html .= '<div class="link"> ';
@@ -175,7 +175,7 @@
 	    $html .= '</div>';//class="row"
 	$html .= '</div>';//class="conteiner"
     $html .= '</div>';//class="slider-cover"
-   $html .= '</div>';//class="view-svendborg-slider"
+   $html .= '</div>';//class="view-fk-slider"
     print $html;
          
          ?>

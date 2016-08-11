@@ -40,7 +40,7 @@
     if ((boolean)$node->field_hvid_tekst['und'][0]['value'])
       $whitetext = 'white';
       
-    if (theme_get_setting('slider_overlay','svendborg_subsitetheme')) {
+    if (theme_get_setting('slider_overlay','fk_subsitetheme')) {
 	$background = "background-image: url('" .  $image_uri . "')" 
 	    . "background-image: -moz-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url('" . $image_uri . "');"
 	    . "background-image: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0.75)), color-stop(100%, rgba(0,0,0,0.75))), url('" . $image_uri . "');"
@@ -54,7 +54,7 @@
 	$background = "background-image: url('" .  $image_uri . "')";
     }
 
-    $show_frontpage_nodes = (theme_get_setting('promoted_nodes','svendborg_subsitetheme') && theme_get_setting('promoted_nodes_location','svendborg_subsitetheme') === 'slider');
+    $show_frontpage_nodes = (theme_get_setting('promoted_nodes','fk_subsitetheme') && theme_get_setting('promoted_nodes_location','fk_subsitetheme') === 'slider');
 
     $html = '<div class="slider-cover single ' . $overlay_class . '" style="' . $background .'">';
 	$html .= '<div class="container">';
@@ -74,7 +74,7 @@
 		//printing frontpage_nodes block, if activated
 		if ($show_frontpage_nodes) {
 		    $html .= '<div class="col-sm-4 col-sm-offset-1 hidden-xs">';
-		    $html .= _svendborg_subsitetheme_block_render('views', 'frontpage_nodes-block');
+		    $html .= _fk_subsitetheme_block_render('views', 'frontpage_nodes-block');
 		    $html .= '</div>';
 		}
 	    $html .= '</div>';//class="row"

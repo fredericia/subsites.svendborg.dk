@@ -7,14 +7,14 @@ include( dirname(__FILE__) . '/include/menu.inc');
 /**
  * Implements template_preprocess_page().
  */
-function svendborg_subsitetheme_process_page(&$variables, $hook) {
+function fk_subsitetheme_process_page(&$variables, $hook) {
   // Hook into color.module.
   if (module_exists('color')) {
     _color_page_alter($variables);
   }
 }
 
-function svendborg_subsitetheme_preprocess_page(&$variables) {
+function fk_subsitetheme_preprocess_page(&$variables) {
   //   var_dump($variables['page']['content']);
   // Remove all Taxonomy auto listings here.
 
@@ -43,7 +43,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
     }
 
     // Variable that defines that this term is the top of the hieraki.
-    $term_is_top = _svendborg_subsitetheme_term_is_top($term->tid);
+    $term_is_top = _fk_subsitetheme_term_is_top($term->tid);
     // Get wether this is a top term, and provide a variable for the templates.
     $variables['page']['term_is_top'] = $term_is_top;
   }
@@ -54,24 +54,24 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
   }
   $sidebar_second_hidden = FALSE;
   $sidebar_first_hidden = FALSE;
-  $menu_location = theme_get_setting('menu_location_setting','svendborg_subsitetheme');
+  $menu_location = theme_get_setting('menu_location_setting','fk_subsitetheme');
 
 
   // Get all the nodes selvbetjeningslinks and give them to the template.
   if (($node && $links = field_get_items('node', $node, 'field_os2web_base_field_selfserv')) ||
     ($term && $links = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_selfserv'))
   ) {
-    $variables['page']['os2web_selfservicelinks'] = _svendborg_subsitetheme_get_selfservicelinks($links);
+    $variables['page']['os2web_selfservicelinks'] = _fk_subsitetheme_get_selfservicelinks($links);
   }
 
   // Get all the nodes selvbetjeningslinks and give them to the template.
-  if ($node && $link = _svendborg_subsitetheme_get_contact($node->nid)) {
+  if ($node && $link = _fk_subsitetheme_get_contact($node->nid)) {
     $variables['page']['contact']['nid'] = $link;
 
   }
 
   // Get all the nodes info box and give them to the template.
-  if ($node && $link = _svendborg_subsitetheme_get_infobox($node->nid)) {
+  if ($node && $link = _fk_subsitetheme_get_infobox($node->nid)) {
     $variables['page']['infobox']['nid'] = $link;
 
   }
@@ -178,7 +178,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
   if ($node && $webform = field_get_items('node', $node, 'field_os2web_base_field_webform')) {
     $variables['node']->content['os2web_webform'] = array(
       'os2web_webform'  => array(
-        '#markup' => _svendborg_subsitetheme_get_webform($webform[0]['nid']),
+        '#markup' => _fk_subsitetheme_get_webform($webform[0]['nid']),
       ),
       '#theme_wrappers' => array('container'),
     );
@@ -261,7 +261,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
 
   }
   $view = views_get_page_view();
-  if (!empty($view) && $view->name == 'svendborg_news_view' && $view->current_display == 'page_3') {
+  if (!empty($view) && $view->name == 'fk_news_view' && $view->current_display == 'page_3') {
     if (!$sidebar_second_hidden && empty($variables['page']['sidebar_second'])) {
       $variables['page']['sidebar_second'] = array(
         '#theme_wrappers' => array('region'),
@@ -276,7 +276,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
     $variables['page']['activities'] = TRUE;
   }
 
-  if ((!empty($view) && $view->name == 'svendborg_gallery' && $view->current_display == 'page') || ($node && $node->type == "os2web_base_gallery")) {
+  if ((!empty($view) && $view->name == 'fk_gallery' && $view->current_display == 'page') || ($node && $node->type == "os2web_base_gallery")) {
     // Menu location: 0 for sidebar_first, 1 for top.
     if (!$sidebar_second_hidden && empty($variables['page']['sidebar_first']) && !$menu_location) {
 
@@ -323,10 +323,10 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
   ) {
 
     if (empty($variables['page']['sidebar_second'])) {
-      $spotbox_render = drupal_render(_svendborg_subsitetheme_get_spotboxes($spotboxes));
+      $spotbox_render = drupal_render(_fk_subsitetheme_get_spotboxes($spotboxes));
     }
     else {
-      $spotbox_render = drupal_render(_svendborg_subsitetheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-6 col-md-6 col-lg-6'));
+      $spotbox_render = drupal_render(_fk_subsitetheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-6 col-md-6 col-lg-6'));
     }
 
     $variables['page']['content']['os2web_spotbox'] = array(
@@ -341,8 +341,8 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
   }
 
   // If node has hidden the sidebar, set content to null.
-  if (($node && $hide_sidebar_field = field_get_items('node', $node, 'field_svendborg_hide_sidebar')) ||
-    ($term && $hide_sidebar_field = field_get_items('taxonomy_term', $term, 'field_svendborg_hide_sidebar'))
+  if (($node && $hide_sidebar_field = field_get_items('node', $node, 'field_fk_hide_sidebar')) ||
+    ($term && $hide_sidebar_field = field_get_items('taxonomy_term', $term, 'field_fk_hide_sidebar'))
   ) {
     if ($hide_sidebar_field[0]['value']) {
       $variables['page']['sidebar_second'] = array();
@@ -358,7 +358,7 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
       'rel'  => 'stylesheet',
       'type' => 'text/css',
     ),
-  ), 'google_font_svendborg_subsitetheme');
+  ), 'google_font_fk_subsitetheme');
 
   // Pass the theme path to js.
   drupal_add_js('jQuery.extend(Drupal.settings, { "pathToTheme": "' . path_to_theme() . '" });', 'inline');
@@ -367,10 +367,10 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
     // Frontpage big menu.
 
     // Frontpage large carousel.
-    $variables['page']['front_large_carousel'] = _svendborg_subsitetheme_get_large_carousel();
+    $variables['page']['front_large_carousel'] = _fk_subsitetheme_get_large_carousel();
 
     // Frontpage small carousel.
-    $variables['page']['front_small_carousel'] = _svendborg_subsitetheme_get_front_small_carousel();
+    $variables['page']['front_small_carousel'] = _fk_subsitetheme_get_front_small_carousel();
   }
 
   // Menu location settings.
@@ -385,12 +385,12 @@ function svendborg_subsitetheme_preprocess_page(&$variables) {
 /**
  * Implements template_preprocess_taxonomy_term().
  */
-function svendborg_subsitetheme_preprocess_taxonomy_term(&$variables) {
+function fk_subsitetheme_preprocess_taxonomy_term(&$variables) {
 
   $term = taxonomy_term_load($variables['tid']);
   $variables['term_display_alternative'] = FALSE;
   // Get wether this is a top term, and provide a variable for the templates.
-  $term_is_top = _svendborg_subsitetheme_term_is_top($term->tid);
+  $term_is_top = _fk_subsitetheme_term_is_top($term->tid);
   $variables['term_is_top'] = $term_is_top;
 
   // Provide the spotboxes to Nyheder page or top terms. These pages does not
@@ -399,13 +399,13 @@ function svendborg_subsitetheme_preprocess_taxonomy_term(&$variables) {
     $spotboxes = field_get_items('taxonomy_term', $term, 'field_os2web_base_field_spotbox');
     if ($term->tid == 6819) {
       $variables['theme_hook_suggestions'][] = 'taxonomy_term__' . $term->tid;
-      $variables['news_term_branding'] = _svendborg_subsitetheme_get_large_carousel();
-      $variables['news_term_content'] = _svendborg_subsitetheme_get_term_news_content();
-      $variables['news_term_right_sidebar'] = _svendborg_subsitetheme_get_term_news_filer_and_quicktabs();
-      $variables['os2web_spotboxes'] = ($spotboxes) ? _svendborg_subsitetheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-6 col-md-6 col-lg-6') : '';
+      $variables['news_term_branding'] = _fk_subsitetheme_get_large_carousel();
+      $variables['news_term_content'] = _fk_subsitetheme_get_term_news_content();
+      $variables['news_term_right_sidebar'] = _fk_subsitetheme_get_term_news_filer_and_quicktabs();
+      $variables['os2web_spotboxes'] = ($spotboxes) ? _fk_subsitetheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-6 col-md-6 col-lg-6') : '';
     }
     else {
-      $variables['os2web_spotboxes'] = ($spotboxes) ? _svendborg_subsitetheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-4 col-md-4 col-lg-4') : '';
+      $variables['os2web_spotboxes'] = ($spotboxes) ? _fk_subsitetheme_get_spotboxes($spotboxes, 'col-xs-6 col-sm-4 col-md-4 col-lg-4') : '';
     }
   }
   if (isset($term->field_alternative_display['und'][0]['value']) &&
@@ -416,7 +416,7 @@ function svendborg_subsitetheme_preprocess_taxonomy_term(&$variables) {
 
 }
 
-function svendborg_subsitetheme_process_html(&$variables) {
+function fk_subsitetheme_process_html(&$variables) {
   if (module_exists('color')) {
     _color_html_alter($variables);
   }
@@ -425,7 +425,7 @@ function svendborg_subsitetheme_process_html(&$variables) {
 /**
  * Implements THEME_preprocess_html().
  */
-function svendborg_subsitetheme_preprocess_html(&$variables) {
+function fk_subsitetheme_preprocess_html(&$variables) {
 
   // Add conditional stylesheets for IE.
   drupal_add_css(path_to_theme() . '/css/ie.css', array(
@@ -437,7 +437,7 @@ function svendborg_subsitetheme_preprocess_html(&$variables) {
 
   if (arg(0) == 'taxonomy' && arg(1) == 'term' && is_numeric(arg(2))) {
     // Add wether the term is top to the classes array.
-    $term_is_top = _svendborg_subsitetheme_term_is_top(arg(2));
+    $term_is_top = _fk_subsitetheme_term_is_top(arg(2));
 
     if ($term_is_top) {
       $variables['classes_array'][] = 'term-is-top';
@@ -464,7 +464,7 @@ function svendborg_subsitetheme_preprocess_html(&$variables) {
 /**
  * Implements hook_preprocess_node().
  */
-function svendborg_subsitetheme_preprocess_node(&$vars) {
+function fk_subsitetheme_preprocess_node(&$vars) {
 
   // Add css class "node--NODETYPE--VIEWMODE" to nodes.
   $vars['classes_array'][] = 'node--' . $vars['type'] . '--' . $vars['view_mode'];
@@ -509,7 +509,7 @@ function get_the_classes($nid) {
 /**
  * Implements theme_menu_link().
  */
-function svendborg_subsitetheme_menu_link(array $variables) {
+function fk_subsitetheme_menu_link(array $variables) {
   $element = $variables['element'];
   $sub_menu = '';
   $element['#attributes']['class'][] = 'main_menu_li';
@@ -523,7 +523,7 @@ function svendborg_subsitetheme_menu_link(array $variables) {
       // Add our own wrapper.
       unset($element['#below']['#theme_wrappers']);
       $class =  "dropdown-menu";
-      if ($menu_location = theme_get_setting('menu_location_setting','svendborg_subsitetheme')) {
+      if ($menu_location = theme_get_setting('menu_location_setting','fk_subsitetheme')) {
         $class .= ' ' . 'dropdown-me';
       }
       $sub_menu = '<ul class="' . $class . '">' . drupal_render($element['#below']) . '</ul>';
@@ -558,7 +558,7 @@ function svendborg_subsitetheme_menu_link(array $variables) {
  *
  * @ingroup themeable
  */
-function svendborg_subsitetheme_qt_quicktabs_tabset($vars) {
+function fk_subsitetheme_qt_quicktabs_tabset($vars) {
   $variables = array(
     'attributes' => array(
       'class' => 'quicktabs-tabs quicktabs-style-' . $vars['tabset']['#options']['style'],
@@ -590,7 +590,7 @@ function svendborg_subsitetheme_qt_quicktabs_tabset($vars) {
 /**
  * Implements theme_form_element().
  */
-function svendborg_subsitetheme_form_element(&$variables) {
+function fk_subsitetheme_form_element(&$variables) {
   // Because the feeds module, puts the upload filechooser in the form
   // element[#description] it is not shown. As bootstrap tries to put all
   // '#description's in tooltips.
@@ -613,12 +613,12 @@ function svendborg_subsitetheme_form_element(&$variables) {
  * @return array
  *   The renderable array.
  */
-function _svendborg_subsitetheme_get_spotboxes($spotboxes, $classes = 'col-xs-6 col-sm-6 col-md-4 col-lg-4') {
+function _fk_subsitetheme_get_spotboxes($spotboxes, $classes = 'col-xs-6 col-sm-6 col-md-4 col-lg-4') {
   $spotbox_nids = array();
   foreach ($spotboxes as $spotbox) {
     $spotbox_nids[$spotbox['nid']] = $spotbox['nid'];
   }
-  $spotbox_array = os2web_spotbox_render_spotboxes($spotbox_nids, NULL, NULL, NULL, 'svendborg_spotbox');
+  $spotbox_array = os2web_spotbox_render_spotboxes($spotbox_nids, NULL, NULL, NULL, 'fk_spotbox');
 
   foreach ($spotbox_array['node'] as &$spotbox) {
     if (is_array($spotbox)) {
@@ -638,7 +638,7 @@ function _svendborg_subsitetheme_get_spotboxes($spotboxes, $classes = 'col-xs-6 
  * @return array
  *   Array of links with URL and Title.
  */
-function _svendborg_subsitetheme_get_selfservicelinks($links) {
+function _fk_subsitetheme_get_selfservicelinks($links) {
   $selfservicelinks = array();
   foreach ($links as $link) {
     $selfservicelink = node_load($link['nid']);
@@ -665,7 +665,7 @@ function _svendborg_subsitetheme_get_selfservicelinks($links) {
  * @return bool
  *   If this term is top.
  */
-function _svendborg_subsitetheme_term_is_top($term_tid) {
+function _fk_subsitetheme_term_is_top($term_tid) {
   $parent = &drupal_static(__FUNCTION__ . $term_tid);
   if (empty($parent)) {
     $parent = db_query("SELECT parent FROM {taxonomy_term_hierarchy} WHERE tid = :tid", array(':tid' => $term_tid))->fetchField();
@@ -677,7 +677,7 @@ function _svendborg_subsitetheme_term_is_top($term_tid) {
 /**
  * Overrides file_link, add target= '_blank', file open in a new window.
  */
-function svendborg_subsitetheme_file_link($variables) {
+function fk_subsitetheme_file_link($variables) {
   $file = $variables['file'];
   $icon_directory = $variables['icon_directory'];
   $url = file_create_url($file->uri);
@@ -711,7 +711,7 @@ function svendborg_subsitetheme_file_link($variables) {
 /**
  * Implements theme_file_formatter_table().
  */
-function svendborg_subsitetheme_file_formatter_table($variables) {
+function fk_subsitetheme_file_formatter_table($variables) {
   $header = array(t('Attachment'));
   $rows = array();
   foreach ($variables['items'] as $delta => $item) {
@@ -732,10 +732,10 @@ function svendborg_subsitetheme_file_formatter_table($variables) {
 /**
  * Retrieve large carousel.
  */
-function _svendborg_subsitetheme_get_large_carousel() {
+function _fk_subsitetheme_get_large_carousel() {
   $large_carousel = '';
   // Branding news view.
-  $view = views_get_view('svendborg_news_view');
+  $view = views_get_view('fk_news_view');
   $view->set_arguments(array('branding'));
   if (!drupal_is_front_page()) {
     $filter = $view->get_item('front', 'filter', 'promote');
@@ -782,7 +782,7 @@ function _svendborg_subsitetheme_get_large_carousel() {
     $image = $img[0];
     image_get_info($image["filename"]);
 
-    $style = 'svendborg_content_image';
+    $style = 'fk_content_image';
     $public_filename = image_style_url($style, $image["uri"]);
     $path = drupal_get_path_alias('node/' . $node->nid);
     $large_carousel .= '<a href="' . $path . '" title="' . $node->title . '">';
@@ -824,9 +824,9 @@ function _svendborg_subsitetheme_get_large_carousel() {
 /**
  * Retrieve small carousel.
  */
-function _svendborg_subsitetheme_get_front_small_carousel() {
+function _fk_subsitetheme_get_front_small_carousel() {
   $front_small_carousel = '';
-  $view = views_get_view('svendborg_news_view');
+  $view = views_get_view('fk_news_view');
   $view->set_arguments(array('all'));
   $view->set_display('block_3');
   $view->set_items_per_page(9);
@@ -876,7 +876,7 @@ function _svendborg_subsitetheme_get_front_small_carousel() {
       $image = $img[0];
       image_get_info($image["filename"]);
 
-      $style = 'svendborg_content_image';
+      $style = 'fk_content_image';
       $public_filename = image_style_url($style, $image["uri"]);
 
       $path = drupal_get_path_alias('node/' . $node->nid);
@@ -908,7 +908,7 @@ function _svendborg_subsitetheme_get_front_small_carousel() {
 /**
  * Retrieve the news term filter and quicktabs.
  */
-function _svendborg_subsitetheme_get_term_news_filer_and_quicktabs() {
+function _fk_subsitetheme_get_term_news_filer_and_quicktabs() {
   $news_term_right_sidebar = '';
   // Filter.
   $block = block_load('views', 'news_filter-block');
@@ -923,7 +923,7 @@ function _svendborg_subsitetheme_get_term_news_filer_and_quicktabs() {
   $news_term_right_sidebar .= '<div class="nyheder-seperator"></div>';
 
   // Quick tabs.
-  $news_term_right_sidebar .= ' <div id="svendborg_tabs">';
+  $news_term_right_sidebar .= ' <div id="fk_tabs">';
   $block_tab = block_load('quicktabs', 'nyhed_quicktabs');
   $output = _block_get_renderable_array(_block_render_blocks(array($block_tab)));
   $news_term_right_sidebar .= drupal_render($output);
@@ -938,9 +938,9 @@ function _svendborg_subsitetheme_get_term_news_filer_and_quicktabs() {
 /**
  * Retrieve news term content view.
  */
-function _svendborg_subsitetheme_get_term_news_content() {
+function _fk_subsitetheme_get_term_news_content() {
   $content = '';
-  $view = views_get_view('svendborg_news_view');
+  $view = views_get_view('fk_news_view');
   $view->set_display('block');
   $view->set_arguments(array('nyhed', 'all'));
   $view->pre_execute();
@@ -957,7 +957,7 @@ function _svendborg_subsitetheme_get_term_news_content() {
  * Instead of a fully loaded render array, though, it returns markup, without
  * too many wrappers and such.
  */
-function _svendborg_subsitetheme_get_webform($nid) {
+function _fk_subsitetheme_get_webform($nid) {
   $webform_node = node_load($nid);
 
   $submission = (object) array();
@@ -976,7 +976,7 @@ function _svendborg_subsitetheme_get_webform($nid) {
   return $text . drupal_render($form);
 }
 
-function _svendborg_subsitetheme_block_render($module, $block_id) {
+function _fk_subsitetheme_block_render($module, $block_id) {
   $block = block_load($module, $block_id);
   $block_content = _block_render_blocks(array($block));
   $build = _block_get_renderable_array($block_content);
@@ -984,7 +984,7 @@ function _svendborg_subsitetheme_block_render($module, $block_id) {
   return $block_rendered;
 }
 
-function _svendborg_subsitetheme_get_contact($nid) {
+function _fk_subsitetheme_get_contact($nid) {
   $menuParent = menu_get_active_trail();
   $currrent_node = node_load($nid);
   for ($i = count($menuParent) - 1; $i >= 0; $i--) {
@@ -995,7 +995,7 @@ function _svendborg_subsitetheme_get_contact($nid) {
       $node = node_load($nid);
     }
     if (isset($node->field_os2web_base_field_contact['und'])) {
-      $hide = field_get_items('node', $currrent_node, 'field_svendborg_hide_contact');
+      $hide = field_get_items('node', $currrent_node, 'field_fk_hide_contact');
       if (($hide && !$hide[0]['value']) || !$hide) {
         return $link[0]['nid'] = $node->field_os2web_base_field_contact['und'][0]['nid'];
       }
@@ -1004,7 +1004,7 @@ function _svendborg_subsitetheme_get_contact($nid) {
   return FALSE;
 }
 
-function _svendborg_subsitetheme_get_infobox($nid) {
+function _fk_subsitetheme_get_infobox($nid) {
   $menuParent = menu_get_active_trail();
   $currrent_node = node_load($nid);
   for ($i = count($menuParent) - 1; $i >= 0; $i--) {
@@ -1013,7 +1013,7 @@ function _svendborg_subsitetheme_get_infobox($nid) {
       $node = node_load($nid);
     }
     if (isset($node->field_os2web_base_field_infobox['und'])) {
-      $hide = field_get_items('node', $currrent_node, 'field_svendborg_hide_infobox');
+      $hide = field_get_items('node', $currrent_node, 'field_fk_hide_infobox');
       if (($hide && !$hide[0]['value']) || !$hide) {
         return $link[0]['nid'] = $node->field_os2web_base_field_infobox['und'][0]['nid'];
       }
@@ -1022,13 +1022,13 @@ function _svendborg_subsitetheme_get_infobox($nid) {
   return FALSE;
 }
 
-function svendborg_subsitetheme_preprocess_views_view_unformatted(&$var) {
+function fk_subsitetheme_preprocess_views_view_unformatted(&$var) {
   // Determine if this view's content should render in columns.
   // @see: _YOUR_THEME_views_columns();
   // var_dump('here');
-  _svendborg_subsitetheme_views_columns($var, array(
-    'svendborg_news_view|svendborg_latest_news_two_col'   => 2,
-    'svendborg_news_view|svendborg_latest_news_three_col' => 3,
+  _fk_subsitetheme_views_columns($var, array(
+    'fk_news_view|fk_latest_news_two_col'   => 2,
+    'fk_news_view|fk_latest_news_three_col' => 3,
   ));
 
 
@@ -1051,7 +1051,7 @@ function svendborg_subsitetheme_preprocess_views_view_unformatted(&$var) {
  *   happens when the view row count is smaller than the specified column count.
  *   Default: FALSE.
  */
-function _svendborg_subsitetheme_views_columns(array &$var, array $views = array(), $render_all = FALSE) {
+function _fk_subsitetheme_views_columns(array &$var, array $views = array(), $render_all = FALSE) {
   // Initial value.
   $var['columns'] = FALSE;
   // Do not process if there are no results.
@@ -1111,8 +1111,8 @@ function _svendborg_subsitetheme_views_columns(array &$var, array $views = array
 
 }
 
-function svendborg_subsitetheme_less_variables_alter(&$less_variables, $system_name) {
-  $color_palette = variable_get('color_svendborg_subsitetheme_palette', FALSE);
+function fk_subsitetheme_less_variables_alter(&$less_variables, $system_name) {
+  $color_palette = variable_get('color_fk_subsitetheme_palette', FALSE);
   if (empty($color_palette)) {
     $color_palette = array(
       'brand-lightblue'  => '#2880b9',
@@ -1130,7 +1130,7 @@ function svendborg_subsitetheme_less_variables_alter(&$less_variables, $system_n
   $less_variables = $color_palette;
 }
 
-function svendborg_subsitetheme_photoswipe_imagefield($variables) {
+function fk_subsitetheme_photoswipe_imagefield($variables) {
   $class = array('photoswipe');
   if (!empty($variables['image']['style_name'])) {
     $image = theme('image_style', $variables['image']);
@@ -1150,7 +1150,7 @@ function svendborg_subsitetheme_photoswipe_imagefield($variables) {
   return l($image, $variables['path'], $options);
 }
 
-function svendborg_subsitetheme_views_slideshow_pager_widget_render($vars) {
+function fk_subsitetheme_views_slideshow_pager_widget_render($vars) {
   $js_vars = array(
     'viewsSlideshowPager' => array(
       $vars['vss_id'] => array(

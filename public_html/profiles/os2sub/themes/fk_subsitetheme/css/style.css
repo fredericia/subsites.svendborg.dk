@@ -8672,7 +8672,7 @@ section.outer {
   margin-bottom: 40px;
 }
 .main-container,
-.header_svendborg .region-navigation.container {
+.header_fk .region-navigation.container {
   border-left: none;
   border-left: 1px solid rgba(255, 255, 255, 0.6);
   border-right: none;
@@ -11051,33 +11051,33 @@ h4.phone a:hover {
 .front-s-news-item-text p {
   color: #595d63;
 }
-#svendborg_tabs {
+#fk_tabs {
   min-height: 298px;
 }
-#svendborg_tabs .view-content {
+#fk_tabs .view-content {
   background-color: #fff;
   padding: 25px 0px 10px 0px;
   min-height: 199px;
 }
-#svendborg_tabs .view-content .quicktabs-row-border {
+#fk_tabs .view-content .quicktabs-row-border {
   border-bottom: 1px solid #dfded7;
   padding-bottom: 10px;
 }
-#svendborg_tabs .view-footer {
+#fk_tabs .view-footer {
   background-color: #fff;
   padding: 0px 0px 25px 0px;
   border-bottom-left-radius: 3px;
   border-bottom-right-radius: 3px;
   text-align: center;
 }
-#svendborg_tabs .view-footer a {
+#fk_tabs .view-footer a {
   text-decoration: none;
   color: #fff;
 }
-#svendborg_tabs .view-footer a:hover {
+#fk_tabs .view-footer a:hover {
   color: #fff;
 }
-#svendborg_tabs ul.quicktabs-tabs {
+#fk_tabs ul.quicktabs-tabs {
   border-top-left-radius: 3px;
   border-top-right-radius: 3px;
   padding: 0px 0px;
@@ -11090,7 +11090,7 @@ h4.phone a:hover {
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0086ca', endColorstr='#ff0079b7', GradientType=0);
 }
-#svendborg_tabs ul.quicktabs-tabs li {
+#fk_tabs ul.quicktabs-tabs li {
   padding: 0;
   position: relative;
   display: block;
@@ -11107,40 +11107,40 @@ h4.phone a:hover {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0086ca', endColorstr='#ff006497', GradientType=0);
   border: none;
 }
-#svendborg_tabs ul.quicktabs-tabs li:hover,
-#svendborg_tabs ul.quicktabs-tabs li:focus,
-#svendborg_tabs ul.quicktabs-tabs li:active,
-#svendborg_tabs ul.quicktabs-tabs li.active {
+#fk_tabs ul.quicktabs-tabs li:hover,
+#fk_tabs ul.quicktabs-tabs li:focus,
+#fk_tabs ul.quicktabs-tabs li:active,
+#fk_tabs ul.quicktabs-tabs li.active {
   background-image: -webkit-linear-gradient(top, #006497 0%, #0086ca 100%);
   background-image: linear-gradient(to bottom, #006497 0%, #0086ca 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff006497', endColorstr='#ff0086ca', GradientType=0);
   color: #ffffff;
 }
-#svendborg_tabs ul.quicktabs-tabs li.disabled,
-#svendborg_tabs ul.quicktabs-tabs li[disabled],
-fieldset[disabled] #svendborg_tabs ul.quicktabs-tabs li,
-#svendborg_tabs ul.quicktabs-tabs li.disabled:hover,
-#svendborg_tabs ul.quicktabs-tabs li[disabled]:hover,
-fieldset[disabled] #svendborg_tabs ul.quicktabs-tabs li:hover,
-#svendborg_tabs ul.quicktabs-tabs li.disabled:focus,
-#svendborg_tabs ul.quicktabs-tabs li[disabled]:focus,
-fieldset[disabled] #svendborg_tabs ul.quicktabs-tabs li:focus,
-#svendborg_tabs ul.quicktabs-tabs li.disabled:active,
-#svendborg_tabs ul.quicktabs-tabs li[disabled]:active,
-fieldset[disabled] #svendborg_tabs ul.quicktabs-tabs li:active,
-#svendborg_tabs ul.quicktabs-tabs li.disabled.active,
-#svendborg_tabs ul.quicktabs-tabs li[disabled].active,
-fieldset[disabled] #svendborg_tabs ul.quicktabs-tabs li.active {
+#fk_tabs ul.quicktabs-tabs li.disabled,
+#fk_tabs ul.quicktabs-tabs li[disabled],
+fieldset[disabled] #fk_tabs ul.quicktabs-tabs li,
+#fk_tabs ul.quicktabs-tabs li.disabled:hover,
+#fk_tabs ul.quicktabs-tabs li[disabled]:hover,
+fieldset[disabled] #fk_tabs ul.quicktabs-tabs li:hover,
+#fk_tabs ul.quicktabs-tabs li.disabled:focus,
+#fk_tabs ul.quicktabs-tabs li[disabled]:focus,
+fieldset[disabled] #fk_tabs ul.quicktabs-tabs li:focus,
+#fk_tabs ul.quicktabs-tabs li.disabled:active,
+#fk_tabs ul.quicktabs-tabs li[disabled]:active,
+fieldset[disabled] #fk_tabs ul.quicktabs-tabs li:active,
+#fk_tabs ul.quicktabs-tabs li.disabled.active,
+#fk_tabs ul.quicktabs-tabs li[disabled].active,
+fieldset[disabled] #fk_tabs ul.quicktabs-tabs li.active {
   background-color: #006497;
 }
-#svendborg_tabs ul.quicktabs-tabs li.active {
+#fk_tabs ul.quicktabs-tabs li.active {
   background-image: -webkit-linear-gradient(top, #85c500 0%, #679800 100%);
   background-image: linear-gradient(to bottom, #85c500 0%, #679800 100%);
   background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff85c500', endColorstr='#ff679800', GradientType=0);
 }
-#svendborg_tabs ul.quicktabs-tabs li.active:after {
+#fk_tabs ul.quicktabs-tabs li.active:after {
   content: " ";
   display: table;
   z-index: 40;
@@ -11153,83 +11153,83 @@ fieldset[disabled] #svendborg_tabs ul.quicktabs-tabs li.active {
   width: 31px;
   height: 16px;
 }
-#svendborg_tabs ul.quicktabs-tabs li.tab-0 {
+#fk_tabs ul.quicktabs-tabs li.tab-0 {
   border-top-left-radius: 3px;
 }
-#svendborg_tabs ul.quicktabs-tabs li.tab-3.last {
+#fk_tabs ul.quicktabs-tabs li.tab-3.last {
   border-top-right-radius: 3px;
 }
-#svendborg_tabs ul.quicktabs-tabs li .bubble {
+#fk_tabs ul.quicktabs-tabs li .bubble {
   position: absolute;
   top: 0px;
   width: 100%;
   min-height: 56px;
   display: table;
 }
-#svendborg_tabs ul.quicktabs-tabs li .bubble span {
+#fk_tabs ul.quicktabs-tabs li .bubble span {
   text-align: center;
   display: table-cell;
   vertical-align: middle;
 }
-#svendborg_tabs ul.quicktabs-tabs li a {
+#fk_tabs ul.quicktabs-tabs li a {
   padding: 13px 0px;
   color: #fff;
   display: inline-block;
   word-break: break-word;
   width: 60px;
 }
-#svendborg_tabs ul.quicktabs-tabs li a:hover {
+#fk_tabs ul.quicktabs-tabs li a:hover {
   text-decoration: none;
 }
 @media (min-width: 421px) and (max-width: 765px) {
-  #svendborg_tabs ul.quicktabs-tabs li a {
+  #fk_tabs ul.quicktabs-tabs li a {
     width: 65px;
   }
 }
 @media (min-width: 766px) and (max-width: 1000px) {
-  #svendborg_tabs ul.quicktabs-tabs li a {
+  #fk_tabs ul.quicktabs-tabs li a {
     font-size: 13px;
   }
 }
 @media (max-width: 420px) {
-  #svendborg_tabs ul.quicktabs-tabs li a {
+  #fk_tabs ul.quicktabs-tabs li a {
     font-size: 13px;
   }
 }
 @media (min-width: 1001px) {
-  #svendborg_tabs ul.quicktabs-tabs li a {
+  #fk_tabs ul.quicktabs-tabs li a {
     width: 65px;
   }
 }
-#svendborg_tabs ul.quicktabs-tabs li a:focus {
+#fk_tabs ul.quicktabs-tabs li a:focus {
   outline: none;
   text-decoration: none;
 }
-#svendborg_tabs .views-row {
+#fk_tabs .views-row {
   display: table;
   width: 100%;
   font-size: 14px;
   margin-bottom: 10px;
 }
-#svendborg_tabs .views-row img {
+#fk_tabs .views-row img {
   border-radius: 50%;
   border: 3px solid #ccc;
 }
-#svendborg_tabs .views-row h4 {
+#fk_tabs .views-row h4 {
   text-transform: inherit;
   font-weight: bold;
   font-size: 1.2em;
   line-height: 1.4em;
   margin-top: 0px;
 }
-#svendborg_tabs .views-row h4 a {
+#fk_tabs .views-row h4 a {
   color: #30353c;
   text-decoration: none;
 }
-#svendborg_tabs .views-row h4 a:hover {
+#fk_tabs .views-row h4 a:hover {
   color: #2474a8;
 }
-#svendborg_tabs .views-row .quicktabs-nyheder-row {
+#fk_tabs .views-row .quicktabs-nyheder-row {
   min-height: 67px;
 }
 #block-views-news-filter-block .panel {
@@ -11622,24 +11622,24 @@ h2.menu-footer a.Kommunen {
 .front-search-box span.glyphicon-search {
   font-size: 35px;
 }
-.view-svendborg-slider .views-slideshow-cycle-main-frame,
+.view-fk-slider .views-slideshow-cycle-main-frame,
 .page-calendar-slider .views-slideshow-cycle-main-frame {
   width: 100% !important;
 }
-.view-svendborg-slider a:hover,
+.view-fk-slider a:hover,
 .page-calendar-slider a:hover {
   color: #30353c ;
 }
-.view-svendborg-slider .views-slideshow-cycle-main-frame-row,
+.view-fk-slider .views-slideshow-cycle-main-frame-row,
 .page-calendar-slider .views-slideshow-cycle-main-frame-row {
   width: 100% !important;
 }
-.view-svendborg-slider .views-slideshow-controls-top,
+.view-fk-slider .views-slideshow-controls-top,
 .page-calendar-slider .views-slideshow-controls-top {
   position: relative;
 }
-.view-svendborg-slider #widget_pager_top_svendborg_slider-multi,
-.page-calendar-slider #widget_pager_top_svendborg_slider-multi {
+.view-fk-slider #widget_pager_top_fk_slider-multi,
+.page-calendar-slider #widget_pager_top_fk_slider-multi {
   position: absolute;
   z-index: 1000;
   top: 107px;
@@ -11648,8 +11648,8 @@ h2.menu-footer a.Kommunen {
   left: 50px;
   right: 0;
 }
-.view-svendborg-slider #widget_pager_top_svendborg_slider-multi .views-slideshow-pager-field-item,
-.page-calendar-slider #widget_pager_top_svendborg_slider-multi .views-slideshow-pager-field-item {
+.view-fk-slider #widget_pager_top_fk_slider-multi .views-slideshow-pager-field-item,
+.page-calendar-slider #widget_pager_top_fk_slider-multi .views-slideshow-pager-field-item {
   font-size: 20px;
   display: inline-block;
   background: #c1c1c1;
@@ -11660,11 +11660,11 @@ h2.menu-footer a.Kommunen {
   margin-right: 2px;
   cursor: pointer;
 }
-.view-svendborg-slider #widget_pager_top_svendborg_slider-multi .views-slideshow-pager-field-item.active,
-.page-calendar-slider #widget_pager_top_svendborg_slider-multi .views-slideshow-pager-field-item.active {
+.view-fk-slider #widget_pager_top_fk_slider-multi .views-slideshow-pager-field-item.active,
+.page-calendar-slider #widget_pager_top_fk_slider-multi .views-slideshow-pager-field-item.active {
   background: #85c500;
 }
-.view-svendborg-slider .slider-cover,
+.view-fk-slider .slider-cover,
 .page-calendar-slider .slider-cover {
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -11674,7 +11674,7 @@ h2.menu-footer a.Kommunen {
   background-position: center center;
   height: 311px;
 }
-.view-svendborg-slider .slider-cover .title,
+.view-fk-slider .slider-cover .title,
 .page-calendar-slider .slider-cover .title {
   font-size: 32px;
   line-height: 35px;
@@ -11683,7 +11683,7 @@ h2.menu-footer a.Kommunen {
   margin-top: 102px;
   margin-bottom: 20px;
 }
-.view-svendborg-slider .slider-cover.single .btn,
+.view-fk-slider .slider-cover.single .btn,
 .page-calendar-slider .slider-cover.single .btn {
   text-transform: uppercase;
   color: #FFF;
@@ -11692,35 +11692,35 @@ h2.menu-footer a.Kommunen {
   font-size: 11px;
   padding: 10px 20px;
 }
-.view-svendborg-slider .slider-cover.single .title.white,
+.view-fk-slider .slider-cover.single .title.white,
 .page-calendar-slider .slider-cover.single .title.white {
   color: #fff;
 }
-.view-svendborg-slider .slider-cover.overlay .title,
+.view-fk-slider .slider-cover.overlay .title,
 .page-calendar-slider .slider-cover.overlay .title {
   color: #FFF;
 }
-.view-svendborg-slider .slider-cover.no-overlay .title,
+.view-fk-slider .slider-cover.no-overlay .title,
 .page-calendar-slider .slider-cover.no-overlay .title {
   padding: 10px;
   background-color: #FFF;
 }
-.view-svendborg-slider .slider-cover.multi .title,
+.view-fk-slider .slider-cover.multi .title,
 .page-calendar-slider .slider-cover.multi .title {
   background-color: rgba(255, 255, 255, 0.75);
   border-radius: 3px;
   padding: 35px 25px 10px 25px;
 }
-.view-svendborg-slider .slider-cover.multi .title .indicators,
+.view-fk-slider .slider-cover.multi .title .indicators,
 .page-calendar-slider .slider-cover.multi .title .indicators {
   font-size: 20px;
   display: block;
 }
-.view-svendborg-slider .slider-cover.multi .title .indicators .indicator,
+.view-fk-slider .slider-cover.multi .title .indicators .indicator,
 .page-calendar-slider .slider-cover.multi .title .indicators .indicator {
   margin-right: 5px;
 }
-.view-svendborg-slider .slider-cover.multi .title .indicators .indicator span,
+.view-fk-slider .slider-cover.multi .title .indicators .indicator span,
 .page-calendar-slider .slider-cover.multi .title .indicators .indicator span {
   display: inline-block;
   width: 15px;
@@ -11728,15 +11728,15 @@ h2.menu-footer a.Kommunen {
   vertical-align: middle;
   border-radius: 3px;
 }
-.view-svendborg-slider .slider-cover.multi .title .indicators .indicator span.active,
+.view-fk-slider .slider-cover.multi .title .indicators .indicator span.active,
 .page-calendar-slider .slider-cover.multi .title .indicators .indicator span.active {
   background: #85c500;
 }
-.view-svendborg-slider .slider-cover.multi .title .indicators .indicator span.inactive,
+.view-fk-slider .slider-cover.multi .title .indicators .indicator span.inactive,
 .page-calendar-slider .slider-cover.multi .title .indicators .indicator span.inactive {
   background: #c1c1c1;
 }
-.view-svendborg-slider .slider-cover.multi .title a,
+.view-fk-slider .slider-cover.multi .title a,
 .page-calendar-slider .slider-cover.multi .title a {
   display: block;
   position: relative;
@@ -11744,13 +11744,13 @@ h2.menu-footer a.Kommunen {
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
 }
-.view-svendborg-slider .slider-cover.multi .title a:hover,
+.view-fk-slider .slider-cover.multi .title a:hover,
 .page-calendar-slider .slider-cover.multi .title a:hover,
-.view-svendborg-slider .slider-cover.multi .title a:active,
+.view-fk-slider .slider-cover.multi .title a:active,
 .page-calendar-slider .slider-cover.multi .title a:active {
   color: inherit;
 }
-.view-svendborg-slider .slider-cover.multi .title a:before,
+.view-fk-slider .slider-cover.multi .title a:before,
 .page-calendar-slider .slider-cover.multi .title a:before {
   content: "\f105";
   font-family: FontAwesome;
@@ -11762,7 +11762,7 @@ h2.menu-footer a.Kommunen {
   font-size: 30px;
   font-weight: lighter;
 }
-.view-svendborg-slider .slider-cover .frontpage-nodes,
+.view-fk-slider .slider-cover .frontpage-nodes,
 .page-calendar-slider .slider-cover .frontpage-nodes {
   margin-top: 40px;
 }
@@ -12109,20 +12109,20 @@ and open the template in the editor.
 .page-gallery .page-header {
   display: none;
 }
-.page-gallery .view-svendborg-gallery .views-row {
+.page-gallery .view-fk-gallery .views-row {
   margin-bottom: 10px;
 }
-.page-gallery .view-svendborg-gallery .views-row .field-image {
+.page-gallery .view-fk-gallery .views-row .field-image {
   position: relative;
   width: 100%;
   height: 120px;
   overflow: hidden;
   display: block;
 }
-.page-gallery .view-svendborg-gallery .views-row .field-image a:hover div.hover {
+.page-gallery .view-fk-gallery .views-row .field-image a:hover div.hover {
   display: block;
 }
-.page-gallery .view-svendborg-gallery .views-row .field-image div.hover {
+.page-gallery .view-fk-gallery .views-row .field-image div.hover {
   position: absolute;
   bottom: 0;
   background-color: #30353c;
@@ -12136,7 +12136,7 @@ and open the template in the editor.
   width: 100%;
   display: none;
 }
-.page-gallery .view-svendborg-gallery .views-row .field-image div.hover .image-cnt {
+.page-gallery .view-fk-gallery .views-row .field-image div.hover .image-cnt {
   color: #2880b9;
 }
 .photoswipe-gallery .row a {
@@ -12161,11 +12161,11 @@ and open the template in the editor.
 .page-calendar ul.pager {
   display: none;
 }
-.page-calendar .view-svendborg-event-calendar .views-row {
+.page-calendar .view-fk-event-calendar .views-row {
   margin-bottom: 20px;
   color: #30353c;
 }
-.page-calendar .view-svendborg-event-calendar .views-row .event-date {
+.page-calendar .view-fk-event-calendar .views-row .event-date {
   position: relative;
   background: #79b300;
   border-radius: 3px;
@@ -12176,11 +12176,11 @@ and open the template in the editor.
   font-style: normal;
 }
 @media (max-width: 768px) {
-  .page-calendar .view-svendborg-event-calendar .views-row .event-date {
+  .page-calendar .view-fk-event-calendar .views-row .event-date {
     margin-bottom: 20px;
   }
 }
-.page-calendar .view-svendborg-event-calendar .views-row .event-date:after {
+.page-calendar .view-fk-event-calendar .views-row .event-date:after {
   left: 100%;
   top: 50%;
   border: solid transparent;
@@ -12195,7 +12195,7 @@ and open the template in the editor.
   margin-top: -10px;
 }
 @media (max-width: 768px) {
-  .page-calendar .view-svendborg-event-calendar .views-row .event-date:after {
+  .page-calendar .view-fk-event-calendar .views-row .event-date:after {
     top: 100%;
     left: 50%;
     border-top-color: #79b300;
@@ -12205,31 +12205,31 @@ and open the template in the editor.
     margin-top: 0;
   }
 }
-.page-calendar .view-svendborg-event-calendar .views-row .day {
+.page-calendar .view-fk-event-calendar .views-row .day {
   font-size: 32px;
   font-weight: 700;
   display: block;
   line-height: 34px;
 }
-.page-calendar .view-svendborg-event-calendar .views-row .month {
+.page-calendar .view-fk-event-calendar .views-row .month {
   font-size: 18px;
   font-weight: 700;
   display: block;
   line-height: 20px;
 }
-.page-calendar .view-svendborg-event-calendar .views-row .time {
+.page-calendar .view-fk-event-calendar .views-row .time {
   font-size: 18px;
   color: #4c6f02;
   display: block;
   line-height: 20px;
 }
-.page-calendar .view-svendborg-event-calendar .event-content {
+.page-calendar .view-fk-event-calendar .event-content {
   background: #eeeded;
   width: 100%;
   min-height: 120px;
   font-style: normal;
 }
-.page-calendar .view-svendborg-event-calendar .event-content .short-aktivity {
+.page-calendar .view-fk-event-calendar .event-content .short-aktivity {
   color: #30353c;
   font-size: 32px;
   line-height: 34px;
@@ -12237,40 +12237,40 @@ and open the template in the editor.
   display: inline-block;
   width: 100%;
 }
-.page-calendar .view-svendborg-event-calendar .event-content .short-aktivity .open-link {
+.page-calendar .view-fk-event-calendar .event-content .short-aktivity .open-link {
   margin-top: 10px;
 }
-.page-calendar .view-svendborg-event-calendar .event-content .short-aktivity .open-link a {
+.page-calendar .view-fk-event-calendar .event-content .short-aktivity .open-link a {
   width: 100%;
   text-align: center;
 }
-.page-calendar .view-svendborg-event-calendar .event-content .full-aktivity {
+.page-calendar .view-fk-event-calendar .event-content .full-aktivity {
   display: none;
   padding: 20px;
   width: 100%;
 }
-.page-calendar .view-svendborg-event-calendar .event-content .full-aktivity img {
+.page-calendar .view-fk-event-calendar .event-content .full-aktivity img {
   width: 100%;
   height: auto;
 }
-.page-calendar .view-svendborg-event-calendar .event-content .full-aktivity h1 {
+.page-calendar .view-fk-event-calendar .event-content .full-aktivity h1 {
   margin-top: 0;
 }
-.page-calendar .view-svendborg-event-calendar .event-content .full-aktivity .event-description {
+.page-calendar .view-fk-event-calendar .event-content .full-aktivity .event-description {
   margin-bottom: 60px;
   display: inline-block;
 }
-.page-calendar .view-svendborg-event-calendar .event-content .full-aktivity .event-contact {
+.page-calendar .view-fk-event-calendar .event-content .full-aktivity .event-contact {
   min-height: 80px;
   font-family: 'Open Sans', Geneva, Verdana, sans-serif;
 }
-.page-calendar .view-svendborg-event-calendar .event-content .full-aktivity .event-contact label {
+.page-calendar .view-fk-event-calendar .event-content .full-aktivity .event-contact label {
   text-transform: uppercase;
   font-weight: 700;
   color: #2880b9;
   font-size: 11px;
 }
-.page-calendar .view-svendborg-event-calendar .event-content .full-aktivity .event-contact .btn-back {
+.page-calendar .view-fk-event-calendar .event-content .full-aktivity .event-contact .btn-back {
   display: block;
   margin-top: 40px;
   padding: 10px 20px;
@@ -12278,6 +12278,6 @@ and open the template in the editor.
   width: 100%;
   text-align: center;
 }
-.page-calendar .view-svendborg-event-calendar .block-book-place {
+.page-calendar .view-fk-event-calendar .block-book-place {
   margin-top: 20px;
 }

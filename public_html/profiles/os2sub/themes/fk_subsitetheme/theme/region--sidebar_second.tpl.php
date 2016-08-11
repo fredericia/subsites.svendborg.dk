@@ -65,13 +65,13 @@
       
    <?php if(!empty($page['page']['activities']) && (!isset($page['page']['term_is_top']) || $page['page']['term_is_top'] == FALSE)) : ?>
       <div class="activites-block">
-        <?php  print _svendborg_subsitetheme_block_render('views', 'aktiviteter-block_2'); ?>
+        <?php  print _fk_subsitetheme_block_render('views', 'aktiviteter-block_2'); ?>
       </div>
    <?php endif; ?>   
    <?php if(!empty($page['page']['prev_news_block']) && (!isset($page['page']['term_is_top']) || $page['page']['term_is_top'] == FALSE)) : ?>
   
    <div class="prev-news-block">
-            <?php print _svendborg_subsitetheme_block_render('views', 'svendborg_news_view-block_9'); ?>
+            <?php print _fk_subsitetheme_block_render('views', 'fk_news_view-block_9'); ?>
         </div>
     <?php endif?>  
     <?php if ($content): ?>

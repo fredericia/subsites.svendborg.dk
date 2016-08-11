@@ -32,7 +32,7 @@ $img_tag = theme('image_style', $image);
 preg_match('/<img(.*)src(.*)=(.*)"(.*)"/U', $img_tag, $result);
 $image_uri = array_pop($result);
 //$image_uri = file_create_url($node->field_banner_billede['und'][0]['uri']);
-if (theme_get_setting('slider_overlay', 'svendborg_subsitetheme')) {
+if (theme_get_setting('slider_overlay', 'fk_subsitetheme')) {
   $background = "background-image: url('" . $image_uri . "')"
     . "background-image: -moz-linear-gradient(left, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.75) 100%), url('" . $image_uri . "');"
     . "background-image: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,0.75)), color-stop(100%, rgba(0,0,0,0.75))), url('" . $image_uri . "');"
@@ -45,8 +45,8 @@ if (theme_get_setting('slider_overlay', 'svendborg_subsitetheme')) {
 else {
   $background = "background-image: url('" . $image_uri . "')";
 }
-$indicator_active_uri = file_create_url(drupal_get_path('theme', 'svendborg_subsitetheme') . '/images/slider_active.png');
-$indicator_inactive_uri = file_create_url(drupal_get_path('theme', 'svendborg_subsitetheme') . '/images/slider_inactive.png');
+$indicator_active_uri = file_create_url(drupal_get_path('theme', 'fk_subsitetheme') . '/images/slider_active.png');
+$indicator_inactive_uri = file_create_url(drupal_get_path('theme', 'fk_subsitetheme') . '/images/slider_inactive.png');
 $total_row = count($view->result);
 $current_row = 1;
 for ($i = 0; $i < $total_row; $i++) {
@@ -65,7 +65,7 @@ $indicators .= '<span class="indicator" ><span class=" active"> </span></span>';
 for ($i = $current_row; $i < $total_row; $i++) {
   $indicators .= '<span class="indicator"><span class="inactive"> </span></span>';// . '<img src="' . $indicator_inactive_uri. '" class="inactive">' . '</span>';
 }
-$show_frontpage_nodes = (theme_get_setting('promoted_nodes', 'svendborg_subsitetheme') && theme_get_setting('promoted_nodes_location', 'svendborg_subsitetheme') === 'slider');
+$show_frontpage_nodes = (theme_get_setting('promoted_nodes', 'fk_subsitetheme') && theme_get_setting('promoted_nodes_location', 'fk_subsitetheme') === 'slider');
 
 $html = '<div class="slider-cover multi" style="' . $background . '">';
 $html .= '<div class="container">';
@@ -103,7 +103,7 @@ $html .= '</div>';//class="col-xs-8"
 //printing frontpage_nodes block, if activated
 if ($show_frontpage_nodes) {
   $html .= '<div class="col-sm-4 col-sm-offset-1 hidden-xs">';
-  $html .= _svendborg_subsitetheme_block_render('views', 'frontpage_nodes-block');
+  $html .= _fk_subsitetheme_block_render('views', 'frontpage_nodes-block');
   $html .= '</div>';
 }
 $html .= '</div>';//class="row"

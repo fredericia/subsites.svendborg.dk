@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Svendborg template for News list panel_pane2. Adds some panel around it.
+ * fk template for News list panel_pane2. Adds some panel around it.
  *
  * @ingroup views_templates
  */

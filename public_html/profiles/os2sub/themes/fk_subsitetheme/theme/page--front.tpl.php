@@ -8,7 +8,7 @@
       print render($page['header']); 
 
       if(module_exists(os2web_spotbox)) {
-            if (theme_get_setting('spotbox','svendborg_subsitetheme')) :
+            if (theme_get_setting('spotbox','fk_subsitetheme')) :
             ?>
               <div class="spotboxes row">
                 <?php 
@@ -23,35 +23,35 @@
       <!-- page--front.tpl.php-->
       <div class="col-sm-8  col-xs-12">          
           
-        <?php if (theme_get_setting('welcome','svendborg_subsitetheme')) :?>
+        <?php if (theme_get_setting('welcome','fk_subsitetheme')) :?>
       <div class="welcome-text">
         <?php //$block_search_form = module_invoke('search', 'block_view', 'search'); ?>
         <?php $view = views_get_view('frontpage_welcome_text');
-              print $view->render('svendborg_frontpage_welcome');
+              print $view->render('fk_frontpage_welcome');
         ?>
       </div>
       <?php endif;?>
-      <?php if (theme_get_setting('large_news','svendborg_subsitetheme')== 2) :?>
+      <?php if (theme_get_setting('large_news','fk_subsitetheme')== 2) :?>
       <div class="news-block">
-                <?php if (theme_get_setting('newstext','svendborg_subsitetheme')) :?>
-            <h2 class="newstitle block-title 2-news"><?php print theme_get_setting('newstext', 'svendborg_subsitetheme') ?></h2>
+                <?php if (theme_get_setting('newstext','fk_subsitetheme')) :?>
+            <h2 class="newstitle block-title 2-news"><?php print theme_get_setting('newstext', 'fk_subsitetheme') ?></h2>
         <?php endif;?>
         <?php //$block_search_form = module_invoke('search', 'block_view', 'search'); ?>
-        <?php $view = views_get_view('svendborg_news_view');
+        <?php $view = views_get_view('fk_news_view');
               print $view->render('block_5');
         ?>
       </div>
       <?php endif;?>
-      <?php if (theme_get_setting('latest_news','svendborg_subsitetheme')== 2) :?>
+      <?php if (theme_get_setting('latest_news','fk_subsitetheme')== 2) :?>
       <div class="latest-news-block">
         <?php 
         
-      $view = views_get_view('svendborg_news_view');
-      $view->set_display('svendborg_latest_news');
-      $view->set_offset(theme_get_setting('large_news','svendborg_subsitetheme'));
+      $view = views_get_view('fk_news_view');
+      $view->set_display('fk_latest_news');
+      $view->set_offset(theme_get_setting('large_news','fk_subsitetheme'));
       $view->pre_execute();
       $view->execute();
-      //var_dump(views_get_view_result('svendborg_news_view', 'svendborg_latest_news'));
+      //var_dump(views_get_view_result('fk_news_view', 'fk_latest_news'));
       if (count( $view->result)>0) 
        print '<h2 class="block-title">' . t($view->get_title()) . '</h2>' . $view->render();
               
@@ -60,14 +60,14 @@
      <?php endif;?>
       </div>
       <div class="region region-sidebar-second col-sm-4 col-xs-12">
-          <?php if (theme_get_setting('promoted_nodes','svendborg_subsitetheme') ):?>
-       <div class="frontpage-nodes-block <?php (theme_get_setting('promoted_nodes_location','svendborg_subsitetheme') === 'slider')?  print 'hidden-sm hidden-md hidden-lg' : print ''?>">
+          <?php if (theme_get_setting('promoted_nodes','fk_subsitetheme') ):?>
+       <div class="frontpage-nodes-block <?php (theme_get_setting('promoted_nodes_location','fk_subsitetheme') === 'slider')?  print 'hidden-sm hidden-md hidden-lg' : print ''?>">
      
-        <?php print _svendborg_subsitetheme_block_render('views', 'frontpage_nodes-block'); ?>
+        <?php print _fk_subsitetheme_block_render('views', 'frontpage_nodes-block'); ?>
       </div>
       <?php endif;?>
      
-          <?php if (theme_get_setting('facebookfeed','svendborg_subsitetheme')) :?>
+          <?php if (theme_get_setting('facebookfeed','fk_subsitetheme')) :?>
 
             <div style="width: 100%">
              <div id="fb-root"></div>
@@ -81,12 +81,12 @@
                 
                 
                 <div class="fb-page" style="margin-bottom: 20px;" 
-                  <?php if (theme_get_setting('facebook_url', 'svendborg_subsitetheme')):?>
+                  <?php if (theme_get_setting('facebook_url', 'fk_subsitetheme')):?>
                     
-                    data-href="<?php print theme_get_setting('facebook_url', 'svendborg_subsitetheme') ?>"
+                    data-href="<?php print theme_get_setting('facebook_url', 'fk_subsitetheme') ?>"
                     
                     <?php else : ?>
-                    data-href="https://www.facebook.com/Svendborg" 
+                    data-href="https://www.facebook.com/fk" 
                     <?php endif; ?>
                     
                   data-tabs="timeline,events" 
@@ -97,21 +97,21 @@
                   data-show-facepile="false">
                     <div class="fb-xfbml-parse-ignore">
                       
-                      <?php if (theme_get_setting('facebook_url', 'svendborg_subsitetheme')):?>
+                      <?php if (theme_get_setting('facebook_url', 'fk_subsitetheme')):?>
 
-                      <blockquote cite="<?php print theme_get_setting('facebook_url', 'svendborg_subsitetheme') ?>">
-                        <a href="<?php print theme_get_setting('facebook_url', 'svendborg_subsitetheme') ?>">
+                      <blockquote cite="<?php print theme_get_setting('facebook_url', 'fk_subsitetheme') ?>">
+                        <a href="<?php print theme_get_setting('facebook_url', 'fk_subsitetheme') ?>">
                           
-                          <?php if (theme_get_setting('company-name', 'svendborg_subsitetheme')):?>
-                              <?php print theme_get_setting('company-name', 'svendborg_subsitetheme') ?>
+                          <?php if (theme_get_setting('company-name', 'fk_subsitetheme')):?>
+                              <?php print theme_get_setting('company-name', 'fk_subsitetheme') ?>
                           <?php else: 
                               print $site_name;
                           endif; ?>
                           </a>
                         
                       <?php else : ?>
-                      <blockquote cite="https://www.facebook.com/Svendborg">
-                        <a href="https://www.facebook.com/Svendborg">Svendborg Kommune</a>
+                      <blockquote cite="https://www.facebook.com/fk">
+                        <a href="https://www.facebook.com/fk">fk Kommune</a>
                       
                       <?php endif; ?>
                         
@@ -122,11 +122,11 @@
      
           <?php endif;?>
           
-          <?php if (!theme_get_setting('facebookfeed','svendborg_subsitetheme')) :?>
+          <?php if (!theme_get_setting('facebookfeed','fk_subsitetheme')) :?>
         
-             <?php if (theme_get_setting('activites','svendborg_subsitetheme')) :?>
+             <?php if (theme_get_setting('activites','fk_subsitetheme')) :?>
               <div class="activites-block">
-                  <?php  print _svendborg_subsitetheme_block_render('views', 'aktiviteter-block_2'); ?>
+                  <?php  print _fk_subsitetheme_block_render('views', 'aktiviteter-block_2'); ?>
               </div>
              <?php endif;?>
           
@@ -134,12 +134,12 @@
       </div>
       
       <div class="clearfix"></div>
-      <?php if (theme_get_setting('large_news','svendborg_subsitetheme')==3) :?>
+      <?php if (theme_get_setting('large_news','fk_subsitetheme')==3) :?>
       <div class="news-block col-xs-12">
-         <?php if (theme_get_setting('newstext','svendborg_subsitetheme')) :?>
-            <h2 class="newstitle block-title"><?php print theme_get_setting('newstext', 'svendborg_subsitetheme') ?></h2>
+         <?php if (theme_get_setting('newstext','fk_subsitetheme')) :?>
+            <h2 class="newstitle block-title"><?php print theme_get_setting('newstext', 'fk_subsitetheme') ?></h2>
         <?php endif;?>
-        <?php $view = views_get_view('svendborg_news_view');
+        <?php $view = views_get_view('fk_news_view');
               print $view->render('block_6');
         ?>
       </div>
@@ -147,31 +147,31 @@
       
       <div class="clearfix"></div>
       
-      <?php if (theme_get_setting('large_news','svendborg_subsitetheme')==4) :?>
+      <?php if (theme_get_setting('large_news','fk_subsitetheme')==4) :?>
       <div class="news-block col-xs-12">
-        <?php if (theme_get_setting('newstext','svendborg_subsitetheme')) :?>
-            <h2 class="newstitle block-title"><?php print theme_get_setting('newstext', 'svendborg_subsitetheme') ?></h2>
+        <?php if (theme_get_setting('newstext','fk_subsitetheme')) :?>
+            <h2 class="newstitle block-title"><?php print theme_get_setting('newstext', 'fk_subsitetheme') ?></h2>
         <?php endif;?>
-        <?php $view = views_get_view('svendborg_news_view');
+        <?php $view = views_get_view('fk_news_view');
         
               print $view->render('block_7');
         ?>
       </div>
      <?php endif;?>
-      <?php if (theme_get_setting('latest_news','svendborg_subsitetheme')== 3) :?>      
+      <?php if (theme_get_setting('latest_news','fk_subsitetheme')== 3) :?>      
       <div class="col-xs-12 latest-news-block with-top-line">
         
         <?php 
-         $view = views_get_view('svendborg_news_view');
-      $view->set_display('svendborg_latest_news_three_col');
-      $view->set_offset(theme_get_setting('large_news','svendborg_subsitetheme'));
+         $view = views_get_view('fk_news_view');
+      $view->set_display('fk_latest_news_three_col');
+      $view->set_offset(theme_get_setting('large_news','fk_subsitetheme'));
       $view->pre_execute();
       $view->execute();
       if (count( $view->result)>0)
 
-      if (theme_get_setting('newstext','svendborg_subsitetheme')) :      
+      if (theme_get_setting('newstext','fk_subsitetheme')) :      
 
-            print '<h2 class="newstitle block-title">' . theme_get_setting('newstext', 'svendborg_subsitetheme')  . '</h2>' . $view->render();
+            print '<h2 class="newstitle block-title">' . theme_get_setting('newstext', 'fk_subsitetheme')  . '</h2>' . $view->render();
 
         else: 
                   

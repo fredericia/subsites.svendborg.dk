@@ -8,7 +8,7 @@
               <?php
                 $img = field_get_items('node', $node, 'field_os2web_base_field_lead_img');
                 $image = $img[0];
-                $style = 'svendborg_content_image';
+                $style = 'fk_content_image';
                 $public_filename = image_style_url($style, $image["uri"]);
                 $path = drupal_get_path_alias('node/' . $node->nid);
                 print '<a href="/' . $path . '" alt="' . $node->title . '">';

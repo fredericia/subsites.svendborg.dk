@@ -1,5 +1,5 @@
-name = Svendborg Subsite Theme
-description = Kopi af Svendborg theme til subsites
+name = Subsite
+description = "Beautiful subsite theme for Fredericia kommune"
 core = 7.x
 base theme = os2web_bootstrap_theme
 php = 5.3.0
@@ -54,7 +54,7 @@ scripts[] = 'js/script.js'
 
 scripts[] = 'js/jquery.infinitescroll.min.js'
 scripts[] = 'js/os2web_spotbox_adjust.js'
-scripts[] = 'js/svendborg_top_menu.js'
+scripts[] = 'js/fk_top_menu.js'
 
 ; Disable BootstrapCDN so the compiled LESS source files can be used.
 settings[bootstrap_cdn] = ''
