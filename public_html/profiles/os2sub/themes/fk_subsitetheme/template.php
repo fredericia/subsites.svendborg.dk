@@ -736,20 +736,24 @@ function _fk_subsitetheme_get_large_carousel() {
   $large_carousel = '';
   // Branding news view.
   $view = views_get_view('svendborg_news_view');
-  $view->set_arguments(array('branding'));
-  if (!drupal_is_front_page()) {
-    $filter = $view->get_item('front', 'filter', 'promote');
-    $filter['value'] = 1;
-    $view->set_item('front', 'filter', 'promote', $filter);
-  }
-  else {
-    $view->set_display('front');
-  }
-  $view->set_items_per_page(3);
-  $view->pre_execute();
-  $view->execute();
 
-  $results = $view->result;
+  if ($view != null) {
+
+    $view->set_arguments(array('branding'));
+    if (!drupal_is_front_page()) {
+      $filter = $view->get_item('front', 'filter', 'promote');
+      $filter['value'] = 1;
+      $view->set_item('front', 'filter', 'promote', $filter);
+    }
+    else {
+      $view->set_display('front');
+    }
+    $view->set_items_per_page(3);
+    $view->pre_execute();
+    $view->execute();
+
+    $results = $view->result;
+  }
 
   $large_carousel .= '<ol class="carousel-indicators col-md-12 col-sm-12 col-xs-12">';
   foreach ($results as $key => $item) {
